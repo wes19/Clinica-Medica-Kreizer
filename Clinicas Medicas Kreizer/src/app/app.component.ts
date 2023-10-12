@@ -15,7 +15,9 @@ const rutasSidebarAdmin = [
   '/solicitudes',
   '/pacientes',
   '/pacientes/crear',
-  '/pacientes/detalles'
+  '/pacientes/detalles',
+  '/pacientes/lista',
+  '/pacientes/paciente-expedientes',
 ];
 
 @Component({

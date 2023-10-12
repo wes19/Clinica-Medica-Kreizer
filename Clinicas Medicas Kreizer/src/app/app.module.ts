@@ -61,6 +61,8 @@ import { DetallesProductosComponent } from './administracion/farmacia/detalles-p
 import { AddProductosComponent } from './administracion/farmacia/add-productos/add-productos.component';
 import { ConsultaPacienteComponent } from './portal-medico/consulta-paciente/consulta-paciente.component';
 import { ListEmpleadosComponent } from './empleados/list-empleados/list-empleados.component';
+import { ListPacientesComponent } from './pacientes/list-pacientes/list-pacientes.component';
+import { PacienteExpedientesComponent } from './pacientes/paciente-expedientes/paciente-expedientes.component';
 
 
 
@@ -116,6 +118,8 @@ registerLocaleData(localeEs); // Registra el locale en español
     AddProductosComponent,
     ConsultaPacienteComponent,
     ListEmpleadosComponent,
+    ListPacientesComponent,
+    PacienteExpedientesComponent,
  
 
 

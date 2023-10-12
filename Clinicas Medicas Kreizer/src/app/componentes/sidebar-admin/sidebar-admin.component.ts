@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { SidebarService } from '../sidebar/sidebar.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar-admin',
