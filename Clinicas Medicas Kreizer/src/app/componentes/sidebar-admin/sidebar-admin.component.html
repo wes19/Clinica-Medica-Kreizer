@@ -1,0 +1,249 @@
+<section class="kz-sidebar" [class]="getSidebarState()">
+    <ul class="kz-sidebar__content">
+        <img class="kz-sidebar-logo" src="../assets/img/logo_ck2.png" type="image/x-icon">
+        <button class="kz-button kz-button--sidebar m--3" [routerLink]="['/inicio']"
+            [ngClass]="{ 'hovered': isHovered }"
+            (mouseenter)="isHovered = true"
+            (mouseleave)="isHovered = false">
+            <i class="bi" [ngClass]="isHovered ? 'bi-arrow-bar-left' : 'bi-arrow-bar-right'"></i>
+            {{ isHovered ? 'Regresar' : 'Administración' }}
+        </button>
+        <div class="kz-m--3 kz-txt--xl kz-txt--primary">
+            <label for=""> Administración</label>
+        </div>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/farmacia']" (click)="onOptionClick('farmacia')">
+                <i class="bi bi-capsule"></i>
+                <span>
+                    Farmacia
+                </span>
+                <i class="bi bi-caret-down-fill kz-kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'farmacia'}"></i>
+            </a>
+        </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'farmacia'}">
+            <li>
+                <a> 
+                    <span>
+                        Inventario
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Productos
+                    </span>
+                </a> 
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Compras
+                    </span>
+                </a> 
+            </li>
+        </ul>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/empleados']" (click)="onOptionClick('empleados')">
+                <i class="bi bi-person-fill"></i>
+                <span>
+                    Empleados
+                </span>
+                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'empleados'}"></i>
+            </a> 
+        </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'empleados'}">
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/empleados/crear']"> 
+                    <span>
+                        Crear Empleado
+                    </span>
+                </a>
+            </li>
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/empleados/lista']"> 
+                    <span>
+                        Lista Empleadoss
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Horario
+                    </span>
+                </a> 
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Planilla
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/caja-admin']" (click)="onOptionClick('caja-admin')">
+                <i class="bi bi-cash-coin"></i>
+                <span>
+                    Caja
+                </span>
+                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'caja-admin'}"></i>
+            </a>
+        </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'caja-admin'}">
+            <li>
+                <a> 
+                    <span>
+                        Pedidos
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Sesiones
+                    </span>
+                </a> 
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Promociones
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Existencias
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/contabilidad']" (click)="onOptionClick('contabilidad')">
+                <i class="bi bi-calculator-fill"></i>
+                <span>
+                    Contabilidad
+                </span>
+                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'contabilidad'}"></i>
+            </a> 
+        </li>
+        <ul [ngClass]="{'sidebar-subItems': true, 'open': selectedOption === 'contabilidad'}">
+            <li>
+                <a> 
+                    <span>
+                        Pagos Clientes
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Pagos Proveedores
+                    </span>
+                </a> 
+            </li>
+        </ul>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/pacientes']" (click)="onOptionClick('pacientes')">
+                <i class="bi bi-person-fill"></i>
+                <span>
+                    Pacientes
+                </span>
+            </a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/asistencias-admin']" (click)="onOptionClick('asistencias-admin')">
+                <i class="bi bi-calendar-check-fill"></i>
+                <span>
+                    Asistencias
+                </span>
+                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'asistencias-admin'}"></i>
+            </a>
+        </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'asistencias-admin'}">
+            <li>
+                <a> 
+                    <span>
+                        Mis asistencias
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Panel Asistencias
+                    </span>
+                </a> 
+            </li>
+        </ul>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/ausencias-admin']" (click)="onOptionClick('ausencias-admin')">
+                <i class="bi bi-calendar2-x-fill"></i>
+                <span>
+                    Ausencias
+                </span>
+                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'ausencias-admin'}"></i>
+            </a>
+        </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'ausencias-admin'}">
+            <li>
+                <a> 
+                    <span>
+                        Crear Ausencias
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Mis Asistencias
+                    </span>
+                </a> 
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Panel Ausencias
+                    </span>
+                </a> 
+            </li>
+        </ul>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/ambulancias']" (click)="onOptionClick('ambulancias')">
+                <i class="bi bi-truck"></i>
+                <span>
+                    Ambulancias
+                </span>
+            </a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/configuraciones']" (click)="onOptionClick('configuraciones')">
+                <i class="bi bi-gear-fill"></i>
+                <span>
+                    Configuración
+                </span>
+            </a>
+        </li>
+    </ul>
+    
+    <ul class="kz-sidebar__footer">
+        <li>
+            <button class="kz-sidebar-toggle" (click)="toggleSidebar()">
+                <i class="bi bi-arrow-bar-left"></i>
+            </button>
+        </li>  
+    </ul>
+    <!--ul class="sidebar__footer">
+        <li>
+           <a [routerLink]="['/']">
+                <i class="bi bi-box-arrow-left"></i>
+                <span>
+                    Logout
+                </span>
+            </a>
+        </li>  
+    </ul !-->
+</section>

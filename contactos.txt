@@ -1,0 +1,148 @@
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+    <app-navbar></app-navbar>
+    <div class="container-full">
+      <div class="d-flex flex-vertical-center flex-horizontal-center gap--l mb--4">
+        <div class="input--icon w--40">
+          <input class="input" type="text" placeholder="Buscar">
+          <i class="bi bi-search"></i>
+        </div>
+        <button class="button button--primary" [routerLink]="['/contactos/crear']">Agregar Contacto</button>
+        
+        <div class="btn-radio--group">
+          <div class="btn-radio__item" (click)="btnActivo = 'kamba'">
+            <input type="radio" id="grid" name="view" checked>
+            <label for="grid">
+              <i class="bi bi-grid"></i>
+            </label>
+          </div>
+          <div class="btn-radio__item" (click)="btnActivo = 'list'">
+            <input type="radio" id="list" name="view" atr="1">
+            <label for="list">
+              <i class="bi bi-list-ul"></i>
+            </label>
+          </div>
+        </div>
+      </div>
+  
+    <!--Cards--> 
+    <div class="kamba" [class.active]="btnActivo == 'kamba'">
+      <div class="d-grid col-s3--4 col-s2--3 col-s1--3 col-t--2 col--1 gap--xl mt--4">
+        <div class="card__body dir-vertical">
+          <div class="d-flex flex-vertical-center gap--l">
+            <img class="img img--circle img--l" src="../assets/img/icons/user.png" alt="Card image cap">
+            <div class="d-flex dir-vertical">
+              <label class="txt--m font-bold">Wesly Lazo</label>
+              <label class="txt--s mt--1">Analista de Software</label> 
+              <label class="txt--s mt--1">wesly_lazo@company.io</label>
+              <label class="txt--s mt--1">90862930</label>
+            </div>
+          </div>
+          <div class="card__separator"></div>
+          <div class="card__botton d-flex">
+            <button class="button button--primary border-radius--l" [routerLink]="['/contactos/detalles']"><i class="bi bi-pencil-square"></i> Editar</button>
+            <button class="button button--cancel border-radius--l"><i class="bi bi-trash-fill"></i> Eliminar</button>
+          </div>
+        </div>
+  
+        <div class="card__body dir-vertical">
+          <div class="d-flex flex-vertical-center gap--l">
+            <img class="img img--circle img--l" src="../assets/img/icons/user.png" alt="Card image cap">
+            <div class="d-flex dir-vertical">
+              <label class="txt--m font-bold">Wesly Lazo</label>
+              <label class="txt--s mt--1">Analista de Software</label> 
+              <label class="txt--s mt--1">wesly_lazo@company.io</label>
+              <label class="txt--s mt--1">90862930</label>
+            </div>
+          </div>
+          <div class="card__separator"></div>
+          <div class="card__botton d-flex">
+            <button class="button button--primary border-radius--l" [routerLink]="['/contatos/detalles']"><i class="bi bi-pencil-square"></i> Editar</button>
+            <button class="button button--cancel border-radius--l"><i class="bi bi-trash-fill"></i> Eliminar</button>
+          </div>
+        </div>
+  
+        <div class="card__body dir-vertical">
+          <div class="d-flex flex-vertical-center gap--l">
+            <img class="img img--circle img--l" src="../assets/img/icons/user.png" alt="Card image cap">
+            <div class="d-flex dir-vertical">
+              <label class="txt--m font-bold">Wesly Lazo</label>
+              <label class="txt--s mt--1">Analista de Software</label> 
+              <label class="txt--s mt--1">wesly_lazo@company.io</label>
+              <label class="txt--s mt--1">90862930</label>
+            </div>
+          </div>
+          <div class="card__separator"></div>
+          <div class="card__botton d-flex">
+            <button class="button button--primary border-radius--l" [routerLink]="['/contactos/detalles']"><i class="bi bi-pencil-square"></i> Editar</button>
+            <button class="button button--cancel border-radius--l"><i class="bi bi-trash-fill"></i> Eliminar</button>
+          </div>
+        </div>
+  
+        <div class="card__body dir-vertical">
+          <div class="d-flex flex-vertical-center gap--l">
+            <img class="img img--circle img--l" src="../assets/img/icons/user.png" alt="Card image cap">
+            <div class="d-flex dir-vertical">
+              <label class="txt--m font-bold">Wesly Lazo</label>
+              <label class="txt--s mt--1">Analista de Software</label> 
+              <label class="txt--s mt--1">wesly_lazo@company.io</label>
+              <label class="txt--s mt--1">90862930</label>
+            </div>
+          </div>
+          <div class="card__separator"></div>
+          <div class="card__botton d-flex">
+            <button class="button button--primary border-radius--l" [routerLink]="['/contactos/detalles']"><i class="bi bi-pencil-square"></i> Editar</button>
+            <button class="button button--cancel border-radius--l"><i class="bi bi-trash-fill"></i> Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+     
+    <div class="table-content" [class.active]="btnActivo == 'list'">
+      <table class="cz-table">
+        <thead class="cz-table__head">
+          <tr>
+            <th>Empleado</th>
+            <th>Puesto Laboral</th>
+            <th>Departamento</th>
+            <th>Correo</th>
+            <th>Número de Celular</th>
+            <th>Detalles del Empleado</th>
+          </tr>
+        </thead>
+        <tbody class="cz-table__body">
+          <tr>
+            <td>John Doe</td>
+            <td>Análista Desarrollador</td>
+            <td>Ingeniería</td>
+            <td>john@company.io</td>
+            <td>256739393</td>
+            <td>
+              <a [routerLink]="['/contactos/detalles']" class="text-decoration-none link"> ver detalles</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>Análista Desarrollador</td>
+            <td>Ingeniería</td>
+            <td>john@company.io</td>
+            <td>256739393</td>
+            <td>
+              <a [routerLink]="['/contactos/detalles']" class="text-decoration-none link"> ver detalles</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Mark Johnson</td>
+            <td>Análista Desarrollador</td>
+            <td>Ingeniería</td>
+            <td>john@company.io</td>
+            <td>256739393</td>
+            <td>
+              <a [routerLink]="['/contactos/detalles']" class="text-decoration-none link"> ver detalles</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

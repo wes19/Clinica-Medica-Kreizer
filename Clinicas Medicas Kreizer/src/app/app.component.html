@@ -1,0 +1,27 @@
+<div *ngIf="PaginaPermitida()">
+    <div class="kz-main-container">
+        <div class="kz-wrapper">
+            <div *ngIf="SidebarAdmin()">
+                <app-sidebar-admin></app-sidebar-admin>
+            </div>
+            <div *ngIf="!SidebarAdmin()">
+                <app-sidebar></app-sidebar>
+            </div>
+            <app-navbar></app-navbar>
+            <div class="kz-container-full">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="PaginaLanding()">
+    <app-landing-page></app-landing-page>
+</div>
+
+<div *ngIf="PaginaLogin()">
+    <app-login></app-login>
+</div>
+
+
+

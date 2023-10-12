@@ -1,0 +1,143 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "Clinica-Medica": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/clinica-medica",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles/contenedores.scss",
+              "src/styles/utilidades.scss",
+              "src/styles/responsive.scss",
+              "src/styles/variables.scss",
+              "src/styles/style.scss",
+              "src/styles/kz-navbar.scss",
+              "src/styles/kz-input.scss",
+              "src/styles/kz-button.scss",
+              "src/styles/kz-card.scss",
+              "src/styles/kz-sidebar.scss",
+              "src/styles/kz-table.scss",
+              "src/styles/kz-img.scss",
+              "src/styles/kz-calendar.scss",
+              "src/styles/kz-cal-ausencia.scss",
+              "src/styles/kz-specialty-select.scss",
+              "src/styles/kz-chip.scss",
+              "src/styles/kz-tabs.scss",
+              "src/styles/kz-form-column.scss",
+              "src/styles/kz-link.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "Clinica-Medica:build:production"
+            },
+            "development": {
+              "browserTarget": "Clinica-Medica:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "Clinica-Medica:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles/contenedores.scss",
+              "src/styles/utilidades.scss",
+              "src/styles/responsive.scss",
+              "src/styles/variables.scss",
+              "src/styles/style.scss",
+              "src/styles/kz-navbar.scss",
+              "src/styles/kz-input.scss",
+              "src/styles/kz-button.scss",
+              "src/styles/kz-card.scss",
+              "src/styles/kz-sidebar.scss",
+              "src/styles/kz-table.scss",
+              "src/styles/kz-img.scss",
+              "src/styles/kz-calendar.scss",
+              "src/styles/kz-cal-ausencia.scss",
+              "src/styles/kz-specialty-select.scss",
+              "src/styles/kz-chip.scss",
+              "src/styles/kz-tabs.scss",
+              "src/styles/kz-form-column.scss",
+              "src/styles/kz-link.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "5e3e84fe-6476-4f9f-9523-279a32ee93a0"
+  }
+}

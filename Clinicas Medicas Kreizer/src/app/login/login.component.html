@@ -1,0 +1,25 @@
+<body>
+    <div class="kz-wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <h2 class="active"> Sign In </h2>
+      
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="../assets/img/icons/user.svg" id="icon" alt="User Icon" />
+          </div>
+      
+          <!-- Login Form -->
+          <form>
+            <input type="text" id="email" class="fadeIn second" name="email" placeholder="email">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In" [routerLink]="['/inicio']">
+          </form>
+      
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+          </div>
+        </div>
+      </div>    
+</body>

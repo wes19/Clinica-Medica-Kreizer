@@ -1,0 +1,119 @@
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+      <app-navbar></app-navbar>
+      <div class="container-full"> 
+          
+        <div class="d-flex flex-vertical-center gap--s space-between">
+            <div class="d-flex flex-horizontal-start gap--l">
+              <h5>Agregar Contacto</h5>
+            </div>
+            <button class="button button--cancel border-radius--l" [routerLink]="['/contactos']"> Salir</button>
+        </div>
+
+        <div class="tabs">
+            <ul class="tab-list">
+               <li class="tab" [class.active]="tabActiva == 'individual'" (click)="tabActiva = 'individual'">Individual</li>
+               <li class="tab" [class.active]="tabActiva == 'empresa'" (click)="tabActiva = 'empresa'">Empresa</li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-panel" [class.active]="tabActiva == 'individual'">
+                  <div class="form-column">
+                    <div class="mb--2">
+                      <label>Nombre completo:</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="mb--2">
+                      <label>Fecha de nacimiento:</label>
+                      <input type="date" class="input">
+                    </div>
+                    <div class="mb--2">
+                      <label>Correo:</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="mb--2">
+                      <label>Nacionalidad:</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="mb--2">
+                        <label>Departamento:</label>
+                        <input type="text" class="input">
+                      </div>
+                  </div>
+          
+                  <div class="form-column">
+                    <div class="mb--2">
+                      <label>Identidad:</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="mb--2">
+                      <label>Celular:</label>
+                      <input type="email" class="input">
+                    </div>
+                    <div class="mb--2">
+                      <label>Genero:</label>
+                      <select class="input">
+                          <option value="" selected>-- Selecciona una opción --</option>
+                          <option value="opcion1">Masculino</option> 
+                          <option value="opcion1">Femenino</option> 
+                      </select>
+                    </div>
+                    <div class="mb--2">
+                      <label>País:</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="mb--2">
+                        <label>Dirección:</label>
+                        <textarea type="" class="input"></textarea>
+                      </div>
+                  </div>
+                </div>
+      
+                <div class="tab-panel" [class.active]="tabActiva == 'empresa'">
+                  <div class="form-column">
+                    <div class="mb--2">
+                        <label>Nombre Empresa:</label>
+                        <input type="text" class="input">
+                    </div>
+                    <div class="mb--2">
+                        <label>Telefono:</label>
+                        <input type="text" class="input" >
+                    </div>
+                    
+                    <div class="mb--2">
+                      <label>RTN:</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="mb--2">
+                        <label>Departamento:</label>
+                        <input type="text" class="input">
+                      </div>
+                  </div>
+          
+                  <div class="form-column">
+                    <div class="mb--2">
+                      <label>Correo:</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="mb--2">
+                      <label>Sitio Web:</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="mb--2">
+                      <label>País:</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="mb--2">
+                        <label>Dirección:</label>
+                        <textarea type="text" class="input"></textarea>
+                      </div>
+                  </div>
+                </div>
+    
+                <div class="d-flex flex-horizontal-end">
+                  <button class="button button--primary ml--2" [routerLink]="['/contactos/crear']">Guardar</button>
+                </div>
+      
+              </div>
+      </div>
+  </div>

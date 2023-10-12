@@ -1,0 +1,81 @@
+<div class="wrapper">
+    <app-sidebar></app-sidebar>
+      <app-navbar></app-navbar>
+      <div class="container-full"> 
+          
+        <div class="d-flex flex-vertical-center gap--s space-between">
+            <div class="d-flex flex-horizontal-start gap--l">
+              <h5>Detalles Contacto</h5>
+            </div>
+            <button class="button button--cancel border-radius--l" [routerLink]="['/contactos']"> Salir</button>
+        </div>
+
+        <div class="radio">
+            <input type="radio" name="genero" id="hombre">
+            <label class="label-radio" for="hombre">Hombre</label>
+            <
+            <input type="radio" name="genero" id="mujer">
+            <label class="label-radio" for="mujer">Mujer</label>
+        </div>
+
+        <div class="tab-panel">
+            <div class="form-column">
+                <div class="mb--2">
+                    <label>Nombre:</label>
+                    <input type="text" class="input">
+                </div>
+                <div class="mb--2">
+                    <label>Identidad:</label>
+                    <input type="text" class="input">
+                </div>
+                <div class="mb--2">
+                    <label>Teléfono / Celular:</label>
+                    <input type="text" class="input" >
+                </div>
+                <div class="mb--2">
+                    <label>Correo:</label>
+                    <input type="text" class="input">
+                </div>
+               
+                <div class="mb--2">
+                    <label>País:</label>
+                    <input type="text" class="input">
+                </div>
+                <div class="mb--2">
+                    <label>Dirección:</label>
+                    <textarea type="text" class="input"></textarea>
+                </div>
+            </div>
+      
+             <div class="form-column">
+                <div class="mb--2">
+                    <label>Fecha de nacimiento:</label>
+                    <input type="date" class="input">
+                </div>
+                <div class="mb--2">
+                    <label>RTN:</label>
+                    <input type="email" class="input">
+                </div>
+                <div class="mb--2">
+                  <label>Stio Web:</label>
+                  <input type="text" class="input">
+                </div>
+                <div class="mb--2">
+                    <label>Género:</label>
+                    <select class="input" required>
+                        <option value="" selected>-- Selecciona una opción --</option>
+                        <option value="opcion1">Masculino</option> 
+                        <option value="opcion1">Femenino</option> 
+                    </select>
+                </div>
+                <div class="mb--2">
+                    <label>Departamento:</label>
+                    <input type="text" class="input">
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-horizontal-end">
+            <button class="button button--primary ml--2" [routerLink]="['/contactos/detalles']">Guardar</button>
+        </div>
+  </div>

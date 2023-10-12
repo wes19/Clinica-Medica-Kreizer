@@ -1,0 +1,31 @@
+@import 'variables';
+@import 'responsive';
+
+  .kz-chip{
+    padding: 8px;
+    font-size: 13px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .kz-chip--blue{
+    background-color: $color-two;
+    color: white;
+  }
+  
+  .kz-chip--yellow{
+    background-color: yellow;
+    color: yellow;
+  }
+  
+  .kz-chip--green{
+    background-color: green;
+    color: green;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  

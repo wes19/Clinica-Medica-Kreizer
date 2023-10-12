@@ -1,0 +1,27 @@
+@import 'variables';
+@import 'responsive';
+
+.kz-nav{
+    background-color: #fff;
+    height: auto;
+    width: 100%;
+    display: flex;
+    padding: 18px 24px;
+    box-shadow: 0 5px 5px rgb(230, 230, 230);
+    align-items: center;
+    z-index: 2;
+    font-family: $font-family;
+    &__item {
+        display:flex;
+        align-items: center;
+        margin-left: auto;
+        gap:12px;
+        i {
+            font-size: 2rem;
+        }
+        span {
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+  }

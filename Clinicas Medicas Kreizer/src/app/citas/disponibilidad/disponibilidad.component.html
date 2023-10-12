@@ -1,0 +1,152 @@
+
+<div class="kz-calendar-container">
+  <div class="kz-calendar">
+    <div class="kz-header kz-d-flex kz-gap--m">
+      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="previousMonth()">Anterior</button>
+      <h2>{{ currentMonth | date:'MMMM yyyy' }}</h2>
+      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="nextMonth()">Siguiente</button>
+    </div>
+    <div class="week-days kz-d-grid kz-col--7">
+      <div *ngFor="let day of weekDays" class="week-day">{{ day }}</div>
+    </div>
+  
+    <div class="days kz-d-grid kz-col--7">
+      <div *ngFor="let day of calendarDays" (click)="openDay(day)" [ngClass]="{'active': isSelected(day) && day !== null, 'grayed-out': !day}">
+        {{ day | date:'d' }}
+      </div>
+    </div>
+  </div>
+      <!--Horarios disponibles*/-->
+  <div class="sectioned-box kz-d-grid" *ngIf="selectedDay">
+    <div class="kz-dir-vertical">
+      <div>
+        <h2 class="kz-head kz-head--m">Fechas Disponibles</h2>
+      </div>
+
+      <div class="section kz-mb--1" (click)="openModal(Modalver)">
+        <h5><b>Wesly Lazo</b></h5>
+        <p><b>8:00 a.m. - 12:00 p.m.</b></p>
+        <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
+      </div>
+
+      <div class="section kz-mb--1" (click)="openModal(Modalver)">
+        <h5><b>Wesly Lazo</b></h5>
+        <p><b>8:00 a.m. - 12:00 p.m.</b></p>
+        <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
+      </div>
+
+      <div class="section kz-mb--1" (click)="openModal(Modalver)">
+        <h5><b>Wesly Lazo</b></h5>
+        <p><b>8:00 a.m. - 12:00 p.m.</b></p>
+        <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
+      </div>
+
+      <div class="section kz-mb--1" (click)="openModal(Modalver)">
+        <h5><b>Wesly Lazo</b></h5>
+        <p><b>8:00 a.m. - 12:00 p.m.</b></p>
+        <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
+      </div>
+
+      <div class="kz-chip kz-chip--blue kz-txt--xxl">
+        <label>{{ selectedDay | date:'d MMMM yyyy' }}</label>
+      </div>
+      
+      <div class="kz-mt--1" *ngIf="selectedDay">
+        <button class="button button--cancel border-radius--l" (click)="closeDay()">Cerrar</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<ng-template #Modalver let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Crear Cita</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="row">
+        <div class="col col-12 col-lg-6">
+          <div class="kz-kz-d-flex kz-flex-horizontal-center kz-gap--s">
+            <h2 class="kz-txt--green">
+              <i class="bi bi-person-fill kz-txt--green"></i>
+              5
+            </h2>
+          </div>
+          <table class="kz-table">
+            <thead class="kz-table__head">
+              <tr>
+                <th>Nombre</th>
+              </tr>
+            </thead>
+            <tbody class="kz-table__body">
+              <tr>
+                <td>Wesly Ariel Lazo Canales</td>
+              </tr>
+              <tr>
+                <td>Wesly Ariel Lazo Canales</td>
+              </tr>
+              <tr>
+                <td>Wesly Ariel Lazo Canales</td>
+              </tr>
+              <tr>
+                <td>Wesly Ariel Lazo Canales</td>
+              </tr>
+            </tbody>
+          </table>
+          <span class="badge bg-danger kz-txt--m">Max. 6 Paciente</span>
+        </div>
+        <div class="col col-12 col-lg-6 kz-mt--2-ml">
+
+          <div *ngIf="!verFormulario && !agregadoExitosamente">
+            <button class="kz-button kz-button--auxiliar kz-ml--auto" (click)="verFormulario = true">
+              <i class="bi bi-plus-lg"></i>
+              <span>Agregar Paciente</span>
+            </button>
+          </div>
+  
+          <div *ngIf="verFormulario && !agregadoExitosamente">
+            <div class="kz-mb--2">
+              <input type="text" class="kz-input" placeholder="Buscar paciente...">
+            </div>
+            <div class="kz-mb--2">
+              <label>Nombre completo:</label>
+              <input type="text" class="kz-input" required>
+            </div>
+            <div class="kz-mb--2">
+              <label>Identificacíon:</label>
+              <input type="text" class="kz-input" required>
+            </div>
+            <div class="kz-mb--2">
+              <label>Celular:</label>
+              <input type="text" class="kz-input" required>
+            </div>
+            <div class="kz-kz-d-flex kz-gap--s kz-flex-wrap">
+              <button class="kz-button kz-button--secondary kz-border-radius--l" (click)="reiniciarFormulario()">Atrás</button>
+              <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarPaciente()">Guardar</button>
+              <button class="kz-button kz-button--auxiliar kz-border-radius--l">Crear</button>
+            </div>
+          </div>
+  
+          <div *ngIf="agregadoExitosamente" class="kz-kz-d-flex kz-dir-vertical kz-flex-vertical-center">
+            <div class="kz-kz-d-flex kz-dir-vertical  kz-flex-vertical-center">
+              Agregado Exitosamente
+              <img class="kz-img kz-img--x" src="../assets/img/icons/comprobado.png" alt="Card image cap" (click)="verFormulario = true">
+            </div>
+            <button class="kz-button kz-button--auxiliar kz-border-radius--l kz-mt--2" (click)="reiniciarFormulario()">Agregar Nuevo</button>
+          </div>
+          
+        </div>  
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+    </div>
+  </div>
+</ng-template>
+      

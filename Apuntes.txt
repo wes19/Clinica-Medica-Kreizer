@@ -1,0 +1,23 @@
+IMPORTANTE .- Terminar de refactorizas todas las clases con "kz-"
+
+1.- Fondos de los calendarios deben ser color blanco (Actualmene transparentes).
+    * Calendario, de crear citas
+    * Calendario, de ausencias
+
+2.- Modificar todas las cards, tables del sistema.
+
+3.- Transcisión del sidebar colapsado a extendido, el navbar no transiciona con la misma velocidad que el sidebar.
+
+4.- Responsive del calendario en crear cita (Modulo de disponibilidad).
+
+5.- Border radius del boton Card/List y fondo de color blanco
+
+6.- Heigth auto al Heigth 100% a la clase cointaner-full (Algo que me comento)
+
+7.- Poner foto de perfil a lado del btn hamburguesa
+
+8.- Mejorar las etiquetas (tags)
+
+9.- Al escribir en el select de adminisiones, el texto escrito no se muestra en medio del select
+
+10.- Los inputs y select se muestran en transparentes, cambiar a fondos blancos

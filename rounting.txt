@@ -1,0 +1,1 @@
+{ path: 'empleados', loadChildren: () => import('./empleados/empleados.module').then( m => m.EmpleadosModule )}

@@ -1,0 +1,25 @@
+NodeJs
+
+npm init
+npm i --save express
+npm i mysql2
+npm install --save body-parser
+npm install -save cors
+
+
+npm install -E -D nodemon
+npm run dev   -> Correr el servidor
+"scripts": {
+    "dev": "nodemon ./index.js"
+  },
+
+Angular 
+
+npm install -g @angular/cli
+ng update @angular/cli
+ng add @ng-bootstrap/ng-bootstrap
+ng add @fortawesome/angular-fontawesome
+ng new my-sassy-app --style=scss 
+npm install @ng-select/ng-select 
+npm install sweetalert2
+ng generate component my-component --module=app

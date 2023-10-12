@@ -1,0 +1,194 @@
+
+<div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between">
+  <div class="kz-d-flex kz-flex-horizontal-start kz-gap--l">
+    <h5>Agregar Empleado</h5>
+  </div>
+  <button class="kz-button kz-button--cancel kz-border-radius--l" [routerLink]="['/empleados']"> Salir</button>
+</div>
+
+<form>
+  <h5 class="kz-d-flex kz-flex-horizontal-center">Información Personal</h5>
+  <div class="kz-form-column">
+    <div class="kz-mb--2">
+      <label>Nombre:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Identidad:</label>
+      <input type="text" class="kz-input">
+    </div>
+    <div class="kz-mb--2">
+      <label>Celular:</label>
+      <input type="email" class="kz-input">
+    </div>
+    <div class="kz-mb--2">
+      <label>Genero:</label>
+      <select class="kz-input" required>
+          <option value="" selected>-- Selecciona una opción --</option>
+          <option value="opcion1">Masculino</option> 
+          <option value="opcion1">Femenino</option> 
+      </select>
+    </div>
+    <div class="kz-mb--2">
+      <label>Nombre Contacto de Emergencia:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Cónyugue:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Nacionalidad:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Nivel de certificado:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Escuela superior:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Escuela:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Departamento:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+  </div>
+    
+  <div class="kz-form-column">
+    <div class="kz-mb--2">
+      <label>Apellidos:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Fecha de nacimiento:</label>
+      <input type="date" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Correo:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Celular de Emergencias:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Estado Civil:</label>
+      <select class="kz-input" required>
+        <option value="" selected>-- Selecciona una opción --</option>
+        <option value="opcion1">Casado(a)</option> 
+        <option value="opcion2">Soltero(a)</option> 
+    </select>
+    </div>
+    <div class="kz-mb--2">
+      <label>Número de hijos:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Idiomas:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Campo de Estudio:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Escuela Media:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>País:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Dirección:</label>
+      <textarea type="" class="kz-input" required></textarea>
+    </div>
+   
+  </div>
+
+  <h5 class="d-flex flex-horizontal-center">Información Laboral</h5>
+  <div class="kz-form-column">
+    <div class="kz-mb--2">
+      <label>Celular Laboral:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Departamento:</label>
+      <select class="kz-input" required>
+          <option value="" selected>-- Selecciona una opción --</option>
+          <option value="opcion1">Sistemas</option> 
+          <option value="opcion1">Contabilidad</option> 
+      </select>
+    </div>
+    <div class="kz-mb--2">
+      <label>Dirección Laboral:</label>
+      <textarea type="text" class="kz-input" required></textarea>
+    </div>
+  </div>
+
+  <div class="kz-form-column">
+    <div class="kz-mb--2">
+      <label>Correo Laboral:</label>
+      <input type="text" class="kz-input">
+    </div>
+    <div class="kz-mb--2">
+      <label>Jefe Inmdediato:</label>
+      <select class="kz-input" required>
+          <option value="" selected>-- Selecciona una opción --</option>
+          <option value="opcion1">Wesly Lazo</option> 
+          <option value="opcion1">Teresa Vásquez</option> 
+      </select>
+    </div>
+    <div class="kz-mb--2">
+      <label>Aprobador:</label>
+      <select class="kz-input" required>
+          <option value="" selected>-- Selecciona una opción --</option>
+          <option value="opcion1">Wesly Lazo</option> 
+          <option value="opcion1">Teresa Vásquez</option>
+      </select>
+    </div>
+  </div>
+
+  <h5 class="d-flex flex-horizontal-center">Configuración RRHH</h5>
+  <div class="kz-form-column">
+    <div class="kz-mb--2">
+      <label>Fecha de Ingreso:</label>
+      <input type="date" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Puesto Laboral:</label>
+      <select class="kz-input" required>
+          <option value="" selected>-- Selecciona una opción --</option>
+          <option value="opcion1">Analista de Programación</option> 
+          <option value="opcion1">Oficial de IT</option> 
+      </select>
+    </div>
+    <div class="kz-mb--2">
+      <label>Contraseña:</label>
+      <input type="password" class="kz-input" required>
+    </div>
+  </div>
+    
+  <div class="kz-form-column">
+    <div class="kz-mb--2">
+      <label>Salario:</label>
+      <input type="text" class="kz-input">
+    </div>
+    <div class="kz-mb--2">
+      <label>PIN:</label>
+      <input type="text" class="kz-input" required>
+    </div>
+    <div class="kz-mb--2">
+      <label>Imagen:</label>
+      <textarea type="text" class="kz-input" required></textarea>
+    </div>
+  </div>
+
+  <button class="kz-button kz-button--cancel" [routerLink]="['/empleados']">Salir</button>
+  <button class="kz-button kz-button--primary ml--2" [routerLink]="['/add-empleados']">Guardar</button>
+</form>

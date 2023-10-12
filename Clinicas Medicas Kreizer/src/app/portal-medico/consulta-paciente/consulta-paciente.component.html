@@ -1,0 +1,150 @@
+
+<div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between kz-mb-3">
+    <div class="kz-d-flex kz-flex-horizontal-start kz-gap--l">
+      <h5>Consulta Paciente</h5>
+    </div>
+    <button class="kz-button kz-button--cancel kz-border-radius--l" [routerLink]="['/portal-medico/sala-espera']"> Salir</button>
+</div>
+  
+<div class="kz-data-container kz-mb-3">
+    <div class="kz-info-column">
+        <p class="kz-info-title">Nombre Completo:</p>
+        <p>John Doe</p>
+        <p class="kz-info-title">Doctor:</p>
+        <p>Wesly Lazo</p> 
+    </div>
+    <div class="kz-info-column">
+        <p class="kz-info-title">Edad:</p>
+        <p>30 años</p>
+        <p class="kz-info-title">Fecha Consulta:</p>
+        <p>08-09-1993</p>
+    </div>
+</div>
+
+<div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between kz-mb--3 kz-pointer" (click)="toggleInfoContainer()">
+    <div class="kz-d-flex kz-flex-horizontal-start kz-gap--l">
+      <h5>Ver Expediente</h5>
+    </div>
+</div>
+
+<div class="kz-info-container mb-3" [ngClass]="{'expanded': expanded}">
+    <div class="kz-info-column">
+        <p class="kz-info-title">Nombre Completo:</p>
+        <p>John Doe</p>
+        <p class="kz-info-title">Género:</p>
+        <p>Masculino</p>
+        <p class="kz-info-title">Fecha de Nacimiento:</p>
+        <p>08-09-1993</p>
+        <p class="kz-info-title">Número de Teléfono:</p>
+        <p>Masculino</p>
+        <p class="kz-info-title">Antecedentes médicos personales:</p>
+        <p>Lesión de dedo de mano</p>
+
+    </div>
+    <div class="kz-info-column">
+        <p class="kz-info-title">DNI:</p>
+        <p>12345678</p>
+        <p class="kz-info-title">Edad:</p>
+        <p>30 años</p>
+        <p class="kz-info-title">Dirección de Residencia:</p>
+        <p>Col. Centro America Este</p>
+        <p class="kz-info-title">Correo:</p>
+        <p>wlazo@prueba.com</p>
+    </div>
+</div>
+
+  <form>
+    <h5 class="kz-d-flex kz-flex-horizontal-center">Datos Consulta</h5>
+    <div class="kz-form-column">
+      <div class="kz-mb--2">
+        <label>Síntomas:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Intesidad:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Comienzo de los Síntomas:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Peso</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Presion Arterial:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Revisiones diferentes del cuerpo:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Estudios de Imágenes:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Historial de Vacunas:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Ejercicio:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Consumo de Alcohol:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Salud Mental:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+    </div>
+      
+    <div class="kz-form-column">
+      <div class="kz-mb--2">
+        <label>Duración:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Historial Enfermedad Actual (HAE):</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Tratamiento Previo:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Altura:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Temperatura:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Análisis de Sangr:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Otro Exámenes:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Dieta:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Tabaquismo:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Otras Sustancias:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+    </div>
+    <button class="kz-button kz-button--cancel" [routerLink]="['/empleados']">Salir</button>
+    <button class="kz-button kz-button--primary kz-ml--2" [routerLink]="['/add-empleados']">Guardar</button>
+     
+  </form>

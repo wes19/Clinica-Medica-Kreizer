@@ -1,0 +1,71 @@
+<div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between">
+    <div>
+        <h5>Detalles Paciente</h5>
+    </div>
+    <div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between">
+      <button class="kz-btn-text kz-btn-text--red">
+        <i class="bi bi-archive-fill "></i>
+        <span> <b>Archivar</b> </span>
+      </button>
+      <button class="kz-button kz-button--cancel kz-border-radius--l ml--2" [routerLink]="['/pacientes']"> Salir</button>
+    </div>
+</div>
+  
+<div class="kz-form-column">
+    <div class="kz-mb--2">
+        <label>Nombre:</label>
+        <input type="text" class="kz-input">
+    </div>
+    <div class="kz-mb--2">
+        <label>Identidad:</label>
+        <input type="text" class="kz-input">
+    </div>
+    <div class="kz-mb--2">
+        <label>Teléfono / Celular:</label>
+        <input type="text" class="kz-input" >
+    </div>
+    <div class="kz-mb--2">
+        <label>Correo:</label>
+        <input type="text" class="kz-input">
+    </div>
+   
+    <div class="kz-mb--2">
+        <label>País:</label>
+        <input type="text" class="kz-input">
+    </div>
+    <div class="kz-mb--2">
+        <label>Dirección:</label>
+        <textarea type="text" class="kz-input"></textarea>
+    </div>
+</div>
+    
+<div class="kz-form-column">
+   <div class="kz-mb--2">
+       <label>Fecha de nacimiento:</label>
+       <input type="date" class="kz-input">
+   </div>
+   <div class="kz-mb--2">
+       <label>RTN:</label>
+       <input type="email" class="kz-input">
+   </div>
+   <div class="kz-mb--2">
+     <label>Stio Web:</label>
+     <input type="text" class="kz-input">
+   </div>
+   <div class="kz-mb--2">
+       <label>Género:</label>
+       <select class="kz-input" required>
+           <option value="" selected>-- Selecciona una opción --</option>
+           <option value="opcion1">Masculino</option> 
+           <option value="opcion1">Femenino</option> 
+       </select>
+   </div>
+   <div class="kz-mb--2">
+       <label>Departamento:</label>
+       <input type="text" class="kz-input">
+   </div>
+</div>
+
+<div class="kz-d-flex kz-flex-horizontal-end">
+    <button class="kz-button kz-button--primary ml--2" [routerLink]="['/pacientes/detalles']">Guardar</button>
+</div>

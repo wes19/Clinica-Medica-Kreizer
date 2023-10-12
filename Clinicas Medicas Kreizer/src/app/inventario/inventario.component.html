@@ -1,0 +1,163 @@
+<div class="kz-d-flex kz-flex-vertical-center kz-flex-horizontal-center kz-gap--l kz-mb--4">
+  <div class="kz-input--icon kz-w--40">
+    <input class="kz-input" type="text" placeholder="Buscar">
+    <i class="bi bi-search"></i>
+  </div>
+  <button class="kz-button kz-button--primary">Agregar Empleado</button>
+  
+  <div class="kz-btn-radio--group">
+    <div class="kz-btn-radio__item" (click)="btnActivo = 'kamba'">
+      <input type="radio" id="grid" name="view" checked>
+      <label for="grid">
+        <i class="bi bi-grid"></i>
+      </label>
+    </div>
+    <div class="kz-btn-radio__item" (click)="btnActivo = 'list'">
+      <input type="radio" id="list" name="view" atr="1">
+      <label for="list">
+        <i class="bi bi-list-ul"></i>
+      </label>
+    </div>
+  </div>
+</div>
+      
+<!--Cards--> 
+<div class="kz-kamba" [class.active]="btnActivo == 'kamba'">
+  <div class="kz-d-grid kz-col-s3--3 kz-col-s2--2 kz-col-s1--2 kz-col-t--2 kz-col--1 kz-gap--xl kz-mt--4">
+    <div class="card__body kz-dir-vertical">
+      <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
+        <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.png" alt="Card image cap">
+        <div class="kz-d-flex kz-dir-vertical">
+          <label class="kz-txt--m kz-font-bold">Wesly Lazo</label>
+          <label class="kz-txt--s kz-mt--1">Analista de Software</label> 
+          <label class="kz-txt--s kz-mt--1">wesly_lazo@company.io</label>
+          <label class="kz-txt--s kz-mt--1">90862930</label>
+        </div>
+      </div>
+      <div class="card__separator"></div>
+      <div class="card__botton kz-d-flex">
+        <button class="kz-button kz-button--primary kz-border-radius--l" ><i class="bi bi-pencil-square"></i> Editar</button>
+        <button class="kz-button kz-button--cancel kz-border-radius--l"><i class="bi bi-trash-fill"></i> Eliminar</button>
+      </div>
+    </div>
+      
+    <div class="card__body kz-dir-vertical">
+      <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
+        <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.png" alt="Card image cap">
+        <div class="kz-d-flex kzdir-vertical">
+          <label class="txt--m font-bold">Wesly Lazo</label>
+          <label class="txt--s mt--1">Analista de Software</label> 
+          <label class="txt--s mt--1">wesly_lazo@company.io</label>
+          <label class="txt--s mt--1">90862930</label>
+        </div>
+      </div>
+      <div class="card__separator"></div>
+      <div class="card__botton d-flex">
+        <button class="kz-button kz-button--primary border-radius--l" ><i class="bi bi-pencil-square"></i> Editar</button>
+        <button class="kz-button kz-button--cancel border-radius--l"><i class="bi bi-trash-fill"></i> Eliminar</button>
+      </div>
+    </div>
+      
+    <div class="card__body dir-vertical">
+      <div class="d-flex flex-vertical-center gap--l">
+        <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.png" alt="Card image cap">
+        <div class="d-flex dir-vertical">
+          <label class="txt--m font-bold">Wesly Lazo</label>
+          <label class="txt--s mt--1">Analista de Software</label> 
+          <label class="txt--s mt--1">wesly_lazo@company.io</label>
+          <label class="txt--s mt--1">90862930</label>
+        </div>
+      </div>
+      <div class="card__separator"></div>
+      <div class="card__botton d-flex">
+        <button class="kz-button kz-button--primary border-radius--l" ><i class="bi bi-pencil-square"></i> Editar</button>
+        <button class="kz-button kz-button--cancel border-radius--l"><i class="bi bi-trash-fill"></i> Eliminar</button>
+      </div>
+    </div>
+      
+    <div class="card__body dir-vertical">
+      <div class="d-flex flex-vertical-center gap--l">
+        <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.png" alt="Card image cap">
+        <div class="d-flex dir-vertical">
+          <label class="txt--m font-bold">Wesly Lazo</label>
+          <label class="txt--s mt--1">Analista de Software</label> 
+          <label class="txt--s mt--1">wesly_lazo@company.io</label>
+          <label class="txt--s mt--1">90862930</label>
+        </div>
+      </div>
+      <div class="card__separator"></div>
+      <div class="card__botton d-flex">
+        <button class="kz-button kz-button--primary border-radius--l" ><i class="bi bi-pencil-square"></i> Editar</button>
+        <button class="kz-button kz-button--cancel border-radius--l"><i class="bi bi-trash-fill"></i> Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+         
+<div class="kz-table-content kz-d-flex" [class.active]="btnActivo == 'list'">
+  <table class="kz-table">
+    <thead class="kz-table__head">
+      <tr>
+        <th>Código de producto</th>
+        <th>Descripción</th>
+        <th>Talla</th>
+        <th>Colores</th>
+        <th>Cantidad</th>
+        <th>Precio de Venta</th>
+        <th>Costo</th>
+        <th>Impuesto</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody class="kz-table__body">
+      <tr>
+        <td>165289221</td>
+        <td>Descripción</td>
+        <td>Mediano</td>
+        <td>Rojo</td>
+        <td>24</td>
+        <td>500</td>
+        <td>400</td>
+        <td>50</td>
+        <td>
+          <div class="kz-d-flex kz-gap--s kz-flex-vertical-center">
+            <a [routerLink]="['/empleados/detalles']" class="kz-text-decoration-none kz-link"> ver detalles</a>
+            <button class="kz-btn-icon"><i class="bi bi-trash-fill"></i></button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>165289221</td>
+        <td>Descripción</td>
+        <td>Mediano</td>
+        <td>Rojo</td>
+        <td>24</td>
+        <td>500</td>
+        <td>400</td>
+        <td>50</td>
+        <td>
+          <div class="kz-d-flex kz-gap--s kz-flex-vertical-center">
+            <a [routerLink]="['/empleados/detalles']" class="kz-text-decoration-none kz-link"> ver detalles</a>
+            <button class="kz-btn-icon"><i class="bi bi-trash-fill"></i></button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>165289221</td>
+        <td>Descripción</td>
+        <td>Mediano</td>
+        <td>Rojo</td>
+        <td>24</td>
+        <td>500</td>
+        <td>400</td>
+        <td>50</td>
+        <td>
+          <div class="kz-d-flex kz-gap--s kz-flex-vertical-center">
+            <a [routerLink]="['/empleados/detalles']" class="kz-text-decoration-none kz-link"> ver detalles</a>
+            <button class="kz-btn-icon"><i class="bi bi-trash-fill"></i></button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

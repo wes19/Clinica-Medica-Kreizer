@@ -1,0 +1,47 @@
+.radio{
+  position: relative;
+  margin-bottom: 20px; // Agregamos un margen inferior para separar los radios del div siguiente
+  //width: 100px;
+  display: flex; // Utilizamos flexbox para mostrar las opciones en línea horizontal
+  align-items: center; // Centramos verticalmente las opciones
+
+  .label-radio {
+    position: relative;
+    color: $color-two;
+    font-family: $font-family;
+    font-size: 15px;
+    border: 2px solid $color-one;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    //flex-direction: row;
+    margin-right: 10px;
+  
+    &:before {
+      //position: absolute;
+      content: "";
+      height: 15px;
+      width: 15px;
+      border: 3px solid $color-one;
+      border-radius: 50%;
+      //margin-right: 20px;
+      margin-right: 5px; // Espacio entre el círculo y el texto
+      margin-left: 0px; // Espacio entre el círculo y el borde del label
+    }
+  }
+  
+  input[type="radio"]:checked + .label-radio {
+    background-color: $color-one;
+    color: white;
+  
+    &:before {
+      height: 7px;
+      width: 7px;
+      border: 7px solid white;
+      background-color: $color-one;
+    }
+  }
+  
+}

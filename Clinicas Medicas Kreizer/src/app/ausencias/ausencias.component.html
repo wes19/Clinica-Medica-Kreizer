@@ -1,0 +1,64 @@
+<div class="kz-cal-ausencia">
+    <div class="kz-header kz-d-flex">
+        <button class="kz-button kz-button--primary kz-border-radius--l" (click)="changeYear(-1)">Año anterior</button>
+        <h3>{{ currentYear }}</h3>
+        <button class="kz-button kz-button--primary kz-border-radius--l" (click)="changeYear(1)">Año siguiente</button>
+    </div>
+    <div class="month-row"> 
+        <div class="month" *ngFor="let month of months; let i = index">
+            <h2>{{ month }}</h2>
+            <div class="week-days kz-d-grid kz-col--7">
+                <div *ngFor="let day of weekDays" class="week-day">{{ day }}</div>
+            </div>
+        
+            <div class="days kz-d-grid kz-col--7">
+                <div *ngFor="let day of calendarDays[i]; let j = index" 
+                [ngClass]="{ 'active': (isToday(day) || selectedDay === day) && day, 'grayed-out': !day }"
+                (click)="selectDay(day); openModal(Modalcrear)">
+                  {{ day | date:'d' }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #Modalcrear let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Crear Cita</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <div class="modal-body">
+            
+            <div class="kz-mb--2">
+                <label>Tipo de Ausencia:</label>
+                <select class="kz-input" required>
+                    <option value="" selected>-- Selecciona una opción --</option>
+                    <option value="opcion1">Ausencia por enfermedad</option> 
+                    <option value="opcion1">Ausencia Pagada</option> 
+                    <option value="opcion1">Ausencia No Pagada</option>
+                    <option value="opcion1">Vacaciones</option> 
+              </select>
+            </div>
+            <div class="kz-mb--2">
+                <label>Fechas:</label>
+                <input type="text" class="kz-input" >
+            </div>
+            <div class="kz-mb--2">
+                <label>Horas:</label>
+                <input type="text" class="kz-input" >
+            </div>
+            <div class="kz-mb--2">
+                <label>Descripción:</label>
+                <textarea type="text" class="kz-input"></textarea>
+            </div>
+            <div class="kz-mb--2">
+                <label>Archivo Adjunto:</label>
+                <input type="file" class="kz-input" >
+            </div>
+        </div>
+    </div>
+</ng-template>
