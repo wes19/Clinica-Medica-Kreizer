@@ -237,6 +237,22 @@
             </a>
         </li>
         <li routerLinkActive="active">
+            <a [routerLink]="['/sala-medica-admin']" (click)="onOptionClick('sala-medica-admin')">
+                <i class="bi bi-gear-fill"></i>
+                <span>
+                    Sala Médica
+                </span>
+            </a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/especialidades']" (click)="onOptionClick('especialidades')">
+                <i class="bi bi-gear-fill"></i>
+                <span>
+                    Especialidades
+                </span>
+            </a>
+        </li>
+        <li routerLinkActive="active">
             <a [routerLink]="['/configuraciones']" (click)="onOptionClick('configuraciones')">
                 <i class="bi bi-gear-fill"></i>
                 <span>

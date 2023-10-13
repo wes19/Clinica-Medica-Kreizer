@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paciente-expedientes',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./paciente-expedientes.component.scss']
 })
 export class PacienteExpedientesComponent {
-
+  constructor(private router: Router) {}
+  perfilNavigate() {
+    this.router.navigate(['/pacientes/perfil'])
+  }
 }

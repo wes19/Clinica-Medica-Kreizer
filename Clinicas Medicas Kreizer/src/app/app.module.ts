@@ -63,6 +63,7 @@ import { ConsultaPacienteComponent } from './portal-medico/consulta-paciente/con
 import { ListEmpleadosComponent } from './empleados/list-empleados/list-empleados.component';
 import { ListPacientesComponent } from './pacientes/list-pacientes/list-pacientes.component';
 import { PacienteExpedientesComponent } from './pacientes/paciente-expedientes/paciente-expedientes.component';
+import { PerfilComponent } from './pacientes/perfil/perfil.component';
 
 
 
@@ -120,6 +121,7 @@ registerLocaleData(localeEs); // Registra el locale en español
     ListEmpleadosComponent,
     ListPacientesComponent,
     PacienteExpedientesComponent,
+    PerfilComponent,
  
 
 

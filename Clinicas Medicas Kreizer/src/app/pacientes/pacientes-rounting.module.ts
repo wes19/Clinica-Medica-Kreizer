@@ -4,6 +4,8 @@ import { AddPacientesComponent } from '../pacientes/add-pacientes/add-pacientes.
 import { DetailPacientesComponent } from '../pacientes/detail-pacientes/detail-pacientes.component';
 import { ListPacientesComponent } from '../pacientes/list-pacientes/list-pacientes.component';
 import { PacienteExpedientesComponent } from '../pacientes/paciente-expedientes/paciente-expedientes.component';
+import { PerfilComponent } from '../pacientes/perfil/perfil.component';
+
 
 const routes: Routes = [
   {
@@ -28,6 +30,12 @@ const routes: Routes = [
     path: '',
     children: [
       { path: 'paciente-expedientes', component: PacienteExpedientesComponent }
+    ]
+  },
+  {
+    path: '',
+    children: [
+      { path: 'perfil', component: PerfilComponent }
     ]
   }
 ]

@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./expedientes.component.scss']
 })
 export class ExpedientesComponent {
-  constructor(private router: Router) {}
-  perfilNavigate() {
-    this.router.navigate(['/portal-medico/perfil-paciente'])
-  }
+    constructor(private router: Router) {}
+    perfilNavigate() {
+      this.router.navigate(['/portal-medico/perfil-paciente'])
+    }
 
 }

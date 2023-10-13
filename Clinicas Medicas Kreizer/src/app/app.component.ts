@@ -11,6 +11,8 @@ const rutasSidebarAdmin = [
   '/contabilidad',
   '/asistencias-admin',
   '/ausencias-admin',
+  '/especialidades',
+  '/sala-medica-admin',
   '/configuraciones',
   '/solicitudes',
   '/pacientes',
@@ -18,6 +20,7 @@ const rutasSidebarAdmin = [
   '/pacientes/detalles',
   '/pacientes/lista',
   '/pacientes/paciente-expedientes',
+  '/pacientes/perfil',
 ];
 
 @Component({
