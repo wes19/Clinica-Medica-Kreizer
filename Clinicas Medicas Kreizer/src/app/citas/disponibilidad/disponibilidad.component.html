@@ -1,7 +1,7 @@
 
 <div class="kz-calendar-container">
   <div class="kz-calendar">
-    <div class="kz-header kz-d-flex kz-gap--m">
+    <div class="kz-header kz-d-flex kz-flex-horizontal-center kz-gap--m kz-mb--1">
       <button class="kz-button kz-button--primary kz-border-radius--l" (click)="previousMonth()">Anterior</button>
       <h2>{{ currentMonth | date:'MMMM yyyy' }}</h2>
       <button class="kz-button kz-button--primary kz-border-radius--l" (click)="nextMonth()">Siguiente</button>
@@ -52,7 +52,7 @@
       </div>
       
       <div class="kz-mt--1" *ngIf="selectedDay">
-        <button class="button button--cancel border-radius--l" (click)="closeDay()">Cerrar</button>
+        <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="closeDay()">Cerrar</button>
       </div>
       
     </div>

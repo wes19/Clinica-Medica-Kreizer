@@ -19,7 +19,7 @@ export class SidebarService {
   toggleSidebar() {
     this.isSidebarExpanded = !this.isSidebarExpanded;
 
-    const wrapper = document.querySelector('.wrapper');
+    const wrapper = document.querySelector('.kz-wrapper');
     if (wrapper) {
       if (this.isSidebarExpanded) {
         wrapper.classList.remove('collapsed');

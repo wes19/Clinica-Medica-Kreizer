@@ -11,6 +11,8 @@
     align-items: center;
     z-index: 2;
     font-family: $font-family;
+    position: sticky;
+    top: 0;
     &__item {
         display:flex;
         align-items: center;

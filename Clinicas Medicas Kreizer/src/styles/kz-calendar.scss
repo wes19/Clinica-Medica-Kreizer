@@ -7,6 +7,10 @@
     box-shadow: 0px 0px 12px #c6c6c6;
     padding: 16px;
     background-color: #fff;
+    width: 100%;
+    @include media(screen-3){
+      width: 60%;
+    }
     .header {
       align-items: center;
       justify-content: center;
@@ -52,10 +56,13 @@
 
 .kz-calendar-container {
     font-family: $font-family;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
     width: 100%;
     @include media(screen-3){
       display: flex;
+      flex-direction: row;
       align-items: flex-start;
       justify-content: space-between;
       gap: 24px;
@@ -69,6 +76,9 @@
     padding: 16px;
     font-family: $font-family;
     width: 100%;
+    @include media(screen-3){
+      width: 40%;
+    }
     background-color: #fff;
     .section {
       border-radius: 10px;

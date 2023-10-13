@@ -1,10 +1,10 @@
 <div class="kz-cal-ausencia">
-    <div class="kz-header kz-d-flex">
+    <div class="kz-header kz-d-flex kz-flex-horizontal-center kz-flex-vertical-center kz-gap--m kz-my--2">
         <button class="kz-button kz-button--primary kz-border-radius--l" (click)="changeYear(-1)">Año anterior</button>
         <h3>{{ currentYear }}</h3>
         <button class="kz-button kz-button--primary kz-border-radius--l" (click)="changeYear(1)">Año siguiente</button>
     </div>
-    <div class="month-row"> 
+    <div class="kz-d-grid kz-col-s5--4 kz-col-s4--3 kz-col-s3--3 kz-col-s2--2 kz-col-s1--1 kz-col-t--2 kz-col--1 kz-gap--l month-row "> 
         <div class="month" *ngFor="let month of months; let i = index">
             <h2>{{ month }}</h2>
             <div class="week-days kz-d-grid kz-col--7">
