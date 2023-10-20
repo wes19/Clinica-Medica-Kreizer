@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 const rutasSidebarAdmin = [
   '/administracion',
+  '/ambulancias-admin',
   '/empleados',
   '/empleados/crear',
   '/empleados/detalles',

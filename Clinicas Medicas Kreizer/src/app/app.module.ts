@@ -64,7 +64,7 @@ import { ListEmpleadosComponent } from './empleados/list-empleados/list-empleado
 import { ListPacientesComponent } from './pacientes/list-pacientes/list-pacientes.component';
 import { PacienteExpedientesComponent } from './pacientes/paciente-expedientes/paciente-expedientes.component';
 import { PerfilComponent } from './pacientes/perfil/perfil.component';
-
+import { AmbulanciaAdminComponent } from './ambulancia-admin/ambulancia-admin.component';
 
 
 //Administración
@@ -122,6 +122,7 @@ registerLocaleData(localeEs); // Registra el locale en español
     ListPacientesComponent,
     PacienteExpedientesComponent,
     PerfilComponent,
+    AmbulanciaAdminComponent,
  
 
 
