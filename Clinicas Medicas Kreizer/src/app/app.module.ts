@@ -65,6 +65,9 @@ import { ListPacientesComponent } from './pacientes/list-pacientes/list-paciente
 import { PacienteExpedientesComponent } from './pacientes/paciente-expedientes/paciente-expedientes.component';
 import { PerfilComponent } from './pacientes/perfil/perfil.component';
 import { AmbulanciaAdminComponent } from './ambulancia-admin/ambulancia-admin.component';
+import { ListAmbulanciasComponent } from './ambulancia-admin/list-ambulancias/list-ambulancias.component';
+import { AddAmbulanciasComponent } from './ambulancia-admin/add-ambulancias/add-ambulancias.component';
+import { DetailAmbulanciasComponent } from './ambulancia-admin/detail-ambulancias/detail-ambulancias.component';
 
 
 //Administración
@@ -123,6 +126,9 @@ registerLocaleData(localeEs); // Registra el locale en español
     PacienteExpedientesComponent,
     PerfilComponent,
     AmbulanciaAdminComponent,
+    ListAmbulanciasComponent,
+    AddAmbulanciasComponent,
+    DetailAmbulanciasComponent,
  
 
 

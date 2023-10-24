@@ -32,12 +32,12 @@ const routes: Routes = [
   { path: 'administracion', component: AdministracionComponent},
   { path: 'solicitudes', component: SolicitudesComponent},
   { path: 'contabilidad', component: ContabilidadComponent},
-  { path: 'ambulancias-admin', component: AmbulanciaAdminComponent},
   { path: 'citas', loadChildren: () => import('./citas/citas.module').then( m => m.CitasModule )},
   { path: 'empleados', loadChildren: () => import('./empleados/empleados.module').then( m => m.EmpleadosModule )},
   { path: 'pacientes', loadChildren: () => import('./pacientes/pacientes.module').then( m => m.PacientesModule )},
   { path: 'portal-medico', loadChildren: () => import('./portal-medico/portal-medico.module').then( m => m.PortalMedicoModule )},
   { path: 'administracion', loadChildren: () => import('./administracion/administracion.module').then( m => m.AdministracionModule )},
+  { path: 'ambulancias-admin', loadChildren: () => import('./ambulancia-admin/ambulancia-admin.module').then( m => m.AmbulanciaAdminModule )},
 ];
 
 @NgModule({

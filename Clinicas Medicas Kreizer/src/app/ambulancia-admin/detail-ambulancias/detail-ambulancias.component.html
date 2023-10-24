@@ -1,0 +1,38 @@
+<div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between">
+    <div>
+        <h5>Detalles Ambulancias</h5>
+    </div>
+    <div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between">
+      <button class="kz-btn-text kz-btn-text--red">
+        <i class="bi bi-archive-fill "></i>
+        <span> <b>Archivar</b> </span>
+      </button>
+      <button class="kz-button kz-button--cancel kz-border-radius--l ml--2" [routerLink]="['/ambulancias-admin']"> Salir</button>
+    </div>
+</div>
+  
+<div class="kz-form-column">
+    <div class="kz-mb--2">
+        <label>Placa:</label>
+        <input type="text" class="kz-input">
+    </div>
+    <div class="kz-mb--2">
+        <label>Tipo Ambulancia:</label>
+        <input type="text" class="kz-input">
+    </div>
+</div>
+    
+<div class="kz-form-column">
+   <div class="kz-mb--2">
+       <label>Conductor:</label>
+       <input type="date" class="kz-input">
+   </div>
+   <div class="kz-mb--2">
+       <label>Estado:</label>
+       <input type="email" class="kz-input">
+   </div>
+</div>
+
+<div class="kz-d-flex kz-flex-horizontal-end">
+    <button class="kz-button kz-button--primary ml--2" [routerLink]="['/ambulancia-admin']">Guardar</button>
+</div>

@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 const rutasSidebarAdmin = [
   '/administracion',
   '/ambulancias-admin',
+  '/ambulancias-admin/crear',
+  '/ambulancias-admin/lista',
+  '/ambulancias-admin/detalles',
   '/empleados',
   '/empleados/crear',
   '/empleados/detalles',
