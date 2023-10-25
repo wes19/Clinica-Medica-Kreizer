@@ -1,0 +1,140 @@
+<div class="kz-d-flex kz-flex-vertical-center kz-flex-horizontal-center kz-gap--l kz-mb--4">
+    <div class="kz-input--icon kz-w--40">
+      <input class="kz-input" type="text" placeholder="Buscar">
+      <i class="bi bi-search"></i>
+    </div>
+  
+    <div class="kz-btn-radio--group">
+      <div class="kz-btn-radio__item" (click)="btnActivo = 'kamba'">
+        <input type="radio" id="grid" name="view" checked>
+        <label for="grid">
+          <i class="bi bi-grid"></i>
+        </label>
+      </div>
+      <div class="kz-btn-radio__item" (click)="btnActivo = 'list'">
+        <input type="radio" id="list" name="view" atr="1">
+        <label for="list">
+          <i class="bi bi-list-ul"></i>
+        </label>
+      </div>
+    </div>
+  </div>
+    
+    <!--Cards--> 
+    <div class="kz-kamba" [class.active]="btnActivo == 'kamba'">
+      <div class="kz-d-grid kz-col-s5--4 kz-col-s3--3 kz-col-s2--2 kz-col-s1--2 kz-col-t--2 kz-col--1 kz-gap--xl kz-mt--4">
+        <div class="kz-card">
+          <div class="kz-card__body">
+            <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
+              <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.svg" alt="Card image cap">
+              <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
+                <label class="kz-txt--m kz-font-bold">Nombre: Doctor 1</label>
+                <label class="kz-txt--s">Especialidad: Medicina General</label> 
+                <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
+              </div>
+            </div>
+          </div>
+          <div class="kz-card__footer">
+            <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToSalaMedica()"><i class="bi bi-pencil-square"></i> Detalles</button>
+          </div>
+        </div>
+  
+        <div class="kz-card">
+            <div class="kz-card__body">
+              <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
+                <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.svg" alt="Card image cap">
+                <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
+                  <label class="kz-txt--m kz-font-bold">Nombre: Doctor 1</label>
+                  <label class="kz-txt--s">Especialidad: Medicina General</label> 
+                  <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
+                </div>
+              </div>
+            </div>
+            <div class="kz-card__footer">
+              <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToSalaMedica()"><i class="bi bi-pencil-square"></i> Detalles</button>
+            </div>
+        </div>
+  
+        <div class="kz-card">
+            <div class="kz-card__body">
+              <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
+                <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.svg" alt="Card image cap">
+                <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
+                  <label class="kz-txt--m kz-font-bold">Nombre: Doctor 1</label>
+                  <label class="kz-txt--s">Especialidad: Medicina General</label> 
+                  <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
+                </div>
+              </div>
+            </div>
+            <div class="kz-card__footer">
+              <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToSalaMedica()"><i class="bi bi-pencil-square"></i> Detalles</button>
+            </div>
+        </div>
+  
+        <div class="kz-card">
+            <div class="kz-card__body">
+              <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
+                <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.svg" alt="Card image cap">
+                <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
+                  <label class="kz-txt--m kz-font-bold">Nombre: Doctor 1</label>
+                  <label class="kz-txt--s">Especialidad: Medicina General</label> 
+                  <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
+                </div>
+              </div>
+            </div>
+            <div class="kz-card__footer">
+              <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToSalaMedica()"><i class="bi bi-pencil-square"></i> Detalles</button>
+            </div>
+        </div>
+    
+      </div>
+    </div>
+    
+       
+    <div class="kz-table-content" [class.active]="btnActivo == 'list'">
+      <table class="kz-table">
+        <thead class="kz-table__head">
+          <tr>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody class="kz-table__body">
+          <tr>
+            <td>Doctor 1</td>
+            <td>Medicina General</td>
+            <td>Disponible</td>
+            <td>
+              <a class="kz-text-decoration-none kz-link" (click)="navigateToSalaMedica()"> Detalles</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Doctor 1</td>
+            <td>Medicina General</td>
+            <td>Disponible</td>
+            <td>
+              <a class="kz-text-decoration-none kz-link" (click)="navigateToSalaMedica()"> Detalles</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Doctor 1</td>
+            <td>Medicina General</td>
+            <td>Disponible</td>
+            <td>
+              <a class="kz-text-decoration-none kz-link" (click)="navigateToSalaMedica()"> Detalles</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Doctor 1</td>
+            <td>Medicina General</td>
+            <td>Disponible</td>
+            <td>
+              <a class="kz-text-decoration-none kz-link" (click)="navigateToSalaMedica()"> Detalles</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+          

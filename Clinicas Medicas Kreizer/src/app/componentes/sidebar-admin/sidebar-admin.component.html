@@ -255,12 +255,28 @@
         </ul>
         <li routerLinkActive="active">
             <a [routerLink]="['/sala-medica-admin']" (click)="onOptionClick('sala-medica-admin')">
-                <i class="bi bi-gear-fill"></i>
+                <i class="bi bi-clipboard2-pulse-fill"></i>
                 <span>
                     Sala Médica
                 </span>
             </a>
         </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'sala-medica-admin'}">
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/sala-medica-admin/crear']"> 
+                    <span>
+                        Crear Sala Médica
+                    </span>
+                </a>
+            </li>
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/sala-medica-admin/lista']">
+                    <span>
+                        Salas Médica
+                    </span>
+                </a> 
+            </li>
+        </ul>
         <li routerLinkActive="active">
             <a [routerLink]="['/especialidades']" (click)="onOptionClick('especialidades')">
                 <i class="bi bi-gear-fill"></i>

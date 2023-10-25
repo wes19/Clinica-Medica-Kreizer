@@ -38,6 +38,7 @@ const routes: Routes = [
   { path: 'portal-medico', loadChildren: () => import('./portal-medico/portal-medico.module').then( m => m.PortalMedicoModule )},
   { path: 'administracion', loadChildren: () => import('./administracion/administracion.module').then( m => m.AdministracionModule )},
   { path: 'ambulancias-admin', loadChildren: () => import('./ambulancia-admin/ambulancia-admin.module').then( m => m.AmbulanciaAdminModule )},
+  { path: 'sala-medica-admin', loadChildren: () => import('./sala-medica-admin/sala-medica-admin.module').then( m => m.SalaMedicaAdminModule )},
 ];
 
 @NgModule({

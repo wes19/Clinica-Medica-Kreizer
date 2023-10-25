@@ -68,6 +68,10 @@ import { AmbulanciaAdminComponent } from './ambulancia-admin/ambulancia-admin.co
 import { ListAmbulanciasComponent } from './ambulancia-admin/list-ambulancias/list-ambulancias.component';
 import { AddAmbulanciasComponent } from './ambulancia-admin/add-ambulancias/add-ambulancias.component';
 import { DetailAmbulanciasComponent } from './ambulancia-admin/detail-ambulancias/detail-ambulancias.component';
+import { SalaMedicaAdminComponent } from './sala-medica-admin/sala-medica-admin.component';
+import { AddSalaMedicaComponent } from './sala-medica-admin/add-sala-medica/add-sala-medica.component';
+import { DetailSalaMedicaComponent } from './sala-medica-admin/detail-sala-medica/detail-sala-medica.component';
+import { ListSalaMedicaComponent } from './sala-medica-admin/list-sala-medica/list-sala-medica.component';
 
 
 //Administración
@@ -129,6 +133,10 @@ registerLocaleData(localeEs); // Registra el locale en español
     ListAmbulanciasComponent,
     AddAmbulanciasComponent,
     DetailAmbulanciasComponent,
+    SalaMedicaAdminComponent,
+    AddSalaMedicaComponent,
+    DetailSalaMedicaComponent,
+    ListSalaMedicaComponent,
  
 
 
