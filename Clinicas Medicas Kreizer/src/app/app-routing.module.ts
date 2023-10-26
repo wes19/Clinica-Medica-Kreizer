@@ -39,6 +39,8 @@ const routes: Routes = [
   { path: 'administracion', loadChildren: () => import('./administracion/administracion.module').then( m => m.AdministracionModule )},
   { path: 'ambulancias-admin', loadChildren: () => import('./ambulancia-admin/ambulancia-admin.module').then( m => m.AmbulanciaAdminModule )},
   { path: 'sala-medica-admin', loadChildren: () => import('./sala-medica-admin/sala-medica-admin.module').then( m => m.SalaMedicaAdminModule )},
+  { path: 'asistencias', loadChildren: () => import('./asistencia/list-asistencias.module').then( m => m.ListAsistenciasModule )},
+  { path: 'ausencias', loadChildren: () => import('./ausencias/list-ausencias.module').then( m => m.ListAusenciasModule )},
 ];
 
 @NgModule({

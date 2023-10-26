@@ -99,8 +99,8 @@
             </a>
         </li>
         <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'asistencias'}">
-            <li>
-                <a>
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/asistencias/lista']">
                     <span>
                         Mis Asistencias
                     </span>
@@ -117,15 +117,15 @@
             </a>
         </li>
         <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'ausencias'}">
-            <li>
-                <a>
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/ausencias/crear']">
                     <span>
                         Crear Ausencia
                     </span>
                 </a> 
             </li>
-            <li>
-                <a>
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/ausencias/lista']">
                     <span>
                         Mis Ausencias
                     </span>
