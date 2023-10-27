@@ -14,7 +14,6 @@ import { ConfiguracionesComponent} from './configuraciones/configuraciones.compo
 import { AdministracionComponent} from './administracion/administracion.component';
 import { SolicitudesComponent} from './solicitudes/solicitudes.component';
 import { ContabilidadComponent } from './contabilidad/contabilidad.component';
-import { AmbulanciaAdminComponent } from './ambulancia-admin/ambulancia-admin.component';
 
 
 const routes: Routes = [
@@ -41,7 +40,10 @@ const routes: Routes = [
   { path: 'sala-medica-admin', loadChildren: () => import('./sala-medica-admin/sala-medica-admin.module').then( m => m.SalaMedicaAdminModule )},
   { path: 'asistencias', loadChildren: () => import('./asistencia/list-asistencias.module').then( m => m.ListAsistenciasModule )},
   { path: 'ausencias', loadChildren: () => import('./ausencias/list-ausencias.module').then( m => m.ListAusenciasModule )},
+  { path: 'asistencias-admin', loadChildren: () => import('./asistencias-admin/asistencias-admin.module').then( m => m.AsistenciasAdminModule )},
+  { path: 'ausencias-admin', loadChildren: () => import('./ausencias-admin/ausencias-admin.module').then( m => m.AusenciasAdminModule )},
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

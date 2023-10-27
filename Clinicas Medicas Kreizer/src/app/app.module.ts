@@ -75,6 +75,10 @@ import { ListSalaMedicaComponent } from './sala-medica-admin/list-sala-medica/li
 import { ListAsistenciasComponent } from './asistencia/list-asistencias/list-asistencias.component';
 import { ListAusenciasComponent } from './ausencias/list-ausencias/list-ausencias.component';
 import { AddAusenciasComponent } from './ausencias/add-ausencias/add-ausencias.component';
+import { AsistenciasAdminComponent } from './asistencias-admin/asistencias-admin.component';
+import { PanelAsistenciasComponent } from './asistencias-admin/panel-asistencias/panel-asistencias.component';
+import { AusenciasAdminComponent } from './ausencias-admin/ausencias-admin.component';
+import { PanelAusenciasComponent } from './ausencias-admin/panel-ausencias/panel-ausencias.component';
 
 
 //Administración
@@ -143,6 +147,10 @@ registerLocaleData(localeEs); // Registra el locale en español
     ListAsistenciasComponent,
     ListAusenciasComponent,
     AddAusenciasComponent,
+    AsistenciasAdminComponent,
+    PanelAsistenciasComponent,
+    AusenciasAdminComponent,
+    PanelAusenciasComponent,
  
 
 

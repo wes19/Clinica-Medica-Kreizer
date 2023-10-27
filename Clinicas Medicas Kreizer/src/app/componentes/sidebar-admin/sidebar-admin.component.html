@@ -181,15 +181,8 @@
             </a>
         </li>
         <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'asistencias-admin'}">
-            <li>
-                <a> 
-                    <span>
-                        Mis asistencias
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a>
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/asistencias-admin/panel']">
                     <span>
                         Panel Asistencias
                     </span>
@@ -206,22 +199,8 @@
             </a>
         </li>
         <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'ausencias-admin'}">
-            <li>
-                <a> 
-                    <span>
-                        Crear Ausencias
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                        Mis Asistencias
-                    </span>
-                </a> 
-            </li>
-            <li>
-                <a>
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/ausencias-admin/panel']">
                     <span>
                         Panel Ausencias
                     </span>
