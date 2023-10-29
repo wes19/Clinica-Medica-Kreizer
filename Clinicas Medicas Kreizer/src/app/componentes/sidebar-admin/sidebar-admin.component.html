@@ -258,12 +258,28 @@
         </ul>
         <li routerLinkActive="active">
             <a [routerLink]="['/especialidades']" (click)="onOptionClick('especialidades')">
-                <i class="bi bi-gear-fill"></i>
+                <i class="bi bi-hospital-fill"></i>
                 <span>
                     Especialidades
                 </span>
             </a>
         </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'especialidades'}">
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/especialidades/crear']"> 
+                    <span>
+                        Crear Especialidad
+                    </span>
+                </a>
+            </li>
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/especialidades/lista']">
+                    <span>
+                        Lista Especialidades
+                    </span>
+                </a> 
+            </li>
+        </ul>
         <li routerLinkActive="active">
             <a [routerLink]="['/configuraciones']" (click)="onOptionClick('configuraciones')">
                 <i class="bi bi-gear-fill"></i>
@@ -272,6 +288,15 @@
                 </span>
             </a>
         </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'configuraciones'}">
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/configuraciones/inicio']"> 
+                    <span>
+                        Inicio Menú
+                    </span>
+                </a>
+            </li>
+        </ul>
     </ul>
     
     <ul class="kz-sidebar__footer">

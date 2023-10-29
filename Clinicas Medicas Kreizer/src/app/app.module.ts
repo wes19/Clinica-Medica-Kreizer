@@ -79,6 +79,10 @@ import { AsistenciasAdminComponent } from './asistencias-admin/asistencias-admin
 import { PanelAsistenciasComponent } from './asistencias-admin/panel-asistencias/panel-asistencias.component';
 import { AusenciasAdminComponent } from './ausencias-admin/ausencias-admin.component';
 import { PanelAusenciasComponent } from './ausencias-admin/panel-ausencias/panel-ausencias.component';
+import { AddEspecialidadesComponent } from './especialidades/add-especialidades/add-especialidades.component';
+import { DetailEspecialidadesComponent } from './especialidades/detail-especialidades/detail-especialidades.component';
+import { ListEspecialidadesComponent } from './especialidades/list-especialidades/list-especialidades.component';
+import { ConfiguracionesInicioComponent } from './configuraciones/configuraciones-inicio/configuraciones-inicio.component';
 
 
 //Administración
@@ -151,6 +155,10 @@ registerLocaleData(localeEs); // Registra el locale en español
     PanelAsistenciasComponent,
     AusenciasAdminComponent,
     PanelAusenciasComponent,
+    AddEspecialidadesComponent,
+    DetailEspecialidadesComponent,
+    ListEspecialidadesComponent,
+    ConfiguracionesInicioComponent,
  
 
 

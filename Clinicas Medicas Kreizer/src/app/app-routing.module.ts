@@ -5,12 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './farmacia/dashboard/dashboard.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { CajaComponent } from './caja/caja.component';
-import { AsistenciaComponent } from './asistencia/asistencia.component';
-import { AusenciasComponent } from './ausencias/ausencias.component';
-import { EspecialidadesComponent } from './especialidades/especialidades.component';
 import { InventarioComponent} from './inventario/inventario.component';
 import { ComprasComponent} from './compras/compras.component';
-import { ConfiguracionesComponent} from './configuraciones/configuraciones.component';
 import { AdministracionComponent} from './administracion/administracion.component';
 import { SolicitudesComponent} from './solicitudes/solicitudes.component';
 import { ContabilidadComponent } from './contabilidad/contabilidad.component';
@@ -21,13 +17,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'inicio', component: InicioComponent},
-  { path: 'asistencia', component: AsistenciaComponent},
-  { path: 'ausencias', component: AusenciasComponent},
-  { path: 'especialidades', component: EspecialidadesComponent},
   { path: 'inventario', component: InventarioComponent},
   { path: 'compras', component: ComprasComponent},
   { path: 'caja', component: CajaComponent},
-  { path: 'configuraciones', component: ConfiguracionesComponent},
   { path: 'administracion', component: AdministracionComponent},
   { path: 'solicitudes', component: SolicitudesComponent},
   { path: 'contabilidad', component: ContabilidadComponent},
@@ -42,6 +34,8 @@ const routes: Routes = [
   { path: 'ausencias', loadChildren: () => import('./ausencias/list-ausencias.module').then( m => m.ListAusenciasModule )},
   { path: 'asistencias-admin', loadChildren: () => import('./asistencias-admin/asistencias-admin.module').then( m => m.AsistenciasAdminModule )},
   { path: 'ausencias-admin', loadChildren: () => import('./ausencias-admin/ausencias-admin.module').then( m => m.AusenciasAdminModule )},
+  { path: 'especialidades', loadChildren: () => import('./especialidades/especialidades.module').then( m => m.EspecialidadesModule )},
+  { path: 'configuraciones', loadChildren: () => import('./configuraciones/configuraciones.module').then( m => m.ConfiguracionesModule )},
 ];
 
 

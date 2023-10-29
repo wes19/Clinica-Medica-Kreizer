@@ -1,0 +1,25 @@
+<div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between">
+    <div class="kz-d-flex kz-flex-horizontal-start kz-gap--l">
+        <h5>Agregar Sala Médica</h5>
+    </div>
+    <button class="kz-button kz-button--cancel kz-border-radius--l" [routerLink]="['/especialidades']"> Salir</button>
+</div>
+  
+<div class="kz-form-column">
+    <div class="kz-mb--2">
+        <label>Nombre:</label>
+        <input type="text" class="kz-input">
+    </div>
+</div>
+  
+<div class="kz-form-column">
+    <div class="kz-mb--2">
+        <label>File:</label>
+        <input type="date" class="kz-input">
+    </div>
+</div>
+
+<div class="kz-d-flex kz-flex-horizontal-end">
+    <button class="kz-button kz-button--primary kz-ml--2" [routerLink]="['/especialidades/crear']">Guardar</button>
+</div>
+      
