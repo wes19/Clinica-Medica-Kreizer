@@ -1,6 +1,6 @@
 <section class="kz-sidebar" [class.collapsed]="!getSidebarState()">
     <ul class="kz-sidebar__content">
-        <img class="kz-sidebar-logo" src="../assets/img/logo_ck2.png" type="image/x-icon">
+        <img class="kz-sidebar-logo" [src]="imagePath" type="image/x-icon">
         <li routerLinkActive="active">
             <a [routerLink]="['/inicio']" (click)="onOptionClick('inicio')">
                 <i class="bi bi-microsoft"></i>
