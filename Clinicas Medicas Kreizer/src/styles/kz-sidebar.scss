@@ -1,4 +1,3 @@
-
 @import '~@fortawesome/fontawesome-free/css/all.css';  
 @import 'variables';
 @import 'responsive';
@@ -68,10 +67,6 @@
           }
         }
       }
-      .kz-sidebar-logo {
-        width: 43px;
-        height: auto;
-      }
     }
 
     &-subItems {
@@ -88,7 +83,6 @@
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       }
     }
-  
     .kz-caret-icon {
       font-size: 0.8rem;
       transition: transform 0.5s ease;
@@ -108,9 +102,10 @@
       justify-content: left;
       align-items: center;
       transition: justify-content 0.5s ease;
-      li {
-        list-style: none;
-      } 
+      .kz-sidebar-logo {
+        width: 43px;
+        height: auto;
+      }
     }
     &__footer {
       display: none;
@@ -150,24 +145,29 @@
 
   .collapsed {
     transition: width 0.5s ease, background-color 0.5s ease;
+    .kz-logo-text{
+      display: none;}
     .kz-sidebar{
       width: 75px;
       &__content {
-        span {display: none;}
-        max-height: 100vh;
+        span{opacity: 0;}
+        .kz-sidebar--subItem{
+          &.active {
+            border-left: none;
+            a {
+              background-color: initial;
+              color: initial;
+            }
+          }
+        }
+      }
+      &__logo {
         .kz-sidebar-logo{
           width: 43px;
         }
       }
       .kz-sidebar__footer{
-        justify-content: center;
-        li {
-          a {span {display: none;}}
-        }
+        justify-content: flex-end;
       }
-      .kz-caret-icon{display: none;} 
-    }
-    .kz-logo-text{
-      display: none;
     }
   }
