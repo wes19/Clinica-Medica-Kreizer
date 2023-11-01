@@ -1,7 +1,8 @@
 
+@import '~@fortawesome/fontawesome-free/css/all.css';  
 @import 'variables';
 @import 'responsive';
-    
+
   .kz-sidebar {
     position: fixed;
     top: 0;
@@ -19,7 +20,6 @@
     &__content {
       margin: 0;
       padding-bottom: 0 !important;
-      margin: 0 !important;
       max-height: 100vh;
       overflow: auto;
       transition: width 0.5s ease, padding 0.5s ease;
@@ -71,8 +71,8 @@
       padding: 2rem 0 2rem 0;
   
       .kz-sidebar-logo {
-        display: flex;
-        margin: 0 auto 1rem;
+        //display: flex;
+        //margin: 0 auto 1rem;
         width: auto;
         height: 40px;
       }
@@ -104,7 +104,20 @@
         color: white;
       }
     }
-    
+    &__logo {
+      @include media(screen-1){
+        display: flex;
+      }
+      //position: relative;
+      padding-bottom: 16px;
+      margin-left: -10px;
+      border-bottom: solid 1px rgb(212, 212, 212);
+      justify-content:flex-start;
+      transition: justify-content 0.5s ease;
+      li {
+        list-style: none;
+      } 
+    }
     &__footer {
       display: none;
       @include media(screen-1){
@@ -115,7 +128,7 @@
       padding: 8px 24px;
       border-top: solid 1px rgb(212, 212, 212);
       justify-content: flex-end;
-      transition: justify-content 0.5s ease;
+      //transition: justify-content 0.5s ease;
       li {
         list-style: none;
       }
@@ -147,16 +160,14 @@
       width: 75px;
       &__content {
         span {display: none;}
-        transition: width 0.5s ease, background-color 0.5s ease;
+        max-height: 100vh;
         .kz-sidebar-logo{
           height: 40px;
-          margin: 0 auto 1rem;
-          transition: width 0.5s ease, background-color 0.5s ease;
+          //margin: 0 auto 1rem;
         }
       }
       .kz-sidebar__footer{
         justify-content: center;
-        transition: width 0.5s ease, background-color 0.5s ease;
         li {
           a {span {display: none;}}
         }

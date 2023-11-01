@@ -1,6 +1,8 @@
 <section class="kz-sidebar" [class.collapsed]="!getSidebarState()">
     <ul class="kz-sidebar__content">
-        <img class="kz-sidebar-logo" [src]="imagePath" type="image/x-icon">
+        <ul class="kz-sidebar__logo">         
+            <img class="kz-sidebar-logo" [src]="imagePath" type="image/x-icon">
+        </ul>
         <li routerLinkActive="active">
             <a [routerLink]="['/inicio']" (click)="onOptionClick('inicio')">
                 <i class="bi bi-microsoft"></i>
@@ -21,6 +23,7 @@
         <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'citas'}">
             <li class="kz-sidebar--subItem" routerLinkActive="active">
                 <a [routerLink]="['/citas/crear-cita']">
+                    <i class="fa-solid fa-truck-medical"></i>
                     <span>
                         Crear Cita
                     </span>
@@ -28,6 +31,7 @@
             </li>
             <li class="kz-sidebar--subItem" routerLinkActive="active">
                 <a [routerLink]="['/citas/admisiones']">
+                    <i class="fa-solid fa-truck-medical"></i>
                     <span>
                         Admisiones
                     </span>
@@ -35,6 +39,7 @@
             </li>
             <li class="kz-sidebar--subItem" routerLinkActive="active">
                 <a [routerLink]="['/citas/ambulancias']">
+                    <i class="fa-solid fa-truck-medical"></i>
                     <span>
                         Ambulancias
                     </span>

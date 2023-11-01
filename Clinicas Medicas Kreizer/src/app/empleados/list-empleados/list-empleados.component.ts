@@ -8,7 +8,6 @@ import { EmpleadosService } from 'src/app/services/empleados.service';
   styleUrls: ['./list-empleados.component.scss']
 })
 export class ListEmpleadosComponent implements OnInit {
-  //implements OnInit 
   btnActivo: string = 'kamba';
   empleados:any=[];
   empleadosTemporal: any = [];
