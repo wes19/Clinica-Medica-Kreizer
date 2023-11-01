@@ -19,13 +19,14 @@
     z-index: 4;
     &__content {
       margin: 0;
-      padding-bottom: 0 !important;
       max-height: 100vh;
       overflow: auto;
       transition: width 0.5s ease, padding 0.5s ease;
-      @include media(screen-1){
-        max-height: 93.5vh;
-      }
+      width: 100%;
+      padding:0;
+      //@include media(screen-1){
+      //  max-height: 93.5vh;
+      //}
       &::-webkit-scrollbar {
         width: 0px;
       }
@@ -67,17 +68,12 @@
           }
         }
       }
-      width: 100%;
-      padding: 2rem 0 2rem 0;
-  
       .kz-sidebar-logo {
-        //display: flex;
-        //margin: 0 auto 1rem;
-        width: auto;
-        height: 40px;
+        width: 43px;
+        height: auto;
       }
     }
-  
+
     &-subItems {
       max-height: 0; 
       margin-top: 0; 
@@ -105,14 +101,12 @@
       }
     }
     &__logo {
-      @include media(screen-1){
-        display: flex;
-      }
-      //position: relative;
-      padding-bottom: 16px;
-      margin-left: -10px;
+      padding: 14px 16px;
+      margin: 0 0 24px;
       border-bottom: solid 1px rgb(212, 212, 212);
-      justify-content:flex-start;
+      display: flex;
+      justify-content: left;
+      align-items: center;
       transition: justify-content 0.5s ease;
       li {
         list-style: none;
@@ -162,8 +156,7 @@
         span {display: none;}
         max-height: 100vh;
         .kz-sidebar-logo{
-          height: 40px;
-          //margin: 0 auto 1rem;
+          width: 43px;
         }
       }
       .kz-sidebar__footer{
@@ -173,5 +166,8 @@
         }
       }
       .kz-caret-icon{display: none;} 
+    }
+    .kz-logo-text{
+      display: none;
     }
   }
