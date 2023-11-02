@@ -48,7 +48,8 @@
               "src/styles/kz-chip.scss",
               "src/styles/kz-tabs.scss",
               "src/styles/kz-form-column.scss",
-              "src/styles/kz-link.scss"
+              "src/styles/kz-link.scss",
+              "src/styles/kz-modal.scss"
             ],
             "scripts": []
           },
@@ -129,7 +130,8 @@
               "src/styles/kz-chip.scss",
               "src/styles/kz-tabs.scss",
               "src/styles/kz-form-column.scss",
-              "src/styles/kz-link.scss"
+              "src/styles/kz-link.scss",
+              "src/styles/kz-modal.scss"
             ],
             "scripts": []
           }

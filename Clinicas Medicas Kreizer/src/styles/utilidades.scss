@@ -2,9 +2,13 @@
 @import 'variables';
 
 //// **clases de utilidad **
+
 // bordes
   .kz-border-bottom{
-    border-bottom: #6A6A6A;
+    border-bottom: 1px solid #6A6A6A;
+  }
+  .kz-border-left-gray{
+    border-left: 1px solid #aaaaaa;
   }
 
   .kz-border-blue{
