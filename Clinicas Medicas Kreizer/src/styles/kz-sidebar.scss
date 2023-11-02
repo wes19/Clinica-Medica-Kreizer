@@ -117,7 +117,6 @@
       padding: 8px 24px;
       border-top: solid 1px rgb(212, 212, 212);
       justify-content: flex-end;
-      //transition: justify-content 0.5s ease;
       li {
         list-style: none;
       }
@@ -152,14 +151,22 @@
       &__content {
         span{opacity: 0;}
         .kz-sidebar--subItem{
+          pointer-events: none;
           &.active {
-            border-left: none;
-            a {
+            border-left: initial;
+            a {background-color: initial;
+              color:initial;}}
+          a {&:hover {
               background-color: initial;
-              color: initial;
-            }
-          }
+              color: initial;}}
         }
+      }
+      &-subItems {
+        max-height: 0; 
+        margin-top: 0; 
+        opacity: 1; 
+        transition: max-height 1s ease,  opacity 0.5s ease;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
       }
       &__logo {
         .kz-sidebar-logo{
