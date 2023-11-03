@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SidebarService } from './sidebar.service';
 
 
@@ -7,32 +7,23 @@ import { SidebarService } from './sidebar.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
   selectedOption: string | null = null;
   imagePath: string = '../assets/img/logo.svg';
 
   constructor(private sidebarService: SidebarService) {}
  
-  ngOnInit(): void {
-    this. updateImage();
-  }
-
-  updateImage() {
-    const isSidebarOpen = this.getSidebarState();
-    if (isSidebarOpen) {
+  /*updateImage() {
+    this.isSidebarExpanded = this.getSidebarState();
+    if (this.isSidebarExpanded) {
       this.imagePath = '../assets/img/logo.svg';
     } else {
       this.imagePath = '../assets/img/logo.svg';
     }
-  }
-  
-  toggleSidebar() {
-    this.sidebarService.toggleSidebar();
-    this.updateImage();
-  }
+  }*/
 
-  getSidebarState() {
-    return this.sidebarService.getSidebarState();
+  get isCollapsed() {
+    return this.sidebarService.isCollapse;
   }
 
   onOptionClick(option: string) {
@@ -41,6 +32,5 @@ export class SidebarComponent implements OnInit {
     } else {
       this.selectedOption = option; 
     }
-  }
-  
+  } 
 }

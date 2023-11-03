@@ -158,14 +158,11 @@
   }
   
   .kz-btn-hamb{
-    display: block;
-    @include media(screen-1){
-      display: none;
-    }
     padding: 1px 8px;
     border-radius: 4px;
     background-color: transparent;
     border: 0;
+    font-size: 25px;
     color: $color-one;
     &:hover{
       background-color: #c7d8ee33;

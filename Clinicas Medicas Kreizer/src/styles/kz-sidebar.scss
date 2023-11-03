@@ -107,7 +107,7 @@
         height: auto;
       }
     }
-    &__footer {
+    /*&__footer {
       display: none;
       @include media(screen-1){
         display: flex;
@@ -120,7 +120,7 @@
       li {
         list-style: none;
       }
-    }
+    }*/
   
     &-toggle {
       display: none;
@@ -140,9 +140,16 @@
       i {font-size: 1.3rem;
         color: $color-one;}
     }
+    &.collapsed {
+      transition: width 0.5s ease, background-color 0.5s ease;
+      width: 0;
+    }
   }
 
-  .collapsed {
+
+
+  //Clase para colapsar un sidebar, a uno pequeño
+  /*.collapsed {
     transition: width 0.5s ease, background-color 0.5s ease;
     .kz-logo-text{
       display: none;}
@@ -177,4 +184,4 @@
         justify-content: flex-end;
       }
     }
-  }
+  }*/

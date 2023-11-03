@@ -12,8 +12,4 @@ export class NavbarComponent {
   toggleSidebar() {
     this.sidebarService.toggleSidebar();
   }
-
-  getSidebarState() {
-    return this.sidebarService.getSidebarState();
-  }
 }

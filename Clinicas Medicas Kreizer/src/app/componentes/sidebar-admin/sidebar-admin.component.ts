@@ -17,9 +17,9 @@ export class SidebarAdminComponent {
     this.sidebarService.toggleSidebar();
   }
 
-  getSidebarState() {
+  /*getSidebarState() {
     return this.sidebarService.getSidebarState();
-  }
+  }*/
 
   onOptionClick(option: string) {
     if (this.selectedOption === option) {
