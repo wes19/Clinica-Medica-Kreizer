@@ -1,0 +1,88 @@
+<section class="kz-sidebar" [ngClass]="{'collapsed': isCollapsed}">
+    <ul class="kz-sidebar__content">
+        <ul class="kz-sidebar__logo"> 
+            <div class="kz-d-flex kz-space-between kz-flex-vertical-center">
+                <img class="kz-sidebar-logo" [src]="imagePath" type="image/x-icon">
+                <label class="kz-txt--primary kz-txt--xl kz-logo-text kz-white-space">reizer Clinicas</label>
+            </div>    
+        </ul>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/empleados']" (click)="onOptionClick('empleados')">
+                <i class="bi bi-person-fill"></i>
+                <span>
+                    Empleados
+                </span>
+                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'empleados'}"></i>
+            </a> 
+        </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'empleados'}">
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/empleados/crear']"> 
+                    <span>
+                        Crear Empleado
+                    </span>
+                </a>
+            </li>
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/empleados/lista']"> 
+                    <span>
+                        Lista Empleadoss
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Horario
+                    </span>
+                </a> 
+            </li>
+            <li>
+                <a>
+                    <span>
+                        Planilla
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/asistencias-admin']" (click)="onOptionClick('asistencias-admin')">
+                <i class="bi bi-calendar-check-fill"></i>
+                <span>
+                    Asistencias
+                </span>
+                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'asistencias-admin'}"></i>
+            </a>
+        </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'asistencias-admin'}">
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/asistencias-admin/panel']">
+                    <span>
+                        Panel Asistencias
+                    </span>
+                </a> 
+            </li>
+        </ul>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/ausencias-admin']" (click)="onOptionClick('ausencias-admin')">
+                <i class="bi bi-calendar2-x-fill"></i>
+                <span>
+                    Ausencias
+                </span>
+                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'ausencias-admin'}"></i>
+            </a>
+        </li>
+        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'ausencias-admin'}">
+            <li class="kz-sidebar--subItem" routerLinkActive="active">
+                <a [routerLink]="['/ausencias-admin/panel']">
+                    <span>
+                        Panel Ausencias
+                    </span>
+                </a> 
+            </li>
+        </ul>
+        <button class="kz-button kz-button--sidebar m--3" [routerLink]="['/inicio']">
+            Salir de R.R.H.H.
+        </button>
+    </ul>
+</section>

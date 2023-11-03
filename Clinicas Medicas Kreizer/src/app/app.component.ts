@@ -12,16 +12,7 @@ const rutasSidebarAdmin = [
   '/sala-medica-admin/crear',
   '/sala-medica-admin/lista',
   '/sala-medica-admin/detalles',
-  '/empleados',
-  '/empleados/crear',
-  '/empleados/detalles',
-  '/empleados/lista',
   '/caja-admin',
-  '/contabilidad',
-  '/asistencias-admin',
-  '/asistencias-admin/panel',
-  '/ausencias-admin',
-  '/ausencias-admin/panel',
   '/especialidades',
   '/especialidades/crear',
   '/especialidades/lista',
@@ -35,6 +26,18 @@ const rutasSidebarAdmin = [
   '/pacientes/paciente-expedientes',
   '/pacientes/perfil',
 ];
+
+const rutasSidebarRRHH = [
+  '/rrhh',
+  '/empleados',
+  '/empleados/crear',
+  '/empleados/detalles',
+  '/empleados/lista',
+  '/asistencias-admin',
+  '/asistencias-admin/panel',
+  '/ausencias-admin',
+  '/ausencias-admin/panel',
+]
 
 @Component({
   selector: 'app-root',
@@ -67,6 +70,11 @@ export class AppComponent {
   SidebarAdmin(): boolean {
     const url = this.router.url;
     return rutasSidebarAdmin.includes(url);
+  }
+
+  SidebarRRHH(): boolean {
+    const url = this.router.url;
+    return rutasSidebarRRHH.includes(url);
   }
 }
 

@@ -83,6 +83,8 @@ import { AddEspecialidadesComponent } from './especialidades/add-especialidades/
 import { DetailEspecialidadesComponent } from './especialidades/detail-especialidades/detail-especialidades.component';
 import { ListEspecialidadesComponent } from './especialidades/list-especialidades/list-especialidades.component';
 import { ConfiguracionesInicioComponent } from './configuraciones/configuraciones-inicio/configuraciones-inicio.component';
+import { RRHHComponent } from './rrhh/rrhh.component';
+import { SidebarRrhhComponent } from './componentes/sidebar-rrhh/sidebar-rrhh.component';
 
 
 //Administración
@@ -159,6 +161,8 @@ registerLocaleData(localeEs); // Registra el locale en español
     DetailEspecialidadesComponent,
     ListEspecialidadesComponent,
     ConfiguracionesInicioComponent,
+    RRHHComponent,
+    SidebarRrhhComponent,
  
 
 
