@@ -10,7 +10,4 @@ export class SidebarService {
     this.isCollapse = !this.isCollapse;
   }
 
-  /*getSidebarState() {
-    return this.isSidebarExpanded;
-  }*/
 }

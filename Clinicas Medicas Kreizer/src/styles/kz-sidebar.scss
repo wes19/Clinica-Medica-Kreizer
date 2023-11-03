@@ -15,6 +15,9 @@
     flex-direction: column;
     font-family: $font-family;
     transition: width 0.5s ease, background-color 0.5s ease;
+    @media (max-width: 768px) {
+      width: 0;
+    }
     z-index: 4;
     &__content {
       margin: 0;
@@ -106,6 +109,10 @@
         width: 43px;
         height: auto;
       }
+      label {
+        font-family: $font-famil-logo;
+        color: $color-two;
+      }
     }
     /*&__footer {
       display: none;
@@ -145,8 +152,6 @@
       width: 0;
     }
   }
-
-
 
   //Clase para colapsar un sidebar, a uno pequeño
   /*.collapsed {

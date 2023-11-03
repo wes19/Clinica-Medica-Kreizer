@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SidebarService } from './componentes/sidebar/sidebar.service';
 
 const rutasSidebarAdmin = [
   '/administracion',
@@ -42,7 +43,11 @@ const rutasSidebarAdmin = [
 })
 export class AppComponent {
   title = 'Clinica-Medica';
-  constructor(private router: Router){}
+  constructor(private router: Router, private sidebarService: SidebarService){}
+
+  get isCollapsed() {
+    return this.sidebarService.isCollapse;
+  }
 
   PaginaPermitida(): boolean {
     const url = this.router.url;

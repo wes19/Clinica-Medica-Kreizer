@@ -1,6 +1,6 @@
 <div *ngIf="PaginaPermitida()">
     <div class="kz-main-container">
-        <div class="kz-wrapper">
+        <div class="kz-wrapper" [ngClass]="{'collapsed': isCollapsed}">
             <div *ngIf="SidebarAdmin()">
                 <app-sidebar-admin></app-sidebar-admin>
             </div>
