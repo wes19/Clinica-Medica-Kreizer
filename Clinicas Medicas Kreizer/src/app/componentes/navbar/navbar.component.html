@@ -7,10 +7,17 @@
       <i class="bi bi-bell kz-notification"></i>
         <div class="kz-notification__circle">7</div>
     </button>
-    <div class="kz-user kz-pl--2 kz-border-left-gray">
+    <div class="kz-user kz-pl--2 kz-border-left-gray" (click)="toggleDropdown()">
       <img 
       src="../assets/img/linkend.png" class="kz-img kz-img--circle kz-img--sm kz-border-blue"/>
       <span> Wesly Lazo </span>
+      <div *ngIf="isDropdownOpen" class="kz-dropdown">
+        <!-- Agrega las opciones del dropdown -->
+        <a href="#">Opción 1</a>
+        <a href="#">Opción 2</a>
+        <a href="#">Opción 3</a>
+      </div>
     </div>
+    
   </div>
 </div>

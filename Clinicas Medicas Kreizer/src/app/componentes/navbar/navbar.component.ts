@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { SidebarService } from '../sidebar/sidebar.service';
 
 @Component({
@@ -7,20 +7,23 @@ import { SidebarService } from '../sidebar/sidebar.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  imagePath: string = '../assets/img/logo.svg';
-  
-  constructor(private sidebarService: SidebarService) {}
+  isDropdownOpen = false;
 
-  /*updateImage() {
-    this.isSidebarExpanded = this.getSidebarState();
-    if (this.isSidebarExpanded) {
-      this.imagePath = '../assets/img/logo.svg';
-    } else {
-      this.imagePath = '../assets/img/logo.svg';
-    }
-  }*/
+  constructor(private sidebarService: SidebarService, private el: ElementRef) {}
 
   toggleSidebar() {
     this.sidebarService.toggleSidebar();
+  }
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const clickedInside = this.el.nativeElement.contains(event.target);
+    if (!clickedInside) {
+      this.isDropdownOpen = false;
+    }
   }
 }
