@@ -16,11 +16,13 @@
     border-bottom: 1px solid #6A6A6A;
   }
   .kz-border-left-gray{
-    border-left: 1px solid #aaaaaa;
+    border-left: 1px solid #aaa;
   }
-
+  .kz-border-bottom-gray{
+    border-bottom: 1px solid #aaa;
+  }
   .kz-border-blue{
-    border: 1px solid #3e81e3;
+    border: 1px solid $color-one;
   }
 
  .kz-font-bold{
@@ -380,7 +382,6 @@
   .kz-txt--fucsia{
     color: #D14A7B;
   }
-
   .kz-txt--red{
     color: rgb(199, 29, 29) !important;
   }
