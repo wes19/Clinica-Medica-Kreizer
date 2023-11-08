@@ -8,6 +8,7 @@ import { SidebarService } from '../sidebar/sidebar.service';
 })
 export class NavbarComponent {
   isDropdownOpen = false;
+  isDropdownNoti = false;
 
   constructor(private sidebarService: SidebarService, private el: ElementRef) {}
 
@@ -19,11 +20,16 @@ export class NavbarComponent {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
+  toggleDropdownNoti() {
+    this.isDropdownNoti = !this.isDropdownNoti;
+  }
+
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
     const clickedInside = this.el.nativeElement.contains(event.target);
     if (!clickedInside) {
       this.isDropdownOpen = false;
+      this.isDropdownNoti = false;
     }
   }
 }

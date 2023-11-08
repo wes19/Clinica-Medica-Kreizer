@@ -3,6 +3,14 @@
 
 //// **clases de utilidad **
 
+//position
+
+ .kz-position-abs{
+  position: absolute;
+ }
+ .kz-position-rel{
+  position: relative;
+ }
 // bordes
   .kz-border-bottom{
     border-bottom: 1px solid #6A6A6A;

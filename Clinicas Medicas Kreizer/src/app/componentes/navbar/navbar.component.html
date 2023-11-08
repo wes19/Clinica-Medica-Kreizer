@@ -3,15 +3,35 @@
     <i class="bi bi-list"></i>
   </button>
   <div class="kz-nav__item">
-    <button class="kz-btn-notification">
-      <i class="bi bi-bell kz-notification"></i>
+    <div class="kz-position-rel" (click)="toggleDropdownNoti()">
+      <button class="kz-btn-notification">
+        <i class="bi bi-bell kz-notification"></i>
         <div class="kz-notification__circle">7</div>
-    </button>
+      </button>
+      <div *ngIf="isDropdownNoti" class="kz-dropdown-noti kz-flex-horizontal-center">
+        <div>
+          <h5>Notificacion 1</h5>
+          <p>Parrafo1</p>
+          <p>Fecha</p>
+        </div>
+        <div>
+          <h5>Notificacion 1</h5>
+          <p>Parrafo1</p>
+          <p>Fecha</p>
+        </div>
+        <div>
+          <h5>Notificacion 1</h5>
+          <p>Parrafo1</p>
+          <p>Fecha</p>
+        </div>
+      </div>
+    </div>
+    
     <div class="kz-user kz-pl--2 kz-border-left-gray kz-pointer" (click)="toggleDropdown()">
       <img 
       src="../assets/img/linkend.png" class="kz-img kz-img--circle kz-img--sm kz-border-blue"/>
       <span> Wesly Lazo </span>
-      <div *ngIf="isDropdownOpen" class="kz-dropdown d-flex kz-flex-vertical-center">
+      <div *ngIf="isDropdownOpen" class="kz-dropdown-usr d-flex kz-flex-vertical-center">
         <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a>
       </div>
     </div>
