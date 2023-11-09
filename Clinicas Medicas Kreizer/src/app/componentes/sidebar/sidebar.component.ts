@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SidebarService } from './sidebar.service';
-
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,8 +11,20 @@ import { SidebarService } from './sidebar.service';
 export class SidebarComponent {
   selectedOption: string | null = null;
   imagePath: string = '../assets/img/logo.svg';
+  isCitasRouteActive: boolean = false;
+  citasUrls: string[] = [
+    '/citas/crear-cita',
+    '/citas/disponibilidad',
+    '/contacto',
+  ];
 
-  constructor(private sidebarService: SidebarService) {}
+  constructor(private sidebarService: SidebarService, private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.isCitasRouteActive = this.citasUrls.some(url => this.router.url.includes(url));
+    });
+  }
  
   /*updateImage() {
     this.isSidebarExpanded = this.getSidebarState();
@@ -21,7 +34,7 @@ export class SidebarComponent {
       this.imagePath = '../assets/img/logo.svg';
     }
   }*/
-
+  
   get isCollapsed() {
     return this.sidebarService.isCollapse;
   }

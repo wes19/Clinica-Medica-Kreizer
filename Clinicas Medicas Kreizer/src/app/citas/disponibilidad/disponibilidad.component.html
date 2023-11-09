@@ -6,49 +6,49 @@
       <h2>{{ currentMonth | date:'MMMM yyyy' }}</h2>
       <button class="kz-button kz-button--primary kz-border-radius--l" (click)="nextMonth()">Siguiente</button>
     </div>
-    <div class="week-days kz-d-grid kz-col--7">
+    <div class="kz-week-days kz-d-grid kz-col--7">
       <div *ngFor="let day of weekDays" class="week-day">{{ day }}</div>
     </div>
   
-    <div class="days kz-d-grid kz-col--7">
+    <div class="kz-days kz-d-grid kz-col--7">
       <div *ngFor="let day of calendarDays" (click)="openDay(day)" [ngClass]="{'active': isSelected(day) && day !== null, 'grayed-out': !day}">
         {{ day | date:'d' }}
       </div>
     </div>
   </div>
       <!--Horarios disponibles*/-->
-  <div class="sectioned-box kz-d-grid" *ngIf="selectedDay">
+  <div class="kz-sectioned-box kz-d-grid" *ngIf="selectedDay">
     <div class="kz-dir-vertical">
       <div>
         <h2 class="kz-head kz-head--m">Fechas Disponibles</h2>
       </div>
 
-      <div class="section kz-mb--1" (click)="openModal(Modalver)">
+      <div class="kz-section kz-mb--1" (click)="openModal(Modalver)">
         <h5><b>Wesly Lazo</b></h5>
-        <p><b>8:00 a.m. - 12:00 p.m.</b></p>
+        <p>8:00 a.m. - 12:00 p.m.</p>
         <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
       </div>
 
-      <div class="section kz-mb--1" (click)="openModal(Modalver)">
+      <div class="kz-section kz-mb--1" (click)="openModal(Modalver)">
         <h5><b>Wesly Lazo</b></h5>
-        <p><b>8:00 a.m. - 12:00 p.m.</b></p>
+        <p>8:00 a.m. - 12:00 p.m.</p>
         <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
       </div>
 
-      <div class="section kz-mb--1" (click)="openModal(Modalver)">
+      <div class="kz-section kz-mb--1" (click)="openModal(Modalver)">
         <h5><b>Wesly Lazo</b></h5>
-        <p><b>8:00 a.m. - 12:00 p.m.</b></p>
+        <p>8:00 a.m. - 12:00 p.m.</p>
         <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
       </div>
 
-      <div class="section kz-mb--1" (click)="openModal(Modalver)">
+      <div class="kz-section kz-mb--1" (click)="openModal(Modalver)">
         <h5><b>Wesly Lazo</b></h5>
-        <p><b>8:00 a.m. - 12:00 p.m.</b></p>
+        <p>8:00 a.m. - 12:00 p.m.</p>
         <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
       </div>
 
-      <div class="kz-chip kz-chip--blue kz-txt--xxl">
-        <label>{{ selectedDay | date:'d MMMM yyyy' }}</label>
+      <div class="kz-chip kz-chip--blue">
+        <label class="kz-txt--xl">{{ selectedDay | date:'d MMMM yyyy' }}</label>
       </div>
       
       <div class="kz-mt--1" *ngIf="selectedDay">

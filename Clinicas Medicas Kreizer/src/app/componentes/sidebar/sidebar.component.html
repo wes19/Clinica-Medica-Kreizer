@@ -25,7 +25,7 @@
             </a> 
         </li>
         <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'citas'}">
-            <li class="kz-sidebar--subItem" routerLinkActive="active">
+            <li class="kz-sidebar--subItem" [class.active]="isCitasRouteActive">
                 <a [routerLink]="['/citas/crear-cita']">
                     <span>
                         Crear Cita
