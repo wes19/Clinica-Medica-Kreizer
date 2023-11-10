@@ -64,7 +64,7 @@
                     </span>
                 </a>
             </li>
-            <li class="kz-sidebar--subItem" routerLinkActive="active">
+            <li class="kz-sidebar--subItem" [class.active]="isPacienteRouteActive">
                 <a [routerLink]="['/portal-medico/pacientes-medico']">
                     <span>
                         Pacientes
@@ -96,10 +96,10 @@
             </a> 
         </li>
         <li routerLinkActive="active">
-            <a [routerLink]="['/asistencia']" (click)="onOptionClick('asistencias')">
+            <a [routerLink]="['/asistencias']" (click)="onOptionClick('asistencias')">
                 <i class="bi bi-calendar-check-fill"></i>
                 <span>
-                    Asistencia
+                    Asistencias
                 </span>
                 <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'asistencias'}"></i>
             </a>
@@ -137,32 +137,7 @@
                     </span>
                 </a>
             </li>
-        </ul>
-        <li routerLinkActive="active">
-            <a [routerLink]="['/solicitudes']" (click)="onOptionClick('solicitudes')">
-                <i class="bi bi-file-earmark-ruled-fill"></i>
-                <span>
-                    Solicitudes
-                </span>
-                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'solicitudes'}"></i>
-            </a>
-        </li>
-        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'solicitudes'}">
-            <li>
-                <a> 
-                    <span>
-                        Crear Solicitud
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                        Mis Solicitudes
-                    </span>
-                </a> 
-            </li>
-        </ul>
+        </ul> 
     </ul>
     <!--<ul class="kz-sidebar__footer">
         <li>

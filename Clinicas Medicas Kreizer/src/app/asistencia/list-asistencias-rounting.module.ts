@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListAsistenciasComponent } from './list-asistencias/list-asistencias.component';
+import { AsistenciaComponent } from '../asistencia/asistencia.component';
 
 const routes: Routes = [
  
@@ -9,7 +10,8 @@ const routes: Routes = [
     children: [
       { path: 'lista', component: ListAsistenciasComponent }
     ]
-  }
+  },
+  { path: 'asistencias', component: AsistenciaComponent},
 ]
 
 @NgModule({

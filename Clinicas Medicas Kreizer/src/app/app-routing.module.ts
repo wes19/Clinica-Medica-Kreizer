@@ -11,6 +11,7 @@ import { AdministracionComponent} from './administracion/administracion.componen
 import { SolicitudesComponent} from './solicitudes/solicitudes.component';
 import { ContabilidadComponent } from './contabilidad/contabilidad.component';
 import { RRHHComponent } from './rrhh/rrhh.component';
+import { AsistenciaComponent } from './asistencia/asistencia.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'rrhh', component: RRHHComponent},
   { path: 'solicitudes', component: SolicitudesComponent},
   { path: 'contabilidad', component: ContabilidadComponent},
+  { path: 'asistencias', component: AsistenciaComponent},
   { path: 'citas', loadChildren: () => import('./citas/citas.module').then( m => m.CitasModule )},
   { path: 'empleados', loadChildren: () => import('./empleados/empleados.module').then( m => m.EmpleadosModule )},
   { path: 'pacientes', loadChildren: () => import('./pacientes/pacientes.module').then( m => m.PacientesModule )},

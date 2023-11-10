@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./asistencia.component.scss']
 })
 export class AsistenciaComponent {
+  marcarEntrada() {
+    // Guardar la fecha y hora de entrada
+  }
 
+  marcarSalida() {
+    // Guardar la fecha y hora de salida
+  }
 }
