@@ -12,10 +12,16 @@ export class SidebarComponent {
   selectedOption: string | null = null;
   imagePath: string = '../assets/img/logo.svg';
   isCitasRouteActive: boolean = false;
+  isSalaMedicaRouteActive: boolean = false;
   citasUrls: string[] = [
     '/citas/crear-cita',
     '/citas/disponibilidad',
     '/contacto',
+  ];
+  salaMedicaUrls: string[] = [
+    '/portal-medico/sala-medica',
+    '/portal-medico/sala-espera',
+    '/portal-medico/consulta-paciente',
   ];
 
   constructor(private sidebarService: SidebarService, private router: Router) {
@@ -23,6 +29,7 @@ export class SidebarComponent {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.isCitasRouteActive = this.citasUrls.some(url => this.router.url.includes(url));
+      this.isSalaMedicaRouteActive = this.salaMedicaUrls.some(url => this.router.url.includes(url));
     });
   }
  

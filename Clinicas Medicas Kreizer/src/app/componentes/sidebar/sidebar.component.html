@@ -57,7 +57,7 @@
             </a>
         </li>
         <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'portal-medico'}">
-            <li class="kz-sidebar--subItem" routerLinkActive="active">
+            <li class="kz-sidebar--subItem" [class.active]="isSalaMedicaRouteActive">
                 <a [routerLink]="['/portal-medico/sala-medica']"> 
                     <span>
                         Sala Médica

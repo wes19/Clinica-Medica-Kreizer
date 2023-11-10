@@ -2,7 +2,17 @@
 @import 'responsive';
 
 
-
+.kz-angle-icon {
+    font-size: 1.2rem;
+    transition: transform 0.5s ease;
+    margin-left: auto;
+    color: black;
+    &.rotate {
+      transform: rotate(180deg);
+      transition: transform 0.5s ease;
+      color: black;
+    }
+  }
 
 
 

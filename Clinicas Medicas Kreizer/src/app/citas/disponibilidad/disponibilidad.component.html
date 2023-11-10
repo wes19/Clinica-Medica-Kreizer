@@ -64,15 +64,15 @@
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title">Crear Cita</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+          <i class="bi bi-x-lg"></i>
         </button>
     </div>
 
     <div class="modal-body">
       <div class="row">
         <div class="col col-12 col-lg-6">
-          <div class="kz-kz-d-flex kz-flex-horizontal-center kz-gap--s">
+          <div class="kz-d-flex kz-flex-horizontal-center kz-gap--s">
             <h2 class="kz-txt--green">
               <i class="bi bi-person-fill kz-txt--green"></i>
               5
@@ -104,7 +104,7 @@
         <div class="col col-12 col-lg-6 kz-mt--2-ml">
 
           <div *ngIf="!verFormulario && !agregadoExitosamente">
-            <button class="kz-button kz-button--auxiliar kz-ml--auto" (click)="verFormulario = true">
+            <button class="kz-button kz-button--auxiliar kz-mx--auto" (click)="verFormulario = true">
               <i class="bi bi-plus-lg"></i>
               <span>Agregar Paciente</span>
             </button>
@@ -126,15 +126,15 @@
               <label>Celular:</label>
               <input type="text" class="kz-input" required>
             </div>
-            <div class="kz-kz-d-flex kz-gap--s kz-flex-wrap">
+            <div class="kz-d-flex kz-gap--s kz-flex-wrap">
               <button class="kz-button kz-button--secondary kz-border-radius--l" (click)="reiniciarFormulario()">Atrás</button>
               <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarPaciente()">Guardar</button>
               <button class="kz-button kz-button--auxiliar kz-border-radius--l">Crear</button>
             </div>
           </div>
   
-          <div *ngIf="agregadoExitosamente" class="kz-kz-d-flex kz-dir-vertical kz-flex-vertical-center">
-            <div class="kz-kz-d-flex kz-dir-vertical  kz-flex-vertical-center">
+          <div *ngIf="agregadoExitosamente" class="kz-d-flex kz-dir-vertical kz-flex-vertical-center">
+            <div class="kz-d-flex kz-dir-vertical  kz-flex-vertical-center">
               Agregado Exitosamente
               <img class="kz-img kz-img--x" src="../assets/img/icons/comprobado.png" alt="Card image cap" (click)="verFormulario = true">
             </div>
