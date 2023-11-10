@@ -4,12 +4,12 @@
 
 .kz-angle-icon {
     font-size: 1.2rem;
-    transition: transform 0.5s ease;
+    transition: transform 0.8s ease;
     margin-left: auto;
     color: black;
     &.rotate {
       transform: rotate(180deg);
-      transition: transform 0.5s ease;
+      transition: transform 0.8s ease;
       color: black;
     }
   }
