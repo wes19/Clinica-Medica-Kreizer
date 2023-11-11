@@ -219,6 +219,20 @@
         }
     }
   }
+
+  .kz-btn-collapse{
+    display: block;
+    font-size: 18px;
+    color: $color-two;
+    margin-top: 5px;
+    &:hover{
+      background-color: #E9EDEE;
+      border-radius: 50%;
+    }
+    @include media(screen-1){
+      display: none;
+    }
+  }
   
 /*.radio{
    position: relative;

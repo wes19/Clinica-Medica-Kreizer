@@ -40,6 +40,10 @@ export class SidebarComponent {
     });
   }
  
+  toggleSidebar() {
+    this.sidebarService.toggleSidebar();
+  }
+
   /*updateImage() {
     this.isSidebarExpanded = this.getSidebarState();
     if (this.isSidebarExpanded) {

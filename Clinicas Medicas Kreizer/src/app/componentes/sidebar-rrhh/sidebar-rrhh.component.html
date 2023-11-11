@@ -6,6 +6,13 @@
                 <label class="kz-txt--primary kz-txt--xl kz-logo-text kz-white-space">reizer Clinicas</label>
             </div>    
         </ul>
+
+        <div class="kz-mb--4">
+            <button class="kz-button--sidebar" [routerLink]="['/inicio']">
+                <i class="bi bi-arrow-bar-left"></i> Salir R.R.H.H.
+            </button>
+        </div>
+
         <li routerLinkActive="active">
             <a [routerLink]="['/empleados']" (click)="onOptionClick('empleados')">
                 <i class="bi bi-person-fill"></i>
@@ -81,10 +88,5 @@
                 </a> 
             </li>
         </ul>
-        <div class="kz-mt--5 d-flex">
-            <button class="kz-button--sidebar" [routerLink]="['/inicio']">
-                <i class="bi bi-arrow-bar-left"></i> Salir R.R.H.H.
-            </button>
-        </div>
     </ul>
 </section>

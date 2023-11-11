@@ -1,7 +1,8 @@
-
 <div class="kz-card--simple">
   <h2 class="kz-m--0">Admin</h2>
   <label class="kz-mb--2">Hora:</label>
-  <button class="kz-btn-state" (click)="marcarSalida()"><i class="fa-solid fa-door-open"></i></button>
+  <button class="kz-btn-state" [class.kz-btn-state--change]="isButtonChanged" (click)="marcarSalida()">
+    <i class="fa-solid fa-door-open"></i>
+  </button>
   <label>Haga click para conectarse</label>
 </div>

@@ -6,45 +6,13 @@
                 <label class="kz-txt--primary kz-txt--xl kz-logo-text kz-white-space">reizer Clinicas</label>
             </div>    
         </ul>
-        <li routerLinkActive="active">
-            <a [routerLink]="['/empleados']" (click)="onOptionClick('empleados')">
-                <i class="fa-solid fa-user-nurse"></i>
-                <span>
-                    Empleados
-                </span>
-                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'empleados'}"></i>
-            </a> 
-        </li>
-        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'empleados'}">
-            <li class="kz-sidebar--subItem" routerLinkActive="active">
-                <a [routerLink]="['/empleados/crear']"> 
-                    <span>
-                        Crear Empleado
-                    </span>
-                </a>
-            </li>
-            <li class="kz-sidebar--subItem" routerLinkActive="active">
-                <a [routerLink]="['/empleados/lista']"> 
-                    <span>
-                        Lista Empleadoss
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span>
-                        Horario
-                    </span>
-                </a> 
-            </li>
-            <li>
-                <a>
-                    <span>
-                        Planilla
-                    </span>
-                </a>
-            </li>
-        </ul>
+
+        <div class="kz-mb--4">
+            <button class="kz-button--sidebar" [routerLink]="['/inicio']">
+                <i class="bi bi-arrow-bar-left"></i> Salir Administración
+            </button>
+        </div>
+
         <li routerLinkActive="active">
             <a [routerLink]="['/pacientes']" (click)="onOptionClick('pacientes')">
                 <i class="fa-solid fa-user-injured"></i>
@@ -70,42 +38,7 @@
                 </a> 
             </li>
         </ul>
-        <li routerLinkActive="active">
-            <a [routerLink]="['/asistencias-admin']" (click)="onOptionClick('asistencias-admin')">
-                <i class="bi bi-calendar-check-fill"></i>
-                <span>
-                    Asistencias
-                </span>
-                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'asistencias-admin'}"></i>
-            </a>
-        </li>
-        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'asistencias-admin'}">
-            <li class="kz-sidebar--subItem" routerLinkActive="active">
-                <a [routerLink]="['/asistencias-admin/panel']">
-                    <span>
-                        Panel Asistencias
-                    </span>
-                </a> 
-            </li>
-        </ul>
-        <li routerLinkActive="active">
-            <a [routerLink]="['/ausencias-admin']" (click)="onOptionClick('ausencias-admin')">
-                <i class="bi bi-calendar2-x-fill"></i>
-                <span>
-                    Ausencias
-                </span>
-                <i class="bi bi-caret-down-fill kz-caret-icon" [ngClass]="{'rotate': selectedOption === 'ausencias-admin'}"></i>
-            </a>
-        </li>
-        <ul [ngClass]="{'kz-sidebar-subItems': true, 'open': selectedOption === 'ausencias-admin'}">
-            <li class="kz-sidebar--subItem" routerLinkActive="active">
-                <a [routerLink]="['/ausencias-admin/panel']">
-                    <span>
-                        Panel Ausencias
-                    </span>
-                </a> 
-            </li>
-        </ul>
+      
         <li routerLinkActive="active">
             <a [routerLink]="['/ambulancias-admin']" (click)="onOptionClick('ambulancias-admin')">
                 <i class="bi bi-truck"></i>
@@ -196,11 +129,6 @@
                 </a>
             </li>
         </ul>
-        <div class="kz-mt--5">
-            <button class="kz-button--sidebar" [routerLink]="['/inicio']">
-                <i class="bi bi-arrow-bar-left"></i> Salir Administración
-            </button>
-        </div>
         
     </ul>
 </section>

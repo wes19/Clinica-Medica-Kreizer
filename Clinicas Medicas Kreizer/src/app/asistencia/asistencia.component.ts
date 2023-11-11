@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-asistencia',
@@ -6,11 +7,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./asistencia.component.scss']
 })
 export class AsistenciaComponent {
-  marcarEntrada() {
-    // Guardar la fecha y hora de entrada
-  }
+  isButtonChanged = false;
 
   marcarSalida() {
-    // Guardar la fecha y hora de salida
+    this.isButtonChanged = !this.isButtonChanged;
+
+    if (this.isButtonChanged) {
+      Swal.fire({
+        title: 'Bienvenido',
+        icon: 'success',
+        timer: 3000,
+        showConfirmButton: false,
+      });
+    } else {
+      Swal.fire({
+        title: 'Te Amo',
+        icon: 'info',
+        timer: 3000,
+        showConfirmButton: false,
+      });
+    }
   }
 }

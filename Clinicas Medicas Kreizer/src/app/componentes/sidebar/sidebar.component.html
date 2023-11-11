@@ -5,7 +5,10 @@
             <div class="kz-d-flex kz-space-between kz-flex-vertical-center">
                 <img class="kz-sidebar-logo" [src]="imagePath" type="image/x-icon">
                 <label class="kz-txt--primary kz-txt--xl kz-logo-text kz-white-space">reizer Clinicas</label>
-            </div>    
+            </div> 
+            <div class="kz-btn-collapse">
+                <i class="fa-solid fa-angles-left" (click)="toggleSidebar()"></i>   
+            </div>
         </ul>
         <li routerLinkActive="active">
             <a [routerLink]="['/inicio']" (click)="onOptionClick('inicio')">
@@ -15,6 +18,7 @@
                 </span>
             </a>
         </li>
+
         <li routerLinkActive="active">
             <a [routerLink]="['/citas']" (click)="onOptionClick('citas')">
                 <i class="bi bi-journal-text"></i>
@@ -47,6 +51,7 @@
                 </a>
             </li>
         </ul>
+
         <li routerLinkActive="active">
             <a [routerLink]="['/portal-medico']" (click)="onOptionClick('portal-medico')">
                 <i class="bi bi-person-vcard"></i>
@@ -79,6 +84,7 @@
                 </a>
             </li>
         </ul>
+
         <li routerLinkActive="active">
             <a [routerLink]="['/administracion']" (click)="onOptionClick('administracion')">
                 <i class="fa-solid fa-user-tie"></i>
@@ -87,6 +93,7 @@
                 </span>
             </a> 
         </li>
+
         <li routerLinkActive="active">
             <a [routerLink]="['/rrhh']" (click)="onOptionClick('rrhh')">
                 <i class="fa-solid fa-user-group"></i>
@@ -95,6 +102,7 @@
                 </span>
             </a> 
         </li>
+
         <li routerLinkActive="active">
             <a [routerLink]="['/asistencias']" (click)="onOptionClick('asistencias')">
                 <i class="bi bi-calendar-check-fill"></i>
@@ -113,6 +121,7 @@
                 </a>
             </li>
         </ul>
+
         <li routerLinkActive="active">
             <a [routerLink]="['/ausencias']" (click)="onOptionClick('ausencias')">
                 <i class="bi bi-calendar2-x-fill"></i>

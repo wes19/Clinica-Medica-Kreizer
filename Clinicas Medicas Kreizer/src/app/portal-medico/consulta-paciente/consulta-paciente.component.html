@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<div class="kz-d-flex kz-mb--3 kz-mt--2 kz-pointer" (click)="toggleInfoContainer()">
+<div class="kz-d-flex kz-mb--3 kz-mt--3 kz-pointer" (click)="toggleInfoContainer()">
     <div class="kz-d-flex kz-flex-horizontal-start kz-gap--l">
       <h5>Ver Expediente <i class="fa-solid fa-angles-down kz-angle-icon" 
         [ngClass]="{'rotate': selectedOption === 'expediente'}"></i></h5>
@@ -50,7 +50,7 @@
         <p class="kz-info-title">Dirección de Residencia:</p>
         <p>Col. Centro America Este</p>
         <p class="kz-info-title">Correo:</p>
-        <p>wlazo@prueba.com</p>
+        <p>wlazo.com</p>
     </div>
 </div>
 
@@ -145,7 +145,8 @@
         <textarea type="" class="kz-input"></textarea>
       </div>
     </div>
-    <button class="kz-button kz-button--cancel" [routerLink]="['/empleados']">Salir</button>
-    <button class="kz-button kz-button--primary kz-ml--2" [routerLink]="['/add-empleados']">Guardar</button>
-     
+    <div class="kz-d-flex">
+      <button class="kz-button kz-button--cancel" [routerLink]="['/empleados']">Salir</button>
+      <button class="kz-button kz-button--primary kz-ml--2" [routerLink]="['/add-empleados']">Guardar</button>  
+    </div>
   </form>
