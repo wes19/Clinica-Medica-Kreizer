@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { SidebarService } from '../sidebar/sidebar.service';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sidebar-admin',
@@ -9,8 +11,32 @@ import { SidebarService } from '../sidebar/sidebar.service';
 export class SidebarAdminComponent {
   selectedOption: string | null = null;
   imagePath: string = '../assets/img/logo.svg';
+  pacientesListaAdmin: boolean = false;
+  ambulanciasListaAdmin: boolean = false;
+  salaMedicaListaAdmin: boolean = false;
 
-  constructor(private sidebarService: SidebarService) {
+  pacListaAdminUrls: string[] = [
+    '/pacientes/lista',
+    '/pacientes/paciente-expedientes',
+    '/pacientes/perfil',
+  ];
+  ambListaAdminUrls: string[] = [
+    '/ambulancias-admin/lista',
+    '/ambulancias-admin/detalles',
+  ];
+  salaMedicaAdminUrls: string[] = [
+    '/sala-medica-admin/lista',
+    '/sala-medica-admin/detalles',
+  ];
+
+  constructor(private sidebarService: SidebarService, private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.pacientesListaAdmin = this.pacListaAdminUrls.some(url => this.router.url.includes(url));
+      this.ambulanciasListaAdmin = this.ambListaAdminUrls.some(url => this.router.url.includes(url));
+      this.salaMedicaListaAdmin = this.salaMedicaAdminUrls.some(url => this.router.url.includes(url));
+    });
   }
 
   /*updateImage() {

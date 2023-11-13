@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { SidebarService } from '../sidebar/sidebar.service';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sidebar-rrhh',
@@ -10,8 +12,19 @@ export class SidebarRrhhComponent {
   selectedOption: string | null = null;
   isHovered: boolean = false;
   imagePath: string = '../assets/img/logo.svg';
+  empleadosLista: boolean = false;
 
-  constructor(private sidebarService: SidebarService) {
+  empListaUrls: string[] = [
+    '/empleados/lista',
+    '/empleados/detalles',
+  ];
+
+  constructor(private sidebarService: SidebarService, private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.empleadosLista = this.empListaUrls.some(url => this.router.url.includes(url));
+    });
   }
 
   toggleSidebar() {

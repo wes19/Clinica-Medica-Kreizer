@@ -30,7 +30,7 @@
                     </span>
                 </a>
             </li>
-            <li class="kz-sidebar--subItem" routerLinkActive="active">
+            <li class="kz-sidebar--subItem" [class.active]="pacientesListaAdmin">
                 <a [routerLink]="['/pacientes/lista']"> 
                     <span>
                         Lista Pacientes
@@ -56,7 +56,7 @@
                     </span>
                 </a>
             </li>
-            <li class="kz-sidebar--subItem" routerLinkActive="active">
+            <li class="kz-sidebar--subItem" [class.active]="ambulanciasListaAdmin">
                 <a [routerLink]="['/ambulancias-admin/lista']">
                     <span>
                         Lista Ambulancias
@@ -80,7 +80,7 @@
                     </span>
                 </a>
             </li>
-            <li class="kz-sidebar--subItem" routerLinkActive="active">
+            <li class="kz-sidebar--subItem" [class.active]="salaMedicaListaAdmin">
                 <a [routerLink]="['/sala-medica-admin/lista']">
                     <span>
                         Salas Médica
