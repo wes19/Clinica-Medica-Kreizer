@@ -39,7 +39,7 @@ export class SidebarComponent {
       this.isPacienteRouteActive = this.pacientesUrls.some(url => this.router.url.includes(url));
     });
   }
- 
+
   toggleSidebar() {
     this.sidebarService.toggleSidebar();
   }
