@@ -1,33 +1,12 @@
+
 <div class="kz-d-flex kz-flex-horizontal-start kz-gap--l">
     <h5>Menú</h5>
  </div>
 <div class="kz-d-grid kz-col-s4--5 kz-col-s3--4 kz-col-s2--3 kz-col-s1--2 kz-col-t--2 kz-col--1 kz-gap--xl kz-w--100 kz-mt--4">
-    <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" [routerLink]="['/citas']">
-        <img class="kz-img kz-img--xl" src="../assets/img/icons/citas.png" alt="Card image cap">
-        <label class="kz-txt--m kz-font-bold">Citas</label>
-    </div>  
-    <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" [routerLink]="['/portal-medico']">
-        <img class="kz-img kz-img--xl" src="../assets/img/icons/portal.png" alt="Card image cap">
-        <label class="kz-txt--m kz-font-bold">Portal Médico</label>
-    </div>
-    <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" [routerLink]="['/administracion']">
-        <img class="kz-img kz-img--xl" src="../assets/img/icons/administracion.png" alt="Card image cap">
-        <label class="kz-txt--m kz-font-bold">Administración</label>
-    </div>  
-    <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" [routerLink]="['/caja']">
-        <img class="kz-img kz-img--xl" src="../assets/img/icons/caja.png" alt="Card image cap">
-        <label class="kz-txt--m kz-font-bold">Caja</label>
-    </div>
-    <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" [routerLink]="['/asistencia']">
-        <img class="kz-img kz-img--xl" src="../assets/img/icons/asistencia.png" alt="Card image cap">
-        <label class="kz-txt--m kz-font-bold">Asistencia</label>
-    </div>
-    <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" [routerLink]="['/ausencias']">
-        <img class="kz-img kz-img--xl" src="../assets/img/icons/ausencia.png" alt="Card image cap">
-        <label class="kz-txt--m kz-font-bold">Ausencias</label>
-    </div>
-    <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" [routerLink]="['/solicitudes']">
-        <img class="kz-img kz-img--xl" src="../assets/img/icons/contactos.png" alt="Card image cap">
-        <label class="kz-txt--m kz-font-bold">Solicitudes</label>
-    </div>
+    <div *ngFor="let menu of menus">
+        <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" [routerLink]="[menu.url]">
+            <img class="kz-img kz-img--xl" src="{{menu.imagen}}" alt="Card image cap">
+            <label class="kz-txt--m kz-font-bold">{{menu.nombre}}</label>
+        </div> 
+    </div> 
 </div>  

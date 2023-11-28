@@ -18,12 +18,13 @@
   background-position-x: 12px;
   font-family: $font-family;
   color: $color-seven;
-  background-color: transparent;
+  background-color: white;
   box-shadow: 0 0 1px 1px transparent;
   &:focus {
     outline: 0;
     border: 1.5px solid transparent !important;
     box-shadow: 0 0 2px 2px #1f85b1;
+    background-color: white;
   }
 }
 
