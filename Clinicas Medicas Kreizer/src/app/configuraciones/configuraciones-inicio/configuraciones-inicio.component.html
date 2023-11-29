@@ -9,25 +9,57 @@
     <thead class="kz-table__head">
       <tr>
         <th>Nombre</th>
-        <th>File</th>
+        <th>Imagen</th>
+        <th>URL</th>
+        <th>Estado</th>
       </tr>
     </thead>
     <tbody class="kz-table__body">
-      <tr>
-        <td>Medicina General</td>
-        <td>Disponible</td>
-      </tr>
-      <tr>
-        <td>Medicina General</td>
-        <td>Disponible</td>
-      </tr>
-      <tr>
-        <td>Medicina General</td>
-        <td>Disponible</td>
-      </tr>
-      <tr>
-        <td>Medicina General</td>
-        <td>Disponible</td>
+      <tr *ngFor="let menu of menus">
+        <td>{{menu.nombre}}</td>
+        <td>{{menu.imagen}}</td>
+        <td>{{menu.url}}</td>
+        <td>{{menu.estado}}</td>
+        <td class="kz-d-flex kz-gap--l"> 
+          <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="openModal(ModalEditar, menu)"> Editar</button>
+        </td>
       </tr>
     </tbody>
 </table>
+
+
+<ng-template #ModalEditar let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Admitidos</h5>
+        <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+
+    <div class="modal-body">
+      <table class="kz-table">
+        <thead class="kz-table__head">
+          <tr>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>URL</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody class="kz-table__body">
+          <tr>
+            <td>{{menuModal.nombre}}</td>
+            <td>{{menuModal.imagen}}</td>
+            <td>{{menuModal.url}}</td>
+            <td>{{menuModal.estado}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+    </div>
+  </div>
+</ng-template>

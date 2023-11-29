@@ -2,25 +2,52 @@
     <thead class="kz-table__head">
       <tr>
         <th>Nombre</th>
-        <th>File</th>
+        <th>Imagen</th>
+        <th>Estado</th>
       </tr>
     </thead>
     <tbody class="kz-table__body">
-      <tr>
-        <td>Medicina General</td>
-        <td>Disponible</td>
-      </tr>
-      <tr>
-        <td>Medicina General</td>
-        <td>Disponible</td>
-      </tr>
-      <tr>
-        <td>Medicina General</td>
-        <td>Disponible</td>
-      </tr>
-      <tr>
-        <td>Medicina General</td>
-        <td>Disponible</td>
+      <tr *ngFor="let especialidad of especialidades">
+        <td>{{especialidad.nombre}}</td>
+        <td>{{especialidad.imagen}}</td>
+        <td>{{especialidad.estado}}</td>
+        <td class="kz-d-flex kz-gap--l"> 
+          <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="openModal(ModalEditar, especialidad)"> Editar</button>
+        </td>
       </tr>
     </tbody>
 </table>
+
+<ng-template #ModalEditar let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Admitidos</h5>
+        <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+
+    <div class="modal-body">
+      <table class="kz-table">
+        <thead class="kz-table__head">
+          <tr>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody class="kz-table__body">
+          <tr>
+            <td>{{especialidadModal.nombre}}</td>
+            <td>{{especialidadModal.imagen}}</td>
+            <td>{{especialidadModal.estado}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+    </div>
+  </div>
+</ng-template>

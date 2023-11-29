@@ -9,7 +9,7 @@ CREATE TABLE kz_especialidades (
 -- Insertar datos en kz_especialidades
 INSERT INTO kz_especialidades (nombre, imagen, estado) VALUES
     ('Medicina General', '../assets/img/especialidades/medicinaGeneral.png', 'Activo'),
-    ('Pediatría', '"../assets/img/especialidades/pediatria.png', 'Activo'),
+    ('Pediatría', '../assets/img/especialidades/pediatria.png', 'Activo'),
     ('Neurología', '../assets/img/especialidades/neurologia.png', 'Activo'),
     ('Dermatología', '../assets/img/especialidades/dermatologia.png', 'Activo'),
     ('Otología', '../assets/img/especialidades/otologia.png', 'Activo'),

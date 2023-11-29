@@ -14,8 +14,6 @@ export class AdmisionesMedicoComponent {
     this.modalService.open(modal, {
       size: 'lg',
       centered: true,
-      
     });
   }
-
 }
