@@ -12,6 +12,14 @@ export class EspecialidadesService {
   constructor(private httpClient:HttpClient) { }
 
   obtenerEspecialidades():Observable<any>{
-    return this.httpClient.get(`${this.backendWeb}/especialidades`,{});
+    return this.httpClient.get(`${this.backendWeb}/especialidades/lista`,{});
+  }
+
+  crearEspecialidad(data: any): Observable<any> {
+    return this.httpClient.post(`${this.backendWeb}/especialidades/crear`, {
+      nombre: data.nombre,
+      imagen: data.imagen,
+      estado: data.estado,
+    });
   }
 }

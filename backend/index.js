@@ -9,9 +9,9 @@ var especialidadesRouter = require('./routers/especialidades-router');
 
 var app = express();
 
-app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 app.use('/empleados', empleadosRouter(connection));
 app.use('/inicio', menuRouter(connection));

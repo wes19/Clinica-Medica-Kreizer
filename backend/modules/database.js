@@ -11,7 +11,7 @@ class Database {
             database: 'clinicamedica_KZ'
         });
 
-        // Verificación Conexión Bases de Datos
+        //Verificación Conexión Bases de Datos
         this.connection.connect(function (err) {
             if (err) {
                 console.error('ERROR AL CONECTARSE A LA BASE DE DATOS: ', err);
