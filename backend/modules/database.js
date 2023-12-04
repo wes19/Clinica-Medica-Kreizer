@@ -1,30 +1,38 @@
-var mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
 class Database {
     constructor() {
-        // Conexión Base de Datos
-        this.connection = mysql.createConnection({
-            host: 'localhost',
-            port: 3306,
-            user: 'root',
-            password: '1234',
-            database: 'clinicamedica_KZ'
-        });
-
-        //Verificación Conexión Bases de Datos
-        this.connection.connect(function (err) {
-            if (err) {
-                console.error('ERROR AL CONECTARSE A LA BASE DE DATOS: ', err);
-                return;
-            } else {
-                console.log('CONEXION EXITOSA');
-            }
-        });
+        this.initialize();
     }
 
-    // Método para realizar consultas en la base de datos
-    query(sql, callback) {
-        this.connection.query(sql, callback);
+    async initialize() {
+        try {
+            this.pool = mysql.createPool({
+                host: 'localhost',
+                port: 3306,
+                user: 'root',
+                password: '1234',
+                database: 'clinicamedica_KZ'
+            });
+
+            const connection = await this.pool.getConnection();
+            console.log('CONEXION EXITOSA A LA BASE DE DATOS');
+            connection.release();
+        } catch (error) {
+            console.error('ERROR AL CONECTARSE A LA BASE DE DATOS: ', error);
+        }
+    }
+
+    async query(sql, values) {
+        const connection = await this.pool.getConnection();
+        try {
+            const [results, fields] = await connection.query(sql, values);
+            return results;
+        } catch (error) {
+            throw error;
+        } finally {
+            connection.release();
+        }
     }
 }
 

@@ -22,8 +22,48 @@ IMPORTANTE .- Terminar de refactorizas todas las clases con "kz-"
 
 10.- Los inputs y select se muestran en transparentes, cambiar a fondos blancos
 
+
+  var mysql = require('mysql2');
+
+class Database {
+    constructor() {
+        // Conexión Base de Datos
+        this.connection = mysql.createConnection({
+            host: 'localhost',
+            port: 3306,
+            user: 'root',
+            password: '1234',
+            database: 'clinicamedica_KZ'
+        });
+
+        //Verificación Conexión Bases de Datos
+        this.connection.connect(function (err) {
+            if (err) {
+                console.error('ERROR AL CONECTARSE A LA BASE DE DATOS: ', err);
+                return;
+            } else {
+                console.log('CONEXION EXITOSA');
+            }
+        });
+          // Promisify el método query
+          this.query = this.connection.promise().query;
+    }
+
+    // Método para realizar consultas en la base de datos
+    query(sql, callback) {
+        this.connection.query(sql, callback);
+    }
+}
+
+module.exports = new Database();
+
+
+
+
+
 var express = require('express');
 var router = express.Router();
+var db = require('../modules/database'); 
 
 // Obtener Especialidades
 module.exports = function (db) {
@@ -38,18 +78,24 @@ module.exports = function (db) {
         });
     });
 
+    // Guardar Especialidades
     router.post('/crear', (req, res) => {
         const { nombre, imagen, estado } = req.body;
         const query = 'INSERT INTO kz_especialidades (nombre, imagen, estado) VALUES (?, ?, ?)';
+        console.log('PASO 1:', { nombre, imagen, estado });
+
         db.query(query, [nombre, imagen, estado], (error, results, fields) => {
+            console.log('Entro!!!!!!!!!!!!!!!!!!!!!!!');
             if (error) {
                 console.error('Error al realizar la inserción: ', error);
-                res.status(500).send('Error al realizar la inserción');
+                res.status(500).json({ error: 'Error al realizar la inserción' });
                 return;
             }
-            res.status(201).send('Especialidad guardada exitosamente');
+            console.log('AL FIN');
+            //res.status(201).json({ message: 'Especialidad guardada exitosamente' });
+            res.send(results);
+            
         });
     });
-
     return router;
 };
