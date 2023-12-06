@@ -33,7 +33,7 @@ module.exports = function (db) {
         const idEsp = req.params.idEsp;
         try {
             await db.query(
-            'UPDATE kz_menu SET nombre=?, imagen=?, estado=? WHERE idEsp=?',
+            'UPDATE kz_especialidades SET nombre=?, imagen=?, estado=? WHERE idEsp=?',
             [nombre, imagen, estado, idEsp]
             );
             res.send({ message: 'Registro actualizado correctamente' });

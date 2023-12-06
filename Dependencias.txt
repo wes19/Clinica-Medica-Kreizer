@@ -32,3 +32,6 @@ npm install sweetalert2
 
 
 Set-ExecutionPolicy Unrestricted
+
+//Variables de entorno
+C:\Users\TuUsuario\AppData\Roaming\npm
