@@ -59,8 +59,6 @@ module.exports = new Database();
 
 
 
-
-
 var express = require('express');
 var router = express.Router();
 var db = require('../modules/database'); 
@@ -99,3 +97,11 @@ module.exports = function (db) {
     });
     return router;
 };
+
+
+next: res=>{
+          
+        },
+        error: err =>{
+          
+        }

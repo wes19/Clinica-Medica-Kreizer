@@ -11,8 +11,8 @@
         <td>{{especialidad.nombre}}</td>
         <td>{{especialidad.imagen}}</td>
         <td>{{especialidad.estado}}</td>
-        <td class="kz-d-flex kz-gap--l"> 
-          <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="openModal(ModalEditar, especialidad)"> Editar</button>
+        <td class="kz-d-flex"> 
+          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="openModal(ModalEditar, especialidad)"> Editar</button>
         </td>
       </tr>
     </tbody>
@@ -28,25 +28,26 @@
     </div>
 
     <div class="modal-body">
-      <table class="kz-table">
-        <thead class="kz-table__head">
-          <tr>
-            <th>Nombre</th>
-            <th>Imagen</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody class="kz-table__body">
-          <tr>
-            <td>{{especialidadModal.nombre}}</td>
-            <td>{{especialidadModal.imagen}}</td>
-            <td>{{especialidadModal.estado}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="kz-form-column">
+        <div class="kz-mb--2">
+          <label>Nombre:</label>
+          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.nombre" required>
+        </div>
+        <div class="kz-mb--2">
+          <label>Estado:</label>
+          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.estado" required>
+        </div>
+      </div>
+      <div class="kz-form-column">
+        <div class="kz-mb--2">
+          <label>Imagen:</label>
+          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.imagen" required>
+        </div>
+      </div>
     </div>
     
     <div class="modal-footer">
+      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarEspecialidad()">Guardar</button>
       <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
     </div>
   </div>

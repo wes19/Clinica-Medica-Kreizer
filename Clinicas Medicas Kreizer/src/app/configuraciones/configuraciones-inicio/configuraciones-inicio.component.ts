@@ -16,7 +16,8 @@ export class ConfiguracionesInicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuService.obtenerMenu().subscribe(
-      res=>{
+     {
+      next: res=>{
         this.menus = [];
         this.menuTemporal = res;
         for(let i = 0; i < this.menuTemporal.length; i++){
@@ -25,8 +26,11 @@ export class ConfiguracionesInicioComponent implements OnInit {
           }
         }
       },
-      error=>console.log(error)
-    )
+      error: err =>{
+        console.log(err);
+      }
+     }
+    );
   }
 
   openModal(modal: any, menu: any): void {
@@ -35,6 +39,27 @@ export class ConfiguracionesInicioComponent implements OnInit {
       centered: true,
     });
     this.menuModal = menu;
+  }
+
+  actualizarMenu() {
+    const jsonActualizarMenu = {
+      idMenu : this.menuModal.idMenu,
+      nombre : this.menuModal.nombre,
+      imagen : this.menuModal.imagen,
+      url : this. menuModal.url,
+      estado : this.menuModal.estado
+    }
+    this.menuService.actualizarMenu(jsonActualizarMenu).subscribe(
+      {
+        next: res=>{
+          console.log(res)
+          this.modalService.dismissAll();
+        },
+        error: err =>{
+          console.log(err);
+        }
+      }
+    );
   }
   
 }

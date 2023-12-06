@@ -14,4 +14,13 @@ export class MenuService {
   obtenerMenu():Observable<any>{
     return this.httpClient.get(`${this.backendWeb}/inicio`,{});
   }
+
+  actualizarMenu(data: any):Observable<any>{
+    return this.httpClient.put(`${this.backendWeb}/inicio/${data.idMenu}`,{
+      nombre: data.nombre,
+      imagen: data.imagen,
+      url: data.url,
+      estado: data.estado,
+    });
+  }
 }

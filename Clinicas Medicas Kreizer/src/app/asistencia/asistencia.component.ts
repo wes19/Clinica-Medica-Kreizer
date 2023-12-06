@@ -21,7 +21,7 @@ export class AsistenciaComponent {
       });
     } else {
       Swal.fire({
-        title: 'Te Amo',
+        title: 'Adiós',
         icon: 'info',
         timer: 3000,
         showConfirmButton: false,

@@ -16,17 +16,21 @@ export class ListEspecialidadesComponent implements OnInit {
 
   ngOnInit(): void {
     this.especialidadesService.obtenerEspecialidades().subscribe(
-      res=>{
-        this.especialidades = [];
-        this.especialidadesTemporal = res;
-        for(let i = 0; i < this.especialidadesTemporal.length; i++){
-          if(this.especialidadesTemporal[i].estado == 'Activo'){
-            this.especialidades.push(this.especialidadesTemporal[i]);
+      {
+        next : res=>{
+          this.especialidades = [];
+          this.especialidadesTemporal = res;
+          for(let i = 0; i < this.especialidadesTemporal.length; i++){
+            if(this.especialidadesTemporal[i].estado == 'Activo'){
+              this.especialidades.push(this.especialidadesTemporal[i]);
+            }
           }
+        },
+        error : err =>{
+          console.log(err)
         }
-      },
-      error=>console.log(error)
-    )
+      }
+    );
   }
 
   openModal(modal: any, especialidad: any): void {
@@ -35,6 +39,26 @@ export class ListEspecialidadesComponent implements OnInit {
       centered: true,
     });
     this.especialidadModal = especialidad;
+  }
+
+  actualizarEspecialidad() {
+    const jsonActualizarEsp = {
+      idEsp : this.especialidadModal.idEsp,
+      nombre : this.especialidadModal.nombre,
+      imagen : this.especialidadModal.imagen,
+      estado : this.especialidadModal.estado
+    }
+    this.especialidadesService.actualizarEspecialidad(jsonActualizarEsp).subscribe(
+      {
+        next: res=>{
+          console.log(res)
+          this.modalService.dismissAll();
+        },
+        error: err =>{
+          console.log(err);
+        }
+      }
+    );
   }
   
 }

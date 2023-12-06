@@ -27,5 +27,21 @@ module.exports = function (db) {
         }
     });
 
+     //Actualizar Especialidades
+     router.put('/lista/:idEsp', async (req, res) => {
+        const { nombre, imagen, estado } = req.body;
+        const idEsp = req.params.idEsp;
+        try {
+            await db.query(
+            'UPDATE kz_menu SET nombre=?, imagen=?, estado=? WHERE idEsp=?',
+            [nombre, imagen, estado, idEsp]
+            );
+            res.send({ message: 'Registro actualizado correctamente' });
+        } catch (error) {
+            console.error('Error al actualizar el registro: ', error);
+            res.status(500).send('Error al actualizar el registro');
+        }
+      });
+
     return router;
 }

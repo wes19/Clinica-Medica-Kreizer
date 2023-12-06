@@ -22,4 +22,12 @@ export class EspecialidadesService {
       estado: data.estado,
     });
   }
+
+  actualizarEspecialidad(data: any):Observable<any>{
+    return this.httpClient.put(`${this.backendWeb}/especialidades/lista/${data.idEsp}`,{
+      nombre: data.nombre,
+      imagen: data.imagen,
+      estado: data.estado,
+    });
+  }
 }

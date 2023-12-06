@@ -1,5 +1,6 @@
 import { Component  } from '@angular/core';
 import { EspecialidadesService } from 'src/app/services/especialidades.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-especialidades',
@@ -24,14 +25,12 @@ export class AddEspecialidadesComponent{
       imagen : this.imagen,
       estado : this.estado
     }
-    console.log(jsonEspecialidad);
-
-     // tslint:disable-next-line: deprecation
     this.especialidadesService.crearEspecialidad(jsonEspecialidad).subscribe(
       {
         next: res=>{
         console.log(res);
         this.limpiarFormulario();
+        this.guardadoExitosamente();
         },
         error: err =>{
           console.log(err);
@@ -44,6 +43,14 @@ export class AddEspecialidadesComponent{
     this.nombre = '';
     this.estado = '';
     this.imagen = '';
+  }
+
+  guardadoExitosamente(){
+    Swal.fire({
+      title: 'Guardado Exitosamente!',
+      icon: 'success',
+      showConfirmButton: false,
+    });
   }
 
 }
