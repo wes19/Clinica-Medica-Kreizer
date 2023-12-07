@@ -11,8 +11,9 @@
         <td>{{especialidad.nombre}}</td>
         <td>{{especialidad.imagen}}</td>
         <td>{{especialidad.estado}}</td>
-        <td class="kz-d-flex"> 
+        <td class="kz-d-flex kz-gap--s"> 
           <button class="kz-button kz-button--primary kz-border-radius--l" (click)="openModal(ModalEditar, especialidad)"> Editar</button>
+          <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modalDelete(especialidad)"> <i class="bi bi-trash"></i></button>
         </td>
       </tr>
     </tbody>

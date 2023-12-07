@@ -10,29 +10,34 @@
         <div class="kz-mb--2">
             <label>Nombre:</label>
             <input type="text" class="kz-input" [ngClass]="{'is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" formControlName="nombre" required>
-            <div *ngIf="obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)" class="alert alert-danger mt-2">Por favor, ingresa un nombre valido</div>
-           
+            <div *ngIf="obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)" class="alert alert-danger mt-2">
+                Por favor, ingresa un nombre valido
+            </div>
         </div>
+
         <div class="kz-mb--2">
             <label>Estado:</label>
-            <select class="kz-input" formControlName="estado">
+            <select class="kz-input" formControlName="estado" [ngClass]="{'is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
                 <option value="" selected>-- Selecciona una opción --</option>
                 <option value="Activo">Activo</option> 
                 <option value="Inactivo">Inactivo</option> 
             </select>
-        
+            <div *ngIf="obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)" class="alert alert-danger mt-2">
+                Por favor, ingresa un estado valido
+            </div>
         </div>
     </div>
+
     <div class="kz-form-column">
         <div class="kz-mb--2">
             <label>Imagen:</label>
             <input type="text" formControlName="imagen" class="kz-input">
-
         </div>
     </div>
 
     <div class="kz-d-flex kz-flex-horizontal-end">
-        <button class="kz-button kz-button--primary kz-ml--2" [disabled]="!registroEsp.valid" (click)="guardarEspecialidad()" [routerLink]="['/especialidades/crear']">Guardar</button>
+        <button class="kz-button kz-button--primary kz-ml--2" [disabled]="registroEsp.invalid" 
+        (click)="guardarEspecialidad()" [routerLink]="['/especialidades/crear']">Guardar</button>
     </div>
 </form>
 

@@ -23,4 +23,13 @@ export class MenuService {
       estado: data.estado,
     });
   }
+
+  crearMenu(data: any): Observable<any> {
+    return this.httpClient.post(`${this.backendWeb}/inicio`, {
+      nombre: data.nombre,
+      imagen: data.imagen,
+      url: data.url,
+      estado: data.estado,
+    });
+  }
 }

@@ -1,3 +1,6 @@
+<div class="kz-gap--l kz-mb--2">
+  <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarMenu(ModalCrear)">Crear</button>
+</div>
 
 <table class="kz-table">
     <thead class="kz-table__head">
@@ -15,7 +18,7 @@
         <td>{{menu.url}}</td>
         <td>{{menu.estado}}</td>
         <td class="kz-d-flex kz-gap--l"> 
-          <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="openModal(ModalEditar, menu)"> Editar</button>
+          <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="editarModal(ModalEditar, menu)"> Editar</button>
         </td>
       </tr>
     </tbody>
@@ -23,6 +26,46 @@
 
 
 <ng-template #ModalEditar let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Menús</h5>
+        <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="kz-form-column">
+        <div class="kz-mb--2">
+          <label>Nombre:</label>
+          <input type="text" class="kz-input" [(ngModel)]="menuModal.nombre" required>
+        </div>
+        <div class="kz-mb--2">
+          <label>URL:</label>
+          <input type="text" class="kz-input" [(ngModel)]="menuModal.url" required>
+        </div>
+      </div>
+      <div class="kz-form-column">
+        <div class="kz-mb--2">
+          <label>Imagen:</label>
+          <input type="text" class="kz-input" [(ngModel)]="menuModal.imagen" required>
+        </div>
+        <div class="kz-mb--2">
+          <label>Estado:</label>
+          <input type="text" class="kz-input" [(ngModel)]="menuModal.estado" required>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarMenu()">Guardar</button>
+      <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #ModalCrear let-modal>
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title">Menús</h5>

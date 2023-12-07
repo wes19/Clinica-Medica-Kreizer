@@ -30,4 +30,8 @@ export class EspecialidadesService {
       estado: data.estado,
     });
   }
+
+  eliminarEspecialidad(data: any):Observable<any>{
+    return this.httpClient.delete(`${this.backendWeb}/especialidades/lista/${data.idEsp}`,{});
+  }
 }

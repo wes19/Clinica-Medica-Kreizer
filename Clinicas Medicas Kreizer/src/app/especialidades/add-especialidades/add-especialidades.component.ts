@@ -17,7 +17,7 @@ export class AddEspecialidadesComponent{
 
   registroEsp = new FormGroup({
     nombre: new FormControl('', Validators.required),
-    imagen : new FormControl('', Validators.required),
+    imagen : new FormControl(''),
     estado: new FormControl('', Validators.required),
   });
 
@@ -50,7 +50,7 @@ export class AddEspecialidadesComponent{
       title: 'Guardado Exitosamente!',
       icon: 'success',
       showConfirmButton: false,
+      timer: 4000, 
     });
   }
-
 }

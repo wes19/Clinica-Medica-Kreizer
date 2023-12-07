@@ -33,12 +33,29 @@ export class ConfiguracionesInicioComponent implements OnInit {
     );
   }
 
-  openModal(modal: any, menu: any): void {
+  editarModal(modal: any, menu: any): void {
     this.modalService.open(modal, {
       size: 'lg',
       centered: true,
     });
     this.menuModal = menu;
+  }
+
+  guardarMenu(modal: any){
+    const jsonEspecialidad = {
+      
+    }
+    this.menuService.crearMenu(jsonEspecialidad).subscribe(
+      {
+        next: res=>{
+          console.log(res)
+          this.modalService.dismissAll();
+        },
+        error: err =>{
+          console.log(err);
+        }
+      }
+    );
   }
 
   actualizarMenu() {

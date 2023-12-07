@@ -8,11 +8,22 @@ module.exports = function (db) {
             const results = await db.query('SELECT * FROM kz_menu');
             res.send(results);
         } catch (error) {
-            console.error('Error al realizar la consulta: ', error);
             res.status(500).send('Error al realizar la consulta');
         }
     });
 
+    // Crear Menú
+    router.post('/', async (req, res) => {
+        const { nombre, imagen, url, estado } = req.body;
+        const query = 'INSERT INTO kz_menu (nombre, imagen, url, estado) VALUES (?, ?, ?, ?)';
+
+        try {
+            await db.query(query, [nombre, imagen, url, estado]);
+            res.status(201).json({ message: 'Especialidad guardada exitosamente'});
+        } catch (error) {
+            res.status(500).json({ error: 'Error al realizar la inserción' });
+        }
+    });
     //Actualizar Menús
     router.put('/:idMenu', async (req, res) => {
         const { nombre, imagen, url, estado } = req.body;
@@ -24,7 +35,6 @@ module.exports = function (db) {
             );
             res.send({ message: 'Registro actualizado correctamente' });
         } catch (error) {
-            console.error('Error al actualizar el registro: ', error);
             res.status(500).send('Error al actualizar el registro');
         }
       });

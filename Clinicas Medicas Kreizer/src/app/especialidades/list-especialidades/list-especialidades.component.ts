@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EspecialidadesService } from 'src/app/services/especialidades.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-especialidades',
@@ -9,7 +10,6 @@ import { EspecialidadesService } from 'src/app/services/especialidades.service';
 })
 export class ListEspecialidadesComponent implements OnInit {
   especialidades:any=[];
-  especialidadesTemporal: any = [];
   especialidadModal:any=[];
 
   constructor(private especialidadesService:EspecialidadesService, private modalService:NgbModal) {}
@@ -18,13 +18,7 @@ export class ListEspecialidadesComponent implements OnInit {
     this.especialidadesService.obtenerEspecialidades().subscribe(
       {
         next : res=>{
-          this.especialidades = [];
-          this.especialidadesTemporal = res;
-          for(let i = 0; i < this.especialidadesTemporal.length; i++){
-            if(this.especialidadesTemporal[i].estado == 'Activo'){
-              this.especialidades.push(this.especialidadesTemporal[i]);
-            }
-          }
+          this.especialidades = res;
         },
         error : err =>{
           console.log(err)
@@ -39,6 +33,39 @@ export class ListEspecialidadesComponent implements OnInit {
       centered: true,
     });
     this.especialidadModal = especialidad;
+  }
+
+  modalDelete(especialidad: any){
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No podrás revertir esto',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3e81e3',
+      cancelButtonColor: '#D72E2E',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.especialidadesService.eliminarEspecialidad(especialidad).subscribe(
+          {
+            next: res=>{
+              console.log(res)
+              this.ngOnInit();
+            },
+            error: err =>{
+              console.log(err);
+            }
+          }
+        )
+        Swal.fire({
+          title: 'Eliminado',
+          text: 'El registro ha sido eliminado',
+          icon: 'success',
+          customClass: {confirmButton: 'kz-button-blue'},
+        });
+      }
+    });
   }
 
   actualizarEspecialidad() {
