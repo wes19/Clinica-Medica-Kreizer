@@ -1,4 +1,5 @@
-import { Component  } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EspecialidadesService } from 'src/app/services/especialidades.service';
 import Swal from 'sweetalert2';
 
@@ -12,24 +13,29 @@ export class AddEspecialidadesComponent{
   especialidadesTemporal: any = [];
   especialidadModal:any=[];
 
-  //Variables NGMODEL
-  nombre : string = '';
-  imagen : string = '';
-  estado : string = '';
-
   constructor(private especialidadesService:EspecialidadesService) {}
 
+  registroEsp = new FormGroup({
+    nombre: new FormControl('', Validators.required),
+    imagen : new FormControl('', Validators.required),
+    estado: new FormControl('', Validators.required),
+  });
+
+  get obt(){
+    return this.registroEsp.controls;
+  }
+  
   guardarEspecialidad(){
     const jsonEspecialidad = {
-      nombre : this.nombre,
-      imagen : this.imagen,
-      estado : this.estado
+      nombre : this.registroEsp.controls['nombre'].value,
+      imagen : this.registroEsp.controls['imagen'].value,
+      estado : this.registroEsp.controls['estado'].value
     }
     this.especialidadesService.crearEspecialidad(jsonEspecialidad).subscribe(
       {
         next: res=>{
         console.log(res);
-        this.limpiarFormulario();
+        this.registroEsp.reset();
         this.guardadoExitosamente();
         },
         error: err =>{
@@ -37,12 +43,6 @@ export class AddEspecialidadesComponent{
         }
       }
     );
-  }
-
-  limpiarFormulario() {
-    this.nombre = '';
-    this.estado = '';
-    this.imagen = '';
   }
 
   guardadoExitosamente(){

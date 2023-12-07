@@ -9,7 +9,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; 
 import { HttpClientModule } from '@angular/common/http';
-//import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -176,6 +176,7 @@ registerLocaleData(localeEs); // Registra el locale en español
     FormsModule,
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule
     
     //MatDialogModule
   ],
