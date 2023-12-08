@@ -68,7 +68,7 @@ export class ListEspecialidadesComponent implements OnInit {
     });
   }
 
-  actualizarEspecialidad() {
+  actualizarEspecialidad()   {
     const jsonActualizarEsp = {
       idEsp : this.especialidadModal.idEsp,
       nombre : this.especialidadModal.nombre,

@@ -16,16 +16,20 @@ export class ListEmpleadosComponent implements OnInit {
 
   ngOnInit(): void {
     this.empleadosService.obtenerEmpleados().subscribe(
-      res=>{
-        this.empleados = [];
-        this.empleadosTemporal = res;
-        for(let i = 0; i < this.empleadosTemporal.length; i++){
-          if(this.empleadosTemporal[i].estado == 'Activo'){
-            this.empleados.push(this.empleadosTemporal[i]);
+      {
+        next: res=> {
+          this.empleados = [];
+          this.empleadosTemporal = res;
+          for(let i = 0; i < this.empleadosTemporal.length; i++){
+            if(this.empleadosTemporal[i].estado == 'Activo'){
+              this.empleados.push(this.empleadosTemporal[i]);
+            }
           }
+        },
+        error: err =>{
+          console.log(err);
         }
-      },
-      error=>console.log(error)
+      }
     )
   }
 

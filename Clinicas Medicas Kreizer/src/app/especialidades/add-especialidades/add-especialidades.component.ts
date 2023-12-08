@@ -13,13 +13,13 @@ export class AddEspecialidadesComponent{
   especialidadesTemporal: any = [];
   especialidadModal:any=[];
 
-  constructor(private especialidadesService:EspecialidadesService) {}
-
   registroEsp = new FormGroup({
     nombre: new FormControl('', Validators.required),
     imagen : new FormControl(''),
     estado: new FormControl('', Validators.required),
   });
+
+  constructor(private especialidadesService:EspecialidadesService) {}
 
   get obt(){
     return this.registroEsp.controls;

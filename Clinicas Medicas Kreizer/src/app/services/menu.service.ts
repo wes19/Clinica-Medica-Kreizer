@@ -32,4 +32,9 @@ export class MenuService {
       estado: data.estado,
     });
   }
+
+  eliminarMenu(data: any):Observable<any>{
+    return this.httpClient.put(`${this.backendWeb}/inicio/${data.idMenu}`,{
+    });
+  }
 }

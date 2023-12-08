@@ -39,5 +39,19 @@ module.exports = function (db) {
         }
       });
 
+       //Eliminar Menús
+      router.delete('/lista/:idMenu', async (req, res) => {
+        const idMenu = req.params.idMenu;
+        try {
+            await db.query(
+            'DELETE FROM kz_menu WHERE idMenu=?',
+            [idMenu]
+            );
+            res.send({ message: 'Registro eliminado correctamente' });
+        } catch (error) {
+            res.status(500).send('Error al eliminaar el registro');
+        }
+      });
+
     return router;
 };

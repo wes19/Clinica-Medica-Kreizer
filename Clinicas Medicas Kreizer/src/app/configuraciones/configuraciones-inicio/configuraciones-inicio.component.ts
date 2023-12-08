@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MenuService } from 'src/app/services/menu.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-configuraciones-inicio',
@@ -11,6 +13,13 @@ export class ConfiguracionesInicioComponent implements OnInit {
   menus:any=[];
   menuTemporal: any = [];
   menuModal:any=[];
+
+  registroMenu = new FormGroup({
+    nombre: new FormControl('', Validators.required),
+    imagen : new FormControl(''),
+    url : new FormControl(''),
+    estado: new FormControl('', Validators.required),
+  });
 
   constructor(private menuService:MenuService, private modalService:NgbModal) {}
 
@@ -33,6 +42,10 @@ export class ConfiguracionesInicioComponent implements OnInit {
     );
   }
 
+  get obt(){
+    return this.registroMenu.controls;
+  }
+
   editarModal(modal: any, menu: any): void {
     this.modalService.open(modal, {
       size: 'lg',
@@ -41,15 +54,60 @@ export class ConfiguracionesInicioComponent implements OnInit {
     this.menuModal = menu;
   }
 
-  guardarMenu(modal: any){
-    const jsonEspecialidad = {
-      
+  guardarModal(modal: any): void {
+    this.modalService.open(modal, {
+      size: 'lg',
+      centered: true,
+    });
+  }
+
+  modalDelete(menu: any){
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No podrás revertir esto',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3e81e3',
+      cancelButtonColor: '#D72E2E',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.menuService.eliminarMenu(menu).subscribe(
+          {
+            next: res=>{
+              console.log(res)
+              this.ngOnInit();
+            },
+            error: err =>{
+              console.log(err);
+            }
+          }
+        )
+        Swal.fire({
+          title: 'Eliminado',
+          text: 'El registro ha sido eliminado',
+          icon: 'success',
+          customClass: {confirmButton: 'kz-button-blue'},
+        });
+      }
+    });
+  }
+
+  guardarMenu(){
+    const jsonMenu = {
+      nombre : this.registroMenu.controls['nombre'].value,
+      imagen : this.registroMenu.controls['imagen'].value,
+      url : this.registroMenu.controls['url'].value,
+      estado : this.registroMenu.controls['estado'].value
     }
-    this.menuService.crearMenu(jsonEspecialidad).subscribe(
+    this.menuService.crearMenu(jsonMenu).subscribe(
       {
         next: res=>{
           console.log(res)
           this.modalService.dismissAll();
+          this.registroMenu.reset();
+          this.ngOnInit();
         },
         error: err =>{
           console.log(err);

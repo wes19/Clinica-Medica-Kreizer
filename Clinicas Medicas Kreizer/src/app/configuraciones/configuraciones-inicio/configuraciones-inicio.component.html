@@ -1,5 +1,5 @@
 <div class="kz-gap--l kz-mb--2">
-  <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarMenu(ModalCrear)">Crear</button>
+  <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)">Crear</button>
 </div>
 
 <table class="kz-table">
@@ -19,6 +19,7 @@
         <td>{{menu.estado}}</td>
         <td class="kz-d-flex kz-gap--l"> 
           <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="editarModal(ModalEditar, menu)"> Editar</button>
+          <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modalDelete(menu)"> <i class="bi bi-trash"></i></button>
         </td>
       </tr>
     </tbody>
@@ -75,30 +76,43 @@
     </div>
 
     <div class="modal-body">
-      <div class="kz-form-column">
-        <div class="kz-mb--2">
-          <label>Nombre:</label>
-          <input type="text" class="kz-input" [(ngModel)]="menuModal.nombre" required>
+      <form [formGroup]="registroMenu">
+        <div class="kz-form-column">
+          <div class="kz-mb--2">
+            <label>Nombre:</label>
+            <input type="text" class="kz-input" [ngClass]="{'is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" formControlName="nombre" required>
+            <div *ngIf="obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)" class="alert alert-danger mt-2">
+              Por favor, ingresa un nombre valido
+            </div>
+          </div>
+          <div class="kz-mb--2">
+            <label>URL:</label>
+            <input type="text" class="kz-input" formControlName="url" required>
+          </div>
         </div>
-        <div class="kz-mb--2">
-          <label>URL:</label>
-          <input type="text" class="kz-input" [(ngModel)]="menuModal.url" required>
+        <div class="kz-form-column">
+          <div class="kz-mb--2">
+            <label>Imagen:</label>
+            <input type="text" class="kz-input" formControlName="imagen" required>
+          </div>
+          <div class="kz-mb--2">
+            <label>Estado:</label>
+            <select class="kz-input" formControlName="estado" [ngClass]="{'is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
+              <option value="Activo">Activo</option> 
+              <option value="Inactivo">Inactivo</option> 
+            </select>
+            <div *ngIf="obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)" class="alert alert-danger mt-2">
+              Por favor, ingresa un estado valido
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="kz-form-column">
-        <div class="kz-mb--2">
-          <label>Imagen:</label>
-          <input type="text" class="kz-input" [(ngModel)]="menuModal.imagen" required>
-        </div>
-        <div class="kz-mb--2">
-          <label>Estado:</label>
-          <input type="text" class="kz-input" [(ngModel)]="menuModal.estado" required>
-        </div>
-      </div>
+      </form>
     </div>
     
     <div class="modal-footer">
-      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarMenu()">Guardar</button>
+      <button class="kz-button kz-button--primary kz-border-radius--l" [disabled]="registroMenu.invalid" 
+      (click)="guardarMenu()">Guardar
+      </button>
       <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
     </div>
   </div>
