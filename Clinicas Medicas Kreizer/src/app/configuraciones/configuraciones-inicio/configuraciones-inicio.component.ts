@@ -11,7 +11,6 @@ import Swal from 'sweetalert2';
 })
 export class ConfiguracionesInicioComponent implements OnInit {
   menus:any=[];
-  menuTemporal: any = [];
   menuModal:any=[];
 
   registroMenu = new FormGroup({
@@ -27,13 +26,7 @@ export class ConfiguracionesInicioComponent implements OnInit {
     this.menuService.obtenerMenu().subscribe(
      {
       next: res=>{
-        this.menus = [];
-        this.menuTemporal = res;
-        for(let i = 0; i < this.menuTemporal.length; i++){
-          if(this.menuTemporal[i].estado == 'Activo'){
-            this.menus.push(this.menuTemporal[i]);
-          }
-        }
+        this.menus = res;
       },
       error: err =>{
         console.log(err);

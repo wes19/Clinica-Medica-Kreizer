@@ -1,5 +1,5 @@
 CREATE TABLE clinicaMedica_KZ.kz_empleados (
-    idEmpleados INT AUTO_INCREMENT PRIMARY KEY,
+    idEmp INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
     apellidos VARCHAR(50),
     fecha_nacimiento DATE,

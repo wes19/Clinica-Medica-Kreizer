@@ -8,16 +8,22 @@ import { MenuService } from 'src/app/services/menu.service';
 })
 export class InicioComponent implements OnInit {
   menus:any=[];
+  menuTemporal:any=[];
 
   constructor(private menuService:MenuService) {}
 
   ngOnInit(): void {
     this.menuService.obtenerMenu().subscribe(
       res=>{
-        this.menus = res;
+        this.menus = [];
+        this.menuTemporal = res;
+        for(let i = 0; i < this.menuTemporal.length; i++){
+          if(this.menuTemporal[i].estado == 'Activo'){
+            this.menus.push(this.menuTemporal[i]);
+          }
+        }
       },
       error=>console.log(error)
     )
   }
-
 }
