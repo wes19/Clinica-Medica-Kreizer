@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="kz-card__footer">
-          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="detailEmpleadosNavigate()"><i class="bi bi-pencil-square"></i> Detalles</button>
+          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="detailEmpleadosNavigate(empleado)"><i class="bi bi-pencil-square"></i> Detalles</button>
         </div>
       </div>  
     </div>
@@ -60,7 +60,7 @@
             <td>{{empleado.celular_laboral}}</td>
             <td>Disponible</td>
             <td>
-                <a class="kz-text-decoration-none kz-link" (click)="detailEmpleadosNavigate()"> Detalles</a>
+                <a class="kz-text-decoration-none kz-link" (click)="detailEmpleadosNavigate(empleado)"> Detalles</a>
             </td>
         </tr>
       </tbody>

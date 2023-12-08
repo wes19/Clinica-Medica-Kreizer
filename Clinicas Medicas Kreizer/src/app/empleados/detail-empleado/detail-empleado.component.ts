@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { EmpleadosService } from 'src/app/services/empleados.service';
+import { EmpleadoService } from '../empleado.service';
 
 @Component({
   selector: 'app-detail-empleado',
@@ -8,12 +9,16 @@ import { EmpleadosService } from 'src/app/services/empleados.service';
 })
 export class DetailEmpleadoComponent implements OnInit {
   tabActiva: string = 'infoPersonal';
+  empleado: any = [];
 
-  constructor(private empleadosService:EmpleadosService) {}
-
+  constructor(private empleadosService: EmpleadosService, private empleadoService: EmpleadoService) {
+  }
 
   ngOnInit(): void {
-
+    this.empleadoService.getEmpleadoSeleccionado().subscribe((empleado) => {
+      this.empleado = empleado;
+    });
+    
   }
 
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmpleadosService } from 'src/app/services/empleados.service';
+import { EmpleadoService } from '../empleado.service';
 
 @Component({
   selector: 'app-list-empleados',
@@ -12,7 +13,7 @@ export class ListEmpleadosComponent implements OnInit {
   empleados:any=[];
   empleadosTemporal: any = [];
 
-  constructor(private router: Router, private empleadosService:EmpleadosService) {}
+  constructor(private router: Router, private empleadosService:EmpleadosService, private empleadoService: EmpleadoService) {}
 
   ngOnInit(): void {
     this.empleadosService.obtenerEmpleados().subscribe(
@@ -33,7 +34,10 @@ export class ListEmpleadosComponent implements OnInit {
     )
   }
 
-  detailEmpleadosNavigate() {
+  detailEmpleadosNavigate(empleado: any) {
+    const empleadoSeleccionado = empleado;
+    this.empleadoService.setEmpleadoSeleccionado(empleadoSeleccionado);
     this.router.navigate(['/empleados/detalles'])
+    console.log('DetailEmpleados', empleadoSeleccionado);
   }
 }
