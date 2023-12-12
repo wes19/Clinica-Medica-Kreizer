@@ -100,7 +100,6 @@ export class ConfiguracionesInicioComponent implements OnInit {
           console.log(res)
           this.modalService.dismissAll();
           this.registroMenu.reset();
-          this.ngOnInit();
         },
         error: err =>{
           console.log(err);

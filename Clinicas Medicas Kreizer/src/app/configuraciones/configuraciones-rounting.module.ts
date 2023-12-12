@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfiguracionesInicioComponent } from './configuraciones-inicio/configuraciones-inicio.component';
 import { PuestoLaboralComponent } from './puesto-laboral/puesto-laboral.component';
+import { DepartamentoComponent } from './departamento/departamento.component';
 
 const routes: Routes = [
  
@@ -9,7 +10,8 @@ const routes: Routes = [
     path: '',
     children: [
       { path: 'inicio', component: ConfiguracionesInicioComponent },
-      { path: 'puesto-laboral', component: PuestoLaboralComponent }
+      { path: 'departamentos', component: DepartamentoComponent },
+      { path: 'puestos-laborales', component: PuestoLaboralComponent }
     ]
   }
 ]

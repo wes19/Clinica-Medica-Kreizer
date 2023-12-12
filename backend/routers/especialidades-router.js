@@ -32,8 +32,7 @@ module.exports = function (db) {
         try {
             await db.query(
             'UPDATE kz_especialidades SET nombre=?, imagen=?, estado=? WHERE idEsp=?',
-            [nombre, imagen, estado, idEsp]
-            );
+            [nombre, imagen, estado, idEsp]);
             res.send({ message: 'Registro actualizado correctamente' });
         } catch (error) {
             res.status(500).send('Error al actualizar el registro');
@@ -46,8 +45,7 @@ module.exports = function (db) {
         try {
             await db.query(
             'DELETE FROM kz_especialidades WHERE idEsp=?',
-            [idEsp]
-            );
+            [idEsp]);
             res.send({ message: 'Registro eliminado correctamente' });
         } catch (error) {
             res.status(500).send('Error al eliminaar el registro');

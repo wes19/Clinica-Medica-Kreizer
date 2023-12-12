@@ -19,7 +19,7 @@ export class EspecialidadesService {
     return this.httpClient.post(`${this.backendWeb}/especialidades/crear`, {
       nombre: data.nombre,
       imagen: data.imagen,
-      estado: data.estado,
+      estado: data.estado
     });
   }
 
@@ -27,7 +27,7 @@ export class EspecialidadesService {
     return this.httpClient.put(`${this.backendWeb}/especialidades/lista/${data.idEsp}`,{
       nombre: data.nombre,
       imagen: data.imagen,
-      estado: data.estado,
+      estado: data.estado
     });
   }
 

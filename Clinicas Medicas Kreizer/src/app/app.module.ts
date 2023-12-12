@@ -85,6 +85,7 @@ import { ConfiguracionesInicioComponent } from './configuraciones/configuracione
 import { RRHHComponent } from './rrhh/rrhh.component';
 import { SidebarRrhhComponent } from './componentes/sidebar-rrhh/sidebar-rrhh.component';
 import { PuestoLaboralComponent } from './configuraciones/puesto-laboral/puesto-laboral.component';
+import { DepartamentoComponent } from './configuraciones/departamento/departamento.component';
 
 
 //Administración
@@ -164,6 +165,7 @@ registerLocaleData(localeEs); // Registra el locale en español
     RRHHComponent,
     SidebarRrhhComponent,
     PuestoLaboralComponent,
+    DepartamentoComponent,
  
 
 

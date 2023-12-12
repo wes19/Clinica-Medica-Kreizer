@@ -1,1 +1,71 @@
-<p>puesto-laboral works!</p>
+<table class="kz-table">
+    <thead class="kz-table__head">
+        <tr>
+            <th>Departamento</th>
+            <th>Puesto Laboral</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody class="kz-table__body">
+        <tr *ngFor="let puesto of puestos">
+            <td>{{puesto.departamento}}</td>
+            <td>{{puesto.nombre}}</td>
+            <td>{{puesto.estado}}</td>
+            <td>
+                <a class="kz-text-decoration-none kz-link" (click)="modalEditar(puesto)">Editar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<ng-template #ModalGuardar let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Puesto Laborales</h5>
+            <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+              <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+  
+      <div class="modal-body">
+        <form [formGroup]="registroPuesto">
+            <div class="kz-form-column">
+                <div class="kz-mb--2">
+                    <label>Departamento:</label>
+                    <select class="kz-input" formControlName="departamento" [ngClass]="{'kz-is-invalid':obt.departamento.invalid && (obt.departamento.dirty || obt.departamento.touched)}" required>
+                        <option value="Activo">Activo</option> 
+                        <option value="Inactivo">Inactivo</option> 
+                    </select>
+                    <div *ngIf="obt.departamento.invalid && (obt.departamento.dirty || obt.departamento.touched)" class="kz-error-text mt-2">
+                        * Por favor, ingresa un estado valido
+                    </div>
+                </div>
+                <div class="kz-mb--2">
+                    <label>Puesto Laboral:</label>
+                    <input type="text" class="kz-input" formControlName="puesto" [ngClass]="{'kz-is-invalid':obt.puesto.invalid && (obt.puesto.dirty || obt.puesto.touched)}" required>
+                </div>
+            </div>
+            <div class="kz-form-column">
+                <div class="kz-mb--2">
+                    <label>Estado:</label>
+                    <select class="kz-input" formControlName="estado" [ngClass]="{'kz-is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
+                        <option value="Activo">Activo</option> 
+                        <option value="Inactivo">Inactivo</option> 
+                    </select>
+                    <div *ngIf="obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)" class="kz-error-text mt-2">
+                        * Por favor, ingresa un estado valido
+                    </div>
+                </div>
+            </div>
+        </form>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="kz-button kz-button--primary kz-border-radius--l" [disabled]="registroPuesto.invalid" 
+        (click)="guardarPuesto()">Guardar
+        </button>
+        <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+      </div>
+    </div>
+</ng-template>

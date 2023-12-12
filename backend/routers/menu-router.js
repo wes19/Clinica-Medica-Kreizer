@@ -24,29 +24,27 @@ module.exports = function (db) {
             res.status(500).json({ error: 'Error al realizar la inserción' });
         }
     });
-    //Actualizar Menús
+    // Actualizar Menús
     router.put('/:idMenu', async (req, res) => {
         const { nombre, imagen, url, estado } = req.body;
         const idMenu = req.params.idMenu;
         try {
             await db.query(
             'UPDATE kz_menu SET nombre=?, imagen=?, url=?, estado=? WHERE idMenu=?',
-            [nombre, imagen, url, estado, idMenu]
-            );
+            [nombre, imagen, url, estado, idMenu]);
             res.send({ message: 'Registro actualizado correctamente' });
         } catch (error) {
             res.status(500).send('Error al actualizar el registro');
         }
       });
 
-       //Eliminar Menús
+       // Eliminar Menús
       router.delete('/lista/:idMenu', async (req, res) => {
         const idMenu = req.params.idMenu;
         try {
             await db.query(
             'DELETE FROM kz_menu WHERE idMenu=?',
-            [idMenu]
-            );
+            [idMenu]);
             res.send({ message: 'Registro eliminado correctamente' });
         } catch (error) {
             res.status(500).send('Error al eliminaar el registro');

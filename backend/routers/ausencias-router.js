@@ -19,8 +19,7 @@ module.exports = function (db) {
         try {
             await db.query(
             'UPDATE kz_ausencias SET estado=? WHERE idAus=?',
-            [estado, idAus]
-            );
+            [estado, idAus]);
             res.send({ message: 'Registro actualizado correctamente' });
         } catch (error) {
             res.status(500).send('Error al actualizar el registro');
