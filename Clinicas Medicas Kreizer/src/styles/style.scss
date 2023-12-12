@@ -12,3 +12,13 @@
     color: black;
   }
 }
+
+.kz-error-text {
+  color: red;
+  background-color: transparent;  // Esto hará que el fondo sea transparente
+  border: none;  // Elimina el borde si lo hubiera
+}
+
+.kz-is-invalid {
+  border-color: red !important;  // Cambia el color del borde a rojo
+}

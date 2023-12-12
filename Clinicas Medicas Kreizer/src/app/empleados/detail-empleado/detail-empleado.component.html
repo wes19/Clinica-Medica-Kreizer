@@ -24,11 +24,11 @@
       <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Nombre:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.nombre" name="nombre">
+          <input type="text" class="kz-input" [(ngModel)]="empleado.nombre">
         </div>
         <div class="kz-mb--2">
           <label>Identidad:</label>
-          <input type="text" class="kz-input">
+          <input type="text" class="kz-input" [(ngModel)]="empleado.nombre">
         </div>
         <div class="kz-mb--2">
           <label>Celular:</label>
@@ -173,37 +173,31 @@
       <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Fecha de Ingreso:</label>
-          <input type="date" class="kz-input" required>
+          <input type="date" class="kz-input" [(ngModel)]="empleado.fecha_ingreso">
         </div>
         <div class="kz-mb--2">
           <label>Puesto Laboral:</label>
-          <select class="kz-input" required>
+          <select class="kz-input" [(ngModel)]="empleado.puesto_laboral">
               <option value="" selected>-- Selecciona una opción --</option>
               <option value="opcion1">Analista de Programación</option> 
               <option value="opcion1">Oficial de IT</option> 
           </select>
         </div>
+        
         <div class="kz-mb--2">
-          <label>Contraseña:</label>
-          <button class="kz-button kz-button--primary" [routerLink]="['/detail-empleado']">Cambiar Contraseña</button>
+          <label>Estado:</label>
+          <select class="kz-input" [(ngModel)]="empleado.estado">
+              <option value="" selected>-- Selecciona una opción --</option>
+              <option value="Activo">Activo</option> 
+              <option value="Inactivo">Inactivo</option> 
+          </select>
         </div>
-      </div>
-    
-      <div class="kz-form-column">
-        <div class="kz-mb--2">
-          <label>Salario:</label>
-          <input type="text" class="kz-input">
-        </div>
-        <div class="kz-mb--2">
-          <label>PIN:</label>
-          <input type="text" class="kz-input" required>
-        </div>
+       
+
         <div class="kz-mb--2">
           <label>Imagen:</label>
           <div class="kz-form--img">
-            <img 
-              src="" 
-              class="kz-img kz-img--l kz-border-blue kz-img-upload"/>
+            <img src="{{empleado.imagen}}" class="kz-img kz-img--l kz-border-blue kz-img-upload"/>
             <div class="actions">
               <div class="edit-action">
                 <label for="file-input">
@@ -218,12 +212,67 @@
           </div>
         </div>
       </div>
+    
+      <div class="kz-form-column">
+        <div class="kz-mb--2">
+          <label>Salario:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.salario">
+        </div>
+        <div class="kz-mb--2">
+          <label>PIN:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.PIN">
+        </div>
+        <div class="kz-mb--2">
+          <label>Contraseña:</label>
+          <button class="kz-button kz-button--primary" (click)="modalPassword(ModalPassword)">Cambiar Contraseña</button>
+        </div>
+      </div>
     </div>
     <div class="kz-d-flex kz-flex-horizontal-end">
       <button class="kz-button kz-button--primary kz-ml--2" [routerLink]="['/empleados/detalles']">Guardar</button>
     </div>
-
   </div>
 </div>
 
+
+<ng-template #ModalPassword let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Cambiar Contraseña</h5>
+        <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+
+    <div class="modal-body">
+      <form [formGroup]="guardarContrasena">
+        <div class="kz-form-column">
+          <div class="kz-mb--2">
+            <label>Contraseña:</label>
+            <input type="password" class="kz-input" [ngClass]="{'kz-is-invalid':obt.contrasena.invalid && (obt.contrasena.dirty || obt.contrasena.touched)}" formControlName="contrasena" required>
+            <div *ngIf="guardarContrasena.controls.contrasena.invalid && guardarContrasena.controls.contrasena.touched" class="kz-error-text mt-2">
+              * El tamaño mínimo es de 8 caracteres
+            </div>
+          </div>
+        </div>
+        <div class="kz-form-column">
+          <div class="kz-mb--2">
+            <label>Confirmar Contraseña:</label>
+            <input type="password" class="kz-input" [ngClass]="{'kz-is-invalid':obt.conContrasena.invalid && (obt.conContrasena.dirty || obt.conContrasena.touched)}" formControlName="conContrasena" required>
+            <div *ngIf="obt.conContrasena.invalid && (obt.conContrasena.dirty || obt.conContrasena.touched)" class="kz-error-text mt-2">
+              * Por favor, ingresa una contraseña válida
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="kz-button kz-button--primary kz-border-radius--l" [disabled]="guardarContrasena.invalid" 
+      (click)="guardarPassword()">Guardar
+      </button>
+      <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+    </div>
+  </div>
+</ng-template>
 

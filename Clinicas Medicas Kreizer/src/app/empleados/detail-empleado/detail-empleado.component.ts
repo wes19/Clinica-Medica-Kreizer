@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { EmpleadosService } from 'src/app/services/empleados.service';
-import { EmpleadoService } from '../empleado.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EmployeeService } from '../employee.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-empleado',
@@ -11,7 +13,12 @@ export class DetailEmpleadoComponent implements OnInit {
   tabActiva: string = 'infoPersonal';
   empleado: any = [];
 
-  constructor(private empleadosService: EmpleadosService, private empleadoService: EmpleadoService) {
+  guardarContrasena = new FormGroup({
+    contrasena: new FormControl('',[Validators.required, Validators.minLength(8),]),
+    conContrasena: new FormControl('', Validators.required)
+  });
+
+  constructor(private empleadosService: EmpleadosService, private empleadoService: EmployeeService, private modalService:NgbModal) {
   }
 
   ngOnInit(): void {
@@ -21,4 +28,28 @@ export class DetailEmpleadoComponent implements OnInit {
     
   }
 
+  get obt(){
+    return this.guardarContrasena.controls;
+  }
+
+  modalPassword(modal: any): void {
+    this.modalService.open(modal, {
+      size: 'lg',
+      centered: true,
+    });
+  }
+
+  guardarPassword(){
+    const jsonContrasena = {
+      contrasena : this.guardarContrasena.controls['contrasena'].value,
+      conContrasena : this.guardarContrasena.controls['conContrasena'].value,
+    }
+
+    if (jsonContrasena.contrasena !== jsonContrasena.conContrasena) {
+      alert('La contraseña debe tener al menos 8 caracteres');
+      return;
+    }
+
+    this.modalService.dismissAll();
+  }
 }

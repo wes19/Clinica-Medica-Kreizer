@@ -80,9 +80,9 @@
         <div class="kz-form-column">
           <div class="kz-mb--2">
             <label>Nombre:</label>
-            <input type="text" class="kz-input" [ngClass]="{'is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" formControlName="nombre" required>
-            <div *ngIf="obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)" class="alert alert-danger mt-2">
-              Por favor, ingresa un nombre valido
+            <input type="text" class="kz-input" [ngClass]="{'kz-is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" formControlName="nombre" required>
+            <div *ngIf="obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)" class="kz-error-text mt-2">
+              * Por favor, ingresa un nombre valido
             </div>
           </div>
           <div class="kz-mb--2">
@@ -97,12 +97,12 @@
           </div>
           <div class="kz-mb--2">
             <label>Estado:</label>
-            <select class="kz-input" formControlName="estado" [ngClass]="{'is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
+            <select class="kz-input" formControlName="estado" [ngClass]="{'kz-is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
               <option value="Activo">Activo</option> 
               <option value="Inactivo">Inactivo</option> 
             </select>
-            <div *ngIf="obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)" class="alert alert-danger mt-2">
-              Por favor, ingresa un estado valido
+            <div *ngIf="obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)" class="kz-error-text mt-2">
+              * Por favor, ingresa un estado valido
             </div>
           </div>
         </div>

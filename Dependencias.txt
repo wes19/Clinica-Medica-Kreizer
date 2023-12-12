@@ -29,6 +29,7 @@ ng add @fortawesome/angular-fontawesome
 npm install --save @fortawesome/fontawesome-free
 npm install @ng-select/ng-select 
 npm install sweetalert2
+npm install ngx-toastr
 
 
 Set-ExecutionPolicy Unrestricted

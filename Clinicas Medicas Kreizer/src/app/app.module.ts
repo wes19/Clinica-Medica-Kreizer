@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-
 //Principales
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -85,6 +84,7 @@ import { ListEspecialidadesComponent } from './especialidades/list-especialidade
 import { ConfiguracionesInicioComponent } from './configuraciones/configuraciones-inicio/configuraciones-inicio.component';
 import { RRHHComponent } from './rrhh/rrhh.component';
 import { SidebarRrhhComponent } from './componentes/sidebar-rrhh/sidebar-rrhh.component';
+import { PuestoLaboralComponent } from './configuraciones/puesto-laboral/puesto-laboral.component';
 
 
 //Administración
@@ -163,6 +163,7 @@ registerLocaleData(localeEs); // Registra el locale en español
     ConfiguracionesInicioComponent,
     RRHHComponent,
     SidebarRrhhComponent,
+    PuestoLaboralComponent,
  
 
 
@@ -176,7 +177,7 @@ registerLocaleData(localeEs); // Registra el locale en español
     FormsModule,
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     
     //MatDialogModule
   ],
