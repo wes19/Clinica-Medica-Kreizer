@@ -15,56 +15,23 @@
         <th>Horas:</th>
         <th>Días</th>
         <th>Descripción</th>
-        <th>Archivo</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody class="kz-table__body">
-      <tr>
-        <td>Juan Moncada</td>
-        <td>Por enfermedad</td>
-        <td>25/10/2023</td>
-        <td>27/10/2023</td>
-        <td>16</td>
-        <td>2</td>
-        <td>Cita con el doctor</td>
-        <td class="kz-d-flex kz-gap--l"> <button class="kz-button kz-button--primary kz-border-radius--l ml--2"> Aprobar</button>
-          <button class="kz-button kz-button--cancel kz-border-radius--l ml--2"> Rechazar</button>
-        </td>
-      </tr>
-      <tr>
-        <td>Juan Moncada</td>
-        <td>Por enfermedad</td>
-        <td>25/10/2023</td>
-        <td>27/10/2023</td>
-        <td>16</td>
-        <td>2</td>
-        <td>Cita con el doctor</td>
-        <td class="kz-d-flex kz-gap--l"> <button class="kz-button kz-button--primary kz-border-radius--l ml--2"> Aprobar</button>
-          <button class="kz-button kz-button--cancel kz-border-radius--l ml--2"> Rechazar</button>
-        </td>
-      </tr>
-      <tr>
-        <td>Juan Moncada</td>
-        <td>Por enfermedad</td>
-        <td>25/10/2023</td>
-        <td>27/10/2023</td>
-        <td>16</td>
-        <td>2</td>
-        <td>Cita con el doctor</td>
-        <td class="kz-d-flex kz-gap--l"> <button class="kz-button kz-button--primary kz-border-radius--l ml--2"> Aprobar</button>
-          <button class="kz-button kz-button--cancel kz-border-radius--l ml--2"> Rechazar</button>
-        </td>
-      </tr>
-      <tr>
-        <td>Juan Moncada</td>
-        <td>Por enfermedad</td>
-        <td>25/10/2023</td>
-        <td>27/10/2023</td>
-        <td>16</td>
-        <td>2</td>
-        <td>Cita con el doctor</td>
-        <td class="kz-d-flex kz-gap--l"> <button class="kz-button kz-button--primary kz-border-radius--l ml--2"> Aprobar</button>
-          <button class="kz-button kz-button--cancel kz-border-radius--l ml--2"> Rechazar</button>
+      <tr *ngFor="let ausencia of ausencias">
+        <td>{{ausencia.nombreEmpleado}}</td>
+        <td>{{ausencia.tipoAusencia}}</td>
+        <td>{{ausencia.desde}}</td>
+        <td>{{ausencia.hasta}}</td>
+        <td>{{ausencia.horas}}</td>
+        <td>{{ausencia.dias}}</td>
+        <td>{{ausencia.descripcion}}</td>
+        <td class="kz-d-flex kz-gap--l"> 
+          <button *ngIf="!ausencia.aprobada && !ausencia.rechazada" class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="aprobarAusencia(ausencia)">Aprobar</button>
+          <button *ngIf="!ausencia.aprobada && !ausencia.rechazada" class="kz-button kz-button--cancel kz-border-radius--l ml--2" (click)="rechazarAusencia(ausencia)">Rechazar</button>
+          <span *ngIf="ausencia.aprobada" class="kz-aprobado-label">{{ausencia.estado}}</span>
+          <span *ngIf="ausencia.rechazada" class="kz-aprobado-label">{{ausencia.estado}}</span>
         </td>
       </tr>
     </tbody>
