@@ -24,19 +24,36 @@
 }
 
 .kz-chip-estado-green{
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 8px;
-  padding: 8px 20px;
+  padding: 10px 22px;
   background-color: transparent;
   color: $color-thirteen;
-  font-weight: bold;
+  //font-weight: bold;
 }
 
 .kz-chip-estado-red{
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 8px;
-  padding: 8px 20px;
+  padding: 10px 22px;
   background-color: transparent;
   color: $color-eigth;
-  font-weight: bold;
+  //font-weight: bold;
 }
+
+.kz-state-animation {
+  display: inline-block;
+  border-radius: 50%;
+  color: #0B9C3C;
+  animation: parpadeo 1s infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+

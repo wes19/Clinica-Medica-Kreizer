@@ -1,7 +1,6 @@
 @import 'variables';
 @import 'responsive';
 
-
 .kz-table {
   background-color: #fff;
   width: 100%;
@@ -40,7 +39,6 @@
   padding: 16px;
   font-family: $font-family;
   background-color: white;
-  display: none;
   &.active {
     display: block;
   }

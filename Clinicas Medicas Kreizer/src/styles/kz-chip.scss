@@ -2,27 +2,33 @@
 @import 'responsive';
 
   .kz-chip{
-    padding: 8px;
-    font-size: 13px;
-    border-radius: 8px;
+    font-family: $font-family;
+    color:black;
+    font-size: 16px;
+    font-weight: 500;
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin: 0;
+    i {
+      font-size: 12px;
+      margin-right: 0.5rem;
+    }
   }
   
   .kz-chip--blue{
-    background-color: $color-two;
     color: white;
   }
   
   .kz-chip--yellow{
-    background-color: yellow;
     color: yellow;
   }
   
   .kz-chip--green{
-    background-color: green;
-    color: green;
+    color: $color-thirteen;
+  }
+
+  .kz-chip-red{
+    color: $color-eigth;
   }
   
   input[type="radio"] {

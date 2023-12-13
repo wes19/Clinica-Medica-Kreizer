@@ -2,7 +2,8 @@
   <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)">Crear</button>
 </div>
 
-<table class="kz-table">
+<div class="kz-table-content">
+  <table class="kz-table">
     <thead class="kz-table__head">
       <tr>
         <th>Nombre</th>
@@ -15,7 +16,7 @@
       <tr *ngFor="let menu of menus">
         <td>{{menu.nombre}}</td>
         <td>{{menu.imagen}}</td>
-        <td>{{menu.url}}</td>
+        <td class="kz-truncate kz-width-static">{{menu.url}}</td>
         <td>{{menu.estado}}</td>
         <td class="kz-d-flex kz-gap--l"> 
           <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="editarModal(ModalEditar, menu)"> Editar</button>
@@ -23,7 +24,8 @@
         </td>
       </tr>
     </tbody>
-</table>
+  </table>
+</div>
 
 
 <ng-template #ModalEditar let-modal>
