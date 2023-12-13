@@ -27,7 +27,7 @@ export class ListEspecialidadesComponent implements OnInit {
     );
   }
 
-  openModal(modal: any, especialidad: any): void {
+  modalEditar(modal: any, especialidad: any): void {
     this.modalService.open(modal, {
       size: 'lg',
       centered: true,

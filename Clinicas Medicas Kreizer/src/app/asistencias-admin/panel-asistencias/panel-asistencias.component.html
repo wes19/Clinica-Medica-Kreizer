@@ -20,6 +20,49 @@
         <td>{{asistencia.entrada}}</td>
         <td>{{asistencia.salida}}</td>
         <td>{{asistencia.horas_trabajadas}}</td>
+        <td class="kz-d-flex kz-gap--s"> 
+          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="modalEditar(editarModal, asistencia)">Editar</button>
+        </td>
       </tr>
     </tbody>
 </table>
+
+
+<ng-template #editarModal let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Asistencias</h5>
+        <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="kz-form-column">
+        <div class="kz-mb--2">
+          <label>Nombre:</label>
+          <input class="kz-input" [(ngModel)]="asistenciaModal.nombreEmpleado" readonly>
+        </div>
+        <div class="kz-mb--2">
+          <label>Entrada:</label>
+          <input type="datetime" class="kz-input" [(ngModel)]="asistenciaModal.entrada">
+        </div>
+      </div>
+      <div class="kz-form-column">
+        <div class="kz-mb--2">
+          <label>Horas Trabajadas:</label>
+          <input type="text" class="kz-input" [(ngModel)]="asistenciaModal.horas_trabajadas">
+        </div>
+        <div class="kz-mb--2">
+          <label>Salida:</label>
+          <input type="datetime" class="kz-input" [(ngModel)]="asistenciaModal.salida">
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarAsistencia()">Guardar</button>
+      <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+    </div>
+  </div>
+</ng-template>

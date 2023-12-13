@@ -15,10 +15,28 @@
 
 .kz-error-text {
   color: red;
-  background-color: transparent;  // Esto hará que el fondo sea transparente
-  border: none;  // Elimina el borde si lo hubiera
+  background-color: transparent;  
+  border: none;
 }
 
 .kz-is-invalid {
-  border-color: red !important;  // Cambia el color del borde a rojo
+  border-color: red !important;
+}
+
+.kz-chip-estado-green{
+  font-size: 18px;
+  border-radius: 8px;
+  padding: 8px 20px;
+  background-color: transparent;
+  color: $color-thirteen;
+  font-weight: bold;
+}
+
+.kz-chip-estado-red{
+  font-size: 18px;
+  border-radius: 8px;
+  padding: 8px 20px;
+  background-color: transparent;
+  color: $color-eigth;
+  font-weight: bold;
 }

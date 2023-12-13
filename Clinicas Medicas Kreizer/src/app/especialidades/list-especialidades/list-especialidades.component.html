@@ -12,7 +12,7 @@
         <td>{{especialidad.imagen}}</td>
         <td>{{especialidad.estado}}</td>
         <td class="kz-d-flex kz-gap--s"> 
-          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="openModal(ModalEditar, especialidad)"> Editar</button>
+          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="modalEditar(ModalEditar, especialidad)">Editar</button>
           <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modalDelete(especialidad)"> <i class="bi bi-trash"></i></button>
         </td>
       </tr>
@@ -22,7 +22,7 @@
 <ng-template #ModalEditar let-modal>
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title">Admitidos</h5>
+      <h5 class="modal-title">Especialidades</h5>
         <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
           <i class="bi bi-x-lg"></i>
         </button>
@@ -32,17 +32,17 @@
       <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Nombre:</label>
-          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.nombre" required>
+          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.nombre">
         </div>
         <div class="kz-mb--2">
           <label>Estado:</label>
-          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.estado" required>
+          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.estado">
         </div>
       </div>
       <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Imagen:</label>
-          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.imagen" required>
+          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.imagen">
         </div>
       </div>
     </div>
