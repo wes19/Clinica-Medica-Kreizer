@@ -17,8 +17,8 @@ export class AsistenciasService {
 
   actualizarAsistencia(data: any):Observable<any>{
     return this.httpClient.put(`${this.backendWeb}/asistencias/${data.idAsi}`,{
-        entrada: data.nombre,
-        salida: data.estado
+        entrada: data.entrada,
+        salida: data.salida
     });
   }
 }

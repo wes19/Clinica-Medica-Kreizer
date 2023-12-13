@@ -25,13 +25,13 @@ export class PanelAsistenciasComponent implements OnInit {
               next: (empleados) => {
                 this.asistencias = this.asistencias.map((asistencias: any) => {
                   const empleado = empleados.find((emp: any) => emp.idEmp === asistencias.idEmp);
-                  const entrada = new Date(asistencias.entrada).toLocaleString();
-                  const salida = new Date(asistencias.salida).toLocaleString();
+                  //const entrada = new Date(asistencias.entrada).toLocaleString();
+                  //const salida = new Date(asistencias.salida).toLocaleString();
                   //const horasTrabajadas = this.calcularHorasTrabajadas(asistencias.entrada, asistencias.salida);
                   return {
                     ...asistencias,
                     nombreEmpleado: empleado ? `${empleado.nombre} ${empleado.apellidos}` : '',
-                    entrada, salida, //horas_trabajadas: horasTrabajadas
+                    //entrada, salida, //horas_trabajadas: horasTrabajadas
                   };
                 });
               },
@@ -59,14 +59,16 @@ export class PanelAsistenciasComponent implements OnInit {
 
   actualizarAsistencia(){
     const jsonAsistencia = {
-      idAsi : this.asistenciaModal.idMenu,
-      entrada : this.asistenciaModal.nombre,
-      salida : this.asistenciaModal.imagen
+      idAsi : this.asistenciaModal.idAsi,
+      entrada : this.asistenciaModal.entrada,
+      salida : this.asistenciaModal.salida
     }
+    console.log(jsonAsistencia)
     this.asistenciasService.actualizarAsistencia(jsonAsistencia).subscribe(
       {
         next: res=>{
           console.log(res)
+          console.log(jsonAsistencia)
           this.modalService.dismissAll();
         },
         error: err =>{
