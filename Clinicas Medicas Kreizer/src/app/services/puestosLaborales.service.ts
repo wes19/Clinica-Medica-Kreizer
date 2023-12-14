@@ -20,4 +20,12 @@ export class PuestosLaboralesService {
      
     });
   }
+
+  crearPuestoLaboral(data: any): Observable<any> {
+    return this.httpClient.post(`${this.backendWeb}/puestos-laborales/crear`, {
+        idDep: data.idDep,
+        nombre: data.nombre,
+        estado: data.estado
+    });
+  }
 }

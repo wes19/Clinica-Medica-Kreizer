@@ -2,23 +2,25 @@
     <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)">Crear</button>
 </div>
 
-<table class="kz-table">
-    <thead class="kz-table__head">
-        <tr>
-            <th>Departamento</th>
-            <th>Estado</th>
-        </tr>
-    </thead>
-    <tbody class="kz-table__body">
-        <tr *ngFor="let departamento of departamentos">
-            <td>{{departamento.nombre}}</td>
-            <td>{{departamento.estado}}</td>
-            <td>
-                <a class="kz-text-decoration-none kz-link" (click)="editarModal(ModalEditar, departamento)">Editar</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="kz-table-content">
+    <table class="kz-table">
+        <thead class="kz-table__head">
+            <tr>
+                <th>Departamento</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody class="kz-table__body">
+            <tr *ngFor="let departamento of departamentos">
+                <td>{{departamento.nombre}}</td>
+                <td>{{departamento.estado}}</td>
+                <td>
+                    <a class="kz-text-decoration-none kz-link" (click)="editarModal(ModalEditar, departamento)">Editar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 <ng-template #ModalCrear let-modal>

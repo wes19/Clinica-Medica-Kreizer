@@ -4,7 +4,6 @@ CREATE TABLE clinicaMedica_KZ.kz_departamentos (
     estado VARCHAR(9) NOT NULL
 );
 
--- Insertar registros de ejemplo
 INSERT INTO clinicaMedica_KZ.kz_departamentos (nombre, estado) 
 VALUES
     ('Departamento 1', 'Activo'),

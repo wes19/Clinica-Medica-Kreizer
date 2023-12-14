@@ -14,11 +14,11 @@ module.exports = function (db) {
 
     // Guardar Puestos Laborales
     router.post('/crear', async (req, res) => {
-        const { nombre, idDep, estado } = req.body;
-        const query = 'INSERT INTO kz_puestosLaborales (nombre, idDep, estado) VALUES (?, ?, ?)';
+        const { idDep, nombre, estado } = req.body;
+        const query = 'INSERT INTO kz_puestosLaborales (idDep, nombre, estado) VALUES (?, ?, ?)';
 
         try {
-            await db.query(query, [nombre, idDep, estado]);
+            await db.query(query, [idDep, nombre, estado]);
             res.status(201).json({ message: 'Puesto Laboral guardada exitosamente'});
         } catch (error) {
             res.status(500).json({ error: 'Error al realizar la inserción' });
@@ -27,11 +27,11 @@ module.exports = function (db) {
 
      // Actualizar Puestos Laborales
      router.put('/:idPue', async (req, res) => {
-        const { nombre, idDep, estado } = req.body;
+        const { idDep, nombre, estado } = req.body;
         const idPue = req.params.idPue;
         try {
             await db.query(
-            'UPDATE kz_puestosLaborales SET nombre=?, idDep=?, estado=? WHERE idPue=?',
+            'UPDATE kz_puestosLaborales SET idDep=?, nombre=?, estado=? WHERE idPue=?',
             [nombre, idDep, estado, idPue]);
             res.send({ message: 'Registro actualizado correctamente' });
         } catch (error) {

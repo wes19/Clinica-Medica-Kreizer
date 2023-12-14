@@ -61,7 +61,6 @@ export class DepartamentoComponent implements OnInit{
         next: res=>{
           console.log(res)
           this.modalService.dismissAll();
-          //this.jsonDepartamento.reset();
         },
         error: err =>{
           console.log(err);
