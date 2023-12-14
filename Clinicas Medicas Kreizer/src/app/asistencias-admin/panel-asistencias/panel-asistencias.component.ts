@@ -12,7 +12,8 @@ export class PanelAsistenciasComponent implements OnInit {
   asistencias:any=[];
   empleados:any=[];
   asistenciaModal:any=[];
-
+  errorFecha: string = '';
+  
   constructor(private asistenciasService:AsistenciasService, private empleadosService:EmpleadosService, private modalService:NgbModal) {}
 
   ngOnInit(): void {
@@ -23,15 +24,15 @@ export class PanelAsistenciasComponent implements OnInit {
           this.empleadosService.obtenerEmpleados().subscribe(
             {
               next: (empleados) => {
-                this.asistencias = this.asistencias.map((asistencias: any) => {
-                  const empleado = empleados.find((emp: any) => emp.idEmp === asistencias.idEmp);
-                  //const entrada = new Date(asistencias.entrada).toLocaleString();
-                  //const salida = new Date(asistencias.salida).toLocaleString();
+                this.asistencias = this.asistencias.map((asistencia: any) => {
+                  const empleado = empleados.find((emp: any) => emp.idEmp === asistencia.idEmp);
+                  const entrada = new Date(asistencia.entrada).toLocaleString();
+                  const salida = new Date(asistencia.salida).toLocaleString();
                   //const horasTrabajadas = this.calcularHorasTrabajadas(asistencias.entrada, asistencias.salida);
                   return {
-                    ...asistencias,
+                    ...asistencia,
                     nombreEmpleado: empleado ? `${empleado.nombre} ${empleado.apellidos}` : '',
-                    //entrada, salida, //horas_trabajadas: horasTrabajadas
+                    entrada, salida, //horas_trabajadas: horasTrabajadas
                   };
                 });
               },
@@ -48,34 +49,66 @@ export class PanelAsistenciasComponent implements OnInit {
     );
   }
 
-  modalEditar(modal:any, asistencia:any){
+  modalEditar(modal:any, asistencia:any) {
     this.modalService.open(modal, {
       size: 'lg',
       centered: true,
     });
     this.asistenciaModal = asistencia
-
   }
 
-  actualizarAsistencia(){
+  actualizarAsistencia() {
+    const fechaEntrada = this.convertirCadenaAFecha(this.asistenciaModal.entrada);
+    const fechaSalida = this.convertirCadenaAFecha(this.asistenciaModal.salida);
+
+    if (!fechaEntrada) {
+      this.errorFecha = 'La hora de entrada esta vacia.';
+      return
+    } else if (!fechaSalida){
+      this.errorFecha = 'La hora de salida esta vacia.';
+      return
+    } else if (fechaSalida < fechaEntrada) {
+      this.errorFecha = 'La hora de salida no puede ser menor que la hora de entrada.';
+      return;
+    }
+    
+    this.errorFecha = '';
     const jsonAsistencia = {
       idAsi : this.asistenciaModal.idAsi,
-      entrada : this.asistenciaModal.entrada,
-      salida : this.asistenciaModal.salida
+      entrada: fechaEntrada,
+      salida: fechaSalida
     }
-    console.log(jsonAsistencia)
     this.asistenciasService.actualizarAsistencia(jsonAsistencia).subscribe(
       {
         next: res=>{
           console.log(res)
-          console.log(jsonAsistencia)
           this.modalService.dismissAll();
         },
         error: err =>{
           console.log(err);
         }
       }
-    );
+    )
+  }
+
+  convertirCadenaAFecha(cadena: string) {
+    const partes = cadena.split(', ');
+    if (partes.length === 2) {
+      const fechaPartes = partes[0].split('/');
+      const tiempoPartes = partes[1].split(':');
+      
+      if (fechaPartes.length === 3 && tiempoPartes.length === 3) {
+        const año = parseInt(fechaPartes[2]);
+        const mes = parseInt(fechaPartes[1]) - 1; // Los meses en JavaScript son de 0 a 11
+        const dia = parseInt(fechaPartes[0]);
+        const horas = parseInt(tiempoPartes[0]);
+        const minutos = parseInt(tiempoPartes[1]);
+        const segundos = parseInt(tiempoPartes[2]);
+  
+        return new Date(año, mes, dia, horas, minutos, segundos);
+      }
+    }
+    return null;
   }
 
   private calcularHorasTrabajadas(entrada: string, salida: string): string {

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PuestosLaboralesService } from 'src/app/services/puestosLaborales.service';
 
 @Component({
   selector: 'app-puesto-laboral',
@@ -8,12 +10,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class PuestoLaboralComponent {
   puestos:any=[];
+  puestoModal:any=[];
 
   registroPuesto = new FormGroup({
     departamento: new FormControl('', Validators.required),
-    puesto : new FormControl('', Validators.required),
+    nombre : new FormControl('', Validators.required),
     estado: new FormControl('', Validators.required)
   });
+
+  constructor(private departamentosService:PuestosLaboralesService, private modalService:NgbModal){}
 
   get obt(){
     return this.registroPuesto.controls;
@@ -23,7 +28,15 @@ export class PuestoLaboralComponent {
 
   }
 
+  guardarModal(modal: any){
+
+  }
+
   guardarPuesto(){
 
+  }
+
+  actualizarPuesto(){
+    
   }
 }

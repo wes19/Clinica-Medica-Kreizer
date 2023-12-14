@@ -46,7 +46,7 @@
     img{
       position: relative;
     }
-    .actions{
+    .kz-actions{
       display: none;
       background-color: #949fa5c7;
       position: absolute;
@@ -54,7 +54,7 @@
       width: 150px;
       padding: 16px;
       justify-content: space-between;
-      .edit-action{
+      .kz-edit-action{
         i{
           color: white;
           font-size: 18px;
@@ -68,7 +68,7 @@
           display: none;
         }
       }
-      .delete-action{
+      .kz-delete-action{
         i{
           color: white;
           font-size: 18px;
@@ -81,7 +81,7 @@
       }
     }
     &:hover{
-      .actions{
+      .kz-actions{
         display: flex;
       }
     }

@@ -15,7 +15,7 @@ module.exports = function (db) {
     // Actualizar Asistencias
     router.put('/:idAsi', async (req, res) => {
         const { entrada, salida } = req.body;
-        const idAsi = req.params.idAsi;
+        const idAsi = req.params.idAsi;      
         try {
             await db.query(
             'UPDATE kz_asistencias SET entrada=?, salida=? WHERE idAsi=?',
@@ -24,7 +24,6 @@ module.exports = function (db) {
             res.send({ message: 'Registro actualizado correctamente' });
         } catch (error) {
             res.status(500).send('Error al actualizar el registro');
-            console.log(entrada, salida, idAsi)
         }
       });
 

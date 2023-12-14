@@ -1,3 +1,7 @@
+<div class="kz-gap--l kz-mb--2">
+    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)">Crear</button>
+</div>
+
 <table class="kz-table">
     <thead class="kz-table__head">
         <tr>
@@ -19,7 +23,7 @@
 </table>
 
 
-<ng-template #ModalGuardar let-modal>
+<ng-template #ModalCrear let-modal>
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Puesto Laborales</h5>
@@ -43,7 +47,7 @@
                 </div>
                 <div class="kz-mb--2">
                     <label>Puesto Laboral:</label>
-                    <input type="text" class="kz-input" formControlName="puesto" [ngClass]="{'kz-is-invalid':obt.puesto.invalid && (obt.puesto.dirty || obt.puesto.touched)}" required>
+                    <input type="text" class="kz-input" formControlName="nombre" [ngClass]="{'kz-is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" required>
                 </div>
             </div>
             <div class="kz-form-column">

@@ -16,9 +16,21 @@ export class AsistenciasService {
   }
 
   actualizarAsistencia(data: any):Observable<any>{
+    const entradaFormateada = this.formatoFechaMySQL(new Date(data.entrada));
+    const salidaFormateada = this.formatoFechaMySQL(new Date(data.salida));
     return this.httpClient.put(`${this.backendWeb}/asistencias/${data.idAsi}`,{
-        entrada: data.entrada,
-        salida: data.salida
+        entrada: entradaFormateada,
+        salida: salidaFormateada
     });
+  }
+
+  private formatoFechaMySQL(fecha: Date): string {
+    const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+    const dia = fecha.getDate().toString().padStart(2, '0');
+    const hora = fecha.getHours().toString().padStart(2, '0');
+    const minuto = fecha.getMinutes().toString().padStart(2, '0');
+    const segundo = fecha.getSeconds().toString().padStart(2, '0');
+  
+    return `${fecha.getFullYear()}-${mes}-${dia} ${hora}:${minuto}:${segundo}`;
   }
 }

@@ -17,6 +17,7 @@
   color: red;
   background-color: transparent;  
   border: none;
+  margin-top: 5px;
 }
 
 .kz-is-invalid {
@@ -29,7 +30,7 @@
   padding: 10px 22px;
   background-color: transparent;
   color: $color-thirteen;
-  //font-weight: bold;
+  font-weight: bold;
 }
 
 .kz-chip-estado-red{
@@ -38,7 +39,7 @@
   padding: 10px 22px;
   background-color: transparent;
   color: $color-eigth;
-  //font-weight: bold;
+  font-weight: bold;
 }
 
 .kz-state-animation {
@@ -56,4 +57,3 @@
     opacity: 0.5;
   }
 }
-

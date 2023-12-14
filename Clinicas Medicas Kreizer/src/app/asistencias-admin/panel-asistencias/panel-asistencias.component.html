@@ -5,7 +5,8 @@
     </div>
 </div>
 
-<table class="kz-table">
+<div class="kz-table-content">
+  <table class="kz-table">
     <thead class="kz-table__head">
       <tr>
         <th>Empleado</th>
@@ -25,7 +26,8 @@
         </td>
       </tr>
     </tbody>
-</table>
+  </table>
+</div>
 
 
 <ng-template #editarModal let-modal>
@@ -51,11 +53,12 @@
       <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Horas Trabajadas:</label>
-          <input type="text" class="kz-input" [(ngModel)]="asistenciaModal.horas_trabajadas">
+          <input type="text" class="kz-input" [(ngModel)]="asistenciaModal.horas_trabajadas" readonly>
         </div>
         <div class="kz-mb--2">
           <label>Salida:</label>
           <input type="datetime" class="kz-input" [(ngModel)]="asistenciaModal.salida">
+          <div *ngIf="errorFecha" class="kz-error-text">{{errorFecha}}</div>
         </div>
       </div>
     </div>

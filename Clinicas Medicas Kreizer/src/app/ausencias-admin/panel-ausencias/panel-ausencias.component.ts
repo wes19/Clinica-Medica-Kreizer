@@ -24,9 +24,12 @@ export class PanelAusenciasComponent {
               next: (empleados) => {
                 this.ausencias = this.ausencias.map((ausencia: any) => {
                   const empleado = empleados.find((emp: any) => emp.idEmp === ausencia.idEmp);
+                  const desde = new Date(ausencia.desde).toLocaleString();
+                  const hasta = new Date(ausencia.hasta).toLocaleString();
                   return {
                     ...ausencia,
                     nombreEmpleado: empleado ? `${empleado.nombre} ${empleado.apellidos}` : '',
+                    desde, hasta,
                   };
                 });
               },
