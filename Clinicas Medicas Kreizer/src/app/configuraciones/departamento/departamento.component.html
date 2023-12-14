@@ -47,8 +47,8 @@
                 <div class="kz-mb--2">
                     <label>Estado:</label>
                     <select class="kz-input" formControlName="estado" [ngClass]="{'kz-is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
-                        <option value="Activo">Activo</option> 
-                        <option value="Inactivo">Inactivo</option> 
+                        <option value="Activo" class="kz-head--xs">Activo</option> 
+                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
                     </select>
                     <div *ngIf="obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)" class="kz-error-text mt-2">
                         * Por favor, ingresa un estado válido
@@ -88,8 +88,8 @@
                 <div class="kz-mb--2">
                     <label>Estado:</label>
                     <select class="kz-input" [(ngModel)]="departamentoModal.estado">
-                        <option value="Activo">Activo</option> 
-                        <option value="Inactivo">Inactivo</option> 
+                        <option value="Activo" class="kz-head--xs">Activo</option> 
+                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
                     </select>
                 </div>
             </div>

@@ -34,7 +34,7 @@ export class MenuService {
   }
 
   eliminarMenu(data: any):Observable<any>{
-    return this.httpClient.put(`${this.backendWeb}/inicio/${data.idMenu}`,{
+    return this.httpClient.delete(`${this.backendWeb}/inicio/lista/${data.idMenu}`,{
     });
   }
 }

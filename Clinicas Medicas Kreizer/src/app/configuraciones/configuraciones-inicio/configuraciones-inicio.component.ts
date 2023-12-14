@@ -26,7 +26,7 @@ export class ConfiguracionesInicioComponent implements OnInit {
     this.menuService.obtenerMenu().subscribe(
      {
       next: res=>{
-        this.menus = res;
+        this.menus = res.reverse();;
       },
       error: err =>{
         console.log(err);
@@ -70,7 +70,7 @@ export class ConfiguracionesInicioComponent implements OnInit {
           {
             next: res=>{
               console.log(res)
-              this.ngOnInit();
+              this.actualizarTabla();
             },
             error: err =>{
               console.log(err);
@@ -99,6 +99,7 @@ export class ConfiguracionesInicioComponent implements OnInit {
         next: res=>{
           console.log(res)
           this.modalService.dismissAll();
+          this.actualizarTabla();
           this.registroMenu.reset();
         },
         error: err =>{
@@ -127,6 +128,17 @@ export class ConfiguracionesInicioComponent implements OnInit {
         }
       }
     );
+  }
+
+  actualizarTabla() {
+    this.menuService.obtenerMenu().subscribe({
+      next: (res) => {
+        this.menus = res.reverse();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
   
 }

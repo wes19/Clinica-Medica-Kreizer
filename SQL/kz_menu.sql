@@ -7,8 +7,7 @@ CREATE TABLE kz_menu (
     estado VARCHAR(8)
 );
 
--- Insertar datos en kz_menu
-INSERT INTO kz_menu (nombre, imagen, url, estado) VALUES
+INSERT INTO clinicaMedica_KZ.kz_menu (nombre, imagen, url, estado) VALUES
     ('Citas', '../assets/img/icons/citas.png', '/citas', 'Activo'),
     ('Portal Medico', '../assets/img/icons/portal.png', '/portal-medico', 'Activo'),
     ('Administracion', '../assets/img/icons/administracion.png', '/administracion', 'Activo'),
