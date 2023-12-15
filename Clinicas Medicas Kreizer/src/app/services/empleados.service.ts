@@ -19,6 +19,7 @@ export class EmpleadosService {
     return this.httpClient.put(`${this.backendWeb}/empleados/detalles/${data.idEmp}`, {
       nombre: data.nombre,
       apellidos: data.apellidos,
+      identidad: data.identidad,
       fecha_nacimiento: data.fecha_nacimiento,
       celular: data.celular,
       correo: data.correo,
@@ -51,6 +52,12 @@ export class EmpleadosService {
       contrasena: data.contrasena,
       estado: data.estado,
       imagen: data.imagen,
+    });
+  }
+
+  actualizarEmpleadoEstado(data: any): Observable<any> {
+    return this.httpClient.put(`${this.backendWeb}/empleados/detalles/${data.idEmp}/estado`, {
+      estado: data.estado
     });
   }
   

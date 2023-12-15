@@ -5,9 +5,9 @@
     <div class="kz-d-flex kz-flex-vertical-center kz-gap--xl kz-space-between">
       <button class="kz-btn-text kz-btn-text--red">
         <i class="bi bi-archive-fill "></i>
-        <span class=""> <b>Archivar</b> </span>
+        <span (click)="archivar()"> <b>Archivar</b> </span>
       </button>
-      <button class="kz-button kz-button--cancel kz-border-radius--l ml--2" [routerLink]="['/empleados/lista']"> Salir</button>
+      <button class="kz-button kz-button--cancel kz-border-radius--l ml--2" [routerLink]="['/empleados/lista']">Salir</button>
     </div>
 </div>
 
@@ -28,142 +28,131 @@
         </div>
         <div class="kz-mb--2">
           <label>Identidad:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.nombre">
+          <input type="text" class="kz-input" [(ngModel)]="empleado.identidad">
         </div>
         <div class="kz-mb--2">
           <label>Celular:</label>
-          <input type="text" class="kz-input">
+          <input type="text" class="kz-input" [(ngModel)]="empleado.celular">
         </div>
         <div class="kz-mb--2">
           <label>Genero:</label>
-          <select class="kz-input" required>
+          <select class="kz-input" [(ngModel)]="empleado.genero">
               <option value="" selected>-- Selecciona una opción --</option>
-              <option value="opcion1">Masculino</option> 
-              <option value="opcion1">Femenino</option> 
+              <option value="Masculino" class="kz-head--xs">Masculino</option> 
+              <option value="Femenino" class="kz-head--xs">Femenino</option> 
           </select>
         </div>
         <div class="kz-mb--2">
           <label>Nombre Contacto de Emergencia:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.nombre_contacto_emergencia">
         </div>
         <div class="kz-mb--2">
           <label>Cónyugue:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.conyugue">
         </div>
         <div class="kz-mb--2">
           <label>Nacionalidad:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.nacionalidad">
         </div>
         <div class="kz-mb--2">
           <label>Nivel de certificado:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.nivel_certificado">
         </div>
         <div class="kz-mb--2">
           <label>Escuela superior:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.escuela_superior">
         </div>
         <div class="kz-mb--2">
           <label>Escuela:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.escuela">
         </div>
         <div class="kz-mb--2">
           <label>Departamento:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.departamento">
         </div>
       </div>
     
       <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Apellidos:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.apellidos">
         </div>
         <div class="kz-mb--2">
           <label>Fecha de nacimiento:</label>
-          <input type="date" class="kz-input" required>
+          <input type="date" class="kz-input" [(ngModel)]="empleado.fecha_nacimiento">
         </div>
         <div class="kz-mb--2">
           <label>Correo:</label>
-          <input type="email" class="kz-input" required>
+          <input type="email" class="kz-input" [(ngModel)]="empleado.correo">
         </div>
         <div class="kz-mb--2">
           <label>Celular de Emergencias:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.celular_emergencias">
         </div>
         <div class="kz-mb--2">
           <label>Estado Civil:</label>
-          <select class="kz-input" required>
+          <select class="kz-input" [(ngModel)]="empleado.estado_civil">
             <option value="" selected>-- Selecciona una opción --</option>
-            <option value="opcion1">Casado(a)</option> 
-            <option value="opcion2">Soltero(a)</option> 
+            <option value="Casado">Casado(a)</option> 
+            <option value="Soltero">Soltero(a)</option> 
           </select>
         </div>
         <div class="kz-mb--2">
           <label>Número de hijos:</label>
-          <input type="number" class="kz-input" required>
+          <input type="number" class="kz-input" [(ngModel)]="empleado.numero_hijos">
         </div>
         <div class="kz-mb--2">
           <label>Idiomas:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.idiomas">
         </div>
         <div class="kz-mb--2">
           <label>Campo de Estudio:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.campo_estudio">
         </div>
         <div class="kz-mb--2">
           <label>Escuela Media:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.escuela_media">
         </div>
         <div class="kz-mb--2">
           <label>País:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.pais">
         </div>
         <div class="kz-mb--2">
           <label>Dirección:</label>
-          <textarea type="" class="kz-input" required></textarea>
+          <textarea type="" class="kz-input" [(ngModel)]="empleado.direccion"></textarea>
         </div>
       </div>
     </div>
+
     <!--Información Laboral-->
     <div class="kz-tab-panel" [class.active]="tabActiva == 'infoLaboral'">
       <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Celular Laboral:</label>
-          <input type="text" class="kz-input" required>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.celular_laboral">
         </div>
         <div class="kz-mb--2">
           <label>Departamento:</label>
-          <select class="kz-input" required>
-              <option value="" selected>-- Selecciona una opción --</option>
-              <option value="opcion1">Sistemas</option> 
-              <option value="opcion1">Contabilidad</option> 
-          </select>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.departamento">
         </div>
         <div class="kz-mb--2">
           <label>Dirección Laboral:</label>
-          <textarea type="text" class="kz-input" required></textarea>
+          <textarea class="kz-input" [(ngModel)]="empleado.direccion_laboral"></textarea>
         </div>
       </div>
     
       <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Correo Laboral:</label>
-          <input type="text" class="kz-input">
+          <input type="text" class="kz-input" [(ngModel)]="empleado.correo_laboral">
         </div>
         <div class="kz-mb--2">
-          <label>Jefe Inmdediato:</label>
-          <select class="kz-input" required>
-              <option value="" selected>-- Selecciona una opción --</option>
-              <option value="opcion1">Wesly Lazo</option> 
-              <option value="opcion1">Teresa Vásquez</option> 
-          </select>
+          <label>Jefe Inmediato:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.jefe_inmediato">
         </div>
         <div class="kz-mb--2">
           <label>Aprobador:</label>
-          <select class="kz-input" required>
-              <option value="" selected>-- Selecciona una opción --</option>
-              <option value="opcion1">Wesly Lazo</option> 
-              <option value="opcion1">Teresa Vásquez</option>
-          </select>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.aprobador">
         </div>
       </div>
     </div>
@@ -184,11 +173,7 @@
         
         <div class="kz-mb--2">
           <label>Estado:</label>
-          <select class="kz-input" [(ngModel)]="empleado.estado">
-              <option value="" selected>-- Selecciona una opción --</option>
-              <option value="Activo" class="kz-head--xs">Activo</option> 
-              <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-          </select>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.estado" readonly>
         </div>
        
         <div class="kz-mb--2">
@@ -226,7 +211,7 @@
       </div>
     </div>
     <div class="kz-d-flex kz-flex-horizontal-end">
-      <button class="kz-button kz-button--primary kz-ml--2" [routerLink]="['/empleados/detalles']">Guardar</button>
+      <button class="kz-button kz-button--primary kz-ml--2" (click)="actualizarEmpleado(empleado)">Guardar</button>
     </div>
   </div>
 </div>

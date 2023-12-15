@@ -3,7 +3,7 @@ CREATE TABLE kz_menu (
     idMenu INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(25),
     imagen VARCHAR(100),
-    url VARCHAR(1000),
+    url VARCHAR(100),
     estado VARCHAR(8)
 );
 
