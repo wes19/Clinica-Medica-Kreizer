@@ -46,7 +46,7 @@ export class EmpleadosService {
       aprobador: data.aprobador,
       fecha_ingreso: data.fecha_ingreso,
       salario: data.salario,
-      puesto_laboral: data.puesto_laboral,
+      idPue: data.idPue,
       PIN: data.PIN,
       contrasena: data.contrasena,
       estado: data.estado,

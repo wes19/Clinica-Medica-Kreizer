@@ -38,6 +38,5 @@ export class ListEmpleadosComponent implements OnInit {
     const empleadoSeleccionado = empleado;
     this.empleadoService.setEmpleadoSeleccionado(empleadoSeleccionado);
     this.router.navigate(['/empleados/detalles'])
-    console.log('DetailEmpleados', empleadoSeleccionado);
   }
 }

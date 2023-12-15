@@ -79,7 +79,6 @@ import { PanelAsistenciasComponent } from './asistencias-admin/panel-asistencias
 import { AusenciasAdminComponent } from './ausencias-admin/ausencias-admin.component';
 import { PanelAusenciasComponent } from './ausencias-admin/panel-ausencias/panel-ausencias.component';
 import { AddEspecialidadesComponent } from './especialidades/add-especialidades/add-especialidades.component';
-import { DetailEspecialidadesComponent } from './especialidades/detail-especialidades/detail-especialidades.component';
 import { ListEspecialidadesComponent } from './especialidades/list-especialidades/list-especialidades.component';
 import { ConfiguracionesInicioComponent } from './configuraciones/configuraciones-inicio/configuraciones-inicio.component';
 import { RRHHComponent } from './rrhh/rrhh.component';
@@ -159,7 +158,6 @@ registerLocaleData(localeEs); // Registra el locale en español
     AusenciasAdminComponent,
     PanelAusenciasComponent,
     AddEspecialidadesComponent,
-    DetailEspecialidadesComponent,
     ListEspecialidadesComponent,
     ConfiguracionesInicioComponent,
     RRHHComponent,

@@ -23,20 +23,22 @@ export class ConfiguracionesInicioComponent implements OnInit {
   constructor(private menuService:MenuService, private modalService:NgbModal) {}
 
   ngOnInit(): void {
-    this.menuService.obtenerMenu().subscribe(
-     {
-      next: res=>{
-        this.menus = res.reverse();;
-      },
-      error: err =>{
-        console.log(err);
-      }
-     }
-    );
+   this.cargarTabla();
   }
 
   get obt(){
     return this.registroMenu.controls;
+  }
+
+  cargarTabla() {
+    this.menuService.obtenerMenu().subscribe({
+      next: (res) => {
+        this.menus = res.reverse();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   editarModal(modal: any, menu: any): void {
@@ -70,7 +72,7 @@ export class ConfiguracionesInicioComponent implements OnInit {
           {
             next: res=>{
               console.log(res)
-              this.actualizarTabla();
+              this.cargarTabla();
             },
             error: err =>{
               console.log(err);
@@ -99,7 +101,7 @@ export class ConfiguracionesInicioComponent implements OnInit {
         next: res=>{
           console.log(res)
           this.modalService.dismissAll();
-          this.actualizarTabla();
+          this.cargarTabla();
           this.registroMenu.reset();
         },
         error: err =>{
@@ -128,17 +130,6 @@ export class ConfiguracionesInicioComponent implements OnInit {
         }
       }
     );
-  }
-
-  actualizarTabla() {
-    this.menuService.obtenerMenu().subscribe({
-      next: (res) => {
-        this.menus = res.reverse();
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
   }
   
 }

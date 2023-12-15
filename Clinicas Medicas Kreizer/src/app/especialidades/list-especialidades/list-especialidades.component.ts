@@ -15,10 +15,14 @@ export class ListEspecialidadesComponent implements OnInit {
   constructor(private especialidadesService:EspecialidadesService, private modalService:NgbModal) {}
 
   ngOnInit(): void {
+    this.cargarDatos();
+  }
+
+  cargarDatos(){
     this.especialidadesService.obtenerEspecialidades().subscribe(
       {
         next : res=>{
-          this.especialidades = res;
+          this.especialidades = res.reverse();
         },
         error : err =>{
           console.log(err)

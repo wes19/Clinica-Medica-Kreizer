@@ -19,18 +19,18 @@ module.exports = function (db) {
           nombre, apellidos, fecha_nacimiento, celular, correo, genero, celular_emergencias, nombre_contacto_emergencia,
           estado_civil, conyugue, numero_hijos, nacionalidad, idiomas, nivel_certificcado, campo_estudio, escuela_superior,
           escuela_media, escuela, pais, departamento, direccion, celular_laboral, correo_laboral, area, jefe_inmediato,
-          direccion_laboral, aprobador, fecha_ingreso, salario, puesto_laboral, PIN, contrasena, estado, imagen
+          direccion_laboral, aprobador, fecha_ingreso, salario, idPue, PIN, contrasena, estado, imagen
         } = req.body;
         const idEmp = req.params.idEmp;
     
         try {
           await db.query(
-            'UPDATE kz_empleados SET nombre=?, apellidos=?, fecha_nacimiento=?, celular=?, correo=?, genero=?, celular_emergencias=?, nombre_contacto_emergencia=?, estado_civil=?, conyugue=?, numero_hijos=?, nacionalidad=?, idiomas=?, nivel_certificcado=?, campo_estudio=?, escuela_superior=?, escuela_media=?, escuela=?, pais=?, departamento=?, direccion=?, celular_laboral=?, correo_laboral=?, area=?, jefe_inmediato=?, direccion_laboral=?, aprobador=?, fecha_ingreso=?, salario=?, puesto_laboral=?, PIN=?, contrasena=?, estado=?, imagen=? WHERE idEmp=?',
+            'UPDATE kz_empleados SET nombre=?, apellidos=?, fecha_nacimiento=?, celular=?, correo=?, genero=?, celular_emergencias=?, nombre_contacto_emergencia=?, estado_civil=?, conyugue=?, numero_hijos=?, nacionalidad=?, idiomas=?, nivel_certificcado=?, campo_estudio=?, escuela_superior=?, escuela_media=?, escuela=?, pais=?, departamento=?, direccion=?, celular_laboral=?, correo_laboral=?, area=?, jefe_inmediato=?, direccion_laboral=?, aprobador=?, fecha_ingreso=?, salario=?, idPue=?, PIN=?, contrasena=?, estado=?, imagen=? WHERE idEmp=?',
             [
               nombre, apellidos, fecha_nacimiento, celular, correo, genero, celular_emergencias, nombre_contacto_emergencia, estado_civil,
               conyugue, numero_hijos, nacionalidad, idiomas, nivel_certificcado, campo_estudio, escuela_superior, escuela_media, escuela,
               pais, departamento, direccion, celular_laboral, correo_laboral, area, jefe_inmediato, direccion_laboral, aprobador,
-              fecha_ingreso, salario, puesto_laboral, PIN, contrasena, estado, imagen, idEmp
+              fecha_ingreso, salario, idPue, PIN, contrasena, estado, imagen, idEmp
             ]
           );
           res.send({ message: 'Registro actualizado correctamente' });

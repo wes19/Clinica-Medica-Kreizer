@@ -177,10 +177,8 @@
         </div>
         <div class="kz-mb--2">
           <label>Puesto Laboral:</label>
-          <select class="kz-input" [(ngModel)]="empleado.puesto_laboral">
-              <option value="" selected>-- Selecciona una opción --</option>
-              <option value="opcion1">Analista de Programación</option> 
-              <option value="opcion1">Oficial de IT</option> 
+          <select class="kz-input" [(ngModel)]="empleado.idPue">
+            <option *ngFor="let puesto of puestos" [value]="puesto.idPue" class="kz-head--xs">{{puesto.nombre}}</option>
           </select>
         </div>
         
@@ -188,12 +186,11 @@
           <label>Estado:</label>
           <select class="kz-input" [(ngModel)]="empleado.estado">
               <option value="" selected>-- Selecciona una opción --</option>
-              <option value="Activo">Activo</option> 
-              <option value="Inactivo">Inactivo</option> 
+              <option value="Activo" class="kz-head--xs">Activo</option> 
+              <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
           </select>
         </div>
        
-
         <div class="kz-mb--2">
           <label>Imagen:</label>
           <div class="kz-form--img">

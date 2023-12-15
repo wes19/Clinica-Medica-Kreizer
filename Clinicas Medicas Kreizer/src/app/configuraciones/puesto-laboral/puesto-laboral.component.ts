@@ -23,6 +23,14 @@ export class PuestoLaboralComponent implements OnInit {
   constructor(private puestosLaboralesService:PuestosLaboralesService, private departamentosService:DepartamentosService, private modalService:NgbModal){}
 
   ngOnInit(): void {
+    this.cargarTabla();
+  }
+
+  get obt(){
+    return this.registroPuesto.controls;
+  }
+
+  cargarTabla() {
     this.puestosLaboralesService.obtenerPuestosLaborales().subscribe(
       {
        next: (puestos)=>{
@@ -38,22 +46,19 @@ export class PuestoLaboralComponent implements OnInit {
                   nombreDepartamento: departamento.nombre
                 };
               });
+              this.puestos = this.puestos.reverse();
             },
             error: err => {
               console.log(err);
             }
           }
-         )
+         );
        },
        error: err =>{
          console.log(err);
        }
       }
-     );
-    }
-
-  get obt(){
-    return this.registroPuesto.controls;
+    );
   }
 
   modalEditar(modal: any){
@@ -68,7 +73,7 @@ export class PuestoLaboralComponent implements OnInit {
   }
 
   modalEliminar(modal: any){
-    
+
   }
 
   guardarPuesto(){
@@ -82,6 +87,8 @@ export class PuestoLaboralComponent implements OnInit {
         next: res=>{
           console.log(res)
           this.modalService.dismissAll();
+          this.registroPuesto.reset();
+          this.cargarTabla();
         },
         error: err =>{
           console.log(err);
@@ -93,4 +100,5 @@ export class PuestoLaboralComponent implements OnInit {
   actualizarPuesto(){
     
   }
+
 }

@@ -20,20 +20,22 @@ export class DepartamentoComponent implements OnInit{
   constructor(private departamentosService:DepartamentosService, private modalService:NgbModal){}
 
   ngOnInit(): void {
-    this.departamentosService.obtenerDepartamentos().subscribe(
-      {
-        next: res=> {
-          this.departamentos = res;
-        },
-        error: err =>{
-          console.log(err);
-        }
-      }
-    )
+    this.cargartabla();
   }
 
   get obt(){
     return this.registroDepartamento.controls;
+  }
+
+  cargartabla() {
+    this.departamentosService.obtenerDepartamentos().subscribe({
+      next: (res) => {
+        this.departamentos = res.reverse();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   editarModal(modal: any, departamento: any){
@@ -61,6 +63,8 @@ export class DepartamentoComponent implements OnInit{
         next: res=>{
           console.log(res)
           this.modalService.dismissAll();
+          this.registroDepartamento.reset();
+          this.cargartabla();
         },
         error: err =>{
           console.log(err);
