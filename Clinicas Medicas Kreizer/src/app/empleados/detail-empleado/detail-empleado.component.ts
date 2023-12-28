@@ -114,7 +114,7 @@ export class DetailEmpleadoComponent implements OnInit {
       idPue: empleado.idPue,
       PIN: empleado.PIN,
       contrasena: empleado.contrasena,
-      estado: empleado.estado,
+      id_credencial: empleado.id_credencial,
       imagen: empleado.imagen
     };
     this.empleadosService.actualizarEmpleado(jsonEmpleado).subscribe(
@@ -132,13 +132,14 @@ export class DetailEmpleadoComponent implements OnInit {
   archivar(){
     const jsonEmpleado = {
       idEmp: this.empleado.idEmp,
-      estado: this.empleado.estado
+      estado: "Inactivo"
     };
     this.empleadosService.actualizarEmpleadoEstado(jsonEmpleado).subscribe(
       {
         next: res => {
           console.log(res);
           this.cargarDatos();
+          console.log(this.empleado.estado) 
         },
         error: err => {
           console.log(err);
