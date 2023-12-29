@@ -13,10 +13,16 @@ export class SidebarRrhhComponent {
   isHovered: boolean = false;
   imagePath: string = '../assets/img/logo.svg';
   empleadosLista: boolean = false;
+  empleadosArchivados: boolean = false;
 
   empListaUrls: string[] = [
     '/empleados/lista',
     '/empleados/detalles',
+  ];
+
+  empArchivedUrls: string[] = [
+    '/empleados/archivados',
+    '/empleados/empleado-archivado'
   ];
 
   constructor(private sidebarService: SidebarService, private router: Router) {
@@ -24,6 +30,7 @@ export class SidebarRrhhComponent {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.empleadosLista = this.empListaUrls.some(url => this.router.url.includes(url));
+      this.empleadosArchivados = this.empArchivedUrls.some(url => this.router.url.includes(url));
     });
   }
 

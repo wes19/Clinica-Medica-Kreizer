@@ -1,14 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { EmployeeService } from '../employee.service';
 
 @Component({
-  selector: 'app-list-empleados',
-  templateUrl: './list-empleados.component.html',
-  styleUrls: ['./list-empleados.component.scss']
+  selector: 'app-archived-empleado',
+  templateUrl: './archived-empleado.component.html',
+  styleUrls: ['./archived-empleado.component.scss'],
 })
-export class ListEmpleadosComponent implements OnInit {
+export class ArchivedEmpleadoComponent implements OnInit {
   btnActivo: string = 'kamba';
   empleados:any=[];
   empleadosTemporal: any = [];
@@ -22,7 +22,7 @@ export class ListEmpleadosComponent implements OnInit {
           this.empleados = [];
           this.empleadosTemporal = res;
           for(let i = 0; i < this.empleadosTemporal.length; i++){
-            if(this.empleadosTemporal[i].estado == 'Activo'){
+            if(this.empleadosTemporal[i].estado == 'Inactivo'){
               this.empleados.push(this.empleadosTemporal[i]);
             }
           }
@@ -37,6 +37,6 @@ export class ListEmpleadosComponent implements OnInit {
   detailEmpleadosNavigate(empleado: any) {
     const empleadoSeleccionado = empleado;
     this.empleadoService.setEmpleadoSeleccionado(empleadoSeleccionado);
-    this.router.navigate(['/empleados/detalles'])
+    this.router.navigate(['/empleados/empleado-archivado'])
   }
 }

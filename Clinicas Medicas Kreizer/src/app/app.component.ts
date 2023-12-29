@@ -35,6 +35,8 @@ const rutasSidebarRRHH = [
   '/empleados/crear',
   '/empleados/detalles',
   '/empleados/lista',
+  '/empleados/archivados',
+  '/empleados/empleado-archivado',
   '/asistencias-admin',
   '/asistencias-admin/panel',
   '/ausencias-admin',
