@@ -6,9 +6,13 @@
     </div>  
   </div>
   <div class="kz-d-flex kz-flex-vertical-center kz-gap--xl">
-    <button class="kz-btn-text kz-btn-text--red" (click)="archivar()">
-      <i class="bi bi-archive-fill "></i>
+    <button *ngIf="empleado.estado === 'Activo'" class="kz-btn-text kz-btn-text--red" (click)="archivar()">
+      <i class="bi bi-archive-fill"></i>
       <span> <b>Archivar</b> </span>
+    </button>
+    <button *ngIf="empleado.estado === 'Inactivo'" class="kz-btn-text kz-btn-text--red " (click)="desarchivar()">
+      <i class="fa-solid fa-box-open"></i>
+      <span> <b>Desarchivar</b> </span>
     </button>
     <button class="kz-button kz-button--cancel kz-border-radius--l ml--2" [routerLink]="['/empleados/lista']">Salir</button>
   </div>

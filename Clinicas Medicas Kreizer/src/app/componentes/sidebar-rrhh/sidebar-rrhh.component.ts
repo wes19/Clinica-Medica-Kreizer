@@ -22,7 +22,6 @@ export class SidebarRrhhComponent {
 
   empArchivedUrls: string[] = [
     '/empleados/archivados',
-    '/empleados/empleado-archivado'
   ];
 
   constructor(private sidebarService: SidebarService, private router: Router) {

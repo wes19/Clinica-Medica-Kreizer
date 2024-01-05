@@ -85,7 +85,7 @@ import { RRHHComponent } from './rrhh/rrhh.component';
 import { SidebarRrhhComponent } from './componentes/sidebar-rrhh/sidebar-rrhh.component';
 import { PuestoLaboralComponent } from './configuraciones/puesto-laboral/puesto-laboral.component';
 import { DepartamentoComponent } from './configuraciones/departamento/departamento.component';
-
+import { ArchivedEmpleadoComponent } from './empleados/archived-empleado/archived-empleado.component';
 
 //Administración
 
@@ -164,6 +164,7 @@ registerLocaleData(localeEs); // Registra el locale en español
     SidebarRrhhComponent,
     PuestoLaboralComponent,
     DepartamentoComponent,
+    ArchivedEmpleadoComponent,
  
 
 

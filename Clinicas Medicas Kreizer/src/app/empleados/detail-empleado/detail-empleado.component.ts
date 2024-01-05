@@ -147,4 +147,23 @@ export class DetailEmpleadoComponent implements OnInit {
       }
     );
   }
+
+  desarchivar(){
+    const jsonEmpleado = {
+      idEmp: this.empleado.idEmp,
+      estado: "Activo"
+    };
+    this.empleadosService.actualizarEmpleadoEstado(jsonEmpleado).subscribe(
+      {
+        next: res => {
+          console.log(res);
+          this.cargarDatos();
+          console.log(this.empleado.estado) 
+        },
+        error: err => {
+          console.log(err);
+        }
+      }
+    );
+  }
 }
