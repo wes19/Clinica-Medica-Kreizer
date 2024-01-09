@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeeService {
   private empleadoSeleccionado: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  private empleadoActualizado: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  private actualizacionDetalle: Subject<void> = new Subject<void>();
   private localStorageKey: string = '';
 
   constructor() {
@@ -24,4 +26,17 @@ export class EmployeeService {
     return this.empleadoSeleccionado.asObservable();
   }
 
+  setActualizarEmpleado(empleado: any) {
+    this.empleadoSeleccionado.next(empleado);
+    this.empleadoActualizado.next(empleado);
+    this.actualizacionDetalle.next();
+  }
+
+  getEmpleadoActualizado(): Observable<any> {
+    return this.empleadoActualizado.asObservable();
+  }
+
+  onActualizacionDetalle(): Subject<void> {
+    return this.actualizacionDetalle;
+  }
 }

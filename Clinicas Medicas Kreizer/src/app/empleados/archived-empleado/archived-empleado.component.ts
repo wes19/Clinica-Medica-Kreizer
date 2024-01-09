@@ -37,6 +37,6 @@ export class ArchivedEmpleadoComponent implements OnInit {
   detailEmpleadosNavigate(empleado: any) {
     const empleadoSeleccionado = empleado;
     this.empleadoService.setEmpleadoSeleccionado(empleadoSeleccionado);
-    this.router.navigate(['/empleados/empleado-archivado'])
+    this.router.navigate(['/empleados/detalles'])
   }
 }
