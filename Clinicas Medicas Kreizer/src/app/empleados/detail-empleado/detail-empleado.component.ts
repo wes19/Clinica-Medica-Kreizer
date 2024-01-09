@@ -1,11 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PuestosLaboralesService } from 'src/app/services/puestosLaborales.service';
 import { EmployeeService } from '../employee.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
-import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-detail-empleado',
@@ -13,8 +12,7 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrls: ['./detail-empleado.component.scss'],
   providers: [DatePipe]
 })
-export class DetailEmpleadoComponent implements OnInit, OnDestroy {
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
+export class DetailEmpleadoComponent implements OnInit {
   tabActiva: string = 'infoPersonal';
   empleado: any = [];
   puestos: any = [];
@@ -32,22 +30,8 @@ export class DetailEmpleadoComponent implements OnInit, OnDestroy {
     this.cargarDatos();
   }
 
-  ngOnDestroy(): void {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
-  }
-
   get obt(){
     return this.guardarContrasena.controls;
-  }
-
-  cargarDatosEmpleado(): void{
-    this.employeeService.getEmpleadoActualizado()
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe((empleado) => {
-      console.log(this.empleado.estado);
-     
-    });
   }
 
   cargarDatos() {
@@ -150,12 +134,11 @@ export class DetailEmpleadoComponent implements OnInit, OnDestroy {
       idEmp: this.empleado.idEmp,
       estado: "Inactivo"
     };
+    this.empleado.estado = 'Inactivo';
     this.empleadosService.actualizarEmpleadoEstado(jsonEmpleado).subscribe(
       {
         next: res => {
           console.log(res);
-          this.employeeService.setActualizarEmpleado(res); 
-          this.cargarDatosEmpleado();
         },
         error: err => {
           console.log(err);
@@ -169,12 +152,11 @@ export class DetailEmpleadoComponent implements OnInit, OnDestroy {
       idEmp: this.empleado.idEmp,
       estado: "Activo"
     };
+    this.empleado.estado = 'Activo';
     this.empleadosService.actualizarEmpleadoEstado(jsonEmpleado).subscribe(
       {
         next: res => {
           console.log(res);
-          this.employeeService.setActualizarEmpleado(res); 
-          this.cargarDatosEmpleado();
         },
         error: err => {
           console.log(err);

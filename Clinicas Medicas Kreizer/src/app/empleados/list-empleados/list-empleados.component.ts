@@ -13,7 +13,7 @@ export class ListEmpleadosComponent implements OnInit {
   empleados:any=[];
   empleadosTemporal: any = [];
 
-  constructor(private router: Router, private empleadosService:EmpleadosService, private empleadoService: EmployeeService) {}
+  constructor(private router: Router, private empleadosService:EmpleadosService, private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
     this.empleadosService.obtenerEmpleados().subscribe(
@@ -36,7 +36,7 @@ export class ListEmpleadosComponent implements OnInit {
 
   detailEmpleadosNavigate(empleado: any) {
     const empleadoSeleccionado = empleado;
-    this.empleadoService.setEmpleadoSeleccionado(empleadoSeleccionado);
+    this.employeeService.setEmpleadoSeleccionado(empleadoSeleccionado);
     this.router.navigate(['/empleados/detalles'])
   }
 }
