@@ -22,7 +22,7 @@
     </div>
     <div class="kz-mb--2">
       <label>Género:</label>
-      <select class="kz-input" [(ngModel)]="empleado.genero" name="genero">
+      <select class="kz-input" [(ngModel)]="empleado.genero" name="genero" [ngModelOptions]="{ standalone: true }">
           <option value="" selected>-- Selecciona una opción --</option>
           <option value="Masculino">Masculino</option> 
           <option value="Femenino">Femenino</option> 
@@ -77,7 +77,7 @@
     </div>
     <div class="kz-mb--2">
       <label>Estado Civil:</label>
-      <select class="kz-input" [(ngModel)]="empleado.estado_civil" name="estado_civil">
+      <select class="kz-input" [(ngModel)]="empleado.estado_civil" name="estado_civil" [ngModelOptions]="{ standalone: true }">
         <option value="" selected>-- Selecciona una opción --</option>
         <option value="Casado(a)">Casado(a)</option> 
         <option value="Soltero(a)">Soltero(a)</option> 
@@ -97,15 +97,15 @@
     </div>
     <div class="kz-mb--2">
       <label>Escuela Media:</label>
-      <input type="text" class="kz-input" [(ngModel)]="empleado.escuela_media">
+      <input type="text" class="kz-input" [(ngModel)]="empleado.escuela_media" name="escuela_media">
     </div>
     <div class="kz-mb--2">
       <label>País:</label>
-      <input type="text" class="kz-input" [(ngModel)]="empleado.pais">
+      <input type="text" class="kz-input" [(ngModel)]="empleado.pais" name="pais">
     </div>
     <div class="kz-mb--2">
       <label>Dirección:</label>
-      <textarea type="" class="kz-input" [(ngModel)]="empleado.direccion"></textarea>
+      <textarea class="kz-input" [(ngModel)]="empleado.direccion" name="direccion"></textarea>
     </div>
    
   </div>
@@ -114,11 +114,11 @@
   <div class="kz-form-column">
     <div class="kz-mb--2">
       <label>Celular Laboral:</label>
-      <input type="text" class="kz-input" [(ngModel)]="empleado.celular_laboral">
+      <input type="text" class="kz-input" [(ngModel)]="empleado.celular_laboral" name="celular_laboral">
     </div>
     <div class="kz-mb--2">
       <label>Departamento:</label>
-      <select class="kz-input" [(ngModel)]="empleado.direccion">
+      <select class="kz-input" [(ngModel)]="empleado.area" [ngModelOptions]="{ standalone: true }">
           <option value="" selected>-- Selecciona una opción --</option>
           <option value="opcion1">Sistemas</option> 
           <option value="opcion1">Contabilidad</option> 
@@ -126,30 +126,22 @@
     </div>
     <div class="kz-mb--2">
       <label>Dirección Laboral:</label>
-      <textarea type="text" class="kz-input" [(ngModel)]="empleado.direccion_laboral"></textarea>
+      <textarea class="kz-input" [(ngModel)]="empleado.direccion_laboral" name="direccion_laboral"></textarea>
     </div>
   </div>
 
   <div class="kz-form-column">
     <div class="kz-mb--2">
       <label>Correo Laboral:</label>
-      <input type="text" class="kz-input" [(ngModel)]="empleado.correo_laboral">
+      <input type="text" class="kz-input" [(ngModel)]="empleado.correo_laboral" name="correo_laboral">
     </div>
     <div class="kz-mb--2">
       <label>Jefe Inmdediato:</label>
-      <select class="kz-input" [(ngModel)]="empleado.direccion">
-          <option value="" selected>-- Selecciona una opción --</option>
-          <option value="opcion1">Wesly Lazo</option> 
-          <option value="opcion1">Teresa Vásquez</option> 
-      </select>
+      <input type="text" class="kz-input" [(ngModel)]="empleado.jefe_inmediato" name="jefe_inmediato">
     </div>
     <div class="kz-mb--2">
       <label>Aprobador:</label>
-      <select class="kz-input" [(ngModel)]="empleado.aprobador">
-          <option value="" selected>-- Selecciona una opción --</option>
-          <option value="opcion1">Wesly Lazo</option> 
-          <option value="opcion1">Teresa Vásquez</option>
-      </select>
+      <input type="text" class="kz-input" [(ngModel)]="empleado.aprobador" name="aprobador">
     </div>
   </div>
 
@@ -157,11 +149,11 @@
   <div class="kz-form-column">
     <div class="kz-mb--2">
       <label>Fecha de Ingreso:</label>
-      <input type="date" class="kz-input" [(ngModel)]="empleado.fecha_ingreso">
+      <input type="date" class="kz-input" [(ngModel)]="empleado.fecha_ingreso" name="fecha_ingreso">
     </div>
     <div class="kz-mb--2">
       <label>Puesto Laboral:</label>
-      <select class="kz-input" [(ngModel)]="empleado.aprobador">
+      <select class="kz-input" [(ngModel)]="empleado.aprobador" name="puesto_laboral" [ngModelOptions]="{ standalone: true }">
           <option value="" selected>-- Selecciona una opción --</option>
           <option value="opcion1">Analista de Programación</option> 
           <option value="opcion1">Oficial de IT</option> 
@@ -169,26 +161,26 @@
     </div>
     <div class="kz-mb--2">
       <label>Contraseña:</label>
-      <input type="password" class="kz-input" [(ngModel)]="empleado.contrasena">
+      <input type="password" class="kz-input" [(ngModel)]="empleado.contrasena" name="contrasena">
     </div>
     <div class="kz-mb--2">
       <label>Id de Credencial:</label>
-      <input type="password" class="kz-input" [(ngModel)]="empleado.id_credencial">
+      <input type="password" class="kz-input" [(ngModel)]="empleado.id_credencial" name="id_credencial">
     </div>
   </div>
     
   <div class="kz-form-column">
     <div class="kz-mb--2">
       <label>Salario:</label>
-      <input type="text" class="kz-input" [(ngModel)]="empleado.salario">
+      <input type="text" class="kz-input" [(ngModel)]="empleado.salario" name="salario">
     </div>
     <div class="kz-mb--2">
       <label>PIN:</label>
-      <input type="text" class="kz-input" [(ngModel)]="empleado.PIN">
+      <input type="text" class="kz-input" [(ngModel)]="empleado.PIN" name="PIN">
     </div>
     <div class="kz-mb--2">
       <label>Imagen:</label>
-      <textarea type="text" class="kz-input" [(ngModel)]="empleado.imagen"></textarea>
+      <textarea class="kz-input" [(ngModel)]="empleado.imagen" name="imagen"></textarea>
     </div>
   </div>
 
