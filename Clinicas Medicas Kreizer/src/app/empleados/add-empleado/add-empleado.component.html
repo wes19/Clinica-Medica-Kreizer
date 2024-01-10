@@ -5,7 +5,7 @@
   <button class="kz-button kz-button--cancel kz-border-radius--l" [routerLink]="['/empleados']"> Salir</button>
 </div>
 
-<form>
+<form #formularioEmpleado="ngForm">
   <h5 class="kz-d-flex kz-flex-horizontal-center">Información Personal</h5>
   <div class="kz-form-column">
     <div class="kz-mb--2">
@@ -118,10 +118,9 @@
     </div>
     <div class="kz-mb--2">
       <label>Departamento:</label>
-      <select class="kz-input" [(ngModel)]="empleado.area" [ngModelOptions]="{ standalone: true }">
-          <option value="" selected>-- Selecciona una opción --</option>
-          <option value="opcion1">Sistemas</option> 
-          <option value="opcion1">Contabilidad</option> 
+      <select class="kz-input" [(ngModel)]="empleado.area" [ngModelOptions]="{ standalone: true }"
+      (change)="cargarPuestosLaboralesDepartamento(empleado.area)">
+      <option *ngFor="let departamento of departamentos" [value]="departamento.idDep" class="kz-head--xs">{{ departamento.nombre }}</option>
       </select>
     </div>
     <div class="kz-mb--2">
@@ -153,10 +152,8 @@
     </div>
     <div class="kz-mb--2">
       <label>Puesto Laboral:</label>
-      <select class="kz-input" [(ngModel)]="empleado.aprobador" name="puesto_laboral" [ngModelOptions]="{ standalone: true }">
-          <option value="" selected>-- Selecciona una opción --</option>
-          <option value="opcion1">Analista de Programación</option> 
-          <option value="opcion1">Oficial de IT</option> 
+      <select class="kz-input" [(ngModel)]="empleado.idPue" name="puesto_laboral" [ngModelOptions]="{ standalone: true }">
+        <option *ngFor="let puesto of puestosLaborales" [value]="puesto.idPue" class="kz-head--xs">{{ puesto.nombre }}</option>
       </select>
     </div>
     <div class="kz-mb--2">
@@ -165,7 +162,7 @@
     </div>
     <div class="kz-mb--2">
       <label>Id de Credencial:</label>
-      <input type="password" class="kz-input" [(ngModel)]="empleado.id_credencial" name="id_credencial">
+      <input type="text" class="kz-input" [(ngModel)]="empleado.id_credencial" name="id_credencial">
     </div>
   </div>
     

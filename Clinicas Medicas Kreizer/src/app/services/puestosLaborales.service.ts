@@ -17,7 +17,6 @@ export class PuestosLaboralesService {
 
   actualizarPuestoLaboral(data: any):Observable<any>{
     return this.httpClient.put(`${this.backendWeb}/puestos-laborales/${data.idPue}`,{
-     
     });
   }
 
@@ -27,5 +26,9 @@ export class PuestosLaboralesService {
         nombre: data.nombre,
         estado: data.estado
     });
+  }
+
+  obtenerPuestosDepartamento(data: number): Observable<any> {
+    return this.httpClient.get(`${this.backendWeb}/puestos-laborales/departamento/${data}`);
   }
 }

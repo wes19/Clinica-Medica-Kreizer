@@ -12,6 +12,18 @@ module.exports = function (db) {
         }
     });
 
+    // Obtener Puestos Laborales por Departamento
+    router.get('/departamento/:idDep', async (req, res) => {
+        const idDep = req.params.idDep;
+        try {
+            const results = await db.query('SELECT * FROM kz_puestosLaborales WHERE idDep = ?', [idDep]);
+            res.send(results);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error al realizar la consulta');
+        }
+    });
+
     // Guardar Puestos Laborales
     router.post('/crear', async (req, res) => {
         const { idDep, nombre, estado } = req.body;
