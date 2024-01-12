@@ -23,6 +23,7 @@ app.use('/asistencias', asistenciasRouter(connection));
 app.use('/ausencias', ausenciasRouter(connection));
 app.use('/departamentos', departamentosRouter(connection));
 app.use('/puestos-laborales', puestosLaboralesRouter(connection));
+app.use('/empleados', express.static('empleados'));
 
 app.listen(8888, () => {
     console.log('Servidor del backend levantado en 8888');

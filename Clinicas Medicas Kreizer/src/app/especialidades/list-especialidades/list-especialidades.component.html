@@ -9,7 +9,7 @@
     <tbody class="kz-table__body">
       <tr *ngFor="let especialidad of especialidades">
         <td>{{especialidad.nombre}}</td>
-        <td>{{especialidad.imagen}}</td>
+        <td><img [src]="especialidad.imagen" alt="{{especialidad.nombre}}" class="kz-img-table"></td>
         <td>{{especialidad.estado}}</td>
         <td class="kz-d-flex kz-gap--s"> 
           <button class="kz-button kz-button--primary kz-border-radius--l" (click)="modalEditar(ModalEditar, especialidad)">Editar</button>
@@ -42,7 +42,7 @@
       <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Imagen:</label>
-          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.imagen">
+          <input type="file" class="kz-input" (change)="subirImagen($event)" accept="image/*">
         </div>
       </div>
     </div>

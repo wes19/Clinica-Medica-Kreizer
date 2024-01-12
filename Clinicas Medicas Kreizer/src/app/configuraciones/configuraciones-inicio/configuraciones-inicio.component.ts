@@ -131,6 +131,21 @@ export class ConfiguracionesInicioComponent implements OnInit {
       }
     );
   }
+
+  subirImagen(event: any, isEditing: boolean = false): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        if (isEditing) {
+          this.menuModal.imagen = `../assets/img/icons/${file.name}`;
+        } else {
+          this.registroMenu.patchValue({ imagen: `../assets/img/icons/${file.name}` });
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  }
   
 }
 

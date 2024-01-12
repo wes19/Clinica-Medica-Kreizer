@@ -45,6 +45,17 @@ export class AddEspecialidadesComponent{
     );
   }
 
+  subirImagen(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.registroEsp.patchValue({ imagen: `../assets/img/especialidades/${file.name}` });
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
   guardadoExitosamente(){
     Swal.fire({
       title: 'Guardado Exitosamente!',

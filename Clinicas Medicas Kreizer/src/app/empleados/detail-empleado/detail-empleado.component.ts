@@ -5,6 +5,7 @@ import { PuestosLaboralesService } from 'src/app/services/puestosLaborales.servi
 import { EmployeeService } from '../employee.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detail-empleado',
@@ -84,6 +85,7 @@ export class DetailEmpleadoComponent implements OnInit {
       {
         next: res => {
           console.log(res);
+          this.editadoExitosamente();
         },
         error: err => {
           console.log(err);
@@ -118,5 +120,25 @@ export class DetailEmpleadoComponent implements OnInit {
         }
       }
     );
+  }
+
+  subirImagen(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.empleado.imagen = `../assets/img/empleados/${file.name}`;
+      };
+      reader.readAsDataURL(file);
+    }
+  }  
+
+  editadoExitosamente(){
+    Swal.fire({
+      title: 'Editado Exitosamente!',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 4000, 
+    });
   }
 }
