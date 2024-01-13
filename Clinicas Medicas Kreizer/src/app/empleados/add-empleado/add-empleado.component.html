@@ -177,7 +177,7 @@
     </div>
     <div class="kz-mb--2">
       <label>Imagen:</label>
-      <textarea class="kz-input" [(ngModel)]="empleado.imagen" name="imagen"></textarea>
+      <input class="kz-input" (change)="subirImagen($event)" name="imagen" accept="image/*">
     </div>
   </div>
 

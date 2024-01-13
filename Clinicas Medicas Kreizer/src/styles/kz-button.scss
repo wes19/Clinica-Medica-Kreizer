@@ -82,6 +82,8 @@
   }
   .kz-btn-text{
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 4px;
     font-family: $font-family;
     font-size: 16px;

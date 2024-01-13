@@ -85,6 +85,17 @@ export class AddEmpleadoComponent implements OnInit {
     );
   }
 
+  subirImagen(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.empleado.imagen = `../assets/img/empleados/${file.name}`;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
   guardadoExitosamente(){
     Swal.fire({
       title: 'Guardado Exitosamente!',

@@ -34,7 +34,7 @@ CREATE TABLE clinicaMedica_KZ.kz_empleados (
     PIN INT,
     contrasena VARCHAR(30),
     estado VARCHAR(9),
-    imagen VARCHAR(50),
+    imagen VARCHAR(255),
     id_credencial VARCHAR(10),
     FOREIGN KEY (idPue) REFERENCES clinicaMedica_KZ.kz_puestosLaborales(idPue)
 );

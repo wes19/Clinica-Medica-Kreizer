@@ -2,7 +2,7 @@ USE clinicamedica_kz;
 CREATE TABLE kz_especialidades (
     idEsp INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(25),
-    imagen VARCHAR(100),
+    imagen VARCHAR(255),
     estado VARCHAR(8)
 );
 

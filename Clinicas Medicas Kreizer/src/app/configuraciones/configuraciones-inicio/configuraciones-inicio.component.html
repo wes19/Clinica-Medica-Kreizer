@@ -15,7 +15,7 @@
     <tbody class="kz-table__body">
       <tr *ngFor="let menu of menus">
         <td>{{menu.nombre}}</td>
-        <td>{{menu.imagen}}</td>
+        <td><img [src]="menu.imagen" alt="{{menu.nombre}}" class="kz-img-table"></td>
         <td class="kz-truncate kz-width-static">{{menu.url}}</td>
         <td>{{menu.estado}}</td>
         <td class="kz-d-flex kz-gap--l"> 
@@ -51,7 +51,7 @@
       <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Imagen:</label>
-          <input type="text" class="kz-input" [(ngModel)]="menuModal.imagen">
+          <input type="file" class="kz-input" (change)="subirImagen($event, true)" accept="image/*">
         </div>
         <div class="kz-mb--2">
           <label>Estado:</label>
@@ -98,7 +98,7 @@
         <div class="kz-form-column">
           <div class="kz-mb--2">
             <label>Imagen:</label>
-            <input type="text" class="kz-input" formControlName="imagen" required>
+            <input type="file" class="kz-input" formControlName="imagen" (change)="subirImagen($event)" accept="image/*" required>
           </div>
           <div class="kz-mb--2">
             <label>Estado:</label>

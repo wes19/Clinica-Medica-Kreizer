@@ -1,9 +1,7 @@
 <div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between">
   <div class="kz-d-flex kz-flex-vertical-center kz-gap--xl">
-    <h5>Detalles Empleado</h5>
-    <div *ngIf="empleado.estado === 'Inactivo'" class="kz-chip-estado-archivar">
-      <span class="">Archivado</span>
-    </div>  
+    <h5 class="kz-m--0">Detalles Empleado</h5>
+    <span *ngIf="empleado.estado === 'Inactivo'" class="kz-chip kz-chip--red"><i class="bi bi-slash-circle"></i> Archivado</span>
   </div>
   <div class="kz-d-flex kz-flex-vertical-center kz-gap--xl">
     <button *ngIf="empleado.estado === 'Activo'" class="kz-btn-text kz-btn-text--red" (click)="archivar()">
@@ -192,7 +190,7 @@
                 <label for="file-input">
                   <i class="bi bi-pencil"></i>
                 </label>
-                <input id="file-input" type="file" />
+                <input id="file-input" type="file" (change)="subirImagen($event)" accept="image/*"/>
               </div>
               <div class="kz-delete-action">
                 <i class="bi bi-trash"></i>
