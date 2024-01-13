@@ -19,9 +19,11 @@ npm run dev   -> Correr el servidor
 /...  Angular  .../ 
 
 /. Crear proyecto ./
-ng new my-sassy-app --style=scss
+ng new my-sassy-app --style=scss --standalone=false
 
-npm install -g @angular/cli // sudo antes para mac
+npm install -g @angular/cli -> sudo antes para mac
+npm install @angular/cli@16.2.6
+
 npm install 
 ng update @angular/cli
 ng add @ng-bootstrap/ng-bootstrap
