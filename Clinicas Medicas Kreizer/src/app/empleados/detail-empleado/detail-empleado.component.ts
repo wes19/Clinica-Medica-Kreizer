@@ -80,8 +80,7 @@ export class DetailEmpleadoComponent implements OnInit {
   }
 
   actualizarEmpleado(empleado: any){
-    this.empleado = { ...empleado };
-    this.empleadosService.actualizarEmpleado(this.empleado).subscribe(
+    this.empleadosService.actualizarEmpleado(empleado).subscribe(
       {
         next: res => {
           console.log(res);
