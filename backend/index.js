@@ -15,7 +15,6 @@ app.use(express.json());
 app.use(cors());
 //app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use('/empleados', empleadosRouter(connection));
 app.use('/inicio', menuRouter(connection));
 app.use('/especialidades', especialidadesRouter(connection));
@@ -23,7 +22,6 @@ app.use('/asistencias', asistenciasRouter(connection));
 app.use('/ausencias', ausenciasRouter(connection));
 app.use('/departamentos', departamentosRouter(connection));
 app.use('/puestos-laborales', puestosLaboralesRouter(connection));
-app.use('/empleados', express.static('empleados'));
 
 app.listen(8888, () => {
     console.log('Servidor del backend levantado en 8888');

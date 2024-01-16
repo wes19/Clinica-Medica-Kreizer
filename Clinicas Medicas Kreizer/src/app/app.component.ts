@@ -21,6 +21,7 @@ const rutasSidebarAdmin = [
   '/configuraciones/inicio',
   '/configuraciones/puestos-laborales',
   '/configuraciones/departamentos',
+  '/configuraciones/horarios',
   '/pacientes',
   '/pacientes/crear',
   '/pacientes/detalles',

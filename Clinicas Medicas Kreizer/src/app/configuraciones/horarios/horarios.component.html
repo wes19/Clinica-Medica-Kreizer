@@ -1,0 +1,138 @@
+<div class="kz-gap--l kz-mb--2">
+    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)">Crear</button>
+</div>
+
+<div class="kz-table-content">
+    <table class="kz-table">
+        <thead class="kz-table__head">
+            <tr>
+                <th>Especialidad</th>
+                <th>Médico</th>
+                <th>Horario Inicio</th>
+                <th>Horario Fin</th>
+                <th>Días</th>
+            </tr>
+        </thead>
+        <tbody class="kz-table__body">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a class="kz-text-decoration-none kz-link">Editar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #ModalCrear let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Horarios</h5>
+            <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+              <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+    
+    <div class="modal-body">
+        <form>
+            <div class="kz-form-column">
+                <div class="kz-mb--2">
+                    <label>Especialidad:</label>
+                    <select class="kz-input">
+                        <option value="Activo" class="kz-head--xs">Activo</option> 
+                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
+                    </select>
+                </div>
+                <div class="kz-mb--2">
+                    <label>Horario Inicio:</label>
+                    <input type="text" class="kz-input">
+                </div>
+                <div class="kz-mb--2">
+                    <label>Días:</label>
+                    <select class="kz-input">
+                        <option value="Activo" class="kz-head--xs">Activo</option> 
+                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
+                    </select>
+                </div>
+            </div>
+            <div class="kz-form-column">
+                <div class="kz-mb--2">
+                    <label>Médico:</label>
+                    <select class="kz-input">
+                        <option value="Activo" class="kz-head--xs">Activo</option> 
+                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
+                    </select>
+                </div>
+                <div class="kz-mb--2">
+                    <label>Horario Fin:</label>
+                    <input type="text" class="kz-input">
+                </div>
+            </div>
+        </form>
+    </div>
+      
+      <div class="modal-footer">
+        <button class="kz-button kz-button--primary kz-border-radius--l">Guardar</button>
+        <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+      </div>
+    </div>
+</ng-template>
+
+
+<ng-template #ModalEditar let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Departamentos</h5>
+            <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+              <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+  
+        <div class="modal-body">
+            <form>
+                <div class="kz-form-column">
+                    <div class="kz-mb--2">
+                        <label>Especialidad:</label>
+                        <select class="kz-input">
+                            <option value="Activo" class="kz-head--xs">Activo</option> 
+                            <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
+                        </select>
+                    </div>
+                    <div class="kz-mb--2">
+                        <label>Horario Inicio:</label>
+                        <input type="text" class="kz-input">
+                    </div>
+                    <div class="kz-mb--2">
+                        <label>Días:</label>
+                        <select class="kz-input">
+                            <option value="Activo" class="kz-head--xs">Activo</option> 
+                            <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
+                        </select>
+                    </div>
+                </div>
+                <div class="kz-form-column">
+                    <div class="kz-mb--2">
+                        <label>Médico:</label>
+                        <select class="kz-input">
+                            <option value="Activo" class="kz-head--xs">Activo</option> 
+                            <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
+                        </select>
+                    </div>
+                    <div class="kz-mb--2">
+                        <label>Horario Fin:</label>
+                        <input type="text" class="kz-input">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button class="kz-button kz-button--primary kz-border-radius--l" >Guardar</button>
+            <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+        </div>
+    </div>
+</ng-template>
