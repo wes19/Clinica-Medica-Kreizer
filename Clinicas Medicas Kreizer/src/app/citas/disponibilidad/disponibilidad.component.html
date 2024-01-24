@@ -115,16 +115,28 @@
               <input type="text" class="kz-input" placeholder="Buscar paciente...">
             </div>
             <div class="kz-mb--2">
-              <label>Nombre completo:</label>
+              <label>Nombre:</label>
               <input type="text" class="kz-input" required>
             </div>
             <div class="kz-mb--2">
-              <label>Identificacíon:</label>
+              <label>Apellidos:</label>
+              <input type="text" class="kz-input" required>
+            </div>
+            <div class="kz-mb--2">
+              <label>Identidad:</label>
               <input type="text" class="kz-input" required>
             </div>
             <div class="kz-mb--2">
               <label>Celular:</label>
               <input type="text" class="kz-input" required>
+            </div>
+            <div class="kz-mb--2">
+              <label>Género:</label>
+              <select class="kz-input" name="genero">
+                  <option value="" selected>-- Selecciona una opción --</option>
+                  <option value="Masculino" class="kz-head--xs">Masculino</option> 
+                  <option value="Femenino" class="kz-head--xs">Femenino</option> 
+              </select>
             </div>
             <div class="kz-d-flex kz-gap--s kz-flex-wrap">
               <button class="kz-button kz-button--secondary kz-border-radius--l" (click)="reiniciarFormulario()">Atrás</button>
@@ -134,11 +146,11 @@
           </div>
   
           <div *ngIf="agregadoExitosamente" class="kz-d-flex kz-dir-vertical kz-flex-vertical-center">
-            <div class="kz-d-flex kz-dir-vertical  kz-flex-vertical-center">
-              Agregado Exitosamente
-              <img class="kz-img kz-img--x" src="../assets/img/icons/comprobado.png" alt="Card image cap" (click)="verFormulario = true">
+            <div class="kz-d-flex kz-dir-vertical kz-flex-vertical-center">
+              <h3>Agregado Exitosamente</h3>
+              <img class="kz-img kz-img--x kz-mt--3" src="../assets/img/icons/comprobado.png" alt="Card image cap" (click)="verFormulario = true">
             </div>
-            <button class="kz-button kz-button--auxiliar kz-border-radius--l kz-mt--2" (click)="reiniciarFormulario()">Agregar Nuevo</button>
+            <button class="kz-button kz-button--auxiliar kz-border-radius--l kz-mt--4" (click)="reiniciarFormulario()">Agregar Nuevo</button>
           </div>
           
         </div>  

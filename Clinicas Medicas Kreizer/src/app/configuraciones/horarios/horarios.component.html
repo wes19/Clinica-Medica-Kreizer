@@ -14,18 +14,28 @@
             </tr>
         </thead>
         <tbody class="kz-table__body">
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr *ngFor="let horario of horarios">
+                <td>{{horario.especialidad}}</td>
+                <td>{{horario.empleado}}</td>
+                <td>{{horario.hora_inicio}}</td>
+                <td>{{horario.hora_final}}</td>
+                <td>
+                    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="mostrarDias(horario)">Ver</button>
+                </td>
                 <td>
                     <a class="kz-text-decoration-none kz-link">Editar</a>
                 </td>
             </tr>
         </tbody>
     </table>
+</div>
+
+<div *ngIf="mostrarDias && horarioDia">
+    <div class="overlay">
+      <div class="dias-container">
+        <div *ngFor="let dia of diasSemana" class="dia" [ngClass]="{'cuadro-verde': horarioDia[dia]}">{{formatearNombreDia(dia)}}</div>
+      </div>
+    </div>
 </div>
 
 <ng-template #ModalCrear let-modal>
@@ -131,7 +141,7 @@
         </div>
 
         <div class="modal-footer">
-            <button class="kz-button kz-button--primary kz-border-radius--l" >Guardar</button>
+            <button class="kz-button kz-button--primary kz-border-radius--l">Guardar</button>
             <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
         </div>
     </div>
