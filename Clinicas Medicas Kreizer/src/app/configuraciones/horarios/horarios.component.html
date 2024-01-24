@@ -20,22 +20,14 @@
                 <td>{{horario.hora_inicio}}</td>
                 <td>{{horario.hora_final}}</td>
                 <td>
-                    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="mostrarDias(horario)">Ver</button>
+                    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="mostrarDias(ModalDias, horario)">Ver</button>
                 </td>
                 <td>
-                    <a class="kz-text-decoration-none kz-link">Editar</a>
+                    <a class="kz-text-decoration-none kz-link" (click)="editarModal(ModalEditar, horario)">Editar</a>
                 </td>
             </tr>
         </tbody>
     </table>
-</div>
-
-<div *ngIf="mostrarDias && horarioDia">
-    <div class="overlay">
-      <div class="dias-container">
-        <div *ngFor="let dia of diasSemana" class="dia" [ngClass]="{'cuadro-verde': horarioDia[dia]}">{{formatearNombreDia(dia)}}</div>
-      </div>
-    </div>
 </div>
 
 <ng-template #ModalCrear let-modal>
@@ -103,46 +95,69 @@
         </div>
   
         <div class="modal-body">
-            <form>
-                <div class="kz-form-column">
-                    <div class="kz-mb--2">
-                        <label>Especialidad:</label>
-                        <select class="kz-input">
-                            <option value="Activo" class="kz-head--xs">Activo</option> 
-                            <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-                        </select>
-                    </div>
-                    <div class="kz-mb--2">
-                        <label>Horario Inicio:</label>
-                        <input type="text" class="kz-input">
-                    </div>
-                    <div class="kz-mb--2">
-                        <label>Días:</label>
-                        <select class="kz-input">
-                            <option value="Activo" class="kz-head--xs">Activo</option> 
-                            <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-                        </select>
-                    </div>
+            <div class="kz-form-column">
+                <div class="kz-mb--2">
+                    <label>Especialidad:</label>
+                    <select class="kz-input" [(ngModel)]="horarioModal.especialidad">
+                        <option value="Activo" class="kz-head--xs">Activo</option> 
+                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
+                    </select>
                 </div>
-                <div class="kz-form-column">
-                    <div class="kz-mb--2">
-                        <label>Médico:</label>
-                        <select class="kz-input">
-                            <option value="Activo" class="kz-head--xs">Activo</option> 
-                            <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-                        </select>
-                    </div>
-                    <div class="kz-mb--2">
-                        <label>Horario Fin:</label>
-                        <input type="text" class="kz-input">
-                    </div>
+                <div class="kz-mb--2">
+                    <label>Horario Inicio:</label>
+                    <input type="text" class="kz-input" [(ngModel)]="horarioModal.hora_inicio">
                 </div>
-            </form>
+                <div class="kz-mb--2">
+                    <label>Días:</label>
+                    <select class="kz-input">
+                        <option value="Activo" class="kz-head--xs">Activo</option> 
+                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
+                    </select>
+                </div>
+            </div>
+            <div class="kz-form-column">
+                <div class="kz-mb--2">
+                    <label>Médico:</label>
+                    <select class="kz-input" [(ngModel)]="horarioModal.empleado">
+                        <option value="Activo" class="kz-head--xs">Activo</option> 
+                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
+                    </select>
+                </div>
+                <div class="kz-mb--2">
+                    <label>Horario Fin:</label>
+                    <input type="text" class="kz-input" [(ngModel)]="horarioModal.hora_final">
+                </div>
+            </div>
         </div>
 
         <div class="modal-footer">
             <button class="kz-button kz-button--primary kz-border-radius--l">Guardar</button>
             <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #ModalDias let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Días</h5>
+            <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+              <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+  
+        <div class="modal-body">
+            <div class="kz-d-flex kz-space-between kz-txt--m kz-font-w--500 kz-mb--1">
+                <label>{{horarioDia.especialidad}}</label>
+                <div>
+                    <label>{{horarioDia.hora_inicio}} - </label>
+                    <label>{{horarioDia.hora_final}}</label>
+                </div>
+                <label>{{horarioDia.empleado}}</label>
+            </div>
+            <div class="kz-d-flex">
+              <div *ngFor="let dia of diasSemana" class="kz-m--1 kz-p--1 kz-mx--auto kz-border" [ngClass]="{'kz-bg--green kz-txt--white': horarioDia[dia]}">{{nombreDia(dia)}}</div>
+            </div>
         </div>
     </div>
 </ng-template>

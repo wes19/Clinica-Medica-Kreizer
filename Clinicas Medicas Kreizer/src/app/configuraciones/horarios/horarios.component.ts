@@ -13,7 +13,7 @@ export class HorariosComponent implements OnInit{
   diasSemana = ['lun', 'mar', 'mie', 'jue', 'vie', 'sab', 'dom'];
   horarioDia: any = null;
   horarios:any=[];
-  verDias = false;
+  horarioModal:any=[];
 
   constructor(private modalService:NgbModal, private horariosService:HorariosService, private datePipe: DatePipe){}
 
@@ -45,13 +45,25 @@ export class HorariosComponent implements OnInit{
     });
   }
 
-  mostrarDias(horario: any) {
-    this.horarioDia = horario;
-    this.verDias = true;
+  editarModal(modal: any, horario: any){
+    this.modalService.open(modal, {
+      size: 'lg',
+      centered: true,
+    });
+    this.horarioModal = horario;
+    console.log(this.horarioModal)
   }
 
-  formatearNombreDia(dia: string): string {
+  nombreDia(dia: string): string {
     return dia.charAt(0).toUpperCase() + dia.slice(1);
+  }
+
+  mostrarDias(modal: any, horario:any): void {
+    this.modalService.open(modal, {
+      size: 'l',
+      centered: true,
+    });
+    this.horarioDia = horario;
   }
 
 }
