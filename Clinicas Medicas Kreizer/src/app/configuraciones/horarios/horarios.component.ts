@@ -13,14 +13,22 @@ export class HorariosComponent implements OnInit{
   diasSemana = ['lun', 'mar', 'mie', 'jue', 'vie', 'sab', 'dom'];
   horarioDia: any = null;
   horarios:any=[];
+  especialidades:any=[];
+  empleados:any=[];
   horarioModal:any=[];
 
   constructor(private modalService:NgbModal, private horariosService:HorariosService, private datePipe: DatePipe){}
 
   ngOnInit(): void {
+    this.cargarTabla();
+  }
+
+  cargarTabla(){
     this.horariosService.obtenerHorario().subscribe({
       next: (res) => {
         const [horarios, especialidades, empleados] = res;
+        this.especialidades = especialidades;
+        this.empleados = empleados
         this.horarios = horarios.map((horario: any) => {
           const especialidad = especialidades.find((esp: any) => esp.idEsp === horario.idEsp);
           const empleado = empleados.find((emp: any) => emp.idEmp === horario.idEmp);
@@ -51,7 +59,6 @@ export class HorariosComponent implements OnInit{
       centered: true,
     });
     this.horarioModal = horario;
-    console.log(this.horarioModal)
   }
 
   nombreDia(dia: string): string {
@@ -64,6 +71,22 @@ export class HorariosComponent implements OnInit{
       centered: true,
     });
     this.horarioDia = horario;
+  }
+
+  actualizarHorario(horario: any){
+    console.log(horario)
+    this.horariosService.actualizarHorario(horario).subscribe(
+      {
+        next: res=>{
+          console.log(res)
+          this.cargarTabla();
+          this.modalService.dismissAll();
+        },
+        error: err =>{
+          console.log(err);
+        }
+      }
+    );
   }
 
 }
