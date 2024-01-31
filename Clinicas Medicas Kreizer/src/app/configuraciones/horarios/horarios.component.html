@@ -107,49 +107,59 @@
                     <label>Horario Inicio:</label>
                     <input type="text" class="kz-input" [(ngModel)]="horarioModal.hora_inicio">
                 </div>
-               <div class="kz-mb--2">
+                <div class="kz-mb--2">
                     <label>Días:</label>
-                    <label class="kz-mr--1 kz-btn-switch">
-                        <input type="checkbox" [(ngModel)]="horarioModal.lun">
-                        <span class="kz-slider"></span>
-                        <label>Lunes</label>
-                    </label>
-
-                    <label class="kz-mr--1 kz-btn-switch">
-                        <input type="checkbox" [(ngModel)]="horarioModal.mar">
-                        <span class="kz-slider"></span>
-                        <label>Martes</label>
-                    </label>
-
-                    <label class="kz-mr--1 kz-btn-switch">
-                        <input type="checkbox" [(ngModel)]="horarioModal.mie">
-                        <span class="kz-slider"></span>
-                        <label>Miércoles</label>
-                    </label>
-
-                    <label class="kz-mr--1 kz-btn-switch">
-                        <input type="checkbox" [(ngModel)]="horarioModal.juv">
-                        <span class="kz-slider"></span>
-                        <label>Jueves</label>
-                    </label>
-
-                    <label class="kz-mr--1 kz-btn-switch">
-                        <input type="checkbox" [(ngModel)]="horarioModal.vie">
-                        <span class="kz-slider"></span>
-                        <label>Viernes</label>
-                    </label>
-
-                    <label class="kz-mr--1 kz-btn-switch">
-                        <input type="checkbox" [(ngModel)]="horarioModal.sab">
-                        <span class="kz-slider"></span>
-                        <label>Sábado</label>
-                    </label>
-
-                    <label class="kz-mr--1 kz-btn-switch">
-                        <input type="checkbox" [(ngModel)]="horarioModal.dom">
-                        <span class="kz-slider"></span>
-                        <label>Domingo</label>
-                    </label>
+                    <div class="kz-d-grid kz-col--2 kz-col-s2--3 kz-gap--m">
+                        <div class="kz-d-flex kz-gap--s">
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="myCheckbox">
+                                <label for="myCheckbox"></label>
+                            </div>
+                            <label>Lunes</label>
+                        </div>
+                        <div class="kz-d-flex kz-gap--s">
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="myCheckbox">
+                                <label for="myCheckbox"></label>
+                            </div>
+                            <label>Martes</label>
+                        </div>
+                        <div class="kz-d-flex kz-gap--s">
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="myCheckbox">
+                                <label for="myCheckbox"></label>
+                            </div>
+                            <label>Miércoles</label>
+                        </div>
+                        <div class="kz-d-flex kz-gap--s">
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="myCheckbox">
+                                <label for="myCheckbox"></label>
+                            </div>
+                            <label>Jueves</label>
+                        </div>
+                        <div class="kz-d-flex kz-gap--s">
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="myCheckbox">
+                                <label for="myCheckbox"></label>
+                            </div>
+                            <label>Viernes</label>
+                        </div>
+                        <div class="kz-d-flex kz-gap--s">
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="myCheckbox">
+                                <label for="myCheckbox"></label>
+                            </div>
+                            <label>Sábado</label>
+                        </div>
+                        <div class="kz-d-flex kz-gap--s">
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="myCheckbox">
+                                <label for="myCheckbox"></label>
+                            </div>
+                            <label>Domingo</label>       
+                        </div>
+                    </div>
                </div>
             </div>
             <div class="kz-form-column">

@@ -18,3 +18,10 @@ import { DetailEmpleadoComponent } from '../detail-empleado/detail-empleado.comp
        this.empleadoSeleccionado.subscribe((empleado) => {
       this.empleado = empleado;
     });
+
+
+// Estructua de un switch :(
+<label class="kz-switch">
+  <input type="checkbox" [(ngModel)]="horarioModal.mie">
+  <span class="kz-slider"></span>
+</label>
