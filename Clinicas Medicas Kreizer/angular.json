@@ -49,7 +49,9 @@
               "src/styles/kz-tabs.scss",
               "src/styles/kz-form-column.scss",
               "src/styles/kz-link.scss",
-              "src/styles/kz-modal.scss"
+              "src/styles/kz-modal.scss",
+              "src/styles/kz-switch.scss",
+              "src/styles/kz-checkbox.scss"
             ],
             "scripts": []
           },
@@ -131,7 +133,9 @@
               "src/styles/kz-tabs.scss",
               "src/styles/kz-form-column.scss",
               "src/styles/kz-link.scss",
-              "src/styles/kz-modal.scss"
+              "src/styles/kz-modal.scss",
+              "src/styles/kz-switch.scss",
+              "src/styles/kz-checkbox.scss"
             ],
             "scripts": []
           }
