@@ -35,4 +35,21 @@ export class HorariosService {
       estado: data.estado,
     });
   }
+
+  crearHorario(data: any): Observable<any> {
+    return this.httpClient.post(`${this.backendWeb}/horarios`, {
+      idEsp: data.idEsp,
+      idEmp: data.idEmp,
+      hora_inicio: data.hora_inicio,
+      hora_final: data.hora_final,
+      lun: data.lun,
+      mar: data.mar,
+      mie: data.mie,
+      jue: data.jue,
+      vie: data.vie,
+      sab: data.sab,
+      dom: data.dom,
+      estado: data.estado,
+    });
+  }
 }

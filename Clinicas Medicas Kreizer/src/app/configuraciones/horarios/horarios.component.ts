@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HorariosService } from 'src/app/services/horarios.service';
 import { DatePipe } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-horarios',
@@ -38,6 +39,10 @@ export class HorariosComponent implements OnInit{
 
   ngOnInit(): void {
     this.cargarTabla();
+  }
+  
+  get hor(){
+    return this.registroHorario.controls;
   }
 
   cargarTabla(){
@@ -121,8 +126,27 @@ export class HorariosComponent implements OnInit{
       dom : this.registroHorario.controls['dom'].value,
       estado : this.registroHorario.controls['estado'].value
     }
+    this.horariosService.crearHorario(jsonHorario).subscribe(
+      {
+        next: res=>{
+        console.log(res);
+        this.modalService.dismissAll();
+        this.guardadoExitosamente();
+        },
+        error: err =>{
+          console.log(err);
+        }
+      }
+    );
   }
 
-
+  guardadoExitosamente(){
+    Swal.fire({
+      title: 'Guardado Exitosamente!',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 4000, 
+    });
+  }
 
 }

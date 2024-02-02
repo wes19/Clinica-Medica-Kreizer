@@ -25,7 +25,7 @@ module.exports = function (db) {
         }
     });
 
-     //Actualizar Especialidades
+     // Actualizar Especialidades
      router.put('/lista/:idEsp', async (req, res) => {
         const { nombre, imagen, estado } = req.body;
         const idEsp = req.params.idEsp;

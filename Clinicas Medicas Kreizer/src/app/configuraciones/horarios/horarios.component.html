@@ -41,91 +41,111 @@
         </div>
     
         <div class="modal-body">
-            <div class="kz-form-column">
-                <div class="kz-mb--2">
-                    <label>Especialidad:</label>
-                    <select class="kz-input" [(ngModel)]="horarioGuardar.idEsp">
-                        <option *ngFor="let especialidad of especialidades" [value]="especialidad.idEsp" class="kz-head--xs">{{especialidad.nombre}}</option>
-                    </select>
-                </div>
-                <div class="kz-mb--2">
-                    <label>Horario Inicio:</label>
-                    <input type="text" class="kz-input" [(ngModel)]="horarioGuardar.hora_inicio">
-                </div>
-                <div class="kz-mb--2">
-                    <label>Días:</label>
-                    <div class="kz-d-grid kz-col--2 kz-col-s2--3 kz-gap--m">
-                        <div class="kz-d-flex kz-gap--s">
-                            <div class="kz-checkbox">
-                                <input type="checkbox" id="lunes" [(ngModel)]="horarioGuardar.lun">
-                                <label for="lunes"></label>
-                            </div>
-                            <label>Lunes</label>
-                        </div>
-                        <div class="kz-d-flex kz-gap--s">
-                            <div class="kz-checkbox">
-                                <input type="checkbox" id="martes" [(ngModel)]="horarioGuardar.mar">
-                                <label for="martes"></label>
-                            </div>
-                            <label>Martes</label>
-                        </div>
-                        <div class="kz-d-flex kz-gap--s">
-                            <div class="kz-checkbox">
-                                <input type="checkbox" id="miercoles" [(ngModel)]="horarioGuardar.mie">
-                                <label for="miercoles"></label>
-                            </div>
-                            <label>Miércoles</label>
-                        </div>
-                        <div class="kz-d-flex kz-gap--s">
-                            <div class="kz-checkbox">
-                                <input type="checkbox" id="jueves" [(ngModel)]="horarioGuardar.jue">
-                                <label for="jueves"></label>
-                            </div>
-                            <label>Jueves</label>
-                        </div>
-                        <div class="kz-d-flex kz-gap--s">
-                            <div class="kz-checkbox">
-                                <input type="checkbox" id="viernes" [(ngModel)]="horarioGuardar.vie">
-                                <label for="viernes"></label>
-                            </div>
-                            <label>Viernes</label>
-                        </div>
-                        <div class="kz-d-flex kz-gap--s">
-                            <div class="kz-checkbox">
-                                <input type="checkbox" id="sabado" [(ngModel)]="horarioGuardar.sab">
-                                <label for="sabado"></label>
-                            </div>
-                            <label>Sábado</label>
-                        </div>
-                        <div class="kz-d-flex kz-gap--s">
-                            <div class="kz-checkbox">
-                                <input type="checkbox" id="domingo" [(ngModel)]="horarioGuardar.dom">
-                                <label for="domingo"></label>
-                            </div>
-                            <label>Domingo</label>       
+            <form [formGroup]="registroHorario">
+                <div class="kz-form-column">
+                    <div class="kz-mb--2">
+                        <label>Especialidad:</label>
+                        <select class="kz-input" [ngClass]="{'kz-is-invalid':hor.idEsp.invalid && (hor.idEsp.dirty || hor.idEsp.touched)}" formControlName="idEsp" required>
+                            <option *ngFor="let especialidad of especialidades" [value]="especialidad.idEsp" class="kz-head--xs">{{especialidad.nombre}}</option>
+                        </select>
+                        <div *ngIf="hor.idEsp.invalid && (hor.idEsp.dirty || hor.idEsp.touched)" class="kz-error-text mt-2">
+                            * Por favor, ingresa una especialidad valida
                         </div>
                     </div>
-               </div>
-            </div>
-            <div class="kz-form-column">
-                <div class="kz-mb--2">
-                    <label>Médico:</label>
-                    <select class="kz-input" [(ngModel)]="horarioGuardar.idEmp">
-                        <option *ngFor="let empleado of empleados" [value]="empleado.idEmp" class="kz-head--xs">{{empleado.nombre}} {{empleado.apellidos}}</option>
-                    </select>
+
+                    <div class="kz-mb--2">
+                        <label>Horario Inicio:</label>
+                        <input type="text" class="kz-input" [(ngModel)]="horarioGuardar.hora_inicio">
+                    </div>
+
+                    <div class="kz-mb--2">
+                        <label>Días:</label>
+                        <div class="kz-d-grid kz-col--2 kz-col-s2--3 kz-gap--m">
+                            <div class="kz-d-flex kz-gap--s">
+                                <div class="kz-checkbox">
+                                    <input type="checkbox" id="lunes" [(ngModel)]="horarioGuardar.lun">
+                                    <label for="lunes"></label>
+                                </div>
+                                <label>Lunes</label>
+                            </div>
+
+                            <div class="kz-d-flex kz-gap--s">
+                                <div class="kz-checkbox">
+                                    <input type="checkbox" id="martes" [(ngModel)]="horarioGuardar.mar">
+                                    <label for="martes"></label>
+                                </div>
+                                <label>Martes</label>
+                            </div>
+
+                            <div class="kz-d-flex kz-gap--s">
+                                <div class="kz-checkbox">
+                                    <input type="checkbox" id="miercoles" [(ngModel)]="horarioGuardar.mie">
+                                    <label for="miercoles"></label>
+                                </div>
+                                <label>Miércoles</label>
+                            </div>
+
+                            <div class="kz-d-flex kz-gap--s">
+                                <div class="kz-checkbox">
+                                    <input type="checkbox" id="jueves" [(ngModel)]="horarioGuardar.jue">
+                                    <label for="jueves"></label>
+                                </div>
+                                <label>Jueves</label>
+                            </div>
+
+                            <div class="kz-d-flex kz-gap--s">
+                                <div class="kz-checkbox">
+                                    <input type="checkbox" id="viernes" [(ngModel)]="horarioGuardar.vie">
+                                    <label for="viernes"></label>
+                                </div>
+                                <label>Viernes</label>
+                            </div>
+
+                            <div class="kz-d-flex kz-gap--s">
+                                <div class="kz-checkbox">
+                                    <input type="checkbox" id="sabado" [(ngModel)]="horarioGuardar.sab">
+                                    <label for="sabado"></label>
+                                </div>
+                                <label>Sábado</label>
+                            </div>
+
+                            <div class="kz-d-flex kz-gap--s">
+                                <div class="kz-checkbox">
+                                    <input type="checkbox" id="domingo" [(ngModel)]="horarioGuardar.dom">
+                                    <label for="domingo"></label>
+                                </div>
+                                <label>Domingo</label>       
+                            </div>
+
+                        </div>
+                   </div>
                 </div>
-                <div class="kz-mb--2">
-                    <label>Horario Fin:</label>
-                    <input type="text" class="kz-input" [(ngModel)]="horarioGuardar.hora_final">
+                <div class="kz-form-column">
+                    <div class="kz-mb--2">
+                        <label>Médico:</label>
+                        <select class="kz-input" [ngClass]="{'kz-is-invalid':hor.idEmp.invalid && (hor.idEmp.dirty || hor.idEmp.touched)}" formControlName="idEmp" required>
+                            <option *ngFor="let empleado of empleados" [value]="empleado.idEmp" class="kz-head--xs">{{empleado.nombre}} {{empleado.apellidos}}</option>
+                        </select>
+                        <div *ngIf="hor.idEmp.invalid && (hor.idEmp.dirty || hor.idEmp.touched)" class="kz-error-text mt-2">
+                            * Por favor, ingresa un médico valido
+                        </div>
+                    </div>
+
+                    <div class="kz-mb--2">
+                        <label>Horario Fin:</label>
+                        <input type="text" class="kz-input" [(ngModel)]="horarioGuardar.hora_final">
+                    </div>
+
+                    <div class="kz-mb--2">
+                        <label>Estado:</label>
+                        <select class="kz-input" [(ngModel)]="horarioGuardar.estado">
+                            <option value="Activo" class="kz-head--xs">Activo</option> 
+                            <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
+                        </select>
+                    </div>
+
                 </div>
-                <div class="kz-mb--2">
-                    <label>Estado:</label>
-                    <select class="kz-input" [(ngModel)]="horarioGuardar.estado">
-                        <option value="Activo" class="kz-head--xs">Activo</option> 
-                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-                    </select>
-                </div>
-            </div>
+            </form>
         </div>
       
         <div class="modal-footer">
