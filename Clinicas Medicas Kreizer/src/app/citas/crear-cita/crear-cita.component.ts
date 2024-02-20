@@ -29,8 +29,8 @@ export class CrearCitaComponent implements OnInit {
     )
   }
 
-  navigateToDisponibilidad() {
-    this.router.navigate(['/citas/disponibilidad']);
+  irDisponibilidad(idEsp: any) {
+    this.router.navigate(['/citas/disponibilidad', idEsp]);
   }
 
 }

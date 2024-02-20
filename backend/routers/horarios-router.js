@@ -39,5 +39,18 @@ module.exports = function (db) {
         }
     });
 
+    // Eliminar Horarios
+    router.delete('/:idHora', async (req, res) => {
+        const idHora = req.params.idHora;
+        try {
+            await db.query(
+            'DELETE FROM kz_horarios WHERE idHora=?',
+            [idHora]);
+            res.send({ message: 'Registro eliminado correctamente' });
+        } catch (error) {
+            res.status(500).send('Error al eliminaar el registro');
+        }
+    });
+
     return router;
 }

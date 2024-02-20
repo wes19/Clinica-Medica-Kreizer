@@ -3,7 +3,7 @@
 </div>
 <div class="kz-d-grid kz-col-s4--5 kz-col-s3--4 kz-col-s2--3 kz-col-s1--2 kz-col-t--2 kz-col-small--1 kz-gap--xl kz-mt--4">
   <div *ngFor="let especialidad of especialidades">
-    <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" (click)="navigateToDisponibilidad()">
+    <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" (click)="irDisponibilidad(especialidad.idEsp)">
       <img class="kz-img kz-img--xl" src="{{especialidad.imagen}}" alt="Card image cap">
       <label class="kz-txt--m kz-font-bold">{{especialidad.nombre}}</label>
     </div>

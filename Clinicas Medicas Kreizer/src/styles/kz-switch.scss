@@ -42,6 +42,23 @@
         transform: translateX(26px);
       }
     }
+    .kz-switch-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-weight: bold;
+      user-select: none;
+    }
+  
+    input:checked + .kz-slider {
+      background-color: $color-one;
+  
+      &:before {
+        transform: translateX(26px);
+      }
+    }
   }  
   
 /*.radio{

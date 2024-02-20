@@ -18,7 +18,7 @@ export class HorariosComponent implements OnInit{
   especialidades:any=[];
   empleados:any=[];
   horarioModal:any=[];
-  horarioGuardar:any=[];
+  horasDia: string[] = [];
 
   registroHorario = new FormGroup({
     idEsp: new FormControl('', Validators.required),
@@ -39,6 +39,7 @@ export class HorariosComponent implements OnInit{
 
   ngOnInit(): void {
     this.cargarTabla();
+    this.horasDia = this.generarHoras();
   }
   
   get hor(){
@@ -61,6 +62,7 @@ export class HorariosComponent implements OnInit{
 
           };
         });
+        this.horarios.reverse();
       },
       error: (err) => {
         console.log(err);
@@ -83,8 +85,61 @@ export class HorariosComponent implements OnInit{
     this.horarioModal = horario;
   }
 
+  modalDelete(horario: any){
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No podrás revertir esto',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3e81e3',
+      cancelButtonColor: '#D72E2E',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.horariosService.eliminarHorario(horario).subscribe(
+          {
+            next: res=>{
+              console.log(res)
+              this.cargarTabla();
+            },
+            error: err =>{
+              console.log(err);
+            }
+          }
+        )
+        Swal.fire({
+          title: 'Eliminado',
+          text: 'El registro ha sido eliminado',
+          icon: 'success',
+          customClass: {confirmButton: 'kz-button-blue'},
+        });
+      }
+    });
+  }
+
   nombreDia(dia: string): string {
     return dia.charAt(0).toUpperCase() + dia.slice(1);
+  }
+
+  private generarHoras(): string[] {
+    const horas: string[] = [];
+    for (let i = 0; i < 24; i++) {
+      const hora = i.toString().padStart(2, '0') + ':00';
+      horas.push(hora);
+    }
+    return horas;
+  }
+
+  validarHoras(){
+    const horaInicio = this.registroHorario.controls['hora_inicio'].value;
+    const horaFinal = this.registroHorario.controls['hora_final'].value;
+    if (horaInicio && horaFinal) {
+      const horaInicioDate = new Date(`1970-01-01T${horaInicio}`);
+      const horaFinalDate = new Date(`1970-01-01T${horaFinal}`);
+      return horaInicioDate > horaFinalDate;
+    }
+    return false;
   }
 
   mostrarDias(modal: any, horario:any): void {
@@ -96,7 +151,6 @@ export class HorariosComponent implements OnInit{
   }
 
   actualizarHorario(horario: any){
-    console.log(horario)
     this.horariosService.actualizarHorario(horario).subscribe(
       {
         next: res=>{
@@ -112,18 +166,23 @@ export class HorariosComponent implements OnInit{
   }
 
   guardarHorario(){
+    if(this.validarHoras()){
+      alert('Error: "Horario Fin" debe ser mayor que "Horario Inicio"');
+      return;
+    }
+
     const jsonHorario = {
       idEsp : this.registroHorario.controls['idEsp'].value,
       idEmp : this.registroHorario.controls['idEmp'].value,
       hora_inicio : this.registroHorario.controls['hora_inicio'].value,
       hora_final : this.registroHorario.controls['hora_final'].value,
-      lun : this.registroHorario.controls['lun'].value,
-      mar : this.registroHorario.controls['mar'].value,
-      mie : this.registroHorario.controls['mie'].value,
-      jue : this.registroHorario.controls['jue'].value,
-      vie : this.registroHorario.controls['vie'].value,
-      sab : this.registroHorario.controls['sab'].value,
-      dom : this.registroHorario.controls['dom'].value,
+      lun : this.registroHorario.controls['lun'].value || false,
+      mar : this.registroHorario.controls['mar'].value || false,
+      mie : this.registroHorario.controls['mie'].value || false,
+      jue : this.registroHorario.controls['jue'].value || false,
+      vie : this.registroHorario.controls['vie'].value || false,
+      sab : this.registroHorario.controls['sab'].value || false,
+      dom : this.registroHorario.controls['dom'].value || false,
       estado : this.registroHorario.controls['estado'].value
     }
     this.horariosService.crearHorario(jsonHorario).subscribe(
@@ -132,6 +191,8 @@ export class HorariosComponent implements OnInit{
         console.log(res);
         this.modalService.dismissAll();
         this.guardadoExitosamente();
+        this.registroHorario.reset();
+        this.cargarTabla();
         },
         error: err =>{
           console.log(err);

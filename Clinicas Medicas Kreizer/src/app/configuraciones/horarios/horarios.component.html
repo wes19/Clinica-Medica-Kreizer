@@ -23,8 +23,9 @@
                 <td>
                     <button class="kz-button kz-button--primary kz-border-radius--l" (click)="mostrarDias(ModalDias, horario)">Ver</button>
                 </td>
-                <td>
-                    <a class="kz-text-decoration-none kz-link" (click)="editarModal(ModalEditar, horario)">Editar</a>
+                <td class="kz-d-flex kz-gap--l">
+                    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="editarModal(ModalEditar, horario)">Editar</button>
+                    <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modalDelete(horario)"> <i class="bi bi-trash"></i></button>
                 </td>
             </tr>
         </tbody>
@@ -47,15 +48,17 @@
                         <label>Especialidad:</label>
                         <select class="kz-input" [ngClass]="{'kz-is-invalid':hor.idEsp.invalid && (hor.idEsp.dirty || hor.idEsp.touched)}" formControlName="idEsp" required>
                             <option *ngFor="let especialidad of especialidades" [value]="especialidad.idEsp" class="kz-head--xs">{{especialidad.nombre}}</option>
-                        </select>
+                        </select>                 
                         <div *ngIf="hor.idEsp.invalid && (hor.idEsp.dirty || hor.idEsp.touched)" class="kz-error-text mt-2">
-                            * Por favor, ingresa una especialidad valida
+                            * Por favor, ingresa una especialidad válida
                         </div>
                     </div>
 
                     <div class="kz-mb--2">
                         <label>Horario Inicio:</label>
-                        <input type="text" class="kz-input" [(ngModel)]="horarioGuardar.hora_inicio">
+                        <select class="kz-input" formControlName="hora_inicio">
+                            <option *ngFor="let hora of horasDia" [value]="hora" class="kz-head--xs">{{ hora }}</option>
+                        </select>
                     </div>
 
                     <div class="kz-mb--2">
@@ -63,7 +66,7 @@
                         <div class="kz-d-grid kz-col--2 kz-col-s2--3 kz-gap--m">
                             <div class="kz-d-flex kz-gap--s">
                                 <div class="kz-checkbox">
-                                    <input type="checkbox" id="lunes" [(ngModel)]="horarioGuardar.lun">
+                                    <input type="checkbox" id="lunes" formControlName="lun">
                                     <label for="lunes"></label>
                                 </div>
                                 <label>Lunes</label>
@@ -71,7 +74,7 @@
 
                             <div class="kz-d-flex kz-gap--s">
                                 <div class="kz-checkbox">
-                                    <input type="checkbox" id="martes" [(ngModel)]="horarioGuardar.mar">
+                                    <input type="checkbox" id="martes" formControlName="mar">
                                     <label for="martes"></label>
                                 </div>
                                 <label>Martes</label>
@@ -79,7 +82,7 @@
 
                             <div class="kz-d-flex kz-gap--s">
                                 <div class="kz-checkbox">
-                                    <input type="checkbox" id="miercoles" [(ngModel)]="horarioGuardar.mie">
+                                    <input type="checkbox" id="miercoles" formControlName="mie">
                                     <label for="miercoles"></label>
                                 </div>
                                 <label>Miércoles</label>
@@ -87,7 +90,7 @@
 
                             <div class="kz-d-flex kz-gap--s">
                                 <div class="kz-checkbox">
-                                    <input type="checkbox" id="jueves" [(ngModel)]="horarioGuardar.jue">
+                                    <input type="checkbox" id="jueves" formControlName="jue">
                                     <label for="jueves"></label>
                                 </div>
                                 <label>Jueves</label>
@@ -95,7 +98,7 @@
 
                             <div class="kz-d-flex kz-gap--s">
                                 <div class="kz-checkbox">
-                                    <input type="checkbox" id="viernes" [(ngModel)]="horarioGuardar.vie">
+                                    <input type="checkbox" id="viernes" formControlName="vie">
                                     <label for="viernes"></label>
                                 </div>
                                 <label>Viernes</label>
@@ -103,7 +106,7 @@
 
                             <div class="kz-d-flex kz-gap--s">
                                 <div class="kz-checkbox">
-                                    <input type="checkbox" id="sabado" [(ngModel)]="horarioGuardar.sab">
+                                    <input type="checkbox" id="sabado" formControlName="sab">
                                     <label for="sabado"></label>
                                 </div>
                                 <label>Sábado</label>
@@ -111,7 +114,7 @@
 
                             <div class="kz-d-flex kz-gap--s">
                                 <div class="kz-checkbox">
-                                    <input type="checkbox" id="domingo" [(ngModel)]="horarioGuardar.dom">
+                                    <input type="checkbox" id="domingo" formControlName="dom">
                                     <label for="domingo"></label>
                                 </div>
                                 <label>Domingo</label>       
@@ -133,15 +136,21 @@
 
                     <div class="kz-mb--2">
                         <label>Horario Fin:</label>
-                        <input type="text" class="kz-input" [(ngModel)]="horarioGuardar.hora_final">
+                        <select class="kz-input" formControlName="hora_final">
+                            <option *ngFor="let hora of horasDia" [value]="hora" class="kz-head--xs">{{ hora }}</option>
+                        </select>
                     </div>
 
                     <div class="kz-mb--2">
                         <label>Estado:</label>
-                        <select class="kz-input" [(ngModel)]="horarioGuardar.estado">
-                            <option value="Activo" class="kz-head--xs">Activo</option> 
-                            <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-                        </select>
+                        <label class="kz-switch">
+                            <input type="checkbox" formControlName="estado" [ngClass]="{'kz-is-invalid':hor.estado.invalid && (hor.estado.dirty || hor.estado.touched)}" required>
+                            <span class="kz-slider"></span>
+                            <span class="kz-switch-text">{{ hor.estado.value ? 'ON' : 'OFF' }}</span>
+                        </label>
+                        <div *ngIf="hor.estado.invalid && (hor.estado.dirty || hor.estado.touched)" class="kz-error-text mt-2">
+                            * Por favor, ingresa un "Estado" válido
+                        </div>
                     </div>
 
                 </div>
@@ -149,7 +158,8 @@
         </div>
       
         <div class="modal-footer">
-            <button class="kz-button kz-button--primary kz-border-radius--l">Guardar</button>
+            <button class="kz-button kz-button--primary kz-border-radius--l" [disabled]="registroHorario.invalid" 
+            (click)="guardarHorario()">Guardar</button>
             <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
         </div>
     </div>
@@ -243,12 +253,12 @@
                     <label>Horario Fin:</label>
                     <input type="text" class="kz-input" [(ngModel)]="horarioModal.hora_final">
                 </div>
-                <div class="kz-mb--2">
+                <div class="kz-mb--2 kz-mx--auto">
                     <label>Estado:</label>
-                    <select class="kz-input" [(ngModel)]="horarioModal.estado">
-                        <option value="Activo" class="kz-head--xs">Activo</option> 
-                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-                    </select>
+                    <label class="kz-switch">
+                        <input type="checkbox" [(ngModel)]="horarioModal.estado">
+                        <span class="kz-slider"></span>
+                    </label>
                 </div>
             </div>
         </div>

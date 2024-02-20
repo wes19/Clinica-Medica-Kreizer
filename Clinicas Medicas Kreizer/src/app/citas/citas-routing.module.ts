@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'disponibilidad', component: DisponibilidadComponent },
+      { path: 'disponibilidad/:idEsp', component: DisponibilidadComponent },
       { path: 'crear-cita', component: CrearCitaComponent },
       { path: 'admisiones', component: AdmisionesComponent },
       { path: 'ambulancias', component: AmbulanciasComponent }

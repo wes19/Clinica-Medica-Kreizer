@@ -23,28 +23,11 @@
         <h2 class="kz-head kz-head--m">Fechas Disponibles</h2>
       </div>
 
-      <div class="kz-section kz-mb--1" (click)="openModal(Modalver)">
-        <h5><b>Wesly Lazo</b></h5>
-        <p>8:00 a.m. - 12:00 p.m.</p>
-        <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
-      </div>
-
-      <div class="kz-section kz-mb--1" (click)="openModal(Modalver)">
-        <h5><b>Wesly Lazo</b></h5>
-        <p>8:00 a.m. - 12:00 p.m.</p>
-        <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
-      </div>
-
-      <div class="kz-section kz-mb--1" (click)="openModal(Modalver)">
-        <h5><b>Wesly Lazo</b></h5>
-        <p>8:00 a.m. - 12:00 p.m.</p>
-        <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
-      </div>
-
-      <div class="kz-section kz-mb--1" (click)="openModal(Modalver)">
-        <h5><b>Wesly Lazo</b></h5>
-        <p>8:00 a.m. - 12:00 p.m.</p>
-        <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
+      <div class="kz-section kz-mb--1" (click)="openModal(Modalver)" *ngFor="let horario of getHorarios()">
+        <h5><b>{{horario.empleado}}</b></h5>
+        <p>{{convertirHora(horario.hora_inicio) | date:'h:mm a'}} - {{convertirHora(horario.hora_final) | date:'h:mm a'}}</p>
+        <span *ngIf="horario.estado==='Activo'" class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
+        <span *ngIf="horario.estado==='Inactivo'" class="badge bg-danger"><i class="bi bi-check"></i> No Disponible</span>
       </div>
 
       <div class="kz-chip kz-chip--blue">

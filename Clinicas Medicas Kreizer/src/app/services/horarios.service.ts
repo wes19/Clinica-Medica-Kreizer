@@ -52,4 +52,9 @@ export class HorariosService {
       estado: data.estado,
     });
   }
+
+  eliminarHorario(data: any):Observable<any>{
+    return this.httpClient.delete(`${this.backendWeb}/horarios/${data.idHora}`,{
+    });
+  }
 }
