@@ -3,7 +3,7 @@
 
   .kz-chip{
     font-family: $font-family;
-    color:black;
+    color: $black;
     font-size: 16px;
     font-weight: 500;
     display: flex;
@@ -16,7 +16,7 @@
   }
   
   .kz-chip--blue{
-    color: white;
+    color: $primary;
   }
   
   .kz-chip--yellow{
@@ -24,11 +24,11 @@
   }
   
   .kz-chip--green{
-    color: $color-thirteen;
+    color: $green-ligth;
   }
 
   .kz-chip--red{
-    color: $color-eigth;
+    color: $red-ligth;
   }
   
   input[type="radio"] {

@@ -20,7 +20,7 @@
         <td>{{menu.estado}}</td>
         <td class="kz-d-flex kz-gap--l"> 
           <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="editarModal(ModalEditar, menu)"> Editar</button>
-          <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modalDelete(menu)"> <i class="bi bi-trash"></i></button>
+          <button class="kz-button kz-button--red kz-border-radius--l" (click)="modalDelete(menu)"> <i class="bi bi-trash"></i></button>
         </td>
       </tr>
     </tbody>
@@ -65,7 +65,7 @@
     
     <div class="modal-footer">
       <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarMenu()">Guardar</button>
-      <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
     </div>
   </div>
 </ng-template>
@@ -118,7 +118,7 @@
       <button class="kz-button kz-button--primary kz-border-radius--l" [disabled]="registroMenu.invalid" 
       (click)="guardarMenu()">Guardar
       </button>
-      <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
     </div>
   </div>
 </ng-template>

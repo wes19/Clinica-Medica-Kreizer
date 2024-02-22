@@ -35,7 +35,7 @@
       </div>
       
       <div class="kz-mt--1" *ngIf="selectedDay">
-        <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="closeDay()">Cerrar</button>
+        <button class="kz-button kz-button--red kz-border-radius--l" (click)="closeDay()">Cerrar</button>
       </div>
       
     </div>
@@ -87,7 +87,7 @@
         <div class="col col-12 col-lg-6 kz-mt--2-ml">
 
           <div *ngIf="!verFormulario && !agregadoExitosamente">
-            <button class="kz-button kz-button--auxiliar kz-mx--auto" (click)="verFormulario = true">
+            <button class="kz-button kz-button--green kz-mx--auto" (click)="verFormulario = true">
               <i class="bi bi-plus-lg"></i>
               <span>Agregar Paciente</span>
             </button>
@@ -122,9 +122,9 @@
               </select>
             </div>
             <div class="kz-d-flex kz-gap--s kz-flex-wrap">
-              <button class="kz-button kz-button--secondary kz-border-radius--l" (click)="reiniciarFormulario()">Atrás</button>
+              <button class="kz-button kz-button--gray kz-border-radius--l" (click)="reiniciarFormulario()">Atrás</button>
               <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarPaciente()">Guardar</button>
-              <button class="kz-button kz-button--auxiliar kz-border-radius--l">Crear</button>
+              <button class="kz-button kz-button--green kz-border-radius--l">Crear</button>
             </div>
           </div>
   
@@ -133,14 +133,14 @@
               <h3>Agregado Exitosamente</h3>
               <img class="kz-img kz-img--x kz-mt--3" src="../assets/img/icons/comprobado.png" alt="Card image cap" (click)="verFormulario = true">
             </div>
-            <button class="kz-button kz-button--auxiliar kz-border-radius--l kz-mt--4" (click)="reiniciarFormulario()">Agregar Nuevo</button>
+            <button class="kz-button kz-button--green kz-border-radius--l kz-mt--4" (click)="reiniciarFormulario()">Agregar Nuevo</button>
           </div>
           
         </div>  
       </div>
     </div>
     <div class="modal-footer">
-      <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
     </div>
   </div>
 </ng-template>

@@ -30,7 +30,7 @@
         <td>{{ausencia.descripcion}}</td>
         <td class="kz-d-flex kz-gap--l">
           <button *ngIf="ausencia.estado === 'Ninguno'" class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="aprobarAusencia(ausencia)">Aprobar</button>
-          <button *ngIf="ausencia.estado === 'Ninguno'" class="kz-button kz-button--cancel kz-border-radius--l ml--2" (click)="rechazarAusencia(ausencia)">Rechazar</button>
+          <button *ngIf="ausencia.estado === 'Ninguno'" class="kz-button kz-button--red kz-border-radius--l ml--2" (click)="rechazarAusencia(ausencia)">Rechazar</button>
           <span *ngIf="ausencia.estado  === 'Aprobado'" class="kz-chip-estado-green">{{ausencia.estado}}</span>
           <span *ngIf="ausencia.estado === 'Rechazado'" class="kz-chip-estado-red">{{ausencia.estado}}</span>
         </td>   

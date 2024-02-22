@@ -2,7 +2,7 @@
 @import 'responsive';
 
 .kz-table {
-  background-color: #fff;
+  background-color: $white;
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 4px;
@@ -38,7 +38,7 @@
   overflow-x: auto;
   padding: 16px;
   font-family: $font-family;
-  background-color: white;
+  background-color: $white;
   &.active {
     display: block;
   }
@@ -77,7 +77,7 @@
   }
   .kz-col-white {
       width: 70%;
-      background-color: white;
+      background-color: $white;
       padding: 10px; //
   } 
 }

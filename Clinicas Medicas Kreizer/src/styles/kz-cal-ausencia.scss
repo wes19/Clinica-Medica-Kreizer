@@ -2,10 +2,6 @@
 @import 'responsive';
 
 .kz-cal-ausencia {
-    //border-radius: 8px;
-    //box-shadow: 0px 0px 12px #c6c6c6;
-    //background-color: white;
-    //padding: 8px;
     .header {
       align-items: center;
       justify-content: center;
@@ -25,7 +21,7 @@
         padding: 16px;
         border-radius: 8px;
         box-shadow: 0px 0px 12px #c6c6c6;
-        background-color: white;
+        background-color: $white;
         h2 {
           margin-top: 0;
         }
@@ -55,17 +51,17 @@
             border-radius: 15px;
             height: 40px;
             &.grayed-out {
-              background-color: $color-ten;
+              background-color: $white-soft;
               cursor: default;
               pointer-events: none;
             }
             &:hover{
-              color: white;
-              background-color: $color-one;
+              color: $white;
+              background-color: $primary;
             }
             &.active{
-              background-color: $color-one;
-              color: white;
+              background-color: $primary;
+              color: $white;
             }
           }
         }

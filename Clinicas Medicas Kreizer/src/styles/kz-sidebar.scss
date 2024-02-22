@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     margin: 0;
-    background-color: white;
+    background-color: $white;
     width: 270px;
     //@include media (screen-1){
     //  width: 270px;
@@ -41,29 +41,29 @@
             text-decoration: none;
             align-items: center;
             gap: 8px;
-            color: $color-seven;
+            color: $gray-dark;
             font-size: 18px;
             white-space: nowrap;  
             &:hover {
-              background-color: $color-three;
-              color: white;
+              background-color: $auxiliar;
+              color: $white;
             }
           }
         &.active {
-          border-left: solid 4px $color-two;
+          border-left: solid 4px $secondary;
           a {
-            background-color: $color-two;
-            color: white;
+            background-color: $secondary;
+            color: $white;
             margin-left: 8px;
           }
         }
       }
       .kz-sidebar--subItem{
         &.active {
-          border-left: solid 4px $color-two;
+          border-left: solid 4px $secondary;
           a{
             background-color: transparent;
-            color:$color-two;
+            color:$secondary;
           }
         }
       }
@@ -87,11 +87,11 @@
       font-size: 0.8rem;
       transition: transform 0.5s ease;
       margin-left: auto;
-      color: white;
+      color: $white;
       &.rotate {
         transform: rotate(180deg);
         transition: transform 0.5s ease;
-        color: white;
+        color: $white;
       }
     }
     &__logo {
@@ -108,7 +108,7 @@
       }
       label {
         font-family: $font-famil-logo;
-        color: $color-two;
+        color: $secondary;
       }
     }
     /*&__footer {
@@ -141,7 +141,7 @@
       }
       transition: transform 0.5s;
       i {font-size: 1.3rem;
-        color: $color-one;}
+        color: $primary;}
     }
     &.collapsed {
       transition: width 0.5s ease, background-color 0.5s ease;

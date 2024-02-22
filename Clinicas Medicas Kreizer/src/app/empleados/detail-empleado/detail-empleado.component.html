@@ -12,7 +12,7 @@
       <i class="fa-solid fa-box-open"></i>
       <span> <b>Desarchivar</b> </span>
     </button>
-    <button class="kz-button kz-button--cancel kz-border-radius--l ml--2" [routerLink]="['/empleados/lista']">Salir</button>
+    <button class="kz-button kz-button--red kz-border-radius--l ml--2" [routerLink]="['/empleados/lista']">Salir</button>
   </div>
 </div>
 
@@ -258,7 +258,7 @@
       <button class="kz-button kz-button--primary kz-border-radius--l" [disabled]="guardarContrasena.invalid" 
       (click)="guardarPassword()">Guardar
       </button>
-      <button class="kz-button kz-button--cancel kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
     </div>
   </div>
 </ng-template>

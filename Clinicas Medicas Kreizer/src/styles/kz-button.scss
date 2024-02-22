@@ -12,90 +12,109 @@
     transition: all 0.3s ease-in-out;
     font-family: $font-family;
     gap: 4px;
-  }
+}
   
-  .kz-button--primary{
-    background-color: $color-one;
-    color: white;
-    &:hover{
-        background-color: $color-six;
-        color: white;
-    }
+.kz-button--primary{
+  background-color: $primary;
+  color: $white;
+  &:hover{
+      background-color: $cyan;
+      color: $white;
   }
+}
   
-  .kz-button--secondary{
-    background-color: #aeafaf;
-    color: white;
-    &:hover{
-        background-color: #8f8d8d;
-        color: white;
-    }
+.kz-button--secondary{
+  background-color: $secondary;
+  color: $white;
+  &:hover{
+      background-color: $cyan;  //Por definir
+      color: $white;
   }
-  
-  .kz-button--auxiliar{
-    background-color: #198753;
-    color: white;
-    &:hover{
-        background-color: #159f5e;
-        color: white;
-    }
-  }
-  
-  .kz-button--cancel{
-    background-color: $color-eigth;
-    color: white;
-    &:hover{
-        background-color: $color-nine;
-        color: white;
-    }
-  }
-  
-  .kz-button--warning{
-    background-color: $color-eleven;
-    color: white;
-    &:hover{
-        background-color: $color-twelve;
-        color: white;
-    }
-  }
+}
 
-  .kz-button--sidebar{
-    display: flex;
-    align-items: center;
-    padding: 8px 18px;
-    border-radius: 8px;
-    margin: 0 10px 5px 10px;
-    align-items: center;
-    width: 250px;
-    gap: 8px;
-    color: $color-eigth;
-    font-size: 18px;
-    font-weight: 500;
-    background-color: transparent;
-    font-family: $font-family;
-    border: 2px solid $color-eigth;
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      background-color: $color-eigth;
-      color: white;
-    }
+.kz-button--auxiliar{
+  background-color: $auxiliar;
+  color: $white;
+  &:hover{
+      background-color: $cyan; //Por definir
+      color: $white;
   }
-  .kz-btn-text{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    font-family: $font-family;
-    font-size: 16px;
-    border: 0;
-    padding: 0;
-    background-color: transparent;
+}
+
+.kz-button--gray{
+  background-color: $gray-ligth;
+  color: $white;
+  &:hover{
+      background-color: $gray-ligth-hover;
+      color: $white;
   }
+}
+  
+.kz-button--green{
+  background-color: $green-ligth;
+  color: $white;
+  &:hover{
+      background-color: $gray-ligth-hover;
+      color: $white;
+  }
+}
+  
+.kz-button--red{
+  background-color: $red-ligth;
+  color: $white;
+  &:hover{
+      background-color: $red-ligth-hover;
+      color: $white;
+  }
+}
+  
+.kz-button--warning{
+  background-color: $yellow-soft;
+  color: $white;
+  &:hover{
+      background-color: $yellow-soft-hover;
+      color: $white;
+  }
+}
+
+.kz-button--sidebar{
+  display: flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 8px;
+  margin: 0 10px 5px 10px;
+  align-items: center;
+  width: 250px;
+  gap: 8px;
+  color: $red-ligth;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: transparent;
+  font-family: $font-family;
+  border: 2px solid $red-ligth;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: $red-ligth;
+    color: $white;
+  }
+}
+
+.kz-btn-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: $font-family;
+  font-size: 16px;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
   
   .kz-btn-text--red{
-    color: $color-eigth;
+    color: $red-ligth;
     &:hover{
-      color : $color-nine;
+      color : $red-ligth-hover;
     }
   }
   
@@ -122,12 +141,12 @@
           position: absolute;
           top:3px;
           right: 4px;
-          background-color: $color-eigth;
+          background-color: $red-ligth;
           display: flex;
           justify-content: center;
           align-items: center;
           font-size: 10px;
-          color: white; 
+          color: $white; 
       }  
     }
   }
@@ -138,7 +157,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: $white;
     font-family: $font-family;
     &:hover{
       opacity: 0.8;
@@ -158,8 +177,7 @@
     font-size: 16px;
     border-radius: 100%;
     &:hover{
-      color: $color-eigth;
-      //color: white;
+      color: $red-ligth;
     }
   }
   
@@ -169,7 +187,7 @@
     background-color: transparent;
     border: 0;
     font-size: 25px;
-    color: $color-one;
+    color: $primary;
     &:hover{
       background-color: #c7d8ee33;
     }
@@ -204,10 +222,10 @@
             padding: 8px 10px;
             cursor: pointer;
             &:hover{
-                color: $color-one;
+                color: $primary;
             }
             i{
-                color:$color-seven;
+                color:$gray-dark;
             }
             height: 100%;
             width: 100%;
@@ -215,8 +233,8 @@
         input[type="radio"]{
           display: none;
           &:checked ~ label{
-              background-color: $color-six;
-              i{ color: white;}
+              background-color: $cyan;
+              i{ color: $white;}
           }
         }
     }
@@ -225,7 +243,7 @@
   .kz-btn-collapse{
     display: block;
     font-size: 18px;
-    color: $color-two;
+    color: $secondary;
     margin-top: 5px;
     &:hover{
       background-color: #E9EDEE;
@@ -238,5 +256,5 @@
 
   .kz-button-blue{
     background-color: #3e81e3 !important;
-    color: #fff
+    color: $white;
   }

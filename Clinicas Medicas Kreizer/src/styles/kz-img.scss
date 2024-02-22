@@ -56,7 +56,7 @@
       justify-content: space-between;
       .kz-edit-action{
         i{
-          color: white;
+          color: $white;
           font-size: 18px;
           cursor: pointer;
           &:hover{
@@ -70,7 +70,7 @@
       }
       .kz-delete-action{
         i{
-          color: white;
+          color: $white;
           font-size: 18px;
           cursor: pointer;
           &:hover{

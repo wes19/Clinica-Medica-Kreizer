@@ -5,11 +5,11 @@
   font-size: 1.2rem;
   transition: transform 0.8s ease;
   margin-left: auto;
-  color: black;
+  color: $black;
   &.rotate {
     transform: rotate(180deg);
     transition: transform 0.8s ease;
-    color: black;
+    color: $black;
   }
 }
 
@@ -29,7 +29,7 @@
   border-radius: 8px;
   padding: 10px 22px;
   background-color: transparent;
-  color: $color-thirteen;
+  color: $green-ligth;
   font-weight: bold;
 }
 
@@ -38,7 +38,7 @@
   border-radius: 8px;
   padding: 10px 22px;
   background-color: transparent;
-  color: $color-eigth;
+  color: $red-ligth;
   font-weight: bold;
 }
 
@@ -61,7 +61,7 @@
 .kz-chip-estado-archivar {
   padding: 4px 8px;
   background-color: #dc3545;
-  color: #fff;
+  color: $white;
   border-radius: 4px;
   font-size: 16px;
   font-family: $font-family;
@@ -79,6 +79,6 @@
 
   .cuadro-verde {
     background-color: green;
-    color: white; /* Texto en blanco para mejorar visibilidad en verde */
+    color: $white; 
   }
 }

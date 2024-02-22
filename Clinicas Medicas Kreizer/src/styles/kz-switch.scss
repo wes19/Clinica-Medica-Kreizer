@@ -31,12 +31,12 @@
         width: 26px;
         left: 4px;
         bottom: 4px;
-        background-color: white;
+        background-color: $white;
         transition: .4s;
       }
     }
     input:checked + .kz-slider {
-      background-color: $color-one;
+      background-color: $primary;
   
       &:before {
         transform: translateX(26px);
@@ -47,13 +47,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #fff;
+      color: $white;
       font-weight: bold;
       user-select: none;
     }
   
     input:checked + .kz-slider {
-      background-color: $color-one;
+      background-color: $primary;
   
       &:before {
         transform: translateX(26px);
@@ -68,10 +68,10 @@
    align-items: center;
    .label-radio {
      position: relative;
-     color: $color-two;
+     color: $secondary;
      font-family: $font-family;
      font-size: 15px;
-     border: 2px solid $color-one;
+     border: 2px solid $primary;
      border-radius: 5px;
      padding: 5px 20px;
      display: flex;
@@ -82,7 +82,7 @@
        content: "";
        height: 15px;
        width: 15px;
-       border: 3px solid $color-one;
+       border: 3px solid $primary;
        border-radius: 50%;
        margin-right: 5px; 
        margin-left: 0px;
@@ -90,14 +90,14 @@
    }
    
    input[type="radio"]:checked + .label-radio {
-     background-color: $color-one;
-     color: white;
+     background-color: $primary;
+     color: $white;
      transition: width 0.5s ease, background-color 0.5s ease;
      &:before {
        height: 7px;
        width: 7px;
-       border: 7px solid white;
-       background-color: $color-one;
+       border: 7px solid $white;
+       background-color: $primary;
        transition: width 0.5s ease, background-color 0.5s ease;
      }
    }

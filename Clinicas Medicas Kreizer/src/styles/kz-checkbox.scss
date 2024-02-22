@@ -8,12 +8,12 @@
     display: none;
 
     &:checked + label {
-      background-color: $color-two;
-      border: 1px solid $color-two;
+      background-color: $secondary;
+      border: 1px solid $secondary;
       &::after {
         content: "\2713"; // Unicode character for checkmark
         font-size: 13px;
-        color: $color-ten;
+        color: $white-soft;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -28,16 +28,16 @@
     align-items: center;
     width: 20px;
     height: 20px;
-    border: 1px solid $color-seven;
+    border: 1px solid $gray-dark;
     border-radius: 4px;
     cursor: pointer;
 
     &:hover {
-        border: 1px solid $color-two;
+        border: 1px solid $secondary;
         &::after {
             content: "\2713";
             font-size: 13px;
-            color: $color-two;
+            color: $secondary;
             position: absolute;
             top: 50%;
             left: 50%;

@@ -23,7 +23,7 @@
   max-width: auto;
   margin: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: $white;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
@@ -60,7 +60,7 @@
   max-width: auto;
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: $white;
   .kz-info-column {
     flex: 1;
     padding: 5px;

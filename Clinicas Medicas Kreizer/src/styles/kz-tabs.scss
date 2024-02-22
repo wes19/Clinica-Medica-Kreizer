@@ -16,11 +16,11 @@
       font-family: $font-family;
       text-align: center;
       &:hover{
-        color: $color-one;
+        color: $primary;
       }
       &.active {
-        color: $color-six;
-        border-bottom: 3px solid $color-six;
+        color: $cyan;
+        border-bottom: 3px solid $cyan;
       }
     }
   }

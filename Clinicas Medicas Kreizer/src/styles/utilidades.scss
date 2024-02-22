@@ -21,10 +21,10 @@
     border-bottom: 1px solid #aaa;
   }
   .kz-border-blue{
-    border: 1px solid $color-one;
+    border: 1px solid $primary;
   }
   .kz-border{
-    border: 1px solid black;
+    border: 1px solid $black;
   }
 
  .kz-font-bold{
@@ -389,12 +389,12 @@
   //font family and color
   .kz-txt--primary{
     font-family: $font-family;
-    color: black;
+    color: $black;
   }
 
   //text color
   .kz-txt--white{
-    color: #fff;
+    color: $white;
   }
   .kz-txt--green{
     color: #32E014;
@@ -403,10 +403,10 @@
     color: #0b9c3c;
   }
   .kz-txt--blue{
-    color: $color-one;
+    color: $primary;
   }
   .kz-txt--yellow{
-    color: $color-eleven;
+    color: $yellow-soft;
   }
   .kz-txt--fucsia{
     color: #D14A7B;
@@ -436,7 +436,7 @@
     background-color: rgb(199, 29, 29) !important;
   }
   .kz-bg--blue{
-    background-color: $color-two;
+    background-color: $secondary;
   }
   .kz-bg--blue-transparent{
     background-color: #6ca0ef2d;
@@ -448,7 +448,7 @@
     background-color: #2bc85f39;
   }
   .kz-bg--yellow{
-    background-color: $color-eleven;
+    background-color: $yellow-soft;
   }
   .kz-bg--yellow-transparent{
     background-color: rgba(243, 243, 36, 0.19);

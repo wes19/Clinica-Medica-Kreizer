@@ -7,7 +7,7 @@
   box-shadow: 0px 0px 12px #e5e5e5;
   border-radius: 8px;
   font-family: $font-family;
-  background-color: white;
+  background-color: $white;
   &__body {
     display: flex;
   }
@@ -39,13 +39,13 @@
   max-width: 500px;
   margin: auto;
   padding: 32px;
-  background-color: white;
+  background-color: $white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   .kz-btn-state {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: rgb(243, 243, 243);
-    color: $color-two;
+    color: $secondary;
     font-size: 50px;
     font-weight: bold;
     cursor: pointer;
