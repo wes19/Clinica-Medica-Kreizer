@@ -2,14 +2,13 @@
 @import 'responsive';
 
 .modal-content{
-    border: 0;
-    border-radius: 12px;
+    border: 0 !important;
+    border-radius: 12px !important;
     .modal-header{
         background-color: $secondary;
-        border-top-right-radius: 12px;
-        border-top-left-radius: 12px;
+        border-top-right-radius: 11px;
+        border-top-left-radius: 11px;
         width: 100%;
-        margin-top: -2px;
         .modal-title{
             color: $white;
         }

@@ -44,104 +44,100 @@
 
 
 <ng-template #Modalver let-modal>
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title">Crear Cita</h5>
-        <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
-          <i class="bi bi-x-lg"></i>
-        </button>
-    </div>
-
-    <div class="modal-body">
-      <div class="row">
-        <div class="col col-12 col-lg-6">
-          <div class="kz-d-flex kz-flex-horizontal-center kz-gap--s">
-            <h2 class="kz-txt--green">
-              <i class="bi bi-person-fill kz-txt--green"></i>
-              5
-            </h2>
-          </div>
-          <table class="kz-table">
-            <thead class="kz-table__head">
-              <tr>
-                <th>Nombre</th>
-              </tr>
-            </thead>
-            <tbody class="kz-table__body">
-              <tr>
-                <td>Wesly Ariel Lazo Canales</td>
-              </tr>
-              <tr>
-                <td>Wesly Ariel Lazo Canales</td>
-              </tr>
-              <tr>
-                <td>Wesly Ariel Lazo Canales</td>
-              </tr>
-              <tr>
-                <td>Wesly Ariel Lazo Canales</td>
-              </tr>
-            </tbody>
-          </table>
-          <span class="badge bg-danger kz-txt--m">Max. 6 Paciente</span>
+  <div class="modal-header">
+    <h5 class="modal-title">Crear Cita</h5>
+      <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col col-12 col-lg-6">
+        <div class="kz-d-flex kz-flex-horizontal-center kz-gap--s">
+          <h2 class="kz-txt--green">
+            <i class="bi bi-person-fill kz-txt--green"></i>
+            5
+          </h2>
         </div>
-        <div class="col col-12 col-lg-6 kz-mt--2-ml">
-
-          <div *ngIf="!verFormulario && !agregadoExitosamente">
-            <button class="kz-button kz-button--green kz-mx--auto" (click)="verFormulario = true">
-              <i class="bi bi-plus-lg"></i>
-              <span>Agregar Paciente</span>
-            </button>
-          </div>
-  
-          <div *ngIf="verFormulario && !agregadoExitosamente">
-            <div class="kz-mb--2">
-              <input type="text" class="kz-input" placeholder="Buscar paciente...">
-            </div>
-            <div class="kz-mb--2">
-              <label>Nombre:</label>
-              <input type="text" class="kz-input" required>
-            </div>
-            <div class="kz-mb--2">
-              <label>Apellidos:</label>
-              <input type="text" class="kz-input" required>
-            </div>
-            <div class="kz-mb--2">
-              <label>Identidad:</label>
-              <input type="text" class="kz-input" required>
-            </div>
-            <div class="kz-mb--2">
-              <label>Celular:</label>
-              <input type="text" class="kz-input" required>
-            </div>
-            <div class="kz-mb--2">
-              <label>Género:</label>
-              <select class="kz-input" name="genero">
-                  <option value="" selected>-- Selecciona una opción --</option>
-                  <option value="Masculino" class="kz-head--xs">Masculino</option> 
-                  <option value="Femenino" class="kz-head--xs">Femenino</option> 
-              </select>
-            </div>
-            <div class="kz-d-flex kz-gap--s kz-flex-wrap">
-              <button class="kz-button kz-button--gray kz-border-radius--l" (click)="reiniciarFormulario()">Atrás</button>
-              <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarPaciente()">Guardar</button>
-              <button class="kz-button kz-button--green kz-border-radius--l">Crear</button>
-            </div>
-          </div>
-  
-          <div *ngIf="agregadoExitosamente" class="kz-d-flex kz-dir-vertical kz-flex-vertical-center">
-            <div class="kz-d-flex kz-dir-vertical kz-flex-vertical-center">
-              <h3>Agregado Exitosamente</h3>
-              <img class="kz-img kz-img--x kz-mt--3" src="../assets/img/icons/comprobado.png" alt="Card image cap" (click)="verFormulario = true">
-            </div>
-            <button class="kz-button kz-button--green kz-border-radius--l kz-mt--4" (click)="reiniciarFormulario()">Agregar Nuevo</button>
-          </div>
-          
-        </div>  
+        <table class="kz-table">
+          <thead class="kz-table__head">
+            <tr>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody class="kz-table__body">
+            <tr>
+              <td>Wesly Ariel Lazo Canales</td>
+            </tr>
+            <tr>
+              <td>Wesly Ariel Lazo Canales</td>
+            </tr>
+            <tr>
+              <td>Wesly Ariel Lazo Canales</td>
+            </tr>
+            <tr>
+              <td>Wesly Ariel Lazo Canales</td>
+            </tr>
+          </tbody>
+        </table>
+        <span class="badge bg-danger kz-txt--m">Max. 6 Paciente</span>
       </div>
+      <div class="col col-12 col-lg-6 kz-mt--2-ml">
+        <div *ngIf="!verFormulario && !agregadoExitosamente">
+          <button class="kz-button kz-button--green kz-mx--auto" (click)="verFormulario = true">
+            <i class="bi bi-plus-lg"></i>
+            <span>Agregar Paciente</span>
+          </button>
+        </div>
+
+        <div *ngIf="verFormulario && !agregadoExitosamente">
+          <div class="kz-mb--2">
+            <input type="text" class="kz-input" placeholder="Buscar paciente...">
+          </div>
+          <div class="kz-mb--2">
+            <label>Nombre:</label>
+            <input type="text" class="kz-input" required>
+          </div>
+          <div class="kz-mb--2">
+            <label>Apellidos:</label>
+            <input type="text" class="kz-input" required>
+          </div>
+          <div class="kz-mb--2">
+            <label>Identidad:</label>
+            <input type="text" class="kz-input" required>
+          </div>
+          <div class="kz-mb--2">
+            <label>Celular:</label>
+            <input type="text" class="kz-input" required>
+          </div>
+          <div class="kz-mb--2">
+            <label>Género:</label>
+            <select class="kz-input" name="genero">
+                <option value="" selected>-- Selecciona una opción --</option>
+                <option value="Masculino" class="kz-head--xs">Masculino</option> 
+                <option value="Femenino" class="kz-head--xs">Femenino</option> 
+            </select>
+          </div>
+          <div class="kz-d-flex kz-gap--s kz-flex-wrap">
+            <button class="kz-button kz-button--gray kz-border-radius--l" (click)="reiniciarFormulario()">Atrás</button>
+            <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarPaciente()">Guardar</button>
+            <button class="kz-button kz-button--green kz-border-radius--l">Crear</button>
+          </div>
+        </div>
+
+        <div *ngIf="agregadoExitosamente" class="kz-d-flex kz-dir-vertical kz-flex-vertical-center">
+          <div class="kz-d-flex kz-dir-vertical kz-flex-vertical-center">
+            <h3>Agregado Exitosamente</h3>
+            <img class="kz-img kz-img--x kz-mt--3" src="../assets/img/icons/comprobado.png" alt="Card image cap" (click)="verFormulario = true">
+          </div>
+          <button class="kz-button kz-button--green kz-border-radius--l kz-mt--4" (click)="reiniciarFormulario()">Agregar Nuevo</button>
+        </div>
+        
+      </div>  
     </div>
-    <div class="modal-footer">
-      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
-    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
   </div>
 </ng-template>
       
