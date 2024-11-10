@@ -26,18 +26,30 @@
   <!--Información Personal-->
   <div class="kz-tab-content">
     <div class="kz-tab-panel" [class.active]="tabActiva == 'infoPersonal'">
-      <div class="kz-form-column">
+      <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
         <div class="kz-mb--2">
           <label>Nombre:</label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.nombre">
+        </div>
+        <div class="kz-mb--2">
+          <label>Apellidos:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.apellidos">
         </div>
         <div class="kz-mb--2">
           <label>Identidad:</label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.identidad">
         </div>
         <div class="kz-mb--2">
+          <label>Fecha de nacimiento:</label>
+          <input type="date" class="kz-input" [(ngModel)]="empleado.fecha_nacimiento">
+        </div>
+        <div class="kz-mb--2">
           <label>Celular:</label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.celular">
+        </div>
+        <div class="kz-mb--2">
+          <label>Correo:</label>
+          <input type="email" class="kz-input" [(ngModel)]="empleado.correo">
         </div>
         <div class="kz-mb--2">
           <label>Genero:</label>
@@ -52,45 +64,6 @@
           <input type="text" class="kz-input" [(ngModel)]="empleado.nombre_contacto_emergencia">
         </div>
         <div class="kz-mb--2">
-          <label>Cónyugue:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.conyugue">
-        </div>
-        <div class="kz-mb--2">
-          <label>Nacionalidad:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.nacionalidad">
-        </div>
-        <div class="kz-mb--2">
-          <label>Nivel de certificado:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.nivel_certificado">
-        </div>
-        <div class="kz-mb--2">
-          <label>Escuela superior:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.escuela_superior">
-        </div>
-        <div class="kz-mb--2">
-          <label>Escuela:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.escuela">
-        </div>
-        <div class="kz-mb--2">
-          <label>Departamento:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.departamento">
-        </div>
-      </div>
-    
-      <div class="kz-form-column">
-        <div class="kz-mb--2">
-          <label>Apellidos:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.apellidos">
-        </div>
-        <div class="kz-mb--2">
-          <label>Fecha de nacimiento:</label>
-          <input type="date" class="kz-input" [(ngModel)]="empleado.fecha_nacimiento">
-        </div>
-        <div class="kz-mb--2">
-          <label>Correo:</label>
-          <input type="email" class="kz-input" [(ngModel)]="empleado.correo">
-        </div>
-        <div class="kz-mb--2">
           <label>Celular de Emergencias:</label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.celular_emergencias">
         </div>
@@ -103,8 +76,16 @@
           </select>
         </div>
         <div class="kz-mb--2">
+          <label>Cónyugue:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.conyugue">
+        </div>
+        <div class="kz-mb--2">
           <label>Número de hijos:</label>
           <input type="number" class="kz-input" [(ngModel)]="empleado.numero_hijos">
+        </div>
+        <div class="kz-mb--2">
+          <label>Nacionalidad:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.nacionalidad">
         </div>
         <div class="kz-mb--2">
           <label>Idiomas:</label>
@@ -115,12 +96,28 @@
           <input type="text" class="kz-input" [(ngModel)]="empleado.campo_estudio">
         </div>
         <div class="kz-mb--2">
+          <label>Nivel de certificado:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.nivel_certificado">
+        </div>
+        <div class="kz-mb--2">
+          <label>Escuela superior:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.escuela_superior">
+        </div>
+        <div class="kz-mb--2">
           <label>Escuela Media:</label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.escuela_media">
         </div>
         <div class="kz-mb--2">
+          <label>Escuela:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.escuela">
+        </div>
+        <div class="kz-mb--2">
           <label>País:</label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.pais">
+        </div>
+        <div class="kz-mb--2">
+          <label>Departamento:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.departamento">
         </div>
         <div class="kz-mb--2">
           <label>Dirección:</label>
@@ -131,29 +128,26 @@
 
     <!--Información Laboral-->
     <div class="kz-tab-panel" [class.active]="tabActiva == 'infoLaboral'">
-      <div class="kz-form-column">
+      <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
         <div class="kz-mb--2">
           <label>Celular Laboral:</label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.celular_laboral">
+        </div>
+        <div class="kz-mb--2">
+          <label>Correo Laboral:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.correo_laboral">
         </div>
         <div class="kz-mb--2">
           <label>Departamento:</label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.departamento">
         </div>
         <div class="kz-mb--2">
-          <label>Dirección Laboral:</label>
-          <textarea class="kz-input" [(ngModel)]="empleado.direccion_laboral"></textarea>
-        </div>
-      </div>
-    
-      <div class="kz-form-column">
-        <div class="kz-mb--2">
-          <label>Correo Laboral:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.correo_laboral">
-        </div>
-        <div class="kz-mb--2">
           <label>Jefe Inmediato:</label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.jefe_inmediato">
+        </div>
+        <div class="kz-mb--2">
+          <label>Dirección Laboral:</label>
+          <textarea class="kz-input" [(ngModel)]="empleado.direccion_laboral"></textarea>
         </div>
         <div class="kz-mb--2">
           <label>Aprobador:</label>
@@ -164,10 +158,14 @@
 
     <!--Configuración RRHH-->
     <div class="kz-tab-panel" [class.active]="tabActiva == 'configRRHH'">
-      <div class="kz-form-column">
+      <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
         <div class="kz-mb--2">
           <label>Fecha de Ingreso:</label>
           <input type="date" class="kz-input" [(ngModel)]="empleado.fecha_ingreso">
+        </div>
+        <div class="kz-mb--2">
+          <label>Salario:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.salario">
         </div>
         <div class="kz-mb--2">
           <label>Puesto Laboral:</label>
@@ -175,12 +173,18 @@
             <option *ngFor="let puesto of puestos" [value]="puesto.idPue" class="kz-head--xs">{{puesto.nombre}}</option>
           </select>
         </div>
-        
+        <div class="kz-mb--2">
+          <label>PIN:</label>
+          <input type="text" class="kz-input" [(ngModel)]="empleado.PIN">
+        </div>
         <div class="kz-mb--2">
           <label>Id de Credencial:</label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.id_credencial">
         </div>
-       
+        <div class="kz-mb--2">
+          <label>Contraseña:</label>
+          <button class="kz-button kz-button--primary" (click)="modalPassword(ModalPassword)">Cambiar Contraseña</button>
+        </div>
         <div class="kz-mb--2">
           <label>Imagen:</label>
           <div class="kz-form--img">
@@ -197,21 +201,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    
-      <div class="kz-form-column">
-        <div class="kz-mb--2">
-          <label>Salario:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.salario">
-        </div>
-        <div class="kz-mb--2">
-          <label>PIN:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.PIN">
-        </div>
-        <div class="kz-mb--2">
-          <label>Contraseña:</label>
-          <button class="kz-button kz-button--primary" (click)="modalPassword(ModalPassword)">Cambiar Contraseña</button>
         </div>
       </div>
     </div>
@@ -233,7 +222,7 @@
 
     <div class="modal-body">
       <form [formGroup]="guardarContrasena">
-        <div class="kz-form-column">
+        <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
           <div class="kz-mb--2">
             <label>Contraseña:</label>
             <input type="password" class="kz-input" [ngClass]="{'kz-is-invalid':obt.contrasena.invalid && (obt.contrasena.dirty || obt.contrasena.touched)}" formControlName="contrasena" required>
@@ -241,8 +230,6 @@
               * El tamaño mínimo es de 8 caracteres
             </div>
           </div>
-        </div>
-        <div class="kz-form-column">
           <div class="kz-mb--2">
             <label>Confirmar Contraseña:</label>
             <input type="password" class="kz-input" [ngClass]="{'kz-is-invalid':obt.conContrasena.invalid && (obt.conContrasena.dirty || obt.conContrasena.touched)}" formControlName="conContrasena" required>

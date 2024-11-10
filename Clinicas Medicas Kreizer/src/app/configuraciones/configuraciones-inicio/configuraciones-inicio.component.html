@@ -38,7 +38,7 @@
     </div>
 
     <div class="modal-body">
-      <div class="kz-form-column">
+      <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
         <div class="kz-mb--2">
           <label>Nombre:</label>
           <input type="text" class="kz-input" [(ngModel)]="menuModal.nombre">
@@ -47,8 +47,6 @@
           <label>URL:</label>
           <input type="text" class="kz-input" [(ngModel)]="menuModal.url">
         </div>
-      </div>
-      <div class="kz-form-column">
         <div class="kz-mb--2">
           <label>Imagen:</label>
           <input type="file" class="kz-input" (change)="subirImagen($event, true)" accept="image/*">
@@ -82,7 +80,7 @@
 
     <div class="modal-body">
       <form [formGroup]="registroMenu">
-        <div class="kz-form-column">
+        <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
           <div class="kz-mb--2">
             <label>Nombre:</label>
             <input type="text" class="kz-input" [ngClass]="{'kz-is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" formControlName="nombre" required>
@@ -94,8 +92,6 @@
             <label>URL:</label>
             <input type="text" class="kz-input" formControlName="url" required>
           </div>
-        </div>
-        <div class="kz-form-column">
           <div class="kz-mb--2">
             <label>Imagen:</label>
             <input type="file" class="kz-input" formControlName="imagen" (change)="subirImagen($event)" accept="image/*" required>

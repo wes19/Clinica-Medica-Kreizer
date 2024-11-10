@@ -19,13 +19,12 @@ npm run dev   -> Correr el servidor
 /...  Angular  .../ 
 
 /. Crear proyecto ./
+npm install (Si existe el packge.json)
+npm install -g @angular/cli@16.2.6
+npm install @angular/cli@16.2.6
+ng new my-sassy-app --style=scss --skip-install
 ng new my-sassy-app --style=scss --standalone=false
 
-npm install -g @angular/cli -> sudo antes para mac
-npm install @angular/cli@16.2.6
-
-npm install 
-ng update @angular/cli
 ng add @ng-bootstrap/ng-bootstrap
 ng add @fortawesome/angular-fontawesome
 npm install --save @fortawesome/fontawesome-free

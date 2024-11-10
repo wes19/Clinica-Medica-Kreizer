@@ -40,20 +40,18 @@
     </div>
 
     <div class="modal-body">
-      <div class="kz-form-column">
+      <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
         <div class="kz-mb--2">
           <label>Nombre:</label>
           <input class="kz-input" [(ngModel)]="asistenciaModal.nombreEmpleado" readonly>
         </div>
         <div class="kz-mb--2">
-          <label>Entrada:</label>
-          <input type="datetime" class="kz-input" [(ngModel)]="asistenciaModal.entrada">
-        </div>
-      </div>
-      <div class="kz-form-column">
-        <div class="kz-mb--2">
           <label>Horas Trabajadas:</label>
           <input type="text" class="kz-input" [(ngModel)]="asistenciaModal.horas_trabajadas" readonly>
+        </div>
+        <div class="kz-mb--2">
+          <label>Entrada:</label>
+          <input type="datetime" class="kz-input" [(ngModel)]="asistenciaModal.entrada">
         </div>
         <div class="kz-mb--2">
           <label>Salida:</label>

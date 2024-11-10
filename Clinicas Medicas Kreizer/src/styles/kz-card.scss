@@ -4,7 +4,7 @@
 .kz-card {
   display: block;
   padding: 16px;
-  box-shadow: 0px 0px 12px #e5e5e5;
+  box-shadow: 0px 0px 12px $box-shadow-ligth;
   border-radius: 8px;
   font-family: $font-family;
   background-color: $white;
@@ -15,7 +15,7 @@
     padding-top: 10px;
     margin-top: 10px;
     display: flex;
-    border-top: 1px solid rgb(194, 194, 194);
+    border-top: 1px solid $gray-ligth;
     gap: 10px;
     justify-content: center;
   }
@@ -24,7 +24,7 @@
 .kz-card--clickable {
   cursor: pointer;
   &:hover {
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 12px $box-shadow-black;
   }
 }
 
@@ -40,11 +40,11 @@
   margin: auto;
   padding: 32px;
   background-color: $white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px $box-shadow-black-ligth;
   border-radius: 16px;
   .kz-btn-state {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: rgb(243, 243, 243);
+    box-shadow: 0 2px 5px $box-shadow-black-ligth;
+    background-color: $white-soft;
     color: $secondary;
     font-size: 50px;
     font-weight: bold;
@@ -60,8 +60,8 @@
       opacity: 0.8;
     }
     &--change{
-      background-color: rgb(243, 243, 243);
-      color: #0b9c3c;
+      background-color: $white-soft;
+      color: $green;
     }
   }
 }

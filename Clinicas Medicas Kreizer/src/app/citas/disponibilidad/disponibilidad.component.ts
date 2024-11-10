@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { format, addMonths, subMonths, startOfMonth, eachDayOfInterval, getDay, isSameDay } from 'date-fns';
 import { HorariosService } from 'src/app/services/horarios.service';
+import { PacientesService } from 'src/app/services/pacientes.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-disponibilidad',
@@ -11,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class DisponibilidadComponent {
+  @ViewChild('formularioPaciente') formularioPaciente?: NgForm;
   currentMonth: Date;
   calendarDays: Date[] = [];
   selectedDay: Date | null = null;
@@ -20,8 +23,19 @@ export class DisponibilidadComponent {
   horarios:any=[];
   especialidades:any=[];
   empleados:any=[];
+  paciente: any = {};
 
-  constructor(private modalService:NgbModal, private horariosService:HorariosService, private route: ActivatedRoute) {
+  registroPac = new FormGroup({
+    nombre: new FormGroup('', Validators.required),
+    identidad: new FormGroup('', Validators.required),
+    celular: new FormGroup('', Validators.required),
+    correo: new FormGroup('', Validators.required),
+    fecha_nacimiento: new FormGroup('', Validators.required),
+    //nombre: new FormGroup('', Validators.required),
+    //nombre: new FormGroup('', Validators.required)
+  })
+
+  constructor(private modalService:NgbModal, private horariosService:HorariosService, private route: ActivatedRoute, private pacientesService:PacientesService) {
     this.currentMonth = new Date();
     this.generateCalendar();
     this.selectCurrentDay();
@@ -82,7 +96,29 @@ export class DisponibilidadComponent {
   }
 
   guardarPaciente() {
-    this.agregadoExitosamente = true;
+    const jsonPaciente = {
+      nombre: this.paciente.nombre,
+      identidad: this.paciente.identidad,
+      celular: this.paciente.celular,
+      correo: this.paciente.correo,
+      fecha_nacimiento: this.paciente.fecha_nacimiento,
+      RTN: this.paciente.RTN,
+      genero: this.paciente.genero,
+      pais: this.paciente.pais,
+      departamento: this.paciente.departamento,
+      direccion: this.paciente.direccion
+    }
+    this.pacientesService.crearPaciente(jsonPaciente).subscribe(
+      {
+        next: res=>{
+          console.log(res);
+          this.agregadoExitosamente = true;
+        },
+        error: err =>{
+          console.log(err);
+        }
+      }
+    );
   }
 
   reiniciarFormulario() {

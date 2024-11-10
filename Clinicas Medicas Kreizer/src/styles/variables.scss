@@ -6,25 +6,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans');
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
-// Colors
+// Colors Principal
 $primary: #3e81e3;
 $secondary: #0f86c1;
 $auxiliar: #0f86c1c7;
 $cyan: #39ace7;
-$gray-dark: #6A6A6A;
-$gray-ligth: #aeafaf;
-$gray-ligth-hover: #8f8d8d;
-$white: #fff;
-$black: #000;
-$red-ligth: #D72E2E;
-$red-ligth-hover: #F25959;
+
+//White
+$white: white;
 $white-soft: #f2f2f2;
+
+//Black
+$black: black;
+
+//Red
+$red: red;
+$red-ligth: #D72E2E;
+$red-dark: #dc3545;
+$red-ligth-hover: #F25959;
+
+//Yellow
+$yellow: yellow;
 $yellow-soft: #FBC337;
 $yellow-soft-hover: #caa41d;
+
+//Green
+$green: #0b9c3c;
 $green-ligth: #198754;
 $green-ligth-hover: #159f5e;
 
+//Gray
+$gray: #B7B7B7;
+$gray-soft: #D4D4D4;
+$gray-dark: #6A6A6A;
+$gray-ligth: #aeafaf;
+$gray-ligth-hover: #8f8d8d;
+$gray-dark-hover: #e9edee;
+$gray-ligth-hover: #c7d8ee33;
+
+//Box Shadow
+$box-shadow: #c6c6c6;
+$box-shadow-ligth: #e5e5e5;
+$box-shadow-black: #0000004D;
+$box-shadow-black-ligth: #0000001A;
+
+//Select
+$blue-scroll: #B8C5D252;
+$blue-hover: #6CA0EF2D;
+
+//Table
+$gray-table: #DBDBDB;
+$blue-table-scroll: #E7EBF6; 
+
+//txt color
 $txt-primary: #6A6A6A;
+$txt-green: #32E014;
+$txt-green-dark: #0b9c3c;
+$txt-fucsia: #D14A7B;
+$txt-red: #C71D1D;
+
+//Colores de fondo
+$bg-red: #C71D1D;
+$bg-blue-transparent: #6ca0ef2d;
+$bg-green: #16843b;
+$bg-green-transparent: #2bc85f39;
+$bg-yellow-soft: #FBC337;
+$bg-yellow-transparent: #F3F32430;
+$bg-bourdes: #883a56;
+$bg-bourdes-transparent: #f0578f3d;
+$bg-gray: #a3a3a3;
+$bg-gray-transparent: #B8C5D281;
+
+$container-white: #F2F7FA;
 
 $font-family: "Poppins", sans-serif;
 $font-famil-logo: "Playpen Sans", cursive;

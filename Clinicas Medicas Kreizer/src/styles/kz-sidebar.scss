@@ -13,7 +13,7 @@
     //  width: 270px;
     //}
     height: 100vh;
-    border-right: solid 1px rgb(212, 212, 212);
+    border-right: solid 1px $gray-soft;
     display: flex;
     flex-direction: column;
     font-family: $font-family;
@@ -97,7 +97,7 @@
     &__logo {
       padding: 14px 16px;
       margin: 0 0 24px;
-      border-bottom: solid 1px rgb(212, 212, 212);
+      border-bottom: solid 1px $gray-soft;
       display: flex;
       justify-content: left;
       align-items: center;
@@ -119,7 +119,7 @@
       position: relative;
       margin: auto 0 0 0 !important;
       padding: 8px 24px;
-      border-top: solid 1px rgb(212, 212, 212);
+      border-top: solid 1px $gray-soft;
       justify-content: flex-end;
       li {
         list-style: none;
@@ -131,13 +131,13 @@
         display: block;
       }
       padding: 2px 8px;
-      border: 1px solid rgb(183, 183, 183);
+      border: 1px solid $gray;
       border-radius: 4px;
       background-color: transparent;
       outline: none;
       cursor: pointer;
       &:hover{
-        background-color: #c7d8ee33;
+        background-color: $gray-ligth-hover;
       }
       transition: transform 0.5s;
       i {font-size: 1.3rem;

@@ -16,7 +16,7 @@ export class AddEmpleadoComponent implements OnInit {
   puestosLaborales: any[] = [];
   empleado: any = {};
 
-  constructor(private empleadosService: EmpleadosService, private puestosLaboralesService:PuestosLaboralesService, private departamentosService:DepartamentosService){}
+  constructor(private empleadosService: EmpleadosService, private puestosLaboralesService: PuestosLaboralesService, private departamentosService: DepartamentosService){}
 
   ngOnInit(): void {
     this.departamentosService.obtenerDepartamentos().subscribe((data) => {

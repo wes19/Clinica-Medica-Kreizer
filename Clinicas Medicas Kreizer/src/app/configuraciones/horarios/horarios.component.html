@@ -43,7 +43,7 @@
     
         <div class="modal-body">
             <form [formGroup]="registroHorario">
-                <div class="kz-form-column">
+                <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
                     <div class="kz-mb--2">
                         <label>Especialidad:</label>
                         <select class="kz-input" [ngClass]="{'kz-is-invalid':hor.idEsp.invalid && (hor.idEsp.dirty || hor.idEsp.touched)}" formControlName="idEsp" required>
@@ -53,10 +53,24 @@
                             * Por favor, ingresa una especialidad válida
                         </div>
                     </div>
-
+                    <div class="kz-mb--2">
+                        <label>Médico:</label>
+                        <select class="kz-input" [ngClass]="{'kz-is-invalid':hor.idEmp.invalid && (hor.idEmp.dirty || hor.idEmp.touched)}" formControlName="idEmp" required>
+                            <option *ngFor="let empleado of empleados" [value]="empleado.idEmp" class="kz-head--xs">{{empleado.nombre}} {{empleado.apellidos}}</option>
+                        </select>
+                        <div *ngIf="hor.idEmp.invalid && (hor.idEmp.dirty || hor.idEmp.touched)" class="kz-error-text mt-2">
+                            * Por favor, ingresa un médico valido
+                        </div>
+                    </div>
                     <div class="kz-mb--2">
                         <label>Horario Inicio:</label>
                         <select class="kz-input" formControlName="hora_inicio">
+                            <option *ngFor="let hora of horasDia" [value]="hora" class="kz-head--xs">{{ hora }}</option>
+                        </select>
+                    </div>
+                    <div class="kz-mb--2">
+                        <label>Horario Fin:</label>
+                        <select class="kz-input" formControlName="hora_final">
                             <option *ngFor="let hora of horasDia" [value]="hora" class="kz-head--xs">{{ hora }}</option>
                         </select>
                     </div>
@@ -122,25 +136,6 @@
 
                         </div>
                    </div>
-                </div>
-                <div class="kz-form-column">
-                    <div class="kz-mb--2">
-                        <label>Médico:</label>
-                        <select class="kz-input" [ngClass]="{'kz-is-invalid':hor.idEmp.invalid && (hor.idEmp.dirty || hor.idEmp.touched)}" formControlName="idEmp" required>
-                            <option *ngFor="let empleado of empleados" [value]="empleado.idEmp" class="kz-head--xs">{{empleado.nombre}} {{empleado.apellidos}}</option>
-                        </select>
-                        <div *ngIf="hor.idEmp.invalid && (hor.idEmp.dirty || hor.idEmp.touched)" class="kz-error-text mt-2">
-                            * Por favor, ingresa un médico valido
-                        </div>
-                    </div>
-
-                    <div class="kz-mb--2">
-                        <label>Horario Fin:</label>
-                        <select class="kz-input" formControlName="hora_final">
-                            <option *ngFor="let hora of horasDia" [value]="hora" class="kz-head--xs">{{ hora }}</option>
-                        </select>
-                    </div>
-
                     <div class="kz-mb--2">
                         <label>Estado:</label>
                         <label class="kz-switch kz-switch--text">
@@ -152,7 +147,6 @@
                             * Por favor, ingresa un "Estado" válido
                         </div>
                     </div>
-
                 </div>
             </form>
         </div>
@@ -176,7 +170,7 @@
         </div>
   
         <div class="modal-body">
-            <div class="kz-form-column">
+            <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
                 <div class="kz-mb--2">
                     <label>Especialidad:</label>
                     <select class="kz-input" [(ngModel)]="horarioModal.idEsp">
@@ -184,8 +178,18 @@
                     </select>
                 </div>
                 <div class="kz-mb--2">
+                    <label>Médico:</label>
+                    <select class="kz-input" [(ngModel)]="horarioModal.idEmp">
+                        <option *ngFor="let empleado of empleados" [value]="empleado.idEmp" class="kz-head--xs">{{empleado.nombre}} {{empleado.apellidos}}</option>
+                    </select>
+                </div>
+                <div class="kz-mb--2">
                     <label>Horario Inicio:</label>
                     <input type="text" class="kz-input" [(ngModel)]="horarioModal.hora_inicio">
+                </div>
+                <div class="kz-mb--2">
+                    <label>Horario Fin:</label>
+                    <input type="text" class="kz-input" [(ngModel)]="horarioModal.hora_final">
                 </div>
                 <div class="kz-mb--2">
                     <label>Días:</label>
@@ -241,18 +245,6 @@
                         </div>
                     </div>
                </div>
-            </div>
-            <div class="kz-form-column">
-                <div class="kz-mb--2">
-                    <label>Médico:</label>
-                    <select class="kz-input" [(ngModel)]="horarioModal.idEmp">
-                        <option *ngFor="let empleado of empleados" [value]="empleado.idEmp" class="kz-head--xs">{{empleado.nombre}} {{empleado.apellidos}}</option>
-                    </select>
-                </div>
-                <div class="kz-mb--2">
-                    <label>Horario Fin:</label>
-                    <input type="text" class="kz-input" [(ngModel)]="horarioModal.hora_final">
-                </div>
                 <div class="kz-mb--2 kz-mx--auto">
                     <label>Estado:</label>
                     <label class="kz-switch">

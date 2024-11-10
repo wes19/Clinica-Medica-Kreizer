@@ -4,13 +4,13 @@
 .kz-specialty-select {
     .ng-select {
       border-radius: 12px;
-      border: 2px solid rgb(183, 183, 183);
+      border: 2px solid $gray;
       padding: 8px;
       width: 400px; 
       .ng-dropdown-panel {
         padding: 16px;
         background-color: $white;
-        box-shadow: 0px 0px 16px #cecece;
+        box-shadow: 0px 0px 16px $box-shadow;
         border-radius: 12px; 
         position: absolute;
         left: 0;
@@ -25,7 +25,7 @@
           }
           &::-webkit-scrollbar-track:vertical{
             border-radius: 4px !important;
-            background-color:  rgba(184, 197, 210, 0.32) !important;
+            background-color: $blue-scroll !important;
             width: 10px !important;
           }
           &::-webkit-scrollbar-thumb:vertical{
@@ -35,7 +35,7 @@
           }
           &::-webkit-scrollbar-button{
             border-radius: 6px !important;
-            background-color: rgba(184, 197, 210, 0.24) !important;
+            background-color: $blue-scroll !important;
             display: none;
           }
           .ng-option{
@@ -43,7 +43,7 @@
             padding: 8px 12px;
             border-radius: 14px;
             &:hover{
-              background-color: rgba(108, 160, 239, 0.1764705882);
+              background-color: $blue-hover;
             }
             &:last-child{
               margin-bottom: 0;

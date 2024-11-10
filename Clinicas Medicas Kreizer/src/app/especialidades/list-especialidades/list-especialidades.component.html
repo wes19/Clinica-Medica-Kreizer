@@ -29,20 +29,18 @@
     </div>
 
     <div class="modal-body">
-      <div class="kz-form-column">
+      <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
         <div class="kz-mb--2">
           <label>Nombre:</label>
           <input type="text" class="kz-input" [(ngModel)]="especialidadModal.nombre">
         </div>
         <div class="kz-mb--2">
-          <label>Estado:</label>
-          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.estado">
-        </div>
-      </div>
-      <div class="kz-form-column">
-        <div class="kz-mb--2">
           <label>Imagen:</label>
           <input type="file" class="kz-input" (change)="subirImagen($event)" accept="image/*">
+        </div>
+        <div class="kz-mb--2">
+          <label>Estado:</label>
+          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.estado">
         </div>
       </div>
     </div>

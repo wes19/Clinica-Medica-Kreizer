@@ -56,9 +56,13 @@
 
   <form>
     <h5 class="kz-d-flex kz-flex-horizontal-center">Datos Consulta</h5>
-    <div class="kz-form-column">
+    <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
       <div class="kz-mb--2">
         <label>Síntomas:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Duración:</label>
         <textarea type="" class="kz-input"></textarea>
       </div>
       <div class="kz-mb--2">
@@ -66,50 +70,11 @@
         <textarea type="" class="kz-input"></textarea>
       </div>
       <div class="kz-mb--2">
-        <label>Comienzo de los Síntomas:</label>
-        <textarea type="" class="kz-input"></textarea>
-      </div>
-      <div class="kz-mb--2">
-        <label>Peso</label>
-        <textarea type="" class="kz-input"></textarea>
-      </div>
-      <div class="kz-mb--2">
-        <label>Presion Arterial:</label>
-        <textarea type="" class="kz-input"></textarea>
-      </div>
-      <div class="kz-mb--2">
-        <label>Revisiones diferentes del cuerpo:</label>
-        <textarea type="" class="kz-input"></textarea>
-      </div>
-      <div class="kz-mb--2">
-        <label>Estudios de Imágenes:</label>
-        <textarea type="" class="kz-input"></textarea>
-      </div>
-      <div class="kz-mb--2">
-        <label>Historial de Vacunas:</label>
-        <textarea type="" class="kz-input"></textarea>
-      </div>
-      <div class="kz-mb--2">
-        <label>Ejercicio:</label>
-        <textarea type="" class="kz-input"></textarea>
-      </div>
-      <div class="kz-mb--2">
-        <label>Consumo de Alcohol:</label>
-        <textarea type="" class="kz-input"></textarea>
-      </div>
-      <div class="kz-mb--2">
-        <label>Salud Mental:</label>
-        <textarea type="" class="kz-input"></textarea>
-      </div>
-    </div>
-      
-    <div class="kz-form-column">
-      <div class="kz-mb--2">
-        <label>Duración:</label>
-        <textarea type="" class="kz-input"></textarea>
-      </div>
-      <div class="kz-mb--2">
         <label>Historial Enfermedad Actual (HAE):</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Comienzo de los Síntomas:</label>
         <textarea type="" class="kz-input"></textarea>
       </div>
       <div class="kz-mb--2">
@@ -117,7 +82,15 @@
         <textarea type="" class="kz-input"></textarea>
       </div>
       <div class="kz-mb--2">
+        <label>Peso</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
         <label>Altura:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Presion Arterial:</label>
         <textarea type="" class="kz-input"></textarea>
       </div>
       <div class="kz-mb--2">
@@ -125,7 +98,15 @@
         <textarea type="" class="kz-input"></textarea>
       </div>
       <div class="kz-mb--2">
-        <label>Análisis de Sangr:</label>
+        <label>Revisiones diferentes del cuerpo:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Análisis de Sangre:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Estudios de Imágenes:</label>
         <textarea type="" class="kz-input"></textarea>
       </div>
       <div class="kz-mb--2">
@@ -133,7 +114,15 @@
         <textarea type="" class="kz-input"></textarea>
       </div>
       <div class="kz-mb--2">
+        <label>Historial de Vacunas:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
         <label>Dieta:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
+        <label>Ejercicio:</label>
         <textarea type="" class="kz-input"></textarea>
       </div>
       <div class="kz-mb--2">
@@ -141,10 +130,19 @@
         <textarea type="" class="kz-input"></textarea>
       </div>
       <div class="kz-mb--2">
+        <label>Consumo de Alcohol:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
+      <div class="kz-mb--2">
         <label>Otras Sustancias:</label>
         <textarea type="" class="kz-input"></textarea>
       </div>
+      <div class="kz-mb--2">
+        <label>Salud Mental:</label>
+        <textarea type="" class="kz-input"></textarea>
+      </div>
     </div>
+    
     <div class="kz-d-flex">
       <button class="kz-button kz-button--red" [routerLink]="['/empleados']">Salir</button>
       <button class="kz-button kz-button--primary kz-ml--2" [routerLink]="['/add-empleados']">Guardar</button>  

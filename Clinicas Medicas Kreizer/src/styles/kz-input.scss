@@ -4,11 +4,11 @@
 .kz-input{
   position: relative;
   border-radius: 12px;
-  border: 1.5px solid rgb(183, 183, 183);
+  border: 1.5px solid $gray;
   padding: 12px 12px;
   font-size: 14px;
   &::-webkit-input-placeholder {
-    color: rgb(183, 183, 183);
+    color: $gray;
   }
   width: 100%;
   background-size: 18px;
@@ -23,14 +23,14 @@
   &:focus {
     outline: 0;
     border: 1.5px solid transparent !important;
-    box-shadow: 0 0 2px 2px #1f85b1;
+    box-shadow: 0 0 2px 2px $secondary;
     background-color: $white;
   }
 }
 
 .kz-input--icon{
   position: relative;
-  color:rgb(183, 183, 183);
+  color: $gray;
   font-size: 18px;
   & > input[type='text'],
   input[type='password'],

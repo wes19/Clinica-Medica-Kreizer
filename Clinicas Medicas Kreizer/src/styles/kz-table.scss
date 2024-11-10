@@ -10,7 +10,7 @@
   border-radius: 16px;
   &__head{
     tr{
-      border-bottom: 1px solid rgb(219, 219, 219);
+      border-bottom: 1px solid $gray-table;
       th{
         padding: 18px 12px;
         white-space: nowrap;
@@ -21,7 +21,7 @@
   }
   &__body{
     tr{
-      border-bottom: 1px solid rgb(219, 219, 219);
+      border-bottom: 1px solid $gray-table;
       td{
         padding: 14px 12px;
         white-space: nowrap;
@@ -48,12 +48,12 @@
   }
   &::-webkit-scrollbar-track{
     border-radius: 14px;
-    background-color: rgb(231, 235, 246);
+    background-color: $blue-table-scroll;
     height: 10px;
   }
   &::-webkit-scrollbar-thumb{
     border-radius: 14px;
-    background-color: #0f86c19a;
+    background-color: $blue-table-scroll;
     height: 10px;
   }
   &::-webkit-scrollbar-button{
@@ -66,13 +66,13 @@
 .kz-table-info {
   width: 100%;
   border-radius: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid $gray;
   tr {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid $gray;
   }
   .kz-col-gray {
       width: 30%;
-      background-color: #F0F2F2;
+      background-color: $white-soft;
       padding: 10px; 
   }
   .kz-col-white {

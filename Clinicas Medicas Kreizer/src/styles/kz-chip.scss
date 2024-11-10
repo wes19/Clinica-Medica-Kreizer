@@ -14,13 +14,40 @@
       margin-right: 0.5rem;
     }
   }
+
+  .kz-chip-estado-archivar {
+    padding: 4px 8px;
+    background-color: $red-dark;
+    color: $white;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: $font-family;
+  }
+
+  .kz-chip-estado-green{
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 10px 22px;
+    background-color: transparent;
+    color: $green-ligth;
+    font-weight: bold;
+  }
+  
+  .kz-chip-estado-red{
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 10px 22px;
+    background-color: transparent;
+    color: $red-ligth;
+    font-weight: bold;
+  }
   
   .kz-chip--blue{
     color: $primary;
   }
   
   .kz-chip--yellow{
-    color: yellow;
+    color: $yellow;
   }
   
   .kz-chip--green{
@@ -34,4 +61,17 @@
   input[type="radio"] {
     display: none;
   }
+  
+  .kz-error-text {
+    color: $txt-red;
+    background-color: transparent;  
+    border: none;
+    margin-top: 5px;
+  }
+  
+  .kz-is-invalid {
+    border-color: $txt-red !important;
+  }
+  
+  
   

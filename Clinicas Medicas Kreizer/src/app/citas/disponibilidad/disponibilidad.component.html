@@ -91,38 +91,61 @@
         </div>
 
         <div *ngIf="verFormulario && !agregadoExitosamente">
-          <div class="kz-mb--2">
-            <input type="text" class="kz-input" placeholder="Buscar paciente...">
-          </div>
-          <div class="kz-mb--2">
-            <label>Nombre:</label>
-            <input type="text" class="kz-input" required>
-          </div>
-          <div class="kz-mb--2">
-            <label>Apellidos:</label>
-            <input type="text" class="kz-input" required>
-          </div>
-          <div class="kz-mb--2">
-            <label>Identidad:</label>
-            <input type="text" class="kz-input" required>
-          </div>
-          <div class="kz-mb--2">
-            <label>Celular:</label>
-            <input type="text" class="kz-input" required>
-          </div>
-          <div class="kz-mb--2">
-            <label>Género:</label>
-            <select class="kz-input" name="genero">
-                <option value="" selected>-- Selecciona una opción --</option>
-                <option value="Masculino" class="kz-head--xs">Masculino</option> 
-                <option value="Femenino" class="kz-head--xs">Femenino</option> 
-            </select>
-          </div>
-          <div class="kz-d-flex kz-gap--s kz-flex-wrap">
-            <button class="kz-button kz-button--gray kz-border-radius--l" (click)="reiniciarFormulario()">Atrás</button>
-            <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarPaciente()">Guardar</button>
-            <button class="kz-button kz-button--green kz-border-radius--l">Crear</button>
-          </div>
+          <form #formularioPaciente="ngForm">
+            <div class="kz-mb--2">
+              <input type="text" class="kz-input" placeholder="Buscar paciente...">
+            </div>
+            <div class="kz-mb--2">
+              <label>Nombre:</label>
+              <input type="text" [(ngModel)]="paciente.nombre" class="kz-input" name="nombre">
+            </div>
+            <div class="kz-mb--2">
+              <label>Identidad:</label>
+              <input type="text" [(ngModel)]="paciente.identidad" class="kz-input" name="identidad">
+            </div>
+            <div class="kz-mb--2">
+              <label>Teléfono / Celular:</label>
+              <input type="text" [(ngModel)]="paciente.celular" class="kz-input" name="celular">
+            </div>
+            <div class="kz-mb--2">
+                <label>Correo:</label>
+                <input type="text" [(ngModel)]="paciente.correo" class="kz-input" name="correo">
+            </div>
+            <div class="kz-mb--2">
+                <label>Fecha de nacimiento:</label>
+                <input type="date" [(ngModel)]="paciente.fecha_nacimiento" class="kz-input" name="fecha_nacimiento">
+            </div>
+            <div class="kz-mb--2">
+                <label>RTN:</label>
+                <input type="email" [(ngModel)]="paciente.RTN" class="kz-input" name="RTN">
+            </div>
+            <div class="kz-mb--2">
+              <label>Género:</label>
+              <select class="kz-input" [(ngModel)]="paciente.genero" name="genero" [ngModelOptions]="{ standalone: true }">
+                  <option value="" selected>-- Selecciona una opción --</option>
+                  <option value="Masculino" class="kz-head--xs">Masculino</option> 
+                  <option value="Femenino" class="kz-head--xs">Femenino</option> 
+              </select>
+            </div>
+            <div class="kz-mb--2">
+              <label>País:</label>
+              <input type="text" [(ngModel)]="paciente.pais" class="kz-input" name="pais">
+            </div>
+            <div class="kz-mb--2">
+              <label>Departamento:</label>
+              <input type="text" [(ngModel)]="paciente.departamento" class="kz-input" name="departamento">
+            </div>
+            <div class="kz-mb--2">
+              <label>Dirección:</label>
+              <textarea type="text" [(ngModel)]="paciente.direccion" class="kz-input" name="direccion"></textarea>
+            </div>
+          
+            <div class="kz-d-flex kz-gap--s kz-flex-wrap">
+              <button class="kz-button kz-button--gray kz-border-radius--l" (click)="reiniciarFormulario()">Atrás</button>
+              <button class="kz-button kz-button--primary kz-border-radius--l">Guardar</button>
+              <button class="kz-button kz-button--green kz-border-radius--l" (click)="guardarPaciente()">Crear</button>
+            </div>
+          </form>
         </div>
 
         <div *ngIf="agregadoExitosamente" class="kz-d-flex kz-dir-vertical kz-flex-vertical-center">

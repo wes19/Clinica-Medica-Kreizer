@@ -5,63 +5,62 @@
     <button class="kz-button kz-button--red kz-border-radius--l" [routerLink]="['/pacientes']"> Salir</button>
 </div>
   
-<div class="kz-form-column">
-    <div class="kz-mb--2">
+<form #formularioPaciente="ngForm">
+    <h5 class="kz-d-flex kz-flex-horizontal-center">Crear Paciente</h5>
+    <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
+      <div class="kz-mb--2">
         <label>Nombre:</label>
-        <input type="text" class="kz-input">
-    </div>
-    <div class="kz-mb--2">
+        <input type="text" class="kz-input" [(ngModel)]="paciente.nombre" name="nombre">
+      </div>
+      <div class="kz-mb--2">
         <label>Identidad:</label>
-        <input type="text" class="kz-input">
-    </div>
-    <div class="kz-mb--2">
-        <label>Teléfono / Celular:</label>
-        <input type="text" class="kz-input" >
-    </div>
-    <div class="kz-mb--2">
+        <input type="text" class="kz-input" [(ngModel)]="paciente.identidad" name="apellidos">
+      </div>
+      <div class="kz-mb--2">
+        <label>Celular:</label>
+        <input type="text" class="kz-input" [(ngModel)]="paciente.celular" name="celular">
+      </div>
+      <div class="kz-mb--2">
         <label>Correo:</label>
-        <input type="text" class="kz-input">
-    </div>
-    <div class="kz-mb--2">
-        <label>País:</label>
-        <input type="text" class="kz-input">
-    </div>
-    <div class="kz-mb--2">
-        <label>Dirección:</label>
-        <textarea type="text" class="kz-input"></textarea>
-    </div>
-</div>
-  
-<div class="kz-form-column">
-    <div class="kz-mb--2">
-        <label>Fecha de nacimiento:</label>
-        <input type="date" class="kz-input">
-    </div>
-    <div class="kz-mb--2">
+        <input type="email" class="kz-input" [(ngModel)]="paciente.correo" name="correo">
+      </div>
+      <div class="kz-mb--2">
+        <label>Fecha Nacimineto:</label>
+        <input type="date" class="kz-input" [(ngModel)]="paciente.fecha_nacimiento" name="fecha_nacimiento">
+      </div>
+      <div class="kz-mb--2">
         <label>RTN:</label>
-        <input type="email" class="kz-input">
-    </div>
-    <div class="kz-mb--2">
-      <label>Stio Web:</label>
-      <input type="text" class="kz-input">
-    </div>
-    <div class="kz-mb--2">
+        <input type="text" class="kz-input" [(ngModel)]="paciente.RTN" name="RTN">
+      </div>
+      <div class="kz-mb--2">
         <label>Género:</label>
-        <select class="kz-input" required>
+        <select class="kz-input" [(ngModel)]="paciente.genero" name="genero" [ngModelOptions]="{ standalone: true }">
             <option value="" selected>-- Selecciona una opción --</option>
-            <option value="opcion1">Masculino</option> 
-            <option value="opcion1">Femenino</option> 
+            <option value="1" class="kz-head--xs">Masculino</option> 
+            <option value="0" class="kz-head--xs">Femenino</option> 
         </select>
-    </div>
-    <div class="kz-mb--2">
+      </div>
+      <div class="kz-mb--2">
+        <label>Pais:</label>
+        <input type="text" class="kz-input" [(ngModel)]="paciente.pais" name="pais">
+      </div>
+      <div class="kz-mb--2">
         <label>Departamento:</label>
-        <input type="text" class="kz-input">
+        <input type="text" class="kz-input" [(ngModel)]="paciente.departamento" name="departamento">
+      </div>
+      <div class="kz-mb--2">
+        <label>Direccion:</label>
+        <input type="text" class="kz-input" [(ngModel)]="paciente.direccion" name="direccion">
+      </div>
     </div>
-</div>
+  
+    <div class="kz-d-flex kz-flex-horizontal-end">
+        <button class="kz-button kz-button--primary kz-ml--2" (click)="guardarEmpleado()">Guardar</button>
+    </div>
+</form>
+  
 
-<div class="kz-d-flex kz-flex-horizontal-end">
-    <button class="kz-button kz-button--primary kz-ml--2" [routerLink]="['/pacientes/crear']">Guardar</button>
-</div>
+
       
           
       

@@ -48,7 +48,7 @@
     }
     .kz-actions{
       display: none;
-      background-color: #949fa5c7;
+      background-color: $gray-dark;
       position: absolute;
       top: 0;
       width: 150px;
@@ -61,7 +61,7 @@
           cursor: pointer;
           &:hover{
             font-size: 20px;
-            color: #006aff;
+            color: $secondary;
           }
         }
         input{
@@ -75,7 +75,7 @@
           cursor: pointer;
           &:hover{
             font-size: 20px;
-            color: #006aff;
+            color: $secondary;
           }
         }
       }

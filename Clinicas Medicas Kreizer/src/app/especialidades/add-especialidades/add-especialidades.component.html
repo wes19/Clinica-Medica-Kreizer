@@ -6,13 +6,17 @@
 </div>
 
 <form [formGroup]="registroEsp">
-    <div class="kz-form-column">
+    <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
         <div class="kz-mb--2">
             <label>Nombre:</label>
             <input type="text" class="kz-input" [ngClass]="{'kz-is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" formControlName="nombre" required>
             <div *ngIf="obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)" class="kz-error-text mt-2">
                 * Por favor, ingresa un nombre valido
             </div>
+        </div>
+        <div class="kz-mb--2">
+            <label>Imagen:</label>
+            <input type="file" (change)="subirImagen($event)" formControlName="imagen" class="kz-input" accept="image/*">
         </div>
 
         <div class="kz-mb--2">
@@ -26,13 +30,7 @@
                 * Por favor, ingresa un estado valido
             </div>
         </div>
-    </div>
-
-    <div class="kz-form-column">
-        <div class="kz-mb--2">
-            <label>Imagen:</label>
-            <input type="file" (change)="subirImagen($event)" formControlName="imagen" class="kz-input" accept="image/*">
-        </div>
+    
     </div>
 
     <div class="kz-d-flex kz-flex-horizontal-end">

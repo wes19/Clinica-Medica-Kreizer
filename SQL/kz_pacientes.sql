@@ -1,17 +1,19 @@
-USE clinicamedica_kz;
-CREATE TABLE kz_pacientes (
+CREATE TABLE clinicaMedica_KZ.kz_pacientes (
     idPac INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
-    apellidos VARCHAR(50),
     identidad VARCHAR(13),
     celular VARCHAR(15),
-	fecha_nacimiento DATE,
-	genero VARCHAR(10),
-    estado VARCHAR(8)
+    correo VARCHAR(50),
+    fecha_nacimiento DATE,
+	RTN VARCHAR(14),
+    genero INT,
+    pais VARCHAR(30),
+    departamento VARCHAR(30),
+    direccion VARCHAR(250)
 );
 
--- Insertar datos en kz_pacientes
-INSERT INTO kz_pacientes (nombre, apellidos, identidad, celular, fecha_nacimiento, genero, estado) VALUES
-    ('Juan', 'Perez', '080119950001', '987654321', '1995-01-08', 'Masculino', 'Activo'),
-    ('Maria', 'Gomez', '050519920002', '123456789', '1992-05-05', 'Femenino', 'Activo'),
-    ('Carlos', 'Rodriguez', '102319900003', '555555555', '1990-10-23', 'Masculino', 'Activo');
+INSERT INTO clinicaMedica_KZ.kz_pacientes (nombre, identidad, celular, correo, fecha_nacimiento, RTN, genero, pais, departamento, direccion)
+VALUES 
+('Juan Perez', '0801198501234', '9999-9999', 'juan.perez@example.com', '1985-01-08', '0801198501234', 1, 'Honduras', 'Cortés', 'Colonia Altamira, San Pedro Sula'),
+('Maria Lopez', '0501199001234', '8888-8888', 'maria.lopez@example.com', '1990-01-05', '0501199001234', 0, 'Honduras', 'Francisco Morazán', 'Barrio La Ronda, Tegucigalpa'),
+('Pedro Ramirez', '0301198001234', '7777-7777', 'pedro.ramirez@example.com', '1980-01-03', '0301198001234', 1, 'Honduras', 'Atlántida', 'Colonia El Porvenir, La Ceiba');

@@ -54,7 +54,7 @@
   background-color: $green-ligth;
   color: $white;
   &:hover{
-      background-color: $gray-ligth-hover;
+      background-color: $green-ligth-hover;
       color: $white;
   }
 }
@@ -129,7 +129,7 @@
     justify-content: center;
     align-items: center;
     &:hover{
-      background-color: #e9edee;
+      background-color: $gray-dark-hover;
     }
     .kz-notification{
       position: relative;
@@ -166,7 +166,7 @@
 
   .kz-btn-icon{
     border: 0;
-    color: #6A6A6A;
+    color: $gray-dark;
     height: 2rem;
     width: 2rem;
     display: flex;
@@ -189,13 +189,13 @@
     font-size: 25px;
     color: $primary;
     &:hover{
-      background-color: #c7d8ee33;
+      background-color: $gray-ligth-hover;
     }
   }
   
   .kz-btn-radio--group{
     display: flex;
-    border: 1px solid rgb(183, 183, 183);
+    border: 1px solid $gray-ligth;
     border-radius: 12px;
     cursor: pointer;
     .kz-btn-radio__item{
@@ -246,7 +246,7 @@
     color: $secondary;
     margin-top: 5px;
     &:hover{
-      background-color: #E9EDEE;
+      background-color: $gray-dark-hover;
       border-radius: 50%;
     }
     @include media(screen-1){
@@ -255,6 +255,6 @@
   }
 
   .kz-button-blue{
-    background-color: #3e81e3 !important;
+    background-color: $primary !important;
     color: $white;
   }

@@ -12,13 +12,13 @@
  }
 // bordes
   .kz-border-bottom{
-    border-bottom: 1px solid #6A6A6A;
+    border-bottom: 1px solid $gray-dark;
   }
   .kz-border-left-gray{
-    border-left: 1px solid #aaa;
+    border-left: 1px solid $gray;
   }
   .kz-border-bottom-gray{
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid $gray;
   }
   .kz-border-blue{
     border: 1px solid $primary;
@@ -117,7 +117,6 @@
   .kz-white-space{
     white-space: nowrap;
   }
-
 
   //space-between
   .kz-space-between{
@@ -397,10 +396,10 @@
     color: $white;
   }
   .kz-txt--green{
-    color: #32E014;
+    color: $txt-green;
   }
   .kz-txt--green-dark{
-    color: #0b9c3c;
+    color: $txt-green-dark;
   }
   .kz-txt--blue{
     color: $primary;
@@ -409,10 +408,10 @@
     color: $yellow-soft;
   }
   .kz-txt--fucsia{
-    color: #D14A7B;
+    color: $txt-fucsia;
   }
   .kz-txt--red{
-    color: rgb(199, 29, 29) !important;
+    color: $txt-red !important;
   }
 
   //headers 
@@ -433,37 +432,37 @@
 
   // colores de fondo
   .kz-bg--red{
-    background-color: rgb(199, 29, 29) !important;
+    background-color: $txt-red !important;
   }
   .kz-bg--blue{
     background-color: $secondary;
   }
   .kz-bg--blue-transparent{
-    background-color: #6ca0ef2d;
+    background-color: $bg-blue-transparent;
   }
   .kz-bg--green{
-    background-color: #16843b;
+    background-color: $bg-green;
   }
   .kz-bg--green-transparent{
-    background-color: #2bc85f39;
+    background-color: $bg-green-transparent;
   }
   .kz-bg--yellow{
-    background-color: $yellow-soft;
+    background-color: $bg-yellow-soft;
   }
   .kz-bg--yellow-transparent{
-    background-color: rgba(243, 243, 36, 0.19);
+    background-color: $bg-yellow-transparent;
   }
   .kz-bg--bourdes{
-    background-color: #883a56;
+    background-color: $bg-bourdes;
   }
   .kz-bg--bourdes-transparent{
-    background-color: #f0578f3d;
+    background-color: $bg-bourdes-transparent;
   }
   .kz-bg--gray{
-    background-color: #a3a3a3;
+    background-color: $bg-gray;
   }
   .kz-bg--gray-transaparent{
-    background-color: rgba(184, 197, 210, 0.507);
+    background-color: $bg-gray-transparent;
   }
 
   //alinear contenido//
@@ -507,6 +506,9 @@
   }
   .kz-w--90{
     width: 90%;
+  }
+  .kz-w--95{
+    width: 95%;
   }
   .kz-w--100{
     width: 100%;

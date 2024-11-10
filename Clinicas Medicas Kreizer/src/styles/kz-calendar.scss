@@ -18,7 +18,7 @@
 
 .kz-calendar {
     border-radius: 8px;
-    box-shadow: 0px 0px 12px #c6c6c6;
+    box-shadow: 0px 0px 12px $box-shadow;
     padding: 16px;
     background-color: $white;
     width: 100%;
@@ -47,7 +47,7 @@
       grid-gap: 0.5rem;
       div {
         padding: 0.5rem;
-        border: 1px solid #ccc;
+        border: 1px solid $gray;
         cursor: pointer;
         border-radius: 15px;
         height: 80px;
@@ -70,7 +70,7 @@
 
 .kz-sectioned-box {
   border-radius: 8px;
-  box-shadow: 0px 0px 12px #c6c6c6;
+  box-shadow: 0px 0px 12px $box-shadow;
   padding: 16px;
   font-family: $font-family;
   width: 100%;
@@ -81,12 +81,12 @@
   .kz-section {
     border-radius: 10px;
     height: auto;
-    border: 1px solid #ccc ;
+    border: 1px solid $gray ;
     padding: 16px;
     width: 100%;
     cursor: pointer;
     &:hover{
-      background-color: rgb(15 103 122 / 14%);
+      background-color: #0F677A24;
     }
   }
 }

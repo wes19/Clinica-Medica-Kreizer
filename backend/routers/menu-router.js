@@ -19,11 +19,12 @@ module.exports = function (db) {
 
         try {
             await db.query(query, [nombre, imagen, url, estado]);
-            res.status(201).json({ message: 'Especialidad guardada exitosamente'});
+            res.status(201).json({ message: 'Registro guardado exitosamente'});
         } catch (error) {
             res.status(500).json({ error: 'Error al realizar la inserción' });
         }
     });
+
     // Actualizar Menús
     router.put('/:idMenu', async (req, res) => {
         const { nombre, imagen, url, estado } = req.body;
@@ -47,7 +48,7 @@ module.exports = function (db) {
             [idMenu]);
             res.send({ message: 'Registro eliminado correctamente' });
         } catch (error) {
-            res.status(500).send('Error al eliminaar el registro');
+            res.status(500).send('Error al eliminar el registro');
         }
       });
 

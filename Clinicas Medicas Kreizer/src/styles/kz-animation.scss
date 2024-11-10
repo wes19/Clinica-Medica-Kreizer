@@ -1,0 +1,31 @@
+@import "variables";
+@import "responsive";
+
+
+.kz-angle-icon {
+    font-size: 1.2rem;
+    transition: transform 0.8s ease;
+    margin-left: auto;
+    color: $black;
+    &.rotate {
+      transform: rotate(180deg);
+      transition: transform 0.8s ease;
+      color: $black;
+    }
+}
+
+.kz-state-animation {
+    display: inline-block;
+    border-radius: 50%;
+    color: $green-ligth;
+    animation: kz-parpadeo 1s infinite;
+}
+  
+  @keyframes kz-parpadeo {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
