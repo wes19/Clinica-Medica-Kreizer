@@ -1,4 +1,7 @@
 
+<div class="kz-d-flex kz-flex-horizontal-start kz-gap--l kz-mb--1">
+  <h5>Citas para {{especialidad}}</h5>
+</div>
 <div class="kz-calendar-container">
   <div class="kz-calendar">
     <div class="kz-header kz-d-flex kz-flex-horizontal-center kz-gap--m kz-mb--1">
@@ -11,33 +14,39 @@
     </div>
   
     <div class="kz-days kz-d-grid kz-col--7">
-      <div *ngFor="let day of calendarDays" (click)="openDay(day)" [ngClass]="{'active': isSelected(day) && day !== null, 'grayed-out': !day}">
+      <div *ngFor="let day of calendarDays" (click)="openDay(day)" 
+      [ngClass]="{'active': isSelected(day) && day !== null, 'grayed-out': !day, 'kz-day-disable ': !validarFecha(day)}">
         {{ day | date:'d' }}
       </div>
     </div>
   </div>
+
       <!--Horarios disponibles*/-->
   <div class="kz-sectioned-box kz-d-grid" *ngIf="selectedDay">
     <div class="kz-dir-vertical">
       <div>
-        <h2 class="kz-head kz-head--m">Fechas Disponibles</h2>
+        <h2 class="kz-head kz-head--m">Doctores Disponibles</h2>
       </div>
 
-      <div class="kz-section kz-mb--1" (click)="openModal(Modalver)" *ngFor="let horario of getHorarios()">
-        <h5><b>{{horario.empleado}}</b></h5>
+      <div class="kz-section kz-mb--1" (click)="openModal(Modalver, horario)" *ngFor="let horario of getHorarios()">
+        <h5><b>Dr. {{horario.empleado}}</b></h5>
         <p>{{convertirHora(horario.hora_inicio) | date:'h:mm a'}} - {{convertirHora(horario.hora_final) | date:'h:mm a'}}</p>
-        <span *ngIf="horario.estado==='Activo'" class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
-        <span *ngIf="horario.estado==='Inactivo'" class="badge bg-danger"><i class="bi bi-check"></i> No Disponible</span>
+        <div class="kz-d-flex kz-justify-content-center kz-gap--s">
+          <div 
+            *ngFor="let dia of diasSemana; let i = index" 
+            class="kz-circle-day"
+            [ngClass]="{
+              'kz-green-day': horario[dia.nombre] === 1,
+              'kz-white-day': horario[dia.nombre] === 0,
+              'kz-current-day': i === diaActual
+            }">
+            {{ dia.inicial }}
+          </div>
+        </div>
       </div>
-
       <div class="kz-chip kz-chip--blue">
         <label class="kz-txt--xl">{{ selectedDay | date:'d MMMM yyyy' }}</label>
       </div>
-      
-      <div class="kz-mt--1" *ngIf="selectedDay">
-        <button class="kz-button kz-button--red kz-border-radius--l" (click)="closeDay()">Cerrar</button>
-      </div>
-      
     </div>
   </div>
 </div>
@@ -54,106 +63,174 @@
     <div class="row">
       <div class="col col-12 col-lg-6">
         <div class="kz-d-flex kz-flex-horizontal-center kz-gap--s">
-          <h2 class="kz-txt--green">
-            <i class="bi bi-person-fill kz-txt--green"></i>
-            5
+          <h2 class="kz-txt--blue">
+            <i class="bi bi-person-fill kz-txt--blue"></i>
+            {{cantidadPacientes}}
           </h2>
         </div>
         <table class="kz-table">
           <thead class="kz-table__head">
             <tr>
-              <th>Nombre</th>
+              <th>Pacientes</th>
+              <th>Edad</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody class="kz-table__body">
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
+            <tr *ngFor="let cita of citasPacientes">
+              <td>{{cita.nombre}}</td>
+              <td>{{cita.edad}}</td>
+              <td>
+                <button class="kz-button kz-button--red kz-border-radius--l" (click)="modalDelete(cita)"> <i class="bi bi-trash"></i></button>
+              </td>
             </tr>
           </tbody>
         </table>
-        <span class="badge bg-danger kz-txt--m">Max. 6 Paciente</span>
+        <div class="kz-d-flex kz-gap--s kz-flex-wrap">
+          <span class="badge bg-danger kz-txt--m">Max. {{horarioSeleccionado.cupos}} Paciente</span>
+          <span class="badge kz-txt--m" [ngClass]="estadoCupos === 'disponibles' ? 'bg-success' : 'bg-danger'" >
+            {{estadoCupos === 'disponibles' ? 'Cupos disponibles' : 'Cupos llenos'}}
+          </span>
+        </div>
+        <div class="kz-mt--1" *ngIf="mensajeErrorCupos">
+          <small class="kz-txt--warning"><i class="bi bi-exclamation-circle"></i>{{ mensajeErrorCupos }}</small>
+        </div>
       </div>
       <div class="col col-12 col-lg-6 kz-mt--2-ml">
-        <div *ngIf="!verFormulario && !agregadoExitosamente">
-          <button class="kz-button kz-button--green kz-mx--auto" (click)="verFormulario = true">
+        <div *ngIf="!verFormulario">
+          <div class="kz-mb--1">
+            <span class="kz-txt--m kz-font-bold">Detalles Cita</span>
+          </div>
+          <table class="kz-table">
+            <tbody class="kz-table__body">
+              <tr>
+                <td class="kz-font-bold kz-bg--blue-soft">Doctor:</td>
+                <td>{{horarioSeleccionado.empleado}}</td>
+              </tr>
+              <tr>
+                <td class="kz-font-bold kz-bg--blue-soft">Especialidad:</td>
+                <td>{{horarioSeleccionado.especialidad}}</td>
+              </tr>
+              <tr>
+                <td class="kz-font-bold kz-bg--blue-soft">Fecha:</td>
+                <td>{{selectedDay | date:'d MMMM yyyy'}}</td>
+              </tr>
+              <tr>
+                <td class="kz-font-bold kz-bg--blue-soft">Horario:</td>
+                <td>{{convertirHora(horarioSeleccionado.hora_inicio) | date:'h:mm a'}}</td>
+              </tr>
+              <tr>
+                <td class="kz-font-bold kz-bg--blue-soft">Identidad:</td>
+                <td>
+                  <div class="kz-search-container kz-d-flex kz-align-items-center kz-gap--s">
+                    <i class="bi bi-search kz-txt--gray"></i>
+                    <input
+                      type="text"
+                      class="kz-input-search"
+                      placeholder="Buscar paciente por DNI..."
+                      [(ngModel)]="criterioBusqueda"
+                      name="criterioBusqueda"
+                      (keyup.enter)="buscarPaciente()"
+                      />
+                      <i *ngIf="criterioBusqueda" class="bi bi-x-circle kz-clear-btn" (click)="limpiarBusqueda()"></i>
+                  </div>
+                  <div *ngIf="mensajeError">
+                    <small class="kz-txt--red"><i class="bi bi-exclamation-circle"></i>{{ mensajeError }}</small>
+                  </div>
+                </td>                               
+              </tr>
+              <tr>
+                <td class="kz-font-bold kz-bg--blue-soft">Paciente:</td>
+                <td>
+                  <div class="kz-search-container kz-d-flex kz-align-items-center kz-gap--s">
+                    <input
+                      type="text"
+                      class="kz-input-search"
+                      [(ngModel)]="pacienteEncontrado.nombre"
+                      placeholder="Nombre del paciente"
+                      name="nombre"
+                    />
+                    <i class="bi bi-x-circle kz-clear-btn" (click)="limpiarPaciente()"></i>
+                  </div>
+                </td>
+              </tr>              
+            </tbody>
+          </table>
+          <button class="kz-button kz-button--green kz-mx--auto kz-mt--2" (click)="verFormulario = true">
             <i class="bi bi-plus-lg"></i>
             <span>Agregar Paciente</span>
           </button>
         </div>
 
-        <div *ngIf="verFormulario && !agregadoExitosamente">
+        <div *ngIf="verFormulario">
           <form #formularioPaciente="ngForm">
             <div class="kz-mb--2">
-              <input type="text" class="kz-input" placeholder="Buscar paciente...">
-            </div>
-            <div class="kz-mb--2">
               <label>Nombre:</label>
-              <input type="text" [(ngModel)]="paciente.nombre" class="kz-input" name="nombre">
+              <input type="text" [(ngModel)]="paciente.nombre" class="kz-input" name="nombre" required minlength="3" #nombre="ngModel"/>
+              <div *ngIf="nombre.invalid && nombre.touched">
+                <small class="kz-txt--red" *ngIf="nombre.errors?.['required']"><i class="bi bi-exclamation-circle"></i> El nombre es obligatorio.</small>
+                <small class="kz-txt--red" *ngIf="nombre.errors?.['minlength']"><i class="bi bi-exclamation-circle"></i> Debe tener al menos 3 caracteres.</small>
+              </div>
             </div>
             <div class="kz-mb--2">
               <label>Identidad:</label>
-              <input type="text" [(ngModel)]="paciente.identidad" class="kz-input" name="identidad">
+              <input type="text" [(ngModel)]="paciente.identidad" class="kz-input" name="identidad" required pattern="[0-9]+" #identidad="ngModel"/>
+              <div *ngIf="identidad.invalid && identidad.touched">
+                <small class="kz-txt--red" *ngIf="identidad.errors?.['required']">La identidad es obligatoria.</small>
+                <small class="kz-txt--red" *ngIf="identidad.errors?.['pattern']">Solo se permiten números.</small>
+              </div>
             </div>
             <div class="kz-mb--2">
               <label>Teléfono / Celular:</label>
-              <input type="text" [(ngModel)]="paciente.celular" class="kz-input" name="celular">
+              <input type="text" [(ngModel)]="paciente.celular" class="kz-input" name="celular" required pattern="^[0-9]{8,11}$" #celular="ngModel"/>
+              <div *ngIf="celular.invalid && celular.touched">
+                <small class="kz-txt--red" *ngIf="celular.errors?.['required']">El teléfono es obligatorio.</small>
+                <small class="kz-txt--red" *ngIf="celular.errors?.['pattern']">Debe tener entre 8 y 10 dígitos.</small>
+              </div>
             </div>
             <div class="kz-mb--2">
-                <label>Correo:</label>
-                <input type="text" [(ngModel)]="paciente.correo" class="kz-input" name="correo">
+              <label>Correo:</label>
+              <input type="email" [(ngModel)]="paciente.correo" class="kz-input" name="correo"/>
             </div>
             <div class="kz-mb--2">
-                <label>Fecha de nacimiento:</label>
-                <input type="date" [(ngModel)]="paciente.fecha_nacimiento" class="kz-input" name="fecha_nacimiento">
+              <label>Fecha de nacimiento:</label>
+              <input type="date" [(ngModel)]="paciente.fecha_nacimiento" class="kz-input" name="fecha_nacimiento" required #fecha_nacimiento="ngModel"/>
+              <div *ngIf="fecha_nacimiento.invalid && fecha_nacimiento.touched">
+                <small class="kz-txt--red">La fecha de nacimiento es obligatoria.</small>
+              </div>
             </div>
             <div class="kz-mb--2">
-                <label>RTN:</label>
-                <input type="email" [(ngModel)]="paciente.RTN" class="kz-input" name="RTN">
+              <label>RTN:</label>
+              <input type="text" [(ngModel)]="paciente.RTN" class="kz-input" name="RTN"/>
             </div>
             <div class="kz-mb--2">
               <label>Género:</label>
-              <select class="kz-input" [(ngModel)]="paciente.genero" name="genero" [ngModelOptions]="{ standalone: true }">
-                  <option value="" selected>-- Selecciona una opción --</option>
-                  <option value="Masculino" class="kz-head--xs">Masculino</option> 
-                  <option value="Femenino" class="kz-head--xs">Femenino</option> 
+              <select class="kz-input" [(ngModel)]="paciente.genero" name="genero" required #genero="ngModel">
+                <option value="" disabled selected>-- Selecciona una opción --</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
               </select>
+              <div *ngIf="genero.invalid && genero.touched">
+                <small class="kz-txt--red">El género es obligatorio.</small>
+              </div>
             </div>
             <div class="kz-mb--2">
               <label>País:</label>
-              <input type="text" [(ngModel)]="paciente.pais" class="kz-input" name="pais">
+              <input type="text" [(ngModel)]="paciente.pais" class="kz-input" name="pais"/>
             </div>
             <div class="kz-mb--2">
               <label>Departamento:</label>
-              <input type="text" [(ngModel)]="paciente.departamento" class="kz-input" name="departamento">
+              <input type="text" [(ngModel)]="paciente.departamento" class="kz-input" name="departamento"/>
             </div>
             <div class="kz-mb--2">
               <label>Dirección:</label>
-              <textarea type="text" [(ngModel)]="paciente.direccion" class="kz-input" name="direccion"></textarea>
+              <textarea [(ngModel)]="paciente.direccion" class="kz-input" name="direccion"></textarea>
             </div>
-          
             <div class="kz-d-flex kz-gap--s kz-flex-wrap">
-              <button class="kz-button kz-button--gray kz-border-radius--l" (click)="reiniciarFormulario()">Atrás</button>
-              <button class="kz-button kz-button--primary kz-border-radius--l">Guardar</button>
-              <button class="kz-button kz-button--green kz-border-radius--l" (click)="guardarPaciente()">Crear</button>
+              <button type="button" class="kz-button kz-button--gray kz-border-radius--l" (click)="detallesCita()">Atrás</button>
+              <button type="submit" class="kz-button kz-button--primary kz-border-radius--l" [disabled]="formularioPaciente.invalid" (click)="guardarPaciente()">Continuar La Cita</button>
             </div>
           </form>
-        </div>
-
-        <div *ngIf="agregadoExitosamente" class="kz-d-flex kz-dir-vertical kz-flex-vertical-center">
-          <div class="kz-d-flex kz-dir-vertical kz-flex-vertical-center">
-            <h3>Agregado Exitosamente</h3>
-            <img class="kz-img kz-img--x kz-mt--3" src="../assets/img/icons/comprobado.png" alt="Card image cap" (click)="verFormulario = true">
-          </div>
-          <button class="kz-button kz-button--green kz-border-radius--l kz-mt--4" (click)="reiniciarFormulario()">Agregar Nuevo</button>
         </div>
         
       </div>  
@@ -161,6 +238,7 @@
   </div>
   <div class="modal-footer">
     <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarCita()">Crear Cita</button>
   </div>
 </ng-template>
       

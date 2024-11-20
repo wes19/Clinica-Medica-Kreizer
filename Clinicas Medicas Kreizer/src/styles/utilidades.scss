@@ -413,6 +413,9 @@
   .kz-txt--red{
     color: $txt-red !important;
   }
+  .kz-txt--warning{
+    color: $txt-warning;
+  }
 
   //headers 
   .kz-head{
@@ -463,6 +466,9 @@
   }
   .kz-bg--gray-transaparent{
     background-color: $bg-gray-transparent;
+  }
+  .kz-bg--blue-soft{
+    background-color: $bg-blue-soft;
   }
 
   //alinear contenido//

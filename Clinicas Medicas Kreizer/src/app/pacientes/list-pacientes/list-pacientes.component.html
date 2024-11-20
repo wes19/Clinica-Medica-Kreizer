@@ -8,54 +8,91 @@
 <table class="kz-table">
   <thead class="kz-table__head">
     <tr>
-      <th>Nombre Completo</th>
+      <th>Nombre</th>
+      <th>Identidad</th>
+      <th>Celular</th>
       <th>Fecha Nacimiento</th>
       <th>Género</th>
-      <th>DNI</th>
-      <th>Fecha</th>
-      <th>Informe</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody class="kz-table__body">
-    <tr>
-      <td>Wesly Ariel Lazo Canales</td>
-      <td>08-19-1997</td>
-      <td>Masculino</td>
-      <td>0801-1997-18290</td>
-      <td>25-09-2023</td>
-      <td>
-        <a class="text-decoration-none kz-link" (click)="expedienteNavigate()"> Ver Expedientes</a>
+    <tr *ngFor="let paciente of pacientes">
+      <td>{{paciente.nombre}}</td>
+      <td>{{paciente.identidad}}</td>
+      <td>{{paciente.celular}}</td>
+      <td>{{paciente.fecha_nacimiento}}</td>
+      <td>{{paciente.genero}}</td>
+      <td class="kz-d-flex kz-gap--l">
+        <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="editarModal(ModalEditar, paciente)"> Editar</button>
+        <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="expedienteNavigate()"> Ver Expedientes</button>
+        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modalDelete(paciente)"> <i class="bi bi-trash"></i></button>
       </td>
-    </tr>
-    <tr>
-        <td>Wesly Ariel Lazo Canales</td>
-        <td>08-19-1997</td>
-        <td>Masculino</td>
-        <td>0801-1997-18290</td>
-        <td>25-09-2023</td>
-        <td>
-          <a class="text-decoration-none kz-link" (click)="expedienteNavigate()"> Ver Expedientes</a>
-        </td>
-    </tr>
-    <tr>
-        <td>Wesly Ariel Lazo Canales</td>
-        <td>08-19-1997</td>
-        <td>Masculino</td>
-        <td>0801-1997-18290</td>
-        <td>25-09-2023</td>
-        <td>
-          <a class="text-decoration-none kz-link" (click)="expedienteNavigate()"> Ver Expedientes</a>
-        </td>
-    </tr>
-    <tr>
-        <td>Wesly Ariel Lazo Canales</td>
-        <td>08-19-1997</td>
-        <td>Masculino</td>
-        <td>0801-1997-18290</td>
-        <td>25-09-2023</td>
-        <td>
-          <a class="text-decoration-none kz-link" (click)="expedienteNavigate()"> Ver Expedientes</a>
-        </td>
     </tr>
   </tbody>
 </table>
+
+<ng-template #ModalEditar let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Paciente</h5>
+        <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
+        <div class="kz-mb--2">
+          <label>Nombre:</label>
+          <input type="text" class="kz-input" [(ngModel)]="pacienteModal.nombre">
+        </div>
+        <div class="kz-mb--2">
+          <label>Identidad:</label>
+          <input type="text" class="kz-input" [(ngModel)]="pacienteModal.identidad">
+        </div>
+        <div class="kz-mb--2">
+          <label>Célular:</label>
+          <input type="text" class="kz-input" [(ngModel)]="pacienteModal.celular">
+        </div>
+        <div class="kz-mb--2">
+          <label>Correo:</label>
+          <input type="text" class="kz-input" [(ngModel)]="pacienteModal.correo">
+        </div>
+        <div class="kz-mb--2">
+          <label>Fecha Nacimiento:</label>
+          <input type="date" class="kz-input" [(ngModel)]="pacienteModal.fecha_nacimiento">
+        </div>
+        <div class="kz-mb--2">
+          <label>RTN:</label>
+          <input type="text" class="kz-input" [(ngModel)]="pacienteModal.RTN">
+        </div>
+        <div class="kz-mb--2">
+          <label>Género:</label>
+          <select class="kz-input" [(ngModel)]="pacienteModal.genero" name="genero">
+              <option value="" selected>-- Selecciona una opción --</option>
+              <option value="Masculino" class="kz-head--xs">Masculino</option> 
+              <option value="Femenino" class="kz-head--xs">Femenino</option> 
+          </select>
+        </div>
+        <div class="kz-mb--2">
+          <label>País:</label>
+          <input type="text" class="kz-input" [(ngModel)]="pacienteModal.pais">
+        </div>
+        <div class="kz-mb--2">
+          <label>Departamento:</label>
+          <input type="text" class="kz-input" [(ngModel)]="pacienteModal.departamento">
+        </div>
+        <div class="kz-mb--2">
+          <label>Dirección:</label>
+          <input type="text" class="kz-input" [(ngModel)]="pacienteModal.direccion">
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarPaciente()">Guardar</button>
+      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+    </div>
+  </div>
+</ng-template>

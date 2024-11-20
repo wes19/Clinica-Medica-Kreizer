@@ -3,13 +3,6 @@ CREATE TABLE kz_citas (
     idCita INT AUTO_INCREMENT PRIMARY KEY,
     idPac INT,
     idHora INT,
-    estado VARCHAR(15)
+    fecha_cita DATE,
+    estado VARCHAR(10)
 );
-
--- Insertar datos en kz_citas
-INSERT INTO kz_citas (idPac, idHora, estado) VALUES
-    (1, 1, 'Activo'),
-    (2, 2, 'Activo'),
-    (3, 3, 'Activo');
-
-    

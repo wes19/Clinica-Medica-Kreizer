@@ -12,14 +12,15 @@ CREATE TABLE kz_horarios (
     vie BOOLEAN,
     sab BOOLEAN,
     dom BOOLEAN,
+    cupos INT,
     estado BOOLEAN
 );
 
 -- Insertar datos en kz_horarios
-INSERT INTO kz_horarios (idEsp, idEmp, hora_inicio, hora_final, lun, mar, mie, jue, vie, sab, dom, estado) VALUES
-    (1, 1, '08:00:00', '12:00:00', true, true, true, true, true, false, false, true),
-    (2, 2, '09:30:00', '13:30:00', true, true, true, true, true, true, false, false),
-    (3, 3, '14:00:00', '18:00:00', false, false, false, false, false, true, true, true);
+INSERT INTO kz_horarios (idEsp, idEmp, hora_inicio, hora_final, lun, mar, mie, jue, vie, sab, dom, cupos, estado) VALUES
+    (1, 1, '08:00:00', '12:00:00', true, true, true, true, true, false, false, 6, true),
+    (2, 2, '09:30:00', '13:30:00', true, true, true, true, true, true, false, 5, false),
+    (3, 3, '14:00:00', '18:00:00', false, false, false, false, false, true, true, 6, true);
 
 
     

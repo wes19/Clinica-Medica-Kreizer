@@ -12,6 +12,17 @@ module.exports = function (db) {
         }
     });
 
+    // Obtener Especialidades ID
+    router.get('/lista/:idEsp', async (req, res) => {
+        try {
+            const { idEsp } = req.params;
+            const results = await db.query('SELECT nombre FROM kz_especialidades WHERE idEsp = ?', [idEsp]);
+            res.send(results);
+        } catch (error) {
+            res.status(500).send('Error al realizar la consulta');
+        }
+    });
+
     // Guardar Especialidades
     router.post('/crear', async (req, res) => {
         const { nombre, imagen, estado } = req.body;

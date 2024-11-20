@@ -258,3 +258,23 @@
     background-color: $primary !important;
     color: $white;
   }
+
+  .kz-btn--clear {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: $red-ligth;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .kz-btn--clear {
+    right: 40px;
+    display: none;
+  }
+

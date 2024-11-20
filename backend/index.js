@@ -11,6 +11,7 @@ var departamentosRouter = require('./routers/departamentos-router');
 var puestosLaboralesRouter = require('./routers/puestosLaborales-router');
 var horariosRouter = require('./routers/horarios-router');
 var pacientesRouter = require('./routers/pacientes-router');
+var citasRouter = require('./routers/citas-router');
 
 var app = express();
 app.use(express.json());
@@ -26,6 +27,7 @@ app.use('/departamentos', departamentosRouter(connection));
 app.use('/puestos-laborales', puestosLaboralesRouter(connection));
 app.use('/horarios', horariosRouter(connection));
 app.use('/pacientes', pacientesRouter(connection));
+app.use('/citas', citasRouter(connection));
 
 app.listen(8888, () => {
     console.log('Servidor del backend levantado en 8888');})

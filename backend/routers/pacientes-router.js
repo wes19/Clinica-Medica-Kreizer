@@ -40,7 +40,7 @@ module.exports = function (db) {
     });
 
     // Eliminar Paciente
-      router.delete('/:idPac', async (req, res) => {
+    router.delete('/:idPac', async (req, res) => {
         const idPac = req.params.idPac;
         try {
             await db.query(
@@ -50,7 +50,23 @@ module.exports = function (db) {
         } catch (error) {
             res.status(500).send('Error al eliminar el registro');
         }
-      });
+    });
+
+    // Buscar Paciente
+    router.get('/buscar', async (req, res) => {
+        const { criterio } = req.query;
+        const query = 'SELECT * FROM kz_pacientes WHERE identidad = ?';
+
+        try {
+            const result = await db.query(query, [criterio]);
+            if (result.length === 0) {
+                return res.status(404).json({ message: 'Paciente no encontrado' });
+            }
+            res.status(200).json(result[0]); 
+        } catch (error) {
+            res.status(500).json({ error: 'Error al realizar la búsqueda' });
+        }
+    });
 
     return router;
 };

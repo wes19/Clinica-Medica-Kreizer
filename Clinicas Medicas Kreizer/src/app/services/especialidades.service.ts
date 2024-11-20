@@ -15,6 +15,10 @@ export class EspecialidadesService {
     return this.httpClient.get(`${this.backendWeb}/especialidades/lista`,{});
   }
 
+  obtenerEspecialidadesID(ID: number):Observable<any>{
+    return this.httpClient.get(`${this.backendWeb}/especialidades/lista/${ID}`,{});
+  }
+
   crearEspecialidad(data: any): Observable<any> {
     return this.httpClient.post(`${this.backendWeb}/especialidades/crear`, {
       nombre: data.nombre,

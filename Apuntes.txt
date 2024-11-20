@@ -1,10 +1,6 @@
 
-next: res=>{
-          
-        },
-        error: err =>{
-          
-        }
+        next: res=>{},
+        error: err =>{}
 
 
 //Comunicacion componentes hijos
@@ -18,3 +14,4 @@ import { DetailEmpleadoComponent } from '../detail-empleado/detail-empleado.comp
        this.empleadoSeleccionado.subscribe((empleado) => {
       this.empleado = empleado;
     });
+

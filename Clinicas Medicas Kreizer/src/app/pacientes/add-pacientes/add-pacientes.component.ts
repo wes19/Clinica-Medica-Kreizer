@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PacientesService } from 'src/app/services/pacientes.service';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -8,16 +8,11 @@ import Swal from 'sweetalert2';
   templateUrl: './add-pacientes.component.html',
   styleUrls: ['./add-pacientes.component.scss']
 })
-export class AddPacientesComponent implements OnInit {
+export class AddPacientesComponent {
   @ViewChild('formularioPaciente') formularioPaciente?: NgForm;
   paciente: any = {};
 
   constructor(private pacientesService: PacientesService){}
-  
-  
-  ngOnInit(): void {
-    
-  }
 
   guardarEmpleado(){
     const jsonPaciente = {

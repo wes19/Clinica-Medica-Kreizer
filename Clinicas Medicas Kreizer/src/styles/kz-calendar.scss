@@ -90,3 +90,41 @@
     }
   }
 }
+
+.kz-day-disable {
+  pointer-events: none;
+  opacity: 0.5; 
+  cursor: not-allowed; 
+}
+
+.kz-circle-day {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid $gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4px;
+  background-color: $white;
+  font-size: 10px; 
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &.kz-green-day {
+    background-color: $green;
+    border: 1.5px solid $green-ligth;
+    color: $white;
+  }
+
+  &.kz-white-day {
+    background-color: $white;
+    color: $gray-dark;
+  }
+
+  &.kz-current-day {
+    border: 1.5px solid $primary;
+    background-color: $auxiliar;
+    color: $white;
+  }
+}

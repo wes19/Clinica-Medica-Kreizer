@@ -44,3 +44,30 @@
     right: 1rem;
   }
 }
+
+.kz-search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.kz-input-search {
+  position: relative;
+  border: none;
+  outline: none;
+  padding: 12px 12px;
+  font-size: 14px;
+  &::-webkit-input-placeholder {
+    color: $gray;
+  }
+  width: 100%;
+  font-family: $font-family;
+  color: $gray-dark;
+}
+
+.kz-search-input:not(:placeholder-shown) + .kz-btn--clear {
+  display: block;
+}

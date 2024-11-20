@@ -45,6 +45,10 @@ export class PacientesService {
     });
   }
 
+  buscarPaciente(criterio: string): Observable<any> {
+    return this.httpClient.get(`${this.backendWeb}/pacientes/buscar?criterio=${criterio}`);
+  }
+
   eliminarPaciente(data: any):Observable<any>{
     return this.httpClient.delete(`${this.backendWeb}/pacientes/${data.idPac}`,{
     });
