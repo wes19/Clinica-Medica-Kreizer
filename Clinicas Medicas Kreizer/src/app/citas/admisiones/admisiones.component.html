@@ -1,73 +1,62 @@
 <div class="kz-d-flex kz-flex-horizontal-start kz-gap--l">
     <h5>Admisiones</h5>
 </div>
-  <div class="kz-d-grid kz-col--1 kz-col-s2--2 kz-gap--m">
-    <div class="kz-w--60 kz-mx--auto kz-my--3">
-      <div class="kz-specialty-select">
-        <ng-select [items]="options" bindLabel="name"  [(ngModel)]="selectedOption">
-          <ng-template ng-label-tmp let-item="item">
-            <img [src]="item.image" class="option-image" />
-            {{ item.name }}
-          </ng-template>
-          <ng-template ng-option-tmp let-item="item">
-            <img [src]="item.image" class="option-image" />
-            {{ item.name }}
-          </ng-template>
-        </ng-select>
-      </div>
-    </div>
-    <div class="kz-w--60 kz-mx--auto kz-my--3">
-      <input type="date" placeholder="selecciona la fecha" class="kz-input">
+
+<div class="kz-d-grid kz-col--2 kz-col-mobile--1 kz-w--100">
+  <!--Seleccionar Especialidad-->
+  <div class="kz-d-flex kz-flex-horizontal-center kz-my--3">
+    <div class="kz-specialty-select">
+      <ng-select [items]="options" bindLabel="nombre" [(ngModel)]="selectedOption" [clearable]="false" [searchable]="false" (change)="cargarHorarios($event.idEsp)">
+        <ng-template ng-label-tmp let-item="item">
+          <img [src]="item.imagen" class="option-image" />
+          {{ item.nombre }}
+        </ng-template>
+        <ng-template ng-option-tmp let-item="item">
+          <img [src]="item.imagen" class="option-image" />
+          {{ item.nombre }}
+        </ng-template>
+      </ng-select>
     </div>
   </div>
+
+  <!--Seleccionar Fecha-->
+  <div class="kz-d-flex kz-flex-horizontal-center kz-my--3 kz-position-rel kz-w--40 kz-mx--auto">
+    <div class="kz-input-date-wrapper">
+      <input type="text" class="kz-input-date" [value]="fechaMostrar" readonly (click)="abrirCalendario(dateInput)">
+      <input #dateInput type="date" (change)="onFechaChange($event)" style="opacity:0; position:absolute; left:0; top:0; width:100%; height:100%; z-index:-1;">
+      <span class="kz-input-date-icono" (click)="abrirCalendario(dateInput)">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" fill="none"/>
+          <path d="M16 3v4M8 3v4M3 9h18"/>
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+
   
-  <div class="kz-d-grid kz-col--1 kz-col-s2--2 kz-gap--xl">
-    <div class="kz-card">
+  <div class="kz-d-grid kz-col--1 kz-col-s2--2 kz-gap--xl kz-my--4">
+    <div class="kz-card" *ngFor="let horario of horarios">
       <div class="kz-d-flex kz-dir-vertical kz-flex-horizontal-center kz-flex-vertical-center kz-mb--2">
-        <h4> Doctor Luis Machado</h4>
+        <h4>Dr. {{horario.empleado}}</h4>
         <div class="kz-d-flex kz-gap--s">
-          <label class="kz-txt--xl">09:00 a.m</label>
-          <label class="kz-txt--xl">a</label>
-          <label class="kz-txt--xl">12:00 a.m</label>
+          <p class="kz-txt--xl">{{convertirHora(horario.hora_inicio) | date:'h:mm a'}} - {{convertirHora(horario.hora_final) | date:'h:mm a'}}</p>
         </div>
       </div>
       <div class="kz-d-grid kz-col-t--2 kz-col-small--1 kz-gap--l">
-        <button class="kz-button--color kz-bg--gray kz-border-radius--s" (click)="openModal(ModalPacientes)">
+        <div class="kz-chip-color-gray kz-border-radius--s">
             <h5 class="kz-m--0"> 6 - Pacientes</h5>
-        </button>
-        <button class="kz-button--color kz-bg--blue kz-border-radius--s" (click)="openModal(ModalAdmitidos)">
-            <h5 class="kz-m--0"> 5 - Total Admitidos </h5>
-        </button>
-        <button class="kz-button--color kz-bg--bourdes kz-border-radius--s" (click)="openModal(ModalListaEspera)">
-            <h5 class="kz-m--0"> 3 - Lista de Espera</h5>
-        </button>
-        <button class="kz-button--color kz-bg--green kz-border-radius--s" (click)="openModal(ModalAtendidos)">
-            <h5 class="kz-m--0"> 2 - Atendidos</h5>
-        </button>
-      </div>
-    </div>
-    <div class="kz-card">
-      <div class="kz-d-flex kz-dir-vertical kz-flex-horizontal-center kz-flex-vertical-center kz-mb--2">
-        <h4> Doctor Luis Machado</h4>
-        <div class="kz-d-flex kz-gap--s">
-          <label class="kz-txt--xl">09:00 a.m</label>
-          <label class="kz-txt--xl">a</label>
-          <label class="kz-txt--xl">12:00 a.m</label>
         </div>
-      </div>
-      <div class="kz-d-grid kz-col-t--2 kz-col-m--1 kz-gap--l">
-        <button class="kz-button--color kz-bg--gray kz-border-radius--s" (click)="openModal(ModalPacientes)">
-            <h5 class="kz-m--0"> 6 - Pacientes</h5>
-        </button>
-        <button class="kz-button--color kz-bg--blue kz-border-radius--s" (click)="openModal(ModalAdmitidos)">
-            <h5 class="kz-m--0"> 5 - Total Admitidos </h5>
-        </button>
-        <button class="kz-button--color kz-bg--bourdes kz-border-radius--s" (click)="openModal(ModalListaEspera)">
-            <h5 class="kz-m--0"> 3 - Lista de Espera</h5>
-        </button>
-        <button class="kz-button--color kz-bg--green kz-border-radius--s" (click)="openModal(ModalAtendidos)">
-            <h5 class="kz-m--0"> 2 - Atendidos</h5>
-        </button>
+        <div class="kz-chip-color-auxiliar kz-border-radius--s" >
+            <h5 class="kz-m--0"> 5 - Lista de Espera</h5>
+        </div>
+        <div class="kz-chip-color-green kz-border-radius--s">
+          <h5 class="kz-m--0"> 2 - Atendidos</h5>
+       </div>
+        <div class="kz-chip-color-primary kz-border-radius--s kz-pointer" (click)="openModal(ModalPacientes, horario)">
+            <h5 class="kz-m--0"> Ver</h5>
+        </div>
+
       </div>
     </div>
   </div>
@@ -81,193 +70,43 @@
           </button>
       </div>
       <div class="modal-body">
-        <table class="kz-table">
-          <thead class="kz-table__head">
-            <tr>
-              <th>Nombre</th>
-              <th>Identificación</th>
-              <th>Célular</th>
-              <th>Pasar a lista de espera</th>
-            </tr>
-          </thead>
-          <tbody class="kz-table__body">
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-              <td>
-                <button class="kz-button kz-button--primary kz-border-radius--l kz-mx--auto"><i class="bi bi-chevron-double-right"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-              <td>
-                <button class="kz-button kz-button--primary kz-border-radius--l kz-mx--auto"><i class="bi bi-chevron-double-right"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-              <td>
-                <button class="kz-button kz-button--primary kz-border-radius--l kz-mx--auto"><i class="bi bi-chevron-double-right"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-              <td>
-                <button class="kz-button kz-button--primary kz-border-radius--l kz-mx--auto"><i class="bi bi-chevron-double-right"></i></button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="kz-table-content">
+          <table class="kz-table">
+            <thead class="kz-table__head">
+              <tr>
+                <th>Nombre</th>
+                <th>Identificación</th>
+                <th>Célular</th>
+                <th>Status</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody class="kz-table__body">
+              <tr *ngFor="let cita of citas">
+                <td>{{ cita.nombre }}</td>
+                <td>{{ cita.identidad }}</td>
+                <td>{{ cita.celular }}</td>
+                <td>
+                  <span [ngClass]="getEstado(cita.estado)">
+                    {{ cita.estado }}
+                  </span>
+                </td>
+                <td class="kz-position-rel">
+                  <span class="kz-edit-icon" (click)="mostrarMenu(cita.idCita)">
+                    <i class="bi bi-pen"></i>
+                  </span>
+                  <div class="kz-estado-dropdown" *ngIf="menuVisible === cita.idCita">
+                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'Pendiente')">Pendiente</div>
+                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'En Progreso')">En Progreso</div>
+                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'En Espera')">En Espera</div>
+                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'Atendido')">Atendido</div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
-      </div>
-    </div>
-  </ng-template>
-
-  <ng-template #ModalAdmitidos let-modal>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Admitidos</h5>
-          <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
-            <i class="bi bi-x-lg"></i>
-          </button>
-      </div>
-  
-      <div class="modal-body">
-        <table class="kz-table">
-          <thead class="kz-table__head">
-            <tr>
-              <th>Nombre</th>
-              <th>Identificación</th>
-              <th>Célular</th>
-            </tr>
-          </thead>
-          <tbody class="kz-table__body">
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-      <div class="modal-footer">
-        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
-      </div>
-    </div>
-  </ng-template>
-
-  <ng-template #ModalListaEspera let-modal>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Lista de Espera</h5>
-          <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
-            <i class="bi bi-x-lg"></i>
-          </button>
-      </div>
-  
-      <div class="modal-body">
-        <table class="kz-table">
-          <thead class="kz-table__head">
-            <tr>
-              <th>Nombre</th>
-              <th>Identificación</th>
-              <th>Célular</th>
-              <th>Pasar a lista de Atendidos</th>
-            </tr>
-          </thead>
-          <tbody class="kz-table__body">
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-              <td>
-                <button class="kz-button kz-button--primary kz-border-radius--l kz-mx--auto"><i class="bi bi-check2-circle"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-              <td>
-                <button class="kz-button kz-button--primary kz-border-radius--l kz-mx--auto"><i class="bi bi-check2-circle"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-              <td>
-                <button class="kz-button kz-button--primary kz-border-radius--l kz-mx--auto"><i class="bi bi-check2-circle"></i></button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-      <div class="modal-footer">
-        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
-      </div>
-    </div>
-  </ng-template>
-
-  <ng-template #ModalAtendidos let-modal>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Atendidos</h5>
-          <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
-            <i class="bi bi-x-lg"></i>
-          </button>
-      </div>
-  
-      <div class="modal-body">
-        <table class="kz-table">
-          <thead class="kz-table__head">
-            <tr>
-              <th>Nombre</th>
-              <th>Identificación</th>
-              <th>Célular</th>
-            </tr>
-          </thead>
-          <tbody class="kz-table__body">
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-            </tr>
-            <tr>
-              <td>Wesly Ariel Lazo Canales</td>
-              <td>0801-1997-18290</td>
-              <td>9897-5631</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
       <div class="modal-footer">
         <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
       </div>

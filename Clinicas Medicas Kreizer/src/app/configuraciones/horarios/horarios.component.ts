@@ -50,7 +50,7 @@ export class HorariosComponent implements OnInit{
     this.horariosService.obtenerHorario().subscribe({
       next: (res) => {
         const [horarios, especialidades, empleados] = res;
-        this.especialidades = especialidades;
+        this.especialidades = especialidades.filter((e: { estado: string}) => e.estado === 'Activo');
         this.empleados = empleados
         this.horarios = horarios.map((horario: any) => {
           const especialidad = especialidades.find((esp: any) => esp.idEsp === horario.idEsp);

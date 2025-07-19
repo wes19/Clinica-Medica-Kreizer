@@ -171,9 +171,9 @@ export class DisponibilidadComponent {
 
   openModal(modal: any, horario: any): void {
     this.horarioSeleccionado = horario;
-    const fechaFormateada = this.selectedDay?.toISOString().split('T')[0];
+    const fechaMostrar = this.selectedDay?.toISOString().split('T')[0];
     this.criterioCitas1 = this.horarioSeleccionado.idHora;
-    this.criterioCitas2 = fechaFormateada;
+    this.criterioCitas2 = fechaMostrar;
     this.buscarCitas();
     this.mensajeError = '';
     this.mensajeErrorCupos = '';
@@ -231,12 +231,11 @@ export class DisponibilidadComponent {
     if (!this.validarGuardarCita()) {
       return;
     }
-    const fechaFormateada = this.selectedDay?.toISOString().split('T')[0];
+    const fechaMostrar = this.selectedDay?.toISOString().split('T')[0];
     const jsonCita = {
       idPac: this.pacienteEncontrado.idPac,
       idHora: this.horarioSeleccionado.idHora,
-      fecha_cita: fechaFormateada,
-      estado: "Pendiente"
+      fecha_cita: fechaMostrar
     }
     this.citasService.crearCitas(jsonCita).subscribe(
       {

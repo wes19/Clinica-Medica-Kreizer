@@ -6,11 +6,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans');
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
-// Colors Principal
+// Colors Principal - Blue
 $primary: #3e81e3;
 $secondary: #0f86c1;
 $auxiliar: #0f86c1c7;
 $cyan: #39ace7;
+$blue-state-bg:#e3f2fd;
+$blue-state-color:#1976d2;
 
 //White
 $white: white;
@@ -24,16 +26,21 @@ $red: red;
 $red-ligth: #D72E2E;
 $red-dark: #dc3545;
 $red-ligth-hover: #F25959;
+$red-state-bg: #fdecea;
 
 //Yellow
 $yellow: yellow;
 $yellow-soft: #FBC337;
 $yellow-soft-hover: #caa41d;
+$yellow-state-bg: #fff8e1;
+$yellow-state-color: #ff9800;
 
 //Green
 $green: #0b9c3c;
 $green-ligth: #198754;
 $green-ligth-hover: #159f5e;
+$green-state-bg: #e6f4ea;
+$green-state-color: #388e3c;
 
 //Gray
 $gray: #B7B7B7;
@@ -43,6 +50,7 @@ $gray-ligth: #aeafaf;
 $gray-ligth-hover: #8f8d8d;
 $gray-dark-hover: #e9edee;
 $gray-ligth-hover: #c7d8ee33;
+$gray-state-bg: #e0e0e0;
 
 //Box Shadow
 $box-shadow: #c6c6c6;

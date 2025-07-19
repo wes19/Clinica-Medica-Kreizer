@@ -21,7 +21,7 @@
     </div>
   </div>
 
-      <!--Horarios disponibles*/-->
+  <!--Horarios disponibles*/-->
   <div class="kz-sectioned-box kz-d-grid" *ngIf="selectedDay">
     <div class="kz-dir-vertical">
       <div>
@@ -157,11 +157,11 @@
             </tbody>
           </table>
           <button class="kz-button kz-button--green kz-mx--auto kz-mt--2" (click)="verFormulario = true">
-            <i class="bi bi-plus-lg"></i>
+            <i class="bi bi-person-fill-add"></i>
             <span>Agregar Paciente</span>
           </button>
         </div>
-
+        <!--Formulario Crear Paciente-->
         <div *ngIf="verFormulario">
           <form #formularioPaciente="ngForm">
             <div class="kz-mb--2">
@@ -237,7 +237,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+    <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Salir</button>
     <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarCita()">Crear Cita</button>
   </div>
 </ng-template>

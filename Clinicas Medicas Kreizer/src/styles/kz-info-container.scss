@@ -55,7 +55,8 @@
   font-family: $font-family;
   display: flex;
   justify-content: space-between;
-  border: 1px solid $gray;
+  font-family: $font-family;
+  border-radius: 16px;
   padding: 10px;
   max-width: auto;
   margin: 0 auto;

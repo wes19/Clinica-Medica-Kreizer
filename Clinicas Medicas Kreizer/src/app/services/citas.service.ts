@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,24 +11,23 @@ export class CitasService {
 
   constructor(private httpClient:HttpClient) { }
 
-  obtenerCitas():Observable<any>{
-    return this.httpClient.get(`${this.backendWeb}/citas`,{});
+  obtenerCitas(idHora: string, fecha_cita: string):Observable<any>{
+    const params = new HttpParams()
+      .set('idHora', idHora)
+      .set('fecha_cita', fecha_cita);
+      return this.httpClient.get(`${this.backendWeb}/citas`, { params });
   }
 
   crearCitas(data: any): Observable<any> {
     return this.httpClient.post(`${this.backendWeb}/citas`, {
       idPac: data.idPac,
       idHora: data.idHora,
-      fecha_cita: data.fecha_cita,
-      estado: data.estado
+      fecha_cita: data.fecha_cita
     });
   }
 
-  actualizarCitas(data: any): Observable<any> {
-    return this.httpClient.put(`${this.backendWeb}/citas/${data.idCita}`, {
-      idPac: data.idPac,
-      idHora: data.idHora,
-      fecha_cita: data.fecha_cita,
+  actualizarEstado(data: any): Observable<any> {
+    return this.httpClient.put(`${this.backendWeb}/citas/actualizarEstado/${data.idCita}`, {
       estado: data.estado
     });
   }
@@ -38,8 +37,12 @@ export class CitasService {
     });
   }
 
-  buscarCitas(criterioCitas1: number, criterioCitas2: any): Observable<any> {
-    return this.httpClient.get(`${this.backendWeb}/citas/buscar?criterio1=${criterioCitas1}&criterio2=${criterioCitas2}`);
+  buscarCitas(idHora: number, fecha_cita: string): Observable<any> {
+    const params = new HttpParams()
+      .set('idHora', idHora)
+      .set('fecha_cita', fecha_cita);
+  
+    return this.httpClient.get(`${this.backendWeb}/citas/buscar`, { params });
   }
   
 }

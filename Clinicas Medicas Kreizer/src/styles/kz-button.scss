@@ -278,3 +278,15 @@
     display: none;
   }
 
+  .kz-edit-icon {
+    display: inline-block;
+    padding: 0.4rem 0.6rem;
+    background-color: $gray-state-bg;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    &:hover {
+      background-color: $gray-soft; 
+    }
+  }
+  

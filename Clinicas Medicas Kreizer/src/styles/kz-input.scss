@@ -71,3 +71,38 @@
 .kz-search-input:not(:placeholder-shown) + .kz-btn--clear {
   display: block;
 }
+
+.kz-input-date {
+  width: 200px;
+  font-size: 1.1rem;
+  padding: 0.9rem 3rem 0.9rem 1.5rem; 
+  border: 2px solid $primary;
+  border-radius: 16px;
+  background: #f7fbfd;
+  color: $primary;
+  outline: none;
+  text-align: start;
+  box-shadow: 0 2px 10px 0 #ececec;
+  transition: border 0.2s;
+  font-weight: 600;
+  cursor: pointer;
+  &:focus {
+    border: 2px solid $secondary;
+  }
+  &-icono {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+    color: $primary;
+    display: flex;
+    align-items: center;
+  }
+  &-wrapper{
+    position: relative;
+    width: fit-content; 
+    display: inline-block;
+  }
+}

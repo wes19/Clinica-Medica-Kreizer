@@ -6,7 +6,10 @@
       border-radius: 12px;
       border: 2px solid $gray;
       padding: 8px;
-      width: 400px; 
+      width: 300px;
+      @include media(screen-1){
+        width: 400px;
+      } 
       .ng-dropdown-panel {
         padding: 16px;
         background-color: $white;

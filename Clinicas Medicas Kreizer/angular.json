@@ -52,6 +52,7 @@
               "src/styles/kz-switch.scss",
               "src/styles/kz-checkbox.scss",
               "src/styles/kz-animation.scss",
+              "src/styles/kz-dropdown.scss",
               "src/styles/kz-select.scss"
             ],
             "scripts": []
@@ -137,6 +138,7 @@
               "src/styles/kz-switch.scss",
               "src/styles/kz-checkbox.scss",
               "src/styles/kz-animation.scss",
+              "src/styles/kz-dropdown.scss",
               "src/styles/kz-select.scss"
             ],
             "scripts": []

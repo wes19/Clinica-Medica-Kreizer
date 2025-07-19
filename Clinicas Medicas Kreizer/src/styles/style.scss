@@ -1,2 +1,30 @@
 @import "variables";
-@import "responsive";
+@import "responsive";  
+
+
+.pos-relative {
+    position: relative;
+  }
+  
+  .estado-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    padding: 0.3rem 0;
+    min-width: 150px;
+  }
+  
+  .dropdown-opcion {
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+  }
+  
+  .dropdown-opcion:hover {
+    background-color: #f0f0f0;
+  }
+  
