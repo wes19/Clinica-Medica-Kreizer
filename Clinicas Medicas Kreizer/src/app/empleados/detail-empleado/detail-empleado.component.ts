@@ -94,7 +94,7 @@ export class DetailEmpleadoComponent implements OnInit {
   }
 
   archivar(){
-    this.empleado.estado = 'Inactivo';
+    this.empleado.estado = 0;
     this.empleadosService.actualizarEmpleadoEstado(this.empleado).subscribe(
       {
         next: res => {
@@ -108,7 +108,7 @@ export class DetailEmpleadoComponent implements OnInit {
   }
 
   desarchivar(){
-    this.empleado.estado = 'Activo';
+    this.empleado.estado = 1;
     this.empleadosService.actualizarEmpleadoEstado(this.empleado).subscribe(
       {
         next: res => {

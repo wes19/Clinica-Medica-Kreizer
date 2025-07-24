@@ -22,7 +22,7 @@ export class ArchivedEmpleadoComponent implements OnInit {
           this.empleados = [];
           this.empleadosTemporal = res;
           for(let i = 0; i < this.empleadosTemporal.length; i++){
-            if(this.empleadosTemporal[i].estado == 'Inactivo'){
+            if(this.empleadosTemporal[i].estado == 0){
               this.empleados.push(this.empleadosTemporal[i]);
             }
           }

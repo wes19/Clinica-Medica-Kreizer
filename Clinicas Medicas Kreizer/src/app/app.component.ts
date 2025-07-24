@@ -58,17 +58,12 @@ export class AppComponent {
 
   PaginaPermitida(): boolean {
     const url = this.router.url;
-    return url !=='/login' && url !== '/'
-  }
-
-  PaginaLanding(): boolean {
-    const url = this.router.url;
-    return url == '/'
+    return url !== '/'
   }
 
   PaginaLogin(): boolean {
     const url = this.router.url;
-    return url == '/login'
+    return url == '/'
   }
 
   SidebarAdmin(): boolean {

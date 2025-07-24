@@ -1,18 +1,22 @@
 <table class="kz-table">
     <thead class="kz-table__head">
       <tr>
-        <th>Nombre</th>
-        <th>Imagen</th>
-        <th>Estado</th>
+        <th> Nombre </th>
+        <th> Imagen </th>
+        <th> Estado </th>
       </tr>
     </thead>
     <tbody class="kz-table__body">
       <tr *ngFor="let especialidad of especialidades">
-        <td>{{especialidad.nombre}}</td>
+        <td>{{ especialidad.nombre }}</td>
         <td><img [src]="especialidad.imagen" alt="{{especialidad.nombre}}" class="kz-img-table"></td>
-        <td>{{especialidad.estado}}</td>
+        <td>
+          <span [ngClass]="especialidad.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
+            {{ especialidad.estado == 1 ? 'Activo' : 'Inactivo' }}
+          </span>
+        </td>
         <td class="kz-d-flex kz-gap--s"> 
-          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="modalEditar(ModalEditar, especialidad)">Editar</button>
+          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="modalEditar(ModalEditar, especialidad)"> Editar </button>
           <button class="kz-button kz-button--red kz-border-radius--l" (click)="modalDelete(especialidad)"> <i class="bi bi-trash"></i></button>
         </td>
       </tr>
@@ -22,7 +26,7 @@
 <ng-template #ModalEditar let-modal>
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title">Especialidades</h5>
+      <h5 class="modal-title"> Especialidades </h5>
         <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
           <i class="bi bi-x-lg"></i>
         </button>
@@ -31,23 +35,26 @@
     <div class="modal-body">
       <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
         <div class="kz-mb--2">
-          <label>Nombre:</label>
+          <label> Nombre: </label>
           <input type="text" class="kz-input" [(ngModel)]="especialidadModal.nombre">
         </div>
         <div class="kz-mb--2">
-          <label>Imagen:</label>
+          <label> Imagen: </label>
           <input type="file" class="kz-input" (change)="subirImagen($event)" accept="image/*">
         </div>
-        <div class="kz-mb--2">
-          <label>Estado:</label>
-          <input type="text" class="kz-input" [(ngModel)]="especialidadModal.estado">
+        <div class="kz-mb--2 kz-mx--auto">
+          <label> Estado: </label>
+          <label class="kz-switch">
+              <input type="checkbox" [(ngModel)]="especialidadModal.estado">
+              <span class="kz-slider"></span>
+          </label>
         </div>
       </div>
     </div>
     
     <div class="modal-footer">
-      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarEspecialidad()">Guardar</button>
-      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarEspecialidad()"> Guardar </button>
+      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()"> Cancelar </button>
     </div>
   </div>
 </ng-template>

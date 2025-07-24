@@ -66,7 +66,6 @@ export class AddEmpleadoComponent implements OnInit {
       id_credencial: this.empleado.id_credencial,
       salario: this.empleado.salario,
       PIN: this.empleado.PIN,
-      estado: 'Activo',
       imagen: this.empleado.imagen,
     }
     this.empleadosService.crearEmpleado(jsonEmpleado).subscribe(

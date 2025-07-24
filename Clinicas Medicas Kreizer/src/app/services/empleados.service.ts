@@ -50,7 +50,6 @@ export class EmpleadosService {
       idPue: data.idPue,
       PIN: data.PIN,
       contrasena: data.contrasena,
-      estado: data.estado,
       imagen: data.imagen,
       id_credencial: data.id_credencial
     });

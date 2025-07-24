@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./empleados.component.scss']
 })
 export class EmpleadosComponent {
-  btnActivo: string = 'kamba';
 }

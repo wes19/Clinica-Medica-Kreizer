@@ -36,7 +36,7 @@ export class AdmisionesComponent implements OnInit {
           this.options = [];
           this.especialidadesTemporal = res;
           for(let i = 0; i < this.especialidadesTemporal.length; i++){
-            if(this.especialidadesTemporal[i].estado == 'Activo'){
+            if(this.especialidadesTemporal[i].estado == 1){
               this.options.push(this.especialidadesTemporal[i]);
             }
           }

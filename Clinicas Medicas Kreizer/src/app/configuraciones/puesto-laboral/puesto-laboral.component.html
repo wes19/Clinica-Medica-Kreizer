@@ -1,25 +1,29 @@
 <div class="kz-gap--l kz-mb--2">
-    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)">Crear</button>
+    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)"> Crear </button>
 </div>
 
 <div class="kz-table-content">
     <table class="kz-table">
         <thead class="kz-table__head">
             <tr>
-                <th>Departamento</th>
-                <th>Puesto Laboral</th>
-                <th>Estado</th>
-                <th>Acciones</th>
+                <th> Departamento </th>
+                <th> Puesto Laboral </th>
+                <th> Estado </th>
+                <th> Acciones </th>
             </tr>
         </thead>
         <tbody class="kz-table__body">
             <tr *ngFor="let puesto of puestos">
-                <td>{{puesto.nombreDepartamento}}</td>
-                <td>{{puesto.nombre}}</td>
-                <td>{{puesto.estado}}</td>
+                <td>{{ puesto.nombreDepartamento }}</td>
+                <td>{{ puesto.nombre }}</td>
+                <td>
+                    <span [ngClass]="puesto.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
+                      {{ puesto.estado == 1 ? 'Activo' : 'Inactivo' }}
+                    </span>
+                </td>
                 <td class="kz-d-flex kz-gap--xl ">
-                    <a class="kz-text-decoration-none kz-link" (click)="modalEditar(puesto)">Editar</a>
-                    <a class="kz-text-decoration-none kz-link" (click)="modalEliminar(puesto)">Eliminar</a>
+                    <a class="kz-text-decoration-none kz-link" (click)="modalEditar(puesto)"> Editar </a>
+                    <a class="kz-text-decoration-none kz-link" (click)="modalEliminar(puesto)"> Eliminar </a>
                 </td>
             </tr>
         </tbody>
@@ -30,7 +34,7 @@
 <ng-template #ModalCrear let-modal>
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">Puesto Laborales</h5>
+            <h5 class="modal-title"> Puesto Laborales </h5>
             <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
               <i class="bi bi-x-lg"></i>
             </button>
@@ -40,24 +44,25 @@
         <form [formGroup]="registroPuesto">
             <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
                 <div class="kz-mb--2">
-                    <label>Departamento:</label>
+                    <label> Departamento: </label>
                     <select class="kz-input" formControlName="departamento" [ngClass]="{'kz-is-invalid':obt.departamento.invalid && (obt.departamento.dirty || obt.departamento.touched)}" required>
-                        <option *ngFor="let departamento of departamentos" [value]="departamento.idDep" class="kz-head--xs">{{departamento.nombre}}</option>
+                        <option *ngFor="let departamento of departamentos" [value]="departamento.idDep" class="kz-head--xs">{{ departamento.nombre }}</option>
                     </select>
                     <div *ngIf="obt.departamento.invalid && (obt.departamento.dirty || obt.departamento.touched)" class="kz-error-text mt-2">
                         * Por favor, ingresa un "Departamento" válido
                     </div>
                 </div>
                 <div class="kz-mb--2">
-                    <label>Puesto Laboral:</label>
+                    <label> Puesto Laboral: </label>
                     <input type="text" class="kz-input" formControlName="nombre" [ngClass]="{'kz-is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" required>
                 </div>
                 <div class="kz-mb--2">
-                    <label>Estado:</label>
-                    <select class="kz-input" formControlName="estado" [ngClass]="{'kz-is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
-                        <option value="Activo" class="kz-head--xs">Activo</option> 
-                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-                    </select>
+                    <label> Estado: </label>
+                    <label class="kz-switch kz-switch--text">
+                        <input type="checkbox" formControlName="estado" [ngClass]="{'kz-is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
+                        <span class="kz-slider"></span>
+                        <span class="kz-switch-text">{{ obt.estado.value ? 'ON' : 'OFF' }}</span>
+                    </label>
                     <div *ngIf="obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)" class="kz-error-text mt-2">
                         * Por favor, ingresa un "Estado" válido
                     </div>
@@ -68,8 +73,8 @@
       
       <div class="modal-footer">
         <button class="kz-button kz-button--primary kz-border-radius--l" [disabled]="registroPuesto.invalid" 
-        (click)="guardarPuesto()">Guardar</button>
-        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+        (click)="guardarPuesto()"> Guardar </button>
+        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()"> Cancelar </button>
       </div>
     </div>
 </ng-template>

@@ -15,7 +15,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 //Principales
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { InicioComponent } from './inicio/inicio.component';
 
 
@@ -42,7 +41,6 @@ import { ContabilidadComponent } from './contabilidad/contabilidad.component';
 import { AddPacientesComponent } from './pacientes/add-pacientes/add-pacientes.component';
 import { DetailPacientesComponent } from './pacientes/detail-pacientes/detail-pacientes.component';
 import { PortalMedicoComponent } from './portal-medico/portal-medico.component';
-import { AdmisionesMedicoComponent } from './portal-medico/admisiones-medico/admisiones-medico.component';
 import { PacientesMedicoComponent } from './portal-medico/pacientes-medico/pacientes-medico.component';
 
 //import { MatDialogModule } from '@angular/material/dialog';
@@ -97,7 +95,6 @@ registerLocaleData(localeEs); // Registra el locale en español
     //Principales
     AppComponent,
     LoginComponent,
-    LandingPageComponent,
     InicioComponent,
 
 
@@ -124,7 +121,6 @@ registerLocaleData(localeEs); // Registra el locale en español
     AddPacientesComponent,
     DetailPacientesComponent,
     PortalMedicoComponent,
-    AdmisionesMedicoComponent,
     PacientesMedicoComponent,
 
     //Citas

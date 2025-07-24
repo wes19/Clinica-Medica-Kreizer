@@ -1,25 +1,29 @@
 <div class="kz-gap--l kz-mb--2">
-  <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)">Crear</button>
+  <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)"> Crear </button>
 </div>
 
 <div class="kz-table-content">
   <table class="kz-table">
     <thead class="kz-table__head">
       <tr>
-        <th>Nombre</th>
-        <th>Imagen</th>
-        <th>URL</th>
-        <th>Estado</th>
+        <th> Nombre </th>
+        <th> Imagen </th>
+        <th> URL </th>
+        <th> Estado </th>
       </tr>
     </thead>
     <tbody class="kz-table__body">
       <tr *ngFor="let menu of menus">
-        <td>{{menu.nombre}}</td>
+        <td>{{ menu.nombre }}</td>
         <td><img [src]="menu.imagen" alt="{{menu.nombre}}" class="kz-img-table"></td>
-        <td class="kz-truncate kz-width-static">{{menu.url}}</td>
-        <td>{{menu.estado}}</td>
+        <td class="kz-truncate kz-width-static">{{ menu.url }}</td>
+        <td>
+          <span [ngClass]="menu.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
+            {{ menu.estado == 1 ? 'Activo' : 'Inactivo' }}
+          </span>
+        </td>
         <td class="kz-d-flex kz-gap--l"> 
-          <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="editarModal(ModalEditar, menu)"> Editar</button>
+          <button class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="editarModal(ModalEditar, menu)"> Editar </button>
           <button class="kz-button kz-button--red kz-border-radius--l" (click)="modalDelete(menu)"> <i class="bi bi-trash"></i></button>
         </td>
       </tr>
@@ -31,7 +35,7 @@
 <ng-template #ModalEditar let-modal>
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title">Menús</h5>
+      <h5 class="modal-title"> Menús </h5>
         <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
           <i class="bi bi-x-lg"></i>
         </button>
@@ -40,30 +44,30 @@
     <div class="modal-body">
       <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
         <div class="kz-mb--2">
-          <label>Nombre:</label>
+          <label> Nombre: </label>
           <input type="text" class="kz-input" [(ngModel)]="menuModal.nombre">
         </div>
         <div class="kz-mb--2">
-          <label>URL:</label>
+          <label> URL: </label>
           <input type="text" class="kz-input" [(ngModel)]="menuModal.url">
         </div>
         <div class="kz-mb--2">
-          <label>Imagen:</label>
+          <label> Imagen: </label>
           <input type="file" class="kz-input" (change)="subirImagen($event, true)" accept="image/*">
         </div>
         <div class="kz-mb--2">
           <label>Estado:</label>
-          <select class="kz-input" [(ngModel)]="menuModal.estado">
-            <option value="Activo" class="kz-head--xs">Activo</option> 
-            <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-          </select>
+          <label class="kz-switch">
+              <input type="checkbox" [(ngModel)]="menuModal.estado">
+              <span class="kz-slider"></span>
+          </label>
         </div>
       </div>
     </div>
     
     <div class="modal-footer">
-      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarMenu()">Guardar</button>
-      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+      <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarMenu()"> Guardar </button>
+      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()"> Cancelar </button>
     </div>
   </div>
 </ng-template>
@@ -72,7 +76,7 @@
 <ng-template #ModalCrear let-modal>
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title">Menús</h5>
+      <h5 class="modal-title"> Menús </h5>
         <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
           <i class="bi bi-x-lg"></i>
         </button>
@@ -82,28 +86,29 @@
       <form [formGroup]="registroMenu">
         <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
           <div class="kz-mb--2">
-            <label>Nombre:</label>
+            <label> Nombre: </label>
             <input type="text" class="kz-input" [ngClass]="{'kz-is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" formControlName="nombre" required>
             <div *ngIf="obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)" class="kz-error-text mt-2">
-              * Por favor, ingresa un nombre valido
+              * Por favor, ingresa un nombre válido
             </div>
           </div>
           <div class="kz-mb--2">
-            <label>URL:</label>
+            <label> URL: </label>
             <input type="text" class="kz-input" formControlName="url" required>
           </div>
           <div class="kz-mb--2">
-            <label>Imagen:</label>
+            <label> Imagen: </label>
             <input type="file" class="kz-input" formControlName="imagen" (change)="subirImagen($event)" accept="image/*" required>
           </div>
           <div class="kz-mb--2">
             <label>Estado:</label>
-            <select class="kz-input" formControlName="estado" [ngClass]="{'kz-is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
-              <option value="Activo" class="kz-head--xs">Activo</option> 
-              <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-            </select>
+            <label class="kz-switch kz-switch--text">
+                <input type="checkbox" formControlName="estado" [ngClass]="{'kz-is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
+                <span class="kz-slider"></span>
+                <span class="kz-switch-text">{{ obt.estado.value ? 'ON' : 'OFF' }}</span>
+            </label>
             <div *ngIf="obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)" class="kz-error-text mt-2">
-              * Por favor, ingresa un estado valido
+              * Por favor, ingresa un estado válido
             </div>
           </div>
         </div>
@@ -112,9 +117,9 @@
     
     <div class="modal-footer">
       <button class="kz-button kz-button--primary kz-border-radius--l" [disabled]="registroMenu.invalid" 
-      (click)="guardarMenu()">Guardar
+      (click)="guardarMenu()"> Guardar
       </button>
-      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+      <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()"> Cancelar </button>
     </div>
   </div>
 </ng-template>

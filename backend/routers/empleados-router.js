@@ -64,14 +64,14 @@ module.exports = function (db) {
         nombre, apellidos, identidad, fecha_nacimiento, celular, correo, genero, celular_emergencias, nombre_contacto_emergencia,
         estado_civil, conyugue, numero_hijos, nacionalidad, idiomas, nivel_certificado, campo_estudio, escuela_superior,
         escuela_media, escuela, pais, departamento, direccion, celular_laboral, correo_laboral, area, jefe_inmediato,
-        direccion_laboral, aprobador, fecha_ingreso, salario, idPue, PIN, contrasena, estado, imagen, id_credencial
+        direccion_laboral, aprobador, fecha_ingreso, salario, idPue, PIN, contrasena, imagen, id_credencial
       } = req.body;
-      const query = 'INSERT INTO kz_empleados (nombre, apellidos, identidad, fecha_nacimiento, celular, correo, genero, celular_emergencias, nombre_contacto_emergencia, estado_civil, conyugue, numero_hijos, nacionalidad, idiomas, nivel_certificado, campo_estudio, escuela_superior, escuela_media, escuela, pais, departamento, direccion, celular_laboral, correo_laboral, area, jefe_inmediato, direccion_laboral, aprobador, fecha_ingreso, salario, idPue, PIN, contrasena, estado, imagen, id_credencial) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      const query = 'INSERT INTO kz_empleados (nombre, apellidos, identidad, fecha_nacimiento, celular, correo, genero, celular_emergencias, nombre_contacto_emergencia, estado_civil, conyugue, numero_hijos, nacionalidad, idiomas, nivel_certificado, campo_estudio, escuela_superior, escuela_media, escuela, pais, departamento, direccion, celular_laboral, correo_laboral, area, jefe_inmediato, direccion_laboral, aprobador, fecha_ingreso, salario, idPue, PIN, contrasena, imagen, id_credencial) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
       try {
           await db.query(query, [nombre, apellidos, identidad, fecha_nacimiento, celular, correo, genero, celular_emergencias, nombre_contacto_emergencia,
             estado_civil, conyugue, numero_hijos, nacionalidad, idiomas, nivel_certificado, campo_estudio, escuela_superior,
             escuela_media, escuela, pais, departamento, direccion, celular_laboral, correo_laboral, area, jefe_inmediato,
-            direccion_laboral, aprobador, fecha_ingreso, salario, idPue, PIN, contrasena, estado, imagen, id_credencial]);
+            direccion_laboral, aprobador, fecha_ingreso, salario, idPue, PIN, contrasena, imagen, id_credencial]);
           res.status(201).json({ message: 'Departamento guardado exitosamente'});
       } catch (error) {
           res.status(500).json({ error: 'Error al realizar la inserción' });

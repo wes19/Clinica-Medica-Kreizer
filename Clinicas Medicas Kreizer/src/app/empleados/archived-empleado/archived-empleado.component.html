@@ -31,7 +31,10 @@
               <label class="kz-txt--l kz-font-bold">{{empleado.nombre}}</label>
               <label class="kz-txt--m">{{empleado.puesto_laboral}}</label> 
               <label class="kz-txt--m">{{empleado.celular_laboral}}</label>
-              <span class="kz-chip kz-chip--green"><i class="bi bi-circle-fill kz-state-animation"></i> Disponible</span>
+              <!--<span class="kz-chip kz-chip--green"><i class="bi bi-circle-fill kz-state-animation"></i> Disponible </span>-->
+              <span [ngClass]="empleado.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
+                {{ empleado.estado == 1 ? 'Activo' : 'Inactivo' }}
+              </span>
             </div>
           </div>
         </div>
@@ -59,9 +62,13 @@
             <td>{{empleado.nombre}}</td>
             <td>{{empleado.puesto_laboral}}</td>
             <td>{{empleado.celular_laboral}}</td>
-            <td>Disponible</td>
             <td>
-                <a class="kz-text-decoration-none kz-link" (click)="detailEmpleadosNavigate(empleado)"> Detalles</a>
+              <span [ngClass]="empleado.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
+                {{ empleado.estado == 1 ? 'Activo' : 'Inactivo' }}
+              </span>
+            </td>
+            <td>
+                <a class="kz-text-decoration-none kz-link" (click)="detailEmpleadosNavigate(empleado)"> Detalles </a>
             </td>
         </tr>
       </tbody>

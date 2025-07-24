@@ -28,15 +28,18 @@
           <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
             <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.svg" alt="Card image cap">
             <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-              <label class="kz-txt--l kz-font-bold">{{empleado.nombre}}</label>
-              <label class="kz-txt--m">{{empleado.puesto_laboral}}</label> 
-              <label class="kz-txt--m">{{empleado.celular_laboral}}</label>
-              <span class="kz-chip kz-chip--green"><i class="bi bi-circle-fill kz-state-animation"></i> Disponible</span>
+              <label class="kz-txt--l kz-font-bold">{{ empleado.nombre }}</label>
+              <label class="kz-txt--m">{{ empleado.puesto_laboral }}</label> 
+              <label class="kz-txt--m">{{ empleado.celular_laboral }}</label>
+              <!--<span class="kz-chip kz-chip--green"><i class="bi bi-circle-fill kz-state-animation"></i> Disponible </span>-->
+              <span [ngClass]="empleado.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
+                {{ empleado.estado == 1 ? 'Activo' : 'Inactivo' }}
+              </span>
             </div>
           </div>
         </div>
         <div class="kz-card__footer">
-          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="detailEmpleadosNavigate(empleado)"><i class="bi bi-pencil-square"></i> Detalles</button>
+          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="detailEmpleadosNavigate(empleado)"><i class="bi bi-pencil-square"></i> Detalles </button>
         </div>
       </div>  
     </div>
@@ -48,20 +51,24 @@
     <table class="kz-table">
       <thead class="kz-table__head">
         <tr>
-            <th>Nombre Completo</th>
-            <th>Puesto Laboral</th>
-            <th>Célular Laboral</th>
-            <th>Estado</th>
+            <th> Nombre Completo </th>
+            <th> Puesto Laboral </th>
+            <th> Célular Laboral </th>
+            <th> Estado </th>
         </tr>
       </thead>
       <tbody class="kz-table__body">
         <tr *ngFor="let empleado of empleados">
-            <td>{{empleado.nombre}}</td>
-            <td>{{empleado.puesto_laboral}}</td>
-            <td>{{empleado.celular_laboral}}</td>
-            <td>Disponible</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.puesto_laboral }}</td>
+            <td>{{ empleado.celular_laboral }}</td>
             <td>
-                <a class="kz-text-decoration-none kz-link" (click)="detailEmpleadosNavigate(empleado)"> Detalles</a>
+              <span [ngClass]="empleado.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
+                {{ empleado.estado == 1 ? 'Activo' : 'Inactivo' }}
+              </span>
+            </td>
+            <td>
+                <a class="kz-text-decoration-none kz-link" (click)="detailEmpleadosNavigate(empleado)"> Detalles </a>
             </td>
         </tr>
       </tbody>

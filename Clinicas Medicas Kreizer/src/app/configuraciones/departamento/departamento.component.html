@@ -1,21 +1,25 @@
 <div class="kz-gap--l kz-mb--2">
-    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)">Crear</button>
+    <button class="kz-button kz-button--primary kz-border-radius--l" (click)="guardarModal(ModalCrear)"> Crear </button>
 </div>
 
 <div class="kz-table-content">
     <table class="kz-table">
         <thead class="kz-table__head">
             <tr>
-                <th>Departamento</th>
-                <th>Estado</th>
+                <th> Departamento </th>
+                <th> Estado </th>
             </tr>
         </thead>
         <tbody class="kz-table__body">
             <tr *ngFor="let departamento of departamentos">
-                <td>{{departamento.nombre}}</td>
-                <td>{{departamento.estado}}</td>
+                <td>{{ departamento.nombre }}</td>
                 <td>
-                    <a class="kz-text-decoration-none kz-link" (click)="editarModal(ModalEditar, departamento)">Editar</a>
+                    <span [ngClass]="departamento.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
+                      {{ departamento.estado == 1 ? 'Activo' : 'Inactivo' }}
+                    </span>
+                </td>
+                <td>
+                    <a class="kz-text-decoration-none kz-link" (click)="editarModal(ModalEditar, departamento)"> Editar </a>
                 </td>
             </tr>
         </tbody>
@@ -26,7 +30,7 @@
 <ng-template #ModalCrear let-modal>
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">Departamentos</h5>
+            <h5 class="modal-title"> Departamentos </h5>
             <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
               <i class="bi bi-x-lg"></i>
             </button>
@@ -36,18 +40,19 @@
         <form [formGroup]="registroDepartamento">
             <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
                 <div class="kz-mb--2">
-                    <label>Departamento:</label>
+                    <label> Departamento: </label>
                     <input type="text" class="kz-input" formControlName="nombre" [ngClass]="{'kz-is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" required>
                     <div *ngIf="obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)" class="kz-error-text mt-2">
                         * Por favor, ingresa un Departamento válido
                     </div>
                 </div>
-                <div class="kz-mb--2">
-                    <label>Estado:</label>
-                    <select class="kz-input" formControlName="estado" [ngClass]="{'kz-is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
-                        <option value="Activo" class="kz-head--xs">Activo</option> 
-                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-                    </select>
+                <div class="kz-mb--2 kz-mx--auto">
+                    <label> Estado: </label>
+                    <label class="kz-switch kz-switch--text">
+                        <input type="checkbox" formControlName="estado" [ngClass]="{'kz-is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
+                        <span class="kz-slider"></span>
+                        <span class="kz-switch-text">{{ obt.estado.value ? 'ON' : 'OFF' }}</span>
+                    </label>
                     <div *ngIf="obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)" class="kz-error-text mt-2">
                         * Por favor, ingresa un estado válido
                     </div>
@@ -58,9 +63,9 @@
       
       <div class="modal-footer">
         <button class="kz-button kz-button--primary kz-border-radius--l" [disabled]="registroDepartamento.invalid" 
-        (click)="guardarDepartamento()">Guardar
+        (click)="guardarDepartamento()"> Guardar
         </button>
-        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()"> Cancelar </button>
       </div>
     </div>
 </ng-template>
@@ -68,7 +73,7 @@
 <ng-template #ModalEditar let-modal>
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">Departamentos</h5>
+            <h5 class="modal-title"> Departamentos </h5>
             <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
               <i class="bi bi-x-lg"></i>
             </button>
@@ -77,22 +82,22 @@
         <div class="modal-body">
             <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
                 <div class="kz-mb--2">
-                    <label>Nombre:</label>
+                    <label> Nombre: </label>
                     <input type="text" class="kz-input" [(ngModel)]="departamentoModal.nombre">
                 </div>
-                <div class="kz-mb--2">
-                    <label>Estado:</label>
-                    <select class="kz-input" [(ngModel)]="departamentoModal.estado">
-                        <option value="Activo" class="kz-head--xs">Activo</option> 
-                        <option value="Inactivo" class="kz-head--xs">Inactivo</option> 
-                    </select>
+                <div class="kz-mb--2 kz-mx--auto">
+                    <label> Estado: </label>
+                    <label class="kz-switch">
+                        <input type="checkbox" [(ngModel)]="departamentoModal.estado">
+                        <span class="kz-slider"></span>
+                    </label>
                 </div>
             </div>
         </div>
 
         <div class="modal-footer">
-            <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarDepartamentos()">Guardar</button>
-            <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+            <button class="kz-button kz-button--primary kz-border-radius--l" (click)="actualizarDepartamentos()"> Guardar </button>
+            <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()"> Cancelar </button>
         </div>
     </div>
 </ng-template>

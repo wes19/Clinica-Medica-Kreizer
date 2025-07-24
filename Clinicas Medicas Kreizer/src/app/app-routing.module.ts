@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './farmacia/dashboard/dashboard.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -15,8 +14,7 @@ import { AsistenciaComponent } from './asistencia/asistencia.component';
 
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent},
-  { path: 'login', component: LoginComponent},
+  { path: '', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'inicio', component: InicioComponent},
   { path: 'inventario', component: InventarioComponent},
