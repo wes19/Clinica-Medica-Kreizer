@@ -11,7 +11,7 @@
         <td>{{ especialidad.nombre }}</td>
         <td><img [src]="especialidad.imagen" alt="{{especialidad.nombre}}" class="kz-img-table"></td>
         <td>
-          <span [ngClass]="especialidad.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
+          <span class="kz-chip-estado" [ngClass]="especialidad.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
             {{ especialidad.estado == 1 ? 'Activo' : 'Inactivo' }}
           </span>
         </td>

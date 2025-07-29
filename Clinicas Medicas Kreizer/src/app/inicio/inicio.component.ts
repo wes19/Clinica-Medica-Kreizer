@@ -13,17 +13,19 @@ export class InicioComponent implements OnInit {
   constructor(private menuService:MenuService) {}
 
   ngOnInit(): void {
-    this.menuService.obtenerMenu().subscribe(
-      res=>{
-        this.menus = [];
-        this.menuTemporal = res;
-        for(let i = 0; i < this.menuTemporal.length; i++){
-          if(this.menuTemporal[i].estado == 'Activo'){
-            this.menus.push(this.menuTemporal[i]);
+    this.menuService.obtenerMenu().subscribe({
+        next: res=> {
+          this.menus = [];
+          this.menuTemporal = res;
+          for(let i = 0; i < this.menuTemporal.length; i++){
+            if(this.menuTemporal[i].estado == 1){
+              this.menus.push(this.menuTemporal[i]);
+            }
           }
+        },
+        error: err =>{
+          console.log(err);
         }
-      },
-      error=>console.log(error)
-    )
+      })
   }
 }

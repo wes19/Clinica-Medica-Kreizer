@@ -1,5 +1,5 @@
 <div class="kz-d-flex kz-flex-horizontal-start kz-gap--l">
-    <h5>Admisiones</h5>
+    <h5> Admisiones </h5>
 </div>
 
 <div class="kz-d-grid kz-col--2 kz-col-mobile--1 kz-w--100">
@@ -38,25 +38,15 @@
   <div class="kz-d-grid kz-col--1 kz-col-s2--2 kz-gap--xl kz-my--4">
     <div class="kz-card" *ngFor="let horario of horarios">
       <div class="kz-d-flex kz-dir-vertical kz-flex-horizontal-center kz-flex-vertical-center kz-mb--2">
-        <h4>Dr. {{horario.empleado}}</h4>
+        <h4>Dr. {{ horario.empleado }}</h4>
         <div class="kz-d-flex kz-gap--s">
-          <p class="kz-txt--xl">{{convertirHora(horario.hora_inicio) | date:'h:mm a'}} - {{convertirHora(horario.hora_final) | date:'h:mm a'}}</p>
+          <p class="kz-txt--xl">{{ convertirHora(horario.hora_inicio) | date:'h:mm a'}} - {{ convertirHora(horario.hora_final) | date:'h:mm a' }}</p>
         </div>
       </div>
-      <div class="kz-d-grid kz-col-t--2 kz-col-small--1 kz-gap--l">
-        <div class="kz-chip-color-gray kz-border-radius--s">
-            <h5 class="kz-m--0"> 6 - Pacientes</h5>
+      <div class="kz-d-flex kz-flex-horizontal-center">
+        <div class="kz-chip-color kz-chip-color-primary kz-pointer" (click)="openModal(ModalPacientes, horario)">
+            <h5 class="kz-m--0"> Ver </h5>
         </div>
-        <div class="kz-chip-color-auxiliar kz-border-radius--s" >
-            <h5 class="kz-m--0"> 5 - Lista de Espera</h5>
-        </div>
-        <div class="kz-chip-color-green kz-border-radius--s">
-          <h5 class="kz-m--0"> 2 - Atendidos</h5>
-       </div>
-        <div class="kz-chip-color-primary kz-border-radius--s kz-pointer" (click)="openModal(ModalPacientes, horario)">
-            <h5 class="kz-m--0"> Ver</h5>
-        </div>
-
       </div>
     </div>
   </div>
@@ -64,7 +54,7 @@
   <ng-template #ModalPacientes let-modal>
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Pacientes</h5>
+        <h5 class="modal-title"> Pacientes </h5>
           <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
             <i class="bi bi-x-lg"></i>
           </button>
@@ -74,11 +64,11 @@
           <table class="kz-table">
             <thead class="kz-table__head">
               <tr>
-                <th>Nombre</th>
-                <th>Identificación</th>
-                <th>Célular</th>
-                <th>Status</th>
-                <th>Acciones</th>
+                <th> Nombre </th>
+                <th>Identificación </th>
+                <th> Célular </th>
+                <th> Estado </th>
+                <th> Acciones </th>
               </tr>
             </thead>
             <tbody class="kz-table__body">
@@ -96,10 +86,10 @@
                     <i class="bi bi-pen"></i>
                   </span>
                   <div class="kz-estado-dropdown" *ngIf="menuVisible === cita.idCita">
-                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'Pendiente')">Pendiente</div>
-                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'En Progreso')">En Progreso</div>
-                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'En Espera')">En Espera</div>
-                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'Atendido')">Atendido</div>
+                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'Pendiente')"> Pendiente </div>
+                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'En Progreso')"> En Progreso </div>
+                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'En Espera')"> En Espera </div>
+                    <div class="kz-estado-dropdown-opcion" (click)="ActualizarEstado(cita, 'Atendido')"> Atendido </div>
                   </div>
                 </td>
               </tr>
@@ -108,7 +98,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()"> Cancelar </button>
       </div>
     </div>
   </ng-template>

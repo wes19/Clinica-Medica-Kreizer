@@ -509,10 +509,7 @@
     width: 50%;
   }
   .kz-w--60{
-    width: 100%;
-    @include media(tablet){
-      width: 60%;
-    }
+    width: 60%;
   }
   .kz-w--70{
     width: 70%;

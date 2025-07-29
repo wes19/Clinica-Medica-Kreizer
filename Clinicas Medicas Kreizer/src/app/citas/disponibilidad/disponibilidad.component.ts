@@ -122,13 +122,13 @@ export class DisponibilidadComponent {
     return selectedDate >= today; 
   }
 
-  //Convierte un string en Date, eje: ("12:00:00")
+  // Convierte un string en Date, eje: ("12:00:00")
   convertirHora(horaString: string): Date {
     const [horas, minutos, segundos] = horaString.split(':').map(Number);
     return new Date(1970, 0, 1, horas, minutos, segundos);
   }
 
-  //Devuelve un array de horarios filtrados según el día de la semana 
+  // Devuelve un array de horarios filtrados según el día de la semana 
   getHorarios(): any[] {
     if (this.selectedDay) {
       const diaSemana = getDay(this.selectedDay);
@@ -137,13 +137,13 @@ export class DisponibilidadComponent {
     return [];
   }
 
-  //Esta función toma un número que representa el día de la semana
+  // Esta función toma un número que representa el día de la semana
   getDiaSemana(diaSemana: number): string {
     const diasSemana = ['dom', 'lun', 'mar', 'mie', 'jue', 'vie', 'sab'];
     return diasSemana[diaSemana];
   }
   
-  //Obtiene los horarios del service
+  // Obtiene los horarios del service
   cargarHorarios(idEsp: any){
     this.horariosService.obtenerHorario().subscribe({
       next: (res) => {

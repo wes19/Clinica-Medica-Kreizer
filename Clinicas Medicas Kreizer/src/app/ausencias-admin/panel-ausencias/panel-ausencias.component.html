@@ -9,30 +9,30 @@
   <table class="kz-table">
     <thead class="kz-table__head">
       <tr>
-        <th>Empleado</th>
-        <th>Tipo de Ausencia</th>
-        <th>Desde:</th>
-        <th>Hasta:</th>
-        <th>Horas:</th>
-        <th>Días</th>
-        <th>Descripción</th>
-        <th>Acciones</th>
+        <th> Empleado </th>
+        <th> Tipo de Ausencia </th>
+        <th> Desde: </th>
+        <th> Hasta: </th>
+        <th> Horas: </th>
+        <th> Días </th>
+        <th> Descripción </th>
+        <th> Acciones </th>
       </tr>
     </thead>
     <tbody class="kz-table__body">
       <tr *ngFor="let ausencia of ausencias">
-        <td>{{ausencia.nombreEmpleado}}</td>
-        <td>{{ausencia.tipoAusencia}}</td>
-        <td>{{ausencia.desde}}</td>
-        <td>{{ausencia.hasta}}</td>
-        <td>{{ausencia.horas}}</td>
-        <td>{{ausencia.dias}}</td>
-        <td>{{ausencia.descripcion}}</td>
+        <td>{{ ausencia.nombreEmpleado }}</td>
+        <td>{{ ausencia.tipoAusencia }}</td>
+        <td>{{ ausencia.desde }}</td>
+        <td>{{ ausencia.hasta }}</td>
+        <td>{{ ausencia.horas }}</td>
+        <td>{{ ausencia.dias }}</td>
+        <td>{{ ausencia.descripcion }}</td>
         <td class="kz-d-flex kz-gap--l">
-          <button *ngIf="ausencia.estado === 'Ninguno'" class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="aprobarAusencia(ausencia)">Aprobar</button>
-          <button *ngIf="ausencia.estado === 'Ninguno'" class="kz-button kz-button--red kz-border-radius--l ml--2" (click)="rechazarAusencia(ausencia)">Rechazar</button>
-          <span *ngIf="ausencia.estado  === 'Aprobado'" class="kz-chip-estado-green">{{ausencia.estado}}</span>
-          <span *ngIf="ausencia.estado === 'Rechazado'" class="kz-chip-estado-red">{{ausencia.estado}}</span>
+          <button *ngIf="ausencia.estado === 'Ninguno'" class="kz-button kz-button--primary kz-border-radius--l ml--2" (click)="aprobarAusencia(ausencia)"> Aprobar </button>
+          <button *ngIf="ausencia.estado === 'Ninguno'" class="kz-button kz-button--red kz-border-radius--l ml--2" (click)="rechazarAusencia(ausencia)"> Rechazar </button>
+          <span *ngIf="ausencia.estado  === 'Aprobado'" class="kz-chip-estado kz-chip-estado-green">{{ ausencia.estado }}</span>
+          <span *ngIf="ausencia.estado === 'Rechazado'" class="kz-chip-estado kz-chip-estado-red">{{ ausencia.estado }}</span>
         </td>   
       </tr>
     </tbody>

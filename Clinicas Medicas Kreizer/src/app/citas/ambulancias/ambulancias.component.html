@@ -95,57 +95,59 @@
   </div>
   
      
-  <div class="kz-table-content" [class.active]="btnActivo == 'list'">
-    <table class="kz-table">
-      <thead class="kz-table__head">
-        <tr>
-          <th>Placa</th>
-          <th>Conductor</th>
-          <th>Tipo Ambulancia</th>
-          <th>Estado</th>
-          <th>Informe</th>
-        </tr>
-      </thead>
-      <tbody class="kz-table__body">
-        <tr>
-          <td>HND-1821</td>
-          <td>Persona 1</td>
-          <td>Asistencia Médica y Enfermería</td>
-          <td>Disponible</td>
-          <td>
-            <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
-          </td>
-        </tr>
-        <tr>
-            <td>HND-1831</td>
-            <td>Persona 2</td>
-            <td>Ambulancia Individual</td>
-            <td>No Disponible</td>
-            <td>
-              <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
-            </td>
-          </tr>
+  <div class="kz-d-none--table" [class.active]="btnActivo == 'list'">
+    <div class="kz-table-content">
+      <table class="kz-table">
+        <thead class="kz-table__head">
           <tr>
-            <td>HND-1841</td>
-            <td>Persona 3</td>
-            <td>Ambulancia Colectiva</td>
-            <td>No Disponible</td>
-            <td>
-              <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
-            </td>
+            <th>Placa</th>
+            <th>Conductor</th>
+            <th>Tipo Ambulancia</th>
+            <th>Estado</th>
+            <th>Informe</th>
           </tr>
+        </thead>
+        <tbody class="kz-table__body">
           <tr>
-            <td>HND-1851</td>
-            <td>Persona 4</td>
-            <td>Ambulancia Soporte vital Básico</td>
+            <td>HND-1821</td>
+            <td>Persona 1</td>
+            <td>Asistencia Médica y Enfermería</td>
             <td>Disponible</td>
             <td>
               <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
             </td>
           </tr>
-      </tbody>
-    </table>
-  </div>
+          <tr>
+              <td>HND-1831</td>
+              <td>Persona 2</td>
+              <td>Ambulancia Individual</td>
+              <td>No Disponible</td>
+              <td>
+                <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
+              </td>
+            </tr>
+            <tr>
+              <td>HND-1841</td>
+              <td>Persona 3</td>
+              <td>Ambulancia Colectiva</td>
+              <td>No Disponible</td>
+              <td>
+                <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
+              </td>
+            </tr>
+            <tr>
+              <td>HND-1851</td>
+              <td>Persona 4</td>
+              <td>Ambulancia Soporte vital Básico</td>
+              <td>Disponible</td>
+              <td>
+                <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> 
 
 
   <ng-template #Modalpreparar let-modal>

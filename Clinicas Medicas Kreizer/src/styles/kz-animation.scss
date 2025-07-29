@@ -13,19 +13,3 @@
       color: $black;
     }
 }
-
-.kz-state-animation {
-    display: inline-block;
-    border-radius: 50%;
-    color: $green-ligth;
-    animation: kz-parpadeo 1s infinite;
-}
-  
-  @keyframes kz-parpadeo {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }

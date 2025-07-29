@@ -17,7 +17,7 @@
                 <td>{{ puesto.nombreDepartamento }}</td>
                 <td>{{ puesto.nombre }}</td>
                 <td>
-                    <span [ngClass]="puesto.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
+                    <span class="kz-chip-estado" [ngClass]="puesto.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
                       {{ puesto.estado == 1 ? 'Activo' : 'Inactivo' }}
                     </span>
                 </td>
@@ -45,7 +45,7 @@
             <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
                 <div class="kz-mb--2">
                     <label> Departamento: </label>
-                    <select class="kz-input" formControlName="departamento" [ngClass]="{'kz-is-invalid':obt.departamento.invalid && (obt.departamento.dirty || obt.departamento.touched)}" required>
+                    <select class="kz-input" formControlName="departamento" [ngClass]="{'kz-error-invalid':obt.departamento.invalid && (obt.departamento.dirty || obt.departamento.touched)}" required>
                         <option *ngFor="let departamento of departamentos" [value]="departamento.idDep" class="kz-head--xs">{{ departamento.nombre }}</option>
                     </select>
                     <div *ngIf="obt.departamento.invalid && (obt.departamento.dirty || obt.departamento.touched)" class="kz-error-text mt-2">
@@ -54,12 +54,12 @@
                 </div>
                 <div class="kz-mb--2">
                     <label> Puesto Laboral: </label>
-                    <input type="text" class="kz-input" formControlName="nombre" [ngClass]="{'kz-is-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" required>
+                    <input type="text" class="kz-input" formControlName="nombre" [ngClass]="{'kz-error-invalid':obt.nombre.invalid && (obt.nombre.dirty || obt.nombre.touched)}" required>
                 </div>
                 <div class="kz-mb--2">
                     <label> Estado: </label>
                     <label class="kz-switch kz-switch--text">
-                        <input type="checkbox" formControlName="estado" [ngClass]="{'kz-is-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
+                        <input type="checkbox" formControlName="estado" [ngClass]="{'kz-error-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
                         <span class="kz-slider"></span>
                         <span class="kz-switch-text">{{ obt.estado.value ? 'ON' : 'OFF' }}</span>
                     </label>

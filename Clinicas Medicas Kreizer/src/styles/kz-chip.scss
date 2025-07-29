@@ -1,7 +1,7 @@
 @import 'variables';
 @import 'responsive';
 
-  .kz-chip{
+  .kz-chip {
     font-family: $font-family;
     color: $black;
     font-size: 16px;
@@ -13,6 +13,14 @@
       font-size: 12px;
       margin-right: 0.5rem;
     }
+
+    &--blue {color: $primary;}
+
+    &--yellow {color: $yellow;}
+
+    &--green {color: $green-ligth;}
+
+    &--red {color: $red-ligth;}
   }
 
   .kz-chip-estado-archivar {
@@ -24,44 +32,6 @@
     font-family: $font-family;
   }
 
-  .kz-chip-estado-green{
-    font-size: 16px;
-    border-radius: 8px;
-    padding: 10px 22px;
-    background-color: transparent;
-    color: $green-ligth;
-    font-weight: bold;
-  }
-  
-  .kz-chip-estado-red{
-    font-size: 16px;
-    border-radius: 8px;
-    padding: 10px 22px;
-    background-color: transparent;
-    color: $red-ligth;
-    font-weight: bold;
-  }
-  
-  .kz-chip--blue{
-    color: $primary;
-  }
-  
-  .kz-chip--yellow{
-    color: $yellow;
-  }
-  
-  .kz-chip--green{
-    color: $green-ligth;
-  }
-
-  .kz-chip--red{
-    color: $red-ligth;
-  }
-  
-  input[type="radio"] {
-    display: none;
-  }
-  
   .kz-error-text {
     color: $txt-red;
     background-color: transparent;  
@@ -69,11 +39,11 @@
     margin-top: 5px;
   }
   
-  .kz-is-invalid {
+  .kz-error-invalid {
     border-color: $txt-red !important;
   }
   
-  .kz-chip-color-gray{
+  .kz-chip-color {
     padding: 14px 18px;
     border: 0;
     display: flex;
@@ -81,41 +51,25 @@
     align-items: center;
     color: $white;
     font-family: $font-family;
-    background-color: $gray;
+    border-radius: 8px;
+  
+    &-gray {
+      background-color: $gray;
+    }
+  
+    &-primary {
+      background-color: $primary;
+    }
+  
+    &-auxiliar {
+      background-color: $auxiliar;
+    }
+  
+    &-green {
+      background-color: $green;
+    }
   }
-
-  .kz-chip-color-primary{
-    padding: 14px 18px;
-    border: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $white;
-    font-family: $font-family;
-    background-color: $primary;
-  }
-
-  .kz-chip-color-auxiliar{
-    padding: 14px 18px;
-    border: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $white;
-    font-family: $font-family;
-    background-color: $auxiliar;
-  }
-
-  .kz-chip-color-green{
-    padding: 14px 18px;
-    border: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $white;
-    font-family: $font-family;
-    background-color: $green;
-  }
+  
   
   .kz-chip-estado {
     padding: 0.4rem 1rem;
@@ -124,29 +78,30 @@
     display: inline-block;
     text-align: center;
     font-size: 0.9rem;
-  }
-  
-  .kz-chip-estado-gray {
-    background-color: $gray-state-bg;
-    color: $gray-dark;
-  }
-  
-  .kz-chip-estado-red {
-    background-color: $red-state-bg;
-    color: $red-ligth;
-  }
-  
-  .kz-chip-estado-green {
-    background-color: $green-state-bg;
-    color: $green-state-color;
-  }
-  
-  .kz-chip-estado-blue {
-    background-color: $blue-state-bg;
-    color: $blue-state-color;
-  }
 
-  .kz-chip-estado-yellow {
-    background-color: #fff8e1; 
-    color: #ff9800;            
+    &-gray {
+      background-color: $gray-state-bg;
+      color: $gray-dark;
+    }
+  
+    &-red {
+      background-color: $red-state-bg;
+      color: $red-ligth;
+    }
+  
+    &-green {
+      background-color: $green-state-bg;
+      color: $green-state-color;
+    }
+  
+    &-blue {
+      background-color: $blue-state-bg;
+      color: $blue-state-color;
+    }
+  
+    &-yellow {
+      background-color: $yellow-state-bg;
+      color: $yellow-state-color;
+    }
   }
+  

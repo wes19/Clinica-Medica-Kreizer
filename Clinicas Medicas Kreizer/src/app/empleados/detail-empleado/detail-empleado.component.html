@@ -225,14 +225,14 @@
         <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
           <div class="kz-mb--2">
             <label>Contraseña:</label>
-            <input type="password" class="kz-input" [ngClass]="{'kz-is-invalid':obt.contrasena.invalid && (obt.contrasena.dirty || obt.contrasena.touched)}" formControlName="contrasena" required>
+            <input type="password" class="kz-input" [ngClass]="{'kz-error-invalid':obt.contrasena.invalid && (obt.contrasena.dirty || obt.contrasena.touched)}" formControlName="contrasena" required>
             <div *ngIf="guardarContrasena.controls.contrasena.invalid && guardarContrasena.controls.contrasena.touched" class="kz-error-text mt-2">
               * El tamaño mínimo es de 8 caracteres
             </div>
           </div>
           <div class="kz-mb--2">
             <label>Confirmar Contraseña:</label>
-            <input type="password" class="kz-input" [ngClass]="{'kz-is-invalid':obt.conContrasena.invalid && (obt.conContrasena.dirty || obt.conContrasena.touched)}" formControlName="conContrasena" required>
+            <input type="password" class="kz-input" [ngClass]="{'kz-error-invalid':obt.conContrasena.invalid && (obt.conContrasena.dirty || obt.conContrasena.touched)}" formControlName="conContrasena" required>
             <div *ngIf="obt.conContrasena.invalid && (obt.conContrasena.dirty || obt.conContrasena.touched)" class="kz-error-text mt-2">
               * Por favor, ingresa una contraseña válida
             </div>

@@ -20,7 +20,7 @@ export class CrearCitaComponent implements OnInit {
         this.especialidades = [];
         this.especialidadesTemporal = res;
         for(let i = 0; i < this.especialidadesTemporal.length; i++){
-          if(this.especialidadesTemporal[i].estado == 'Activo'){
+          if(this.especialidadesTemporal[i].estado == 1){
             this.especialidades.push(this.especialidadesTemporal[i]);
           }
         }

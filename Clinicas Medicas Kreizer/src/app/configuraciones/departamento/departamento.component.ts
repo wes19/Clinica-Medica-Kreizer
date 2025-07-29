@@ -8,7 +8,7 @@ import { DepartamentosService } from 'src/app/services/departamentos.service';
   templateUrl: './departamento.component.html',
   styleUrls: ['./departamento.component.scss']
 })
-export class DepartamentoComponent implements OnInit{
+export class DepartamentoComponent implements OnInit {
   departamentos:any=[];
   departamentoModal:any=[];
 

@@ -41,9 +41,7 @@ module.exports = function (db) {
   
     // Actualizar Estado Empleados
     router.put('/detalles/:idEmp/estado', async (req, res) => {
-      const {
-       estado
-      } = req.body;
+      const { estado } = req.body;
       const idEmp = req.params.idEmp;
   
       try {
@@ -58,7 +56,7 @@ module.exports = function (db) {
       }
     });
 
-     // Guardar Empleados
+    // Guardar Empleados
     router.post('/crear', async (req, res) => {
       const {
         nombre, apellidos, identidad, fecha_nacimiento, celular, correo, genero, celular_emergencias, nombre_contacto_emergencia,

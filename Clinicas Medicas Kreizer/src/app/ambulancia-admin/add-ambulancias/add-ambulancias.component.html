@@ -5,24 +5,38 @@
     <button class="kz-button kz-button--red kz-border-radius--l" [routerLink]="['/pacientes']"> Salir</button>
 </div>
 
-<div class="kz-d-grid kz-col-t--2 kz-gap--xl">
-    <div class="kz-mb--2">
-        <label>Placa:</label>
-        <input type="text" class="kz-input">
+<form [formGroup]="registroAmbulancia">
+    <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
+        <div class="kz-mb--2">
+            <label> Placa: </label>
+            <input type="text" class="kz-input" formControlName="placa" [ngClass]="{'kz-error-invalid':obt.placa.invalid && (obt.placa.dirty || obt.placa.touched)}" required>
+            <div *ngIf="obt.placa.invalid && (obt.placa.dirty || obt.placa.touched)" class="kz-error-text mt-2">
+                * Por favor, ingresa una Placa válido
+            </div>
+        </div>
+        <div class="kz-mb--2">
+            <label> Tipo de Ambulancia: </label>
+            <select class="kz-input" formControlName="tipo_ambulancia" [ngClass]="{'kz-error-invalid': obt.tipo_ambulancia.invalid && (obt.tipo_ambulancia.dirty || obt.tipo_ambulancia.touched)}" required>
+              <option value="">-- Selecciona un tipo --</option>
+              <option *ngFor="let tipo of tiposAmbulancia" [value]="tipo">{{ tipo }}</option>
+            </select>
+            <div *ngIf="obt.tipo_ambulancia.invalid && (obt.tipo_ambulancia.dirty || obt.tipo_ambulancia.touched)" class="kz-error-text mt-2">
+              * Por favor, selecciona un tipo de ambulancia válido
+            </div>
+        </div>    
+        <div class="kz-mb--2 kz-mx--auto">
+            <label> Estado: </label>
+            <label class="kz-switch kz-switch--text">
+                <input type="checkbox" formControlName="estado" [ngClass]="{'kz-error-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
+                <span class="kz-slider"></span>
+                <span class="kz-switch-text">{{ obt.estado.value ? 'ON' : 'OFF' }}</span>
+            </label>
+            <div *ngIf="obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)" class="kz-error-text mt-2">
+                * Por favor, ingresa un estado válido
+            </div>
+        </div>
     </div>
-    <div class="kz-mb--2">
-        <label>Tipo Ambulancia:</label>
-        <input type="text" class="kz-input">
-    </div>
-    <div class="kz-mb--2">
-        <label>Conductor:</label>
-        <input type="date" class="kz-input">
-    </div>
-    <div class="kz-mb--2">
-        <label>Estado:</label>
-        <input type="email" class="kz-input">
-    </div>
-</div>
+</form>
 
 <div class="kz-d-flex kz-flex-horizontal-end">
     <button class="kz-button kz-button--primary kz-ml--2" [routerLink]="['/ambulancia-admin/crear']">Guardar</button>

@@ -1,12 +1,12 @@
 
 <div class="kz-d-flex kz-flex-horizontal-start kz-gap--l">
-    <h5>Menú</h5>
+    <h5> Menú </h5>
  </div>
 <div class="kz-d-grid kz-col-s4--5 kz-col-s3--4 kz-col-s2--3 kz-col-s1--2 kz-col-t--2 kz-col--1 kz-gap--xl kz-w--100 kz-mt--4">
     <div *ngFor="let menu of menus">
         <div class="kz-card kz-card--clickable kz-d-flex kz-dir-vertical kz-flex-vertical-center kz-gap--s" [routerLink]="[menu.url]">
             <img class="kz-img kz-img--xl" src="{{menu.imagen}}" alt="Card image cap">
-            <label class="kz-txt--m kz-font-bold">{{menu.nombre}}</label>
+            <label class="kz-txt--m kz-font-bold">{{ menu.nombre }}</label>
         </div> 
     </div> 
 </div>  

@@ -94,8 +94,11 @@ export class DetailEmpleadoComponent implements OnInit {
   }
 
   archivar(){
-    this.empleado.estado = 0;
-    this.empleadosService.actualizarEmpleadoEstado(this.empleado).subscribe(
+    const jsonEmpleado = {
+      idEmp: this.empleado.idEmp,
+      estado : this.empleado.estado = 0,
+    }
+    this.empleadosService.actualizarEmpleadoEstado(jsonEmpleado).subscribe(
       {
         next: res => {
           console.log(res);
@@ -108,8 +111,11 @@ export class DetailEmpleadoComponent implements OnInit {
   }
 
   desarchivar(){
-    this.empleado.estado = 1;
-    this.empleadosService.actualizarEmpleadoEstado(this.empleado).subscribe(
+    const jsonEmpleado = {
+      idEmp: this.empleado.idEmp,
+      estado : this.empleado.estado = 1,
+    }
+    this.empleadosService.actualizarEmpleadoEstado(jsonEmpleado).subscribe(
       {
         next: res => {
           console.log(res);

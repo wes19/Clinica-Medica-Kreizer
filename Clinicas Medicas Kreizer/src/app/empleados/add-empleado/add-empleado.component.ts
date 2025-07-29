@@ -13,14 +13,26 @@ import Swal from 'sweetalert2';
 export class AddEmpleadoComponent implements OnInit {
   @ViewChild('formularioEmpleado') formularioEmpleado?: NgForm;
   departamentos: any[] = [];
+  departamentosTemporal:any=[];
   puestosLaborales: any[] = [];
   empleado: any = {};
 
   constructor(private empleadosService: EmpleadosService, private puestosLaboralesService: PuestosLaboralesService, private departamentosService: DepartamentosService){}
 
   ngOnInit(): void {
-    this.departamentosService.obtenerDepartamentos().subscribe((data) => {
-      this.departamentos = data;
+    this.departamentosService.obtenerDepartamentos().subscribe({
+      next: (res) => {
+        this.departamentos = [];
+        this.departamentosTemporal = res.reverse();
+        for(let i = 0; i < this.departamentosTemporal.length; i++){
+          if(this.departamentosTemporal[i].estado == 1){
+            this.departamentos.push(this.departamentosTemporal[i]);
+          }
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
 
