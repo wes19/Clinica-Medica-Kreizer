@@ -15,6 +15,16 @@
             </div>
         </div>
         <div class="kz-mb--2">
+            <label> Empleados: </label>
+            <select class="kz-input" formControlName="empleado" [ngClass]="{'kz-error-invalid': obt.empleado.invalid && (obt.empleado.dirty || obt.empleado.touched)}" required>
+              <option value="">-- Selecciona un Conductor --</option>
+              <option *ngFor="let conductor of conductores" [value]="conductor.idEmp">{{ conductor.nombre }} {{conductor.apellidos}}</option>
+            </select>
+            <div *ngIf="obt.empleado.invalid && (obt.empleado.dirty || obt.empleado.touched)" class="kz-error-text mt-2">
+              * Por favor, selecciona un conductor válido
+            </div>
+        </div> 
+        <div class="kz-mb--2">
             <label> Tipo de Ambulancia: </label>
             <select class="kz-input" formControlName="tipo_ambulancia" [ngClass]="{'kz-error-invalid': obt.tipo_ambulancia.invalid && (obt.tipo_ambulancia.dirty || obt.tipo_ambulancia.touched)}" required>
               <option value="">-- Selecciona un tipo --</option>
@@ -39,7 +49,7 @@
 </form>
 
 <div class="kz-d-flex kz-flex-horizontal-end">
-    <button class="kz-button kz-button--primary kz-ml--2" [routerLink]="['/ambulancia-admin/crear']">Guardar</button>
+    <button class="kz-button kz-button--primary kz-ml--2" (click)="guardarAmbulancia()" [disabled]="registroAmbulancia.invalid"> Guardar </button>
 </div>
       
           

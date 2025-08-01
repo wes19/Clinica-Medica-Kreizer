@@ -19,6 +19,10 @@ export class HorariosService {
     return forkJoin([horarios, especialidades, empleados]);
   }
 
+  obtenerHorariosEspecialidad(idEsp: number): Observable<any> {
+    return this.httpClient.get(`${this.backendWeb}/horarios/cargar-horarios/${idEsp}`);
+  }  
+
   actualizarHorario(data: any):Observable<any>{
     return this.httpClient.put(`${this.backendWeb}/horarios/${data.idHora}`,{
       idEsp: data.idEsp,

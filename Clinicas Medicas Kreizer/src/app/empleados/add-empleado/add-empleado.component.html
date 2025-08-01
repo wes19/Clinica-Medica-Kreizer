@@ -118,8 +118,7 @@
     </div>
     <div class="kz-mb--2">
       <label>Departamento:</label>
-      <select class="kz-input" [(ngModel)]="empleado.area" [ngModelOptions]="{ standalone: true }"
-      (change)="cargarPuestosLaboralesDepartamento(empleado.area)">
+      <select class="kz-input" [(ngModel)]="empleado.area" [ngModelOptions]="{ standalone: true }" (change)="cargarPuestosLaborales(empleado.area)">
       <option *ngFor="let departamento of departamentos" [value]="departamento.idDep" class="kz-head--xs">{{ departamento.nombre }}</option>
       </select>
     </div>

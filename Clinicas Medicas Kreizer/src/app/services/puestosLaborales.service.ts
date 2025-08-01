@@ -15,6 +15,10 @@ export class PuestosLaboralesService {
     return this.httpClient.get(`${this.backendWeb}/puestos-laborales`,{});
   }
 
+  obtenerPuestosLaboralesActivos():Observable<any>{
+    return this.httpClient.get(`${this.backendWeb}/puestos-laborales/activos`,{});
+  }
+
   actualizarPuestoLaboral(data: any):Observable<any>{
     return this.httpClient.put(`${this.backendWeb}/puestos-laborales/${data.idPue}`,{
     });

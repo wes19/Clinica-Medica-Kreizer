@@ -29,7 +29,7 @@
       </div>
 
       <div class="kz-section kz-mb--1" (click)="openModal(Modalver, horario)" *ngFor="let horario of getHorarios()">
-        <h5><b>Dr. {{horario.empleado}}</b></h5>
+        <h5><b>Dr. {{ horario.nombreEmpleado }} {{ horario.apellidosEmpleado }}</b></h5>
         <p>{{convertirHora(horario.hora_inicio) | date:'h:mm a'}} - {{convertirHora(horario.hora_final) | date:'h:mm a'}}</p>
         <div class="kz-d-flex kz-justify-content-center kz-gap--s">
           <div 

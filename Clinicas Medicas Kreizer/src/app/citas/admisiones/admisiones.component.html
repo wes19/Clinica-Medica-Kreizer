@@ -38,7 +38,7 @@
   <div class="kz-d-grid kz-col--1 kz-col-s2--2 kz-gap--xl kz-my--4">
     <div class="kz-card" *ngFor="let horario of horarios">
       <div class="kz-d-flex kz-dir-vertical kz-flex-horizontal-center kz-flex-vertical-center kz-mb--2">
-        <h4>Dr. {{ horario.empleado }}</h4>
+        <h4>Dr. {{ horario.nombreEmpleado }} {{ horario.apellidosEmpleado }}</h4>
         <div class="kz-d-flex kz-gap--s">
           <p class="kz-txt--xl">{{ convertirHora(horario.hora_inicio) | date:'h:mm a'}} - {{ convertirHora(horario.hora_final) | date:'h:mm a' }}</p>
         </div>
@@ -65,7 +65,7 @@
             <thead class="kz-table__head">
               <tr>
                 <th> Nombre </th>
-                <th>Identificación </th>
+                <th> Identificación </th>
                 <th> Célular </th>
                 <th> Estado </th>
                 <th> Acciones </th>

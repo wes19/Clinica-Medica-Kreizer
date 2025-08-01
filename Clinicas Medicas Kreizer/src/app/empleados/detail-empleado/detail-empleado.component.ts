@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PuestosLaboralesService } from 'src/app/services/puestosLaborales.service';
+import { DepartamentosService } from 'src/app/services/departamentos.service';
 import { EmployeeService } from '../employee.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
@@ -16,6 +17,8 @@ import Swal from 'sweetalert2';
 export class DetailEmpleadoComponent implements OnInit {
   tabActiva: string = 'infoPersonal';
   empleado: any = [];
+  departamentos: any = [];
+  puestosLaborales: any = [];
   puestos: any = [];
 
   guardarContrasena = new FormGroup({
@@ -24,7 +27,8 @@ export class DetailEmpleadoComponent implements OnInit {
   });
 
   constructor(private empleadosService: EmpleadosService, private employeeService: EmployeeService, 
-    private modalService:NgbModal, private puestosLaboralesService:PuestosLaboralesService, private datePipe: DatePipe) {
+    private modalService:NgbModal, private puestosLaboralesService:PuestosLaboralesService, private datePipe: DatePipe,
+    private departamentosService:DepartamentosService) {
   }
 
   ngOnInit(): void {
@@ -37,24 +41,43 @@ export class DetailEmpleadoComponent implements OnInit {
 
   cargarDatos() {
     this.employeeService.getEmpleadoSeleccionado().subscribe((empleado) => {
+      this.obtenerDepartamentos();
       this.empleado = empleado;
-      this.puestosLaboralesService.obtenerPuestosLaborales().subscribe(
-        {
-          next: (puestos) => {
-            this.puestos = puestos;
-            const puesto = puestos.find((pue: any) => pue.idPue === this.empleado.idPue);
-            const fecha_ingreso = this.datePipe.transform(this.empleado.fecha_ingreso, 'yyyy-MM-dd');
-            const fecha_nacimiento = this.datePipe.transform(this.empleado.fecha_nacimiento, 'yyyy-MM-dd');
-            this.empleado = {
-              ...this.empleado,
-              nombrePuestoLaboral: puesto ? puesto.nombre : '', fecha_ingreso, fecha_nacimiento
-            };
-          },
-          error: err => {
-            console.log(err);
-          }
-        }
-      );
+  
+      const fecha_ingreso = this.datePipe.transform(empleado.fecha_ingreso, 'yyyy-MM-dd');
+      const fecha_nacimiento = this.datePipe.transform(empleado.fecha_nacimiento, 'yyyy-MM-dd');
+      this.empleado = { ...empleado, fecha_ingreso, fecha_nacimiento };
+
+      this.obtenerPuestosLaborales();
+    });
+  }
+
+  obtenerPuestosLaborales() {
+    this.puestosLaboralesService.obtenerPuestosLaboralesActivos().subscribe({
+      next: (puestos) => {
+        this.puestos = puestos;
+        const puesto = puestos.find((pue: any) => pue.idPue === this.empleado.idPue);
+        this.empleado.idDep = puesto.idDep;
+        this.cargarPuestosLaborales(this.empleado.idDep);
+      },
+      error: (err) => console.log(err)
+    });
+  }
+
+  obtenerDepartamentos(){
+    this.departamentosService.obtenerDepartamentosActivos().subscribe({
+      next: (res) => {
+        this.departamentos = res;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  cargarPuestosLaborales(idDep: number) {
+    this.puestosLaboralesService.obtenerPuestosDepartamento(idDep).subscribe((data) => {
+      this.puestosLaborales = data;
     });
   }
 

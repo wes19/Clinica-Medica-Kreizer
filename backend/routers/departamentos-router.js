@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = function (db) {
+
     // Obtener Departamentos
     router.get('/', async (req, res) => {
         try {
@@ -11,6 +12,16 @@ module.exports = function (db) {
             res.status(500).send('Error al realizar la consulta');
         }
     });
+
+    // Obtener Departamentos activos
+    router.get('/activos', async (req, res) => {
+        try {
+          const results = await db.query('SELECT * FROM kz_departamentos WHERE estado = 1');
+          res.send(results);
+        } catch (error) {
+          res.status(500).send('Error al obtener los departamentos activos');
+        }
+      });
 
     // Guardar Departamentos
     router.post('/crear', async (req, res) => {

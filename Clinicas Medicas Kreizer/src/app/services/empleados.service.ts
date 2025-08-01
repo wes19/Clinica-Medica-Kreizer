@@ -41,7 +41,6 @@ export class EmpleadosService {
       direccion: data.direccion,
       celular_laboral: data.celular_laboral,
       correo_laboral: data.correo_laboral,
-      area: data.area,
       jefe_inmediato: data.jefe_inmediato,
       direccion_laboral: data.direccion_laboral,
       aprobador: data.aprobador,

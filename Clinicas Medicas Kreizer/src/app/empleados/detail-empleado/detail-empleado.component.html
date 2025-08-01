@@ -130,27 +130,31 @@
     <div class="kz-tab-panel" [class.active]="tabActiva == 'infoLaboral'">
       <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
         <div class="kz-mb--2">
-          <label>Celular Laboral:</label>
+          <label> Celular Laboral: </label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.celular_laboral">
         </div>
         <div class="kz-mb--2">
-          <label>Correo Laboral:</label>
+          <label>Correo Laboral: </label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.correo_laboral">
         </div>
         <div class="kz-mb--2">
-          <label>Departamento:</label>
-          <input type="text" class="kz-input" [(ngModel)]="empleado.departamento">
-        </div>
+          <label> Departamento: </label>
+          <select class="kz-input" [(ngModel)]="empleado.idDep" (change)="cargarPuestosLaborales(empleado.idDep)">
+            <option *ngFor="let departamento of departamentos" [value]="departamento.idDep">
+              {{ departamento.nombre }}
+            </option>
+          </select>
+        </div>        
         <div class="kz-mb--2">
-          <label>Jefe Inmediato:</label>
+          <label> Jefe Inmediato: </label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.jefe_inmediato">
         </div>
         <div class="kz-mb--2">
-          <label>Dirección Laboral:</label>
+          <label> Dirección Laboral: </label>
           <textarea class="kz-input" [(ngModel)]="empleado.direccion_laboral"></textarea>
         </div>
         <div class="kz-mb--2">
-          <label>Aprobador:</label>
+          <label> Aprobador: </label>
           <input type="text" class="kz-input" [(ngModel)]="empleado.aprobador">
         </div>
       </div>
@@ -170,7 +174,7 @@
         <div class="kz-mb--2">
           <label>Puesto Laboral:</label>
           <select class="kz-input" [(ngModel)]="empleado.idPue">
-            <option *ngFor="let puesto of puestos" [value]="puesto.idPue" class="kz-head--xs">{{puesto.nombre}}</option>
+            <option *ngFor="let puesto of puestosLaborales" [value]="puesto.idPue" class="kz-head--xs">{{ puesto.nombre }}</option>
           </select>
         </div>
         <div class="kz-mb--2">

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = function (db) {
+    
     // Obtener Puestos Laborales
     router.get('/', async (req, res) => {
         try {
@@ -11,6 +12,16 @@ module.exports = function (db) {
             res.status(500).send('Error al realizar la consulta');
         }
     });
+
+    // Obtener Puestos Laborales Activo
+    router.get('/activos', async (req, res) => {
+        try {
+          const results = await db.query('SELECT * FROM kz_puestosLaborales WHERE estado = 1');
+          res.send(results);
+        } catch (error) {
+          res.status(500).send('Error al obtener los puestos activos');
+        }
+      });
 
     // Obtener Puestos Laborales por Departamento
     router.get('/departamento/:idDep', async (req, res) => {

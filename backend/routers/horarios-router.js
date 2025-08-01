@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = function (db) {
+
     // Obtener Horarios
     router.get('/', async (req, res) => {
         try {
@@ -11,6 +12,22 @@ module.exports = function (db) {
             res.status(500).send('Error al realizar la consulta');
         }
     });
+
+    // Obtener Horarios por Especialidad
+    router.get('/cargar-horarios/:idEsp', async (req, res) => {
+        const { idEsp } = req.params;
+        try {
+            const results = await db.query(`
+                SELECT h.*, e.nombre AS especialidad, em.nombre AS nombreEmpleado, em.apellidos AS apellidosEmpleado
+                FROM kz_horarios h
+                INNER JOIN kz_especialidades e ON h.idEsp = e.idEsp
+                INNER JOIN kz_empleados em ON h.idEmp = em.idEmp
+                WHERE h.idEsp = ? and h.estado = 1`, [idEsp]);
+            res.send(results);
+        } catch (error) {
+            res.status(500).send('Error al realizar la consulta');
+        }
+    });    
 
     // Actualizar Horarios 
     router.put('/:idHora', async (req, res) => {

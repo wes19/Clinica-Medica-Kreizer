@@ -22,6 +22,7 @@ export class AddAmbulanciasComponent implements OnInit {
   registroAmbulancia = new FormGroup({
     placa: new FormControl('', Validators.required),
     tipo_ambulancia: new FormControl('', Validators.required),
+    empleado: new FormControl('', Validators.required),
     estado: new FormControl('', Validators.required)
   });
 
@@ -39,12 +40,18 @@ export class AddAmbulanciasComponent implements OnInit {
     this.ambulanciasService.obtenerConductores().subscribe({
       next: (res) => {
         this.conductores = res;
+        console.log("Aqui estan los conductores", this.conductores)
       },
       error: (err) => {
         console.log(err);
       },
     });
   }
+
+  guardarAmbulancia(){
+    console.log("guardarEmpleado: ", this.registroAmbulancia.value);
+  }
+
 
 
 }

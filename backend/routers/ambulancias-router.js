@@ -16,7 +16,7 @@ module.exports = function (db) {
     router.get('/conductores', async (req, res) => {
         try {
           const results = await db.query(`
-            SELECT e.* 
+            SELECT e.idEmp, e.nombre, e.apellidos 
             FROM kz_empleados e
             INNER JOIN kz_puestoslaborales p ON e.idPue = p.idPue
             INNER JOIN kz_departamentos d ON p.idDep = d.idDep
@@ -28,7 +28,6 @@ module.exports = function (db) {
         }
       });
       
-
     // Guardar Ambulancias
     router.post('/crear', async (req, res) => {
         const { placa, idEmp, tipo_ambulancia, estado } = req.body;

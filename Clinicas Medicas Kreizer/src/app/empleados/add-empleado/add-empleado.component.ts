@@ -13,22 +13,15 @@ import Swal from 'sweetalert2';
 export class AddEmpleadoComponent implements OnInit {
   @ViewChild('formularioEmpleado') formularioEmpleado?: NgForm;
   departamentos: any[] = [];
-  departamentosTemporal:any=[];
   puestosLaborales: any[] = [];
   empleado: any = {};
 
   constructor(private empleadosService: EmpleadosService, private puestosLaboralesService: PuestosLaboralesService, private departamentosService: DepartamentosService){}
 
   ngOnInit(): void {
-    this.departamentosService.obtenerDepartamentos().subscribe({
+    this.departamentosService.obtenerDepartamentosActivos().subscribe({
       next: (res) => {
-        this.departamentos = [];
-        this.departamentosTemporal = res.reverse();
-        for(let i = 0; i < this.departamentosTemporal.length; i++){
-          if(this.departamentosTemporal[i].estado == 1){
-            this.departamentos.push(this.departamentosTemporal[i]);
-          }
-        }
+        this.departamentos = res;
       },
       error: (err) => {
         console.log(err);
@@ -36,7 +29,7 @@ export class AddEmpleadoComponent implements OnInit {
     });
   }
 
-  cargarPuestosLaboralesDepartamento(idDep: number) {
+  cargarPuestosLaborales(idDep: number) {
     this.puestosLaboralesService.obtenerPuestosDepartamento(idDep).subscribe((data) => {
       this.puestosLaborales = data;
     });
@@ -67,7 +60,6 @@ export class AddEmpleadoComponent implements OnInit {
       pais: this.empleado.pais,
       direccion: this.empleado.direccion,
       celular_laboral: this.empleado.celular_laboral,
-      area: this.empleado.area,
       direccion_laboral: this.empleado.direccion_laboral,
       correo_laboral: this.empleado.correo_laboral,
       jefe_inmediato: this.empleado.jefe_inmediato,

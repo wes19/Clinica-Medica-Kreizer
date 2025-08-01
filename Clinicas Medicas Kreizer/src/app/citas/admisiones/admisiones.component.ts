@@ -76,26 +76,12 @@ export class AdmisionesComponent implements OnInit {
   }
 
   // Obtiene los horarios del service
-  cargarHorarios(idEsp: number){
-    this.horariosService.obtenerHorario().subscribe({
+  cargarHorarios(idEsp: number) {
+    this.horariosService.obtenerHorariosEspecialidad(idEsp).subscribe({
       next: (res) => {
-        const [horarios, especialidades, empleados] = res;
-        this.especialidades = especialidades;
-        this.empleados = empleados
-        this.horarios = horarios.map((horario: any) => {
-          const especialidad = especialidades.find((esp: any) => esp.idEsp === horario.idEsp);
-          const empleado = empleados.find((emp: any) => emp.idEmp === horario.idEmp);
-          return {
-            ...horario,
-            especialidad: especialidad ? especialidad.nombre : '',
-            empleado: empleado ? `${empleado.nombre} ${empleado.apellidos}` : '',
-          };
-        });
-        if (idEsp) {
-          const diaNumero = this.dia.getDay();
-          const diaTexto = this.diasSemana[diaNumero]; 
-          this.horarios = this.horarios.filter((horario: any) => horario.idEsp === +idEsp && horario.estado === 1 && horario[diaTexto] === 1);
-        }
+        const diaNumero = this.dia.getDay();
+        const diaTexto = this.diasSemana[diaNumero];
+        this.horarios = res.filter((horario: any) => horario[diaTexto] === 1 );
       },
       error: (err) => {
         console.log(err);
