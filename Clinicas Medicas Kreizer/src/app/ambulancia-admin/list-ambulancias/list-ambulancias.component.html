@@ -23,74 +23,25 @@
     <!--Cards--> 
     <div class="kz-kamba" [class.active]="btnActivo == 'kamba'">
       <div class="kz-d-grid kz-col-s5--4 kz-col-s3--3 kz-col-s2--2 kz-col-s1--2 kz-col-t--2 kz-col--1 kz-gap--xl kz-mt--4">
-        <div class="kz-card">
+        <div class="kz-card" *ngFor="let ambulancia of ambulancias">
           <div class="kz-card__body">
             <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
               <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/ambulancia.png" alt="Card image cap">
-              <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-                <label class="kz-txt--m kz-font-bold">HND-1821</label>
-                <label class="kz-txt--s">Conductor: Persona 1</label> 
-                <label class="kz-txt--s">Asistencia Médica y Enfermeria</label>
-                <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
+              <div class="kz-d-flex kz-dir-vertical kz-gap--xs kz-w--200">
+                <label class="kz-txt--m kz-font-bold">{{ ambulancia.placa }}</label>
+                <label class="kz-txt--s">{{ ambulancia.nombre ? ambulancia.nombre + ' ' + ambulancia.apellidos : 'Sin asignar' }}</label> 
+                <label class="kz-txt--s">{{ ambulancia.tipo_ambulancia }}</label>
+                <span class="badge" [ngClass]="ambulancia.estado === 1 ? 'bg-success' : 'bg-danger'">
+                  <i class="bi" [ngClass]="ambulancia.estado === 1 ? 'bi-check' : 'bi-x'"></i>
+                    {{ ambulancia.estado === 1 ? 'Disponible' : 'No disponible' }}
+                </span>
               </div>
             </div>
           </div>
           <div class="kz-card__footer">
-            <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToDetailAmbulancia()"><i class="bi bi-pencil-square"></i> Detalles</button>
+            <button class="kz-button kz-button--primary kz-border-radius--l" (click)="detailAmbulanciaNavigate(ambulancia)"><i class="bi bi-pencil-square"></i> Detalles</button>
           </div>
         </div>
-  
-        <div class="kz-card">
-          <div class="kz-card__body">
-            <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
-              <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/ambulancia.png" alt="Card image cap">
-              <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-                <label class="kz-txt--m kz-font-bold">HND-1821</label>
-                <label class="kz-txt--s">Conductor: Persona 1</label> 
-                <label class="kz-txt--s">Asistencia Médica y Enfermeria</label>
-                <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
-              </div>
-            </div>
-          </div>
-          <div class="kz-card__footer">
-            <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToDetailAmbulancia()"><i class="bi bi-pencil-square"></i> Detalles</button>
-          </div>
-        </div>
-  
-        <div class="kz-card">
-          <div class="kz-card__body">
-            <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
-              <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/ambulancia.png" alt="Card image cap">
-              <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-                <label class="kz-txt--m kz-font-bold">HND-1821</label>
-                <label class="kz-txt--s">Conductor: Persona 1</label> 
-                <label class="kz-txt--s">Asistencia Médica y Enfermeria</label>
-                <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
-              </div>
-            </div>
-          </div>
-          <div class="kz-card__footer">
-            <button class="kz-button kz-button--primary kz-border-radius--l"><i class="bi bi-pencil-square" (click)="navigateToDetailAmbulancia()"></i> Detalles</button>
-          </div>
-        </div>
-  
-        <div class="kz-card">
-          <div class="kz-card__body">
-            <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
-              <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/ambulancia.png" alt="Card image cap">
-              <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-                <label class="kz-txt--m kz-font-bold">HND-1821</label>
-                <label class="kz-txt--s">Conductor: Persona 1</label> 
-                <label class="kz-txt--s">Asistencia Médica y Enfermeria</label>
-                <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
-              </div>
-            </div>
-          </div>
-          <div class="kz-card__footer">
-            <button class="kz-button kz-button--primary kz-border-radius--l"><i class="bi bi-pencil-square" (click)="navigateToDetailAmbulancia()"></i> Detalles</button>
-          </div>
-        </div>
-    
       </div>
     </div>
     
@@ -108,42 +59,21 @@
             </tr>
           </thead>
           <tbody class="kz-table__body">
-            <tr>
-              <td>HND-1821</td>
-              <td>Persona 1</td>
-              <td>Asistencia Médica y Enfermería</td>
-              <td>Disponible</td>
+            <tr *ngFor="let ambulancia of ambulancias">
+              <td>{{ ambulancia.placa }}</td>
+              <td>{{ ambulancia.nombre ? ambulancia.nombre + ' ' + ambulancia.apellidos : 'Sin asignar' }}</td>
+              <td>{{ ambulancia.tipo_ambulancia }}</td>
               <td>
-                <a class="kz-text-decoration-none kz-link" (click)="navigateToDetailAmbulancia()"> Detalles</a>
+                <span class="badge" [ngClass]="ambulancia.estado === 1 ? 'bg-success' : 'bg-danger'">
+                  <i class="bi" [ngClass]="ambulancia.estado === 1 ? 'bi-check' : 'bi-x'"></i>
+                    {{ ambulancia.estado === 1 ? 'Disponible' : 'No disponible' }}
+                </span>
+              </td>
+              <td>
+                <a class="kz-text-decoration-none kz-link" (click)="detailAmbulanciaNavigate(ambulancia)"> Detalles </a>
               </td>
             </tr>
-            <tr>
-                <td>HND-1831</td>
-                <td>Persona 2</td>
-                <td>Ambulancia Individual</td>
-                <td>No Disponible</td>
-                <td>
-                  <a class="kz-text-decoration-none kz-link" (click)="navigateToDetailAmbulancia()"> Detalles</a>
-                </td>
-              </tr>
-              <tr>
-                <td>HND-1841</td>
-                <td>Persona 3</td>
-                <td>Ambulancia Colectiva</td>
-                <td>No Disponible</td>
-                <td>
-                  <a class="kz-text-decoration-none kz-link" (click)="navigateToDetailAmbulancia()"> Detalles</a>
-                </td>
-              </tr>
-              <tr>
-                <td>HND-1851</td>
-                <td>Persona 4</td>
-                <td>Ambulancia Soporte vital Básico</td>
-                <td>Disponible</td>
-                <td>
-                  <a class="kz-text-decoration-none kz-link" (click)="navigateToDetailAmbulancia()"> Detalles</a>
-                </td>
-              </tr>
+            
           </tbody>
         </table>
       </div>

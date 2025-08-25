@@ -13,22 +13,38 @@ module.exports = function (db) {
         }
     });
 
+    // Obtener empleados puesto "Medico"
+    router.get('/medicos', async (req, res) => {
+      const query = `
+          SELECT e.idEmp, e.nombre, e.apellidos
+          FROM kz_empleados e
+          INNER JOIN kz_puestoslaborales p ON e.idPue = p.idPue
+          WHERE p.nombre = 'Medico'`;
+      try {
+          const results = await db.query(query);
+          res.json(results);
+      } catch (error) {
+          console.error(error);
+          res.status(500).json({ error: 'Error al obtener empleados médicos' });
+      }
+    });
+
     // Actualizar Empleados
     router.put('/detalles/:idEmp', async (req, res) => {
         const {
           nombre, apellidos, identidad, fecha_nacimiento, celular, correo, genero, celular_emergencias, nombre_contacto_emergencia,
           estado_civil, conyugue, numero_hijos, nacionalidad, idiomas, nivel_certificado, campo_estudio, escuela_superior,
-          escuela_media, escuela, pais, departamento, direccion, celular_laboral, correo_laboral, area, jefe_inmediato,
+          escuela_media, escuela, pais, departamento, direccion, celular_laboral, correo_laboral, jefe_inmediato,
           direccion_laboral, aprobador, fecha_ingreso, salario, idPue, PIN, contrasena, estado, imagen, id_credencial
         } = req.body;
         const idEmp = req.params.idEmp;
         try {
           await db.query(
-            'UPDATE kz_empleados SET nombre=?, apellidos=?, identidad=?, fecha_nacimiento=?, celular=?, correo=?, genero=?, celular_emergencias=?, nombre_contacto_emergencia=?, estado_civil=?, conyugue=?, numero_hijos=?, nacionalidad=?, idiomas=?, nivel_certificado=?, campo_estudio=?, escuela_superior=?, escuela_media=?, escuela=?, pais=?, departamento=?, direccion=?, celular_laboral=?, correo_laboral=?, area=?, jefe_inmediato=?, direccion_laboral=?, aprobador=?, fecha_ingreso=?, salario=?, idPue=?, PIN=?, contrasena=?, estado=?, imagen=?, id_credencial=? WHERE idEmp=?',
+            'UPDATE kz_empleados SET nombre=?, apellidos=?, identidad=?, fecha_nacimiento=?, celular=?, correo=?, genero=?, celular_emergencias=?, nombre_contacto_emergencia=?, estado_civil=?, conyugue=?, numero_hijos=?, nacionalidad=?, idiomas=?, nivel_certificado=?, campo_estudio=?, escuela_superior=?, escuela_media=?, escuela=?, pais=?, departamento=?, direccion=?, celular_laboral=?, correo_laboral=?, jefe_inmediato=?, direccion_laboral=?, aprobador=?, fecha_ingreso=?, salario=?, idPue=?, PIN=?, contrasena=?, estado=?, imagen=?, id_credencial=? WHERE idEmp=?',
             [
               nombre, apellidos, identidad, fecha_nacimiento, celular, correo, genero, celular_emergencias, nombre_contacto_emergencia, estado_civil,
               conyugue, numero_hijos, nacionalidad, idiomas, nivel_certificado, campo_estudio, escuela_superior, escuela_media, escuela,
-              pais, departamento, direccion, celular_laboral, correo_laboral, area, jefe_inmediato, direccion_laboral, aprobador,
+              pais, departamento, direccion, celular_laboral, correo_laboral, jefe_inmediato, direccion_laboral, aprobador,
               fecha_ingreso, salario, idPue, PIN, contrasena, estado, imagen, id_credencial, idEmp
             ]
           );

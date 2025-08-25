@@ -53,25 +53,19 @@ export class DepartamentoComponent implements OnInit {
     });
   }
 
-  guardarDepartamento(){
-    const jsonDepartamento = {
-      nombre : this.registroDepartamento.controls['nombre'].value,
-      estado : this.registroDepartamento.controls['estado'].value,
-    }
-    this.departamentosService.crearDepartamento(jsonDepartamento).subscribe(
-      {
-        next: res=>{
-          console.log(res)
-          this.modalService.dismissAll();
-          this.registroDepartamento.reset();
-          this.cargartabla();
-        },
-        error: err =>{
-          console.log(err);
-        }
+  guardarDepartamento() {
+    this.departamentosService.crearDepartamento(this.registroDepartamento.value).subscribe({
+      next: res => {
+        console.log(res);
+        this.modalService.dismissAll();
+        this.registroDepartamento.reset();
+        this.cargartabla();
+      },
+      error: err => {
+        console.log(err);
       }
-    );
-  }
+    });
+  }  
 
   actualizarDepartamentos() {
     const jsonDepartamento = {

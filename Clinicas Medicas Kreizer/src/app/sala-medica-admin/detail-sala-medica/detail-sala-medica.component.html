@@ -1,31 +1,39 @@
 <div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between">
-    <div>
-        <h5>Detalles Sala Médica</h5>
+    <div class="kz-d-flex kz-flex-vertical-center kz-gap--xl">
+      <h5>Detalles Sala Médica</h5>
     </div>
-    <div class="kz-d-flex kz-flex-vertical-center kz-gap--xl kz-space-between">
-      <button class="kz-btn-text kz-btn-text--red">
-        <i class="bi bi-archive-fill "></i>
-        <span> <b>Archivar</b> </span>
-      </button>
-      <button class="kz-button kz-button--red kz-border-radius--l ml--2" [routerLink]="['/sala-medica-admin/lista']"> Salir</button>
+    <div class="kz-d-flex kz-flex-vertical-center kz-gap--xl">
+      <button class="kz-button kz-button--red kz-border-radius--l ml--2" [routerLink]="['/sala-medica-admin/lista']">Salir</button>
     </div>
 </div>
   
-<div class="kz-d-grid kz-col-t--2 kz-gap--xl">
+  <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
     <div class="kz-mb--2">
-        <label>Nombre:</label>
-        <input type="text" class="kz-input">
+      <label>Empleado (Médico):</label>
+      <select class="kz-input" [(ngModel)]="salaMedica.idEmp" required>
+        <option value="">-- Selecciona un Médico --</option>
+        <option *ngFor="let medico of medicos" [value]="medico.idEmp">{{ medico.nombre }} {{ medico.apellidos }}</option>
+      </select>
     </div>
+  
     <div class="kz-mb--2">
-        <label>Especialidad:</label>
-        <input type="date" class="kz-input">
+      <label>Especialidad:</label>
+      <select class="kz-input" [(ngModel)]="salaMedica.idEsp" required>
+        <option value="">-- Selecciona una Especialidad --</option>
+        <option *ngFor="let especialidad of especialidades" [value]="especialidad.idEsp">{{ especialidad.nombre }}</option>
+      </select>
     </div>
-    <div class="kz-mb--2">
+  
+    <div class="kz-mb--2 kz-mr--auto">
         <label>Estado:</label>
-        <input type="text" class="kz-input">
+        <label class="kz-switch">
+            <input type="checkbox" [(ngModel)]="salaMedica.estado">
+            <span class="kz-slider"></span>
+        </label>
     </div>
-</div>
-
-<div class="kz-d-flex kz-flex-horizontal-end">
-    <button class="kz-button kz-button--primary ml--2" [routerLink]="['/sala-medica-admin']">Guardar</button>
-</div>
+  </div>
+  
+  <div class="kz-d-flex kz-flex-horizontal-end">
+    <button class="kz-button kz-button--primary ml--2" (click)="actualizarSesion(salaMedica)">Guardar</button>
+  </div>
+  

@@ -39,7 +39,7 @@ export class ListEspecialidadesComponent implements OnInit {
     this.especialidadModal = especialidad;
   }
 
-  modalDelete(especialidad: any){
+  modalDelete(especialidad: any) {
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'No podrás revertir esto',
@@ -51,26 +51,28 @@ export class ListEspecialidadesComponent implements OnInit {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.especialidadesService.eliminarEspecialidad(especialidad).subscribe(
-          {
-            next: res=>{
-              console.log(res)
-              this.ngOnInit();
-            },
-            error: err =>{
-              console.log(err);
-            }
+        this.especialidadesService.eliminarEspecialidad(especialidad).subscribe({
+          next: (res: any) => {
+            Swal.fire({
+              title: 'Información',
+              text: res.message, // <-- mensaje del backend
+              icon: 'success',
+              customClass: { confirmButton: 'kz-button-blue' },
+            });
+            this.ngOnInit();
+          },
+          error: (err) => {
+            Swal.fire({
+              title: 'Error',
+              text: err.error?.message || 'Error al eliminar el registro',
+              icon: 'error',
+              customClass: { confirmButton: 'kz-button-blue' },
+            });
           }
-        )
-        Swal.fire({
-          title: 'Eliminado',
-          text: 'El registro ha sido eliminado',
-          icon: 'success',
-          customClass: {confirmButton: 'kz-button-blue'},
         });
       }
     });
-  }
+  }  
 
   actualizarEspecialidad()   {
     const jsonActualizarEsp = {

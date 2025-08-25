@@ -13,7 +13,9 @@ CREATE TABLE kz_horarios (
     sab BOOLEAN,
     dom BOOLEAN,
     cupos INT,
-    estado BOOLEAN
+    estado BOOLEAN,
+    FOREIGN KEY (idEsp) REFERENCES kz_especialidades(idEsp),
+    FOREIGN KEY (idEmp) REFERENCES kz_empleados(idEmp)
 );
 
 -- Insertar datos en kz_horarios
@@ -21,6 +23,7 @@ INSERT INTO kz_horarios (idEsp, idEmp, hora_inicio, hora_final, lun, mar, mie, j
     (1, 1, '08:00:00', '12:00:00', true, true, true, true, true, false, false, 6, true),
     (2, 2, '09:30:00', '13:30:00', true, true, true, true, true, true, false, 5, false),
     (3, 3, '14:00:00', '18:00:00', false, false, false, false, false, true, true, 6, true);
+
 
 
     

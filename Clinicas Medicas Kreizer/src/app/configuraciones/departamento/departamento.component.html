@@ -46,7 +46,7 @@
                         * Por favor, ingresa un Departamento válido
                     </div>
                 </div>
-                <div class="kz-mb--2 kz-mx--auto">
+                <div class="kz-mb--2 kz-mr--auto">
                     <label> Estado: </label>
                     <label class="kz-switch kz-switch--text">
                         <input type="checkbox" formControlName="estado" [ngClass]="{'kz-error-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>
@@ -85,7 +85,7 @@
                     <label> Nombre: </label>
                     <input type="text" class="kz-input" [(ngModel)]="departamentoModal.nombre">
                 </div>
-                <div class="kz-mb--2 kz-mx--auto">
+                <div class="kz-mb--2 kz-mr--auto">
                     <label> Estado: </label>
                     <label class="kz-switch">
                         <input type="checkbox" [(ngModel)]="departamentoModal.estado">

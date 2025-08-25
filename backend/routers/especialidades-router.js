@@ -12,6 +12,16 @@ module.exports = function (db) {
         }
     });
 
+    // Obtener Especialidades Activas
+    router.get('/activas', async (req, res) => {
+        try {
+            const results = await db.query('SELECT * FROM kz_especialidades WHERE estado = 1');
+            res.send(results);
+        } catch (error) {
+            res.status(500).send('Error al realizar la consulta');
+        }
+    });
+
     // Obtener Especialidades ID
     router.get('/lista/:idEsp', async (req, res) => {
         try {
@@ -50,18 +60,23 @@ module.exports = function (db) {
         }
       });
 
-      //Eliminar Especialidades
-     router.delete('/lista/:idEsp', async (req, res) => {
+    // Eliminar Especialidades
+    router.delete('/lista/:idEsp', async (req, res) => {
         const idEsp = req.params.idEsp;
         try {
-            await db.query(
-            'DELETE FROM kz_especialidades WHERE idEsp=?',
-            [idEsp]);
+            await db.query('DELETE FROM kz_especialidades WHERE idEsp = ?', [idEsp]);
             res.send({ message: 'Registro eliminado correctamente' });
         } catch (error) {
-            res.status(500).send('Error al eliminaar el registro');
-        }
-      });
+            if (error.code === 'ER_ROW_IS_REFERENCED_2' || error.errno === 1451) {
+              return res.status(400).send({
+                message: 'No se puede eliminar: la especialidad está asignada en horarios'
+              });
+            }
+            console.error(error);
+            res.status(500).send('Error al eliminar el registro');
+          }
+    });
+
 
     return router;
 }

@@ -27,8 +27,8 @@
         <div class="kz-card__body">
           <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
             <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.svg" alt="Card image cap">
-            <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-              <label class="kz-txt--l kz-font-bold">{{ empleado.nombre }}</label>
+            <div class="kz-d-flex kz-dir-vertical kz-gap--xs kz-w--200">
+              <label class="kz-txt--l kz-font-bold">{{ empleado.nombre }} {{ empleado.apellidos }}</label>
               <label class="kz-txt--m">{{ empleado.puesto_laboral }}</label> 
               <label class="kz-txt--m">{{ empleado.celular_laboral }}</label>
               <span class="kz-chip-estado" [ngClass]="empleado.estado == 1 ? 'kz-chip-estado-green' : 'kz-chip-estado-red'">
@@ -58,7 +58,7 @@
       </thead>
       <tbody class="kz-table__body">
         <tr *ngFor="let empleado of empleados">
-            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.nombre }} {{ empleado.apellidos }}</td>
             <td>{{ empleado.puesto_laboral }}</td>
             <td>{{ empleado.celular_laboral }}</td>
             <td>

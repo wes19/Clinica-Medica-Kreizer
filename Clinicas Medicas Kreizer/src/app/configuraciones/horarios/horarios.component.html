@@ -17,7 +17,7 @@
         <tbody class="kz-table__body">
             <tr *ngFor="let horario of horarios">
                 <td>{{horario.especialidad}}</td>
-                <td>{{horario.empleado}}</td>
+                <td>{{horario.empleado ? horario.empleado : 'Sin asignar'}}</td>
                 <td>{{horario.hora_inicio}}</td>
                 <td>{{horario.hora_final}}</td>
                 <td>

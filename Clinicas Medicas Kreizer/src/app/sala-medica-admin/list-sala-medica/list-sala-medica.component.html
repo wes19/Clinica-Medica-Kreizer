@@ -23,118 +23,55 @@
     <!--Cards--> 
     <div class="kz-kamba" [class.active]="btnActivo == 'kamba'">
       <div class="kz-d-grid kz-col-s5--4 kz-col-s3--3 kz-col-s2--2 kz-col-s1--2 kz-col-t--2 kz-col--1 kz-gap--xl kz-mt--4">
-        <div class="kz-card">
+        <div class="kz-card" *ngFor="let sesion of sesiones">
           <div class="kz-card__body">
             <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
-              <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.svg" alt="Card image cap">
+              <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.png" alt="Foto del doctor">
               <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-                <label class="kz-txt--m kz-font-bold">Nombre: Doctor 1</label>
-                <label class="kz-txt--s">Especialidad: Medicina General</label> 
-                <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
+                <label class="kz-txt--m kz-font-bold">{{ sesion.nombre && sesion.apellidos ? sesion.nombre + ' ' + sesion.apellidos : 'Sin asignar' }}</label>
+                <label class="kz-txt--s"> {{ sesion.especialidad }}</label> 
+                <span class="badge" [ngClass]="sesion.estado === 1 ? 'bg-success' : 'bg-danger'">
+                  <i class="bi" [ngClass]="sesion.estado === 1 ? 'bi-check' : 'bi-x'"></i>
+                  {{ sesion.estado === 1 ? 'Disponible' : 'No disponible' }}
+                </span>
               </div>
             </div>
           </div>
           <div class="kz-card__footer">
-            <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToSalaMedica()"><i class="bi bi-pencil-square"></i> Detalles</button>
+            <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToSalaMedica(sesion)"><i class="bi bi-pencil-square"></i> Detalles </button>
           </div>
         </div>
-  
-        <div class="kz-card">
-            <div class="kz-card__body">
-              <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
-                <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.svg" alt="Card image cap">
-                <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-                  <label class="kz-txt--m kz-font-bold">Nombre: Doctor 1</label>
-                  <label class="kz-txt--s">Especialidad: Medicina General</label> 
-                  <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
-                </div>
-              </div>
-            </div>
-            <div class="kz-card__footer">
-              <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToSalaMedica()"><i class="bi bi-pencil-square"></i> Detalles</button>
-            </div>
-        </div>
-  
-        <div class="kz-card">
-            <div class="kz-card__body">
-              <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
-                <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.svg" alt="Card image cap">
-                <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-                  <label class="kz-txt--m kz-font-bold">Nombre: Doctor 1</label>
-                  <label class="kz-txt--s">Especialidad: Medicina General</label> 
-                  <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
-                </div>
-              </div>
-            </div>
-            <div class="kz-card__footer">
-              <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToSalaMedica()"><i class="bi bi-pencil-square"></i> Detalles</button>
-            </div>
-        </div>
-  
-        <div class="kz-card">
-            <div class="kz-card__body">
-              <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
-                <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/user.svg" alt="Card image cap">
-                <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-                  <label class="kz-txt--m kz-font-bold">Nombre: Doctor 1</label>
-                  <label class="kz-txt--s">Especialidad: Medicina General</label> 
-                  <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
-                </div>
-              </div>
-            </div>
-            <div class="kz-card__footer">
-              <button class="kz-button kz-button--primary kz-border-radius--l" (click)="navigateToSalaMedica()"><i class="bi bi-pencil-square"></i> Detalles</button>
-            </div>
-        </div>
-    
       </div>
     </div>
     
-       
-    <div class="kz-table-content" [class.active]="btnActivo == 'list'">
-      <table class="kz-table">
-        <thead class="kz-table__head">
-          <tr>
-            <th>Nombre</th>
-            <th>Especialidad</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody class="kz-table__body">
-          <tr>
-            <td>Doctor 1</td>
-            <td>Medicina General</td>
-            <td>Disponible</td>
-            <td>
-              <a class="kz-text-decoration-none kz-link" (click)="navigateToSalaMedica()"> Detalles</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Doctor 1</td>
-            <td>Medicina General</td>
-            <td>Disponible</td>
-            <td>
-              <a class="kz-text-decoration-none kz-link" (click)="navigateToSalaMedica()"> Detalles</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Doctor 1</td>
-            <td>Medicina General</td>
-            <td>Disponible</td>
-            <td>
-              <a class="kz-text-decoration-none kz-link" (click)="navigateToSalaMedica()"> Detalles</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Doctor 1</td>
-            <td>Medicina General</td>
-            <td>Disponible</td>
-            <td>
-              <a class="kz-text-decoration-none kz-link" (click)="navigateToSalaMedica()"> Detalles</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="kz-d-none--table" [class.active]="btnActivo == 'list'">
+      <div class="kz-table-content">
+        <table class="kz-table">
+          <thead class="kz-table__head">
+            <tr>
+              <th>Nombre</th>
+              <th>Especialidad</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody class="kz-table__body">
+            <tr *ngFor="let sesion of sesiones">
+              <td>{{ sesion.nombre && sesion.apellidos ? sesion.nombre + ' ' + sesion.apellidos : 'Sin asignar' }}</td>
+              <td>{{ sesion.especialidad }}</td>
+              <td>
+                <span class="badge" [ngClass]="sesion.estado === 1 ? 'bg-success' : 'bg-danger'">
+                  <i class="bi" [ngClass]="sesion.estado === 1 ? 'bi-check' : 'bi-x'"></i>
+                  {{ sesion.estado === 1 ? 'Disponible' : 'No disponible' }}
+                </span>
+              </td>
+              <td><a class="kz-text-decoration-none kz-link" (click)="navigateToSalaMedica(sesion)">Detalles</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+    
+    
   
           

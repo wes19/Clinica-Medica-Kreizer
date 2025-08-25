@@ -23,195 +23,139 @@
   <!--Cards--> 
   <div class="kz-kamba" [class.active]="btnActivo == 'kamba'">
     <div class="kz-d-grid kz-col-s5--4 kz-col-s3--3 kz-col-s2--2 kz-col-s1--2 kz-col-t--2 kz-col--1 kz-gap--xl kz-mt--4">
-      <div class="kz-card">
+      <div class="kz-card" *ngFor="let ambulancia of ambulancias">
         <div class="kz-card__body">
           <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
             <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/ambulancia.png" alt="Card image cap">
-            <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-              <label class="kz-txt--m kz-font-bold">HND-1821</label>
-              <label class="kz-txt--s">Conductor: Persona 1</label> 
-              <label class="kz-txt--s">Asistencia Médica y Enfermeria</label>
-              <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
+            <div class="kz-d-flex kz-dir-vertical kz-gap--xs kz-w--200">
+              <label class="kz-txt--m kz-font-bold">{{ ambulancia.placa }}</label>
+              <label class="kz-txt--s">{{ ambulancia.nombre ? ambulancia.nombre + ' ' + ambulancia.apellidos : 'Sin asignar' }}</label> 
+              <label class="kz-txt--s">{{ ambulancia.tipo_ambulancia }}</label>
+              <span class="badge" [ngClass]="ambulancia.estado === 1 ? 'bg-success' : 'bg-danger'">
+                <i class="bi" [ngClass]="ambulancia.estado === 1 ? 'bi-check' : 'bi-x'"></i>
+                  {{ ambulancia.estado === 1 ? 'Disponible' : 'No disponible' }}
+              </span>
             </div>
           </div>
         </div>
         <div class="kz-card__footer">
-          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="openModal(Modalpreparar)"><i class="bi bi-pencil-square"></i> Preparar</button>
+          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="openModal(Modalpreparar, ambulancia.idAmb)"><i class="bi bi-pencil-square"></i> Detalles</button>
         </div>
       </div>
-
-      <div class="kz-card">
-        <div class="kz-card__body">
-          <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
-            <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/ambulancia.png" alt="Card image cap">
-            <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-              <label class="kz-txt--m kz-font-bold">HND-1821</label>
-              <label class="kz-txt--s">Conductor: Persona 1</label> 
-              <label class="kz-txt--s">Asistencia Médica y Enfermeria</label>
-              <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
-            </div>
-          </div>
-        </div>
-        <div class="kz-card__footer">
-          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="openModal(Modalpreparar)"><i class="bi bi-pencil-square"></i> Preparar</button>
-        </div>
-      </div>
-
-      <div class="kz-card">
-        <div class="kz-card__body">
-          <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
-            <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/ambulancia.png" alt="Card image cap">
-            <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-              <label class="kz-txt--m kz-font-bold">HND-1821</label>
-              <label class="kz-txt--s">Conductor: Persona 1</label> 
-              <label class="kz-txt--s">Asistencia Médica y Enfermeria</label>
-              <span class="badge bg-success"><i class="bi bi-check"></i> Disponible</span>
-            </div>
-          </div>
-        </div>
-        <div class="kz-card__footer">
-          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="openModal(Modalpreparar)"><i class="bi bi-pencil-square"></i> Preparar</button>
-        </div>
-      </div>
-
-      <div class="kz-card">
-        <div class="kz-card__body">
-          <div class="kz-d-flex kz-flex-vertical-center kz-gap--l">
-            <img class="kz-img kz-img--circle kz-img--l" src="../assets/img/icons/ambulancia.png" alt="Card image cap">
-            <div class="kz-d-flex kz-dir-vertical kz-gap--xs">
-              <label class="kz-txt--m kz-font-bold">HND-1821</label>
-              <label class="kz-txt--s">Conductor: Persona 1</label> 
-              <label class="kz-txt--s">Asistencia Médica y Enfermeria</label>
-              <span class="badge bg-danger"><i class="bi bi-x"></i> No Disponible</span>
-            </div>
-          </div>
-        </div>
-        <div class="kz-card__footer">
-          <button class="kz-button kz-button--primary kz-border-radius--l" (click)="openModal(Modalpreparar)"><i class="bi bi-pencil-square"></i> Preparar</button>
-        </div>
-      </div>
-  
     </div>
   </div>
-  
-     
+      
   <div class="kz-d-none--table" [class.active]="btnActivo == 'list'">
     <div class="kz-table-content">
       <table class="kz-table">
         <thead class="kz-table__head">
           <tr>
-            <th>Placa</th>
-            <th>Conductor</th>
-            <th>Tipo Ambulancia</th>
-            <th>Estado</th>
-            <th>Informe</th>
+            <th> Placa </th>
+            <th> Conductor </th>
+            <th> Tipo Ambulancia </th>
+            <th> Estado </th>
+            <th> Informe </th>
           </tr>
         </thead>
         <tbody class="kz-table__body">
-          <tr>
-            <td>HND-1821</td>
-            <td>Persona 1</td>
-            <td>Asistencia Médica y Enfermería</td>
-            <td>Disponible</td>
+          <tr *ngFor="let ambulancia of ambulancias">
+            <td>{{ ambulancia.placa }}</td>
             <td>
-              <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
+              <span class="kz-chip-estado" [ngClass]="ambulancia.nombre ? 'kz-chip-estado-green' : 'kz-chip-estado-yellow'">
+                {{ ambulancia.nombre ? ambulancia.nombre + ' ' + ambulancia.apellidos : 'Sin asignar' }}
+              </span>
+            </td>
+            <td>{{ ambulancia.tipo_ambulancia }}</td>
+            <td>
+              <span class="badge" [ngClass]="ambulancia.estado === 1 ? 'bg-success' : 'bg-danger'">
+                <i class="bi" [ngClass]="ambulancia.estado === 1 ? 'bi-check' : 'bi-x'"></i>
+                  {{ ambulancia.estado === 1 ? 'Disponible' : 'No disponible' }}
+              </span>
+            </td>
+            <td>
+              <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar, ambulancia.idAmb)"> Detalles </a>
             </td>
           </tr>
-          <tr>
-              <td>HND-1831</td>
-              <td>Persona 2</td>
-              <td>Ambulancia Individual</td>
-              <td>No Disponible</td>
-              <td>
-                <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
-              </td>
-            </tr>
-            <tr>
-              <td>HND-1841</td>
-              <td>Persona 3</td>
-              <td>Ambulancia Colectiva</td>
-              <td>No Disponible</td>
-              <td>
-                <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
-              </td>
-            </tr>
-            <tr>
-              <td>HND-1851</td>
-              <td>Persona 4</td>
-              <td>Ambulancia Soporte vital Básico</td>
-              <td>Disponible</td>
-              <td>
-                <a class="kz-text-decoration-none kz-link" (click)="openModal(Modalpreparar)"> Preparar</a>
-              </td>
-            </tr>
+          
         </tbody>
       </table>
     </div>
-  </div> 
-
+  </div>
 
   <ng-template #Modalpreparar let-modal>
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Preparar</h5>
+        <h5 class="modal-title"> Preparar </h5>
           <button type="button" class="kz-btn-close" data-dismiss="modal" aria-label="Close" (click)="modal.close()">
             <i class="bi bi-x-lg"></i>
           </button>
       </div>
   
       <div class="modal-body">
-        <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
-          <div class="kz-mb--2">
-            <label>Nombre Completo:</label>
-            <input type="text" class="kz-input" required>
-          </div>
-          <div class="kz-mb--2">
-            <label>Edad:</label>
-            <input type="date" class="kz-input">
-          </div>
-          <div class="kz-mb--2">
-            <label>Genero:</label>
-            <select class="kz-input" required>
+        <form [formGroup]="registroSalida">
+          <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
+            <div class="kz-mb--2">
+              <label>Nombre Completo:</label>
+              <input type="text" class="kz-input" formControlName="nombre">
+            </div>
+            <div class="kz-mb--2">
+              <label>Edad:</label>
+              <input type="number" class="kz-input" formControlName="edad">
+            </div>            
+            <div class="kz-mb--2">
+              <label>Género:</label>
+              <select class="kz-input" formControlName="genero">
                 <option value="" selected>-- Selecciona una opción --</option>
-                <option value="opcion1">Masculino</option> 
-                <option value="opcion1">Femenino</option> 
-            </select>
-          </div>
-          <div class="kz-mb--2">
-            <label>Celular Informante:</label>
-            <input type="email" class="kz-input">
-          </div>
-          <div class="kz-mb--2">
-            <label>Consciente o inconsciente del paciente:</label>
-            <select class="kz-input" required>
+                <option value="femenino">Femenino</option>
+                <option value="masculino">Masculino</option>
+                <option value="otro">Otro</option>
+                <option value="no_especificado">No especificado</option>
+              </select>
+            </div>            
+            <div class="kz-mb--2">
+              <label>Celular Informante:</label>
+              <input type="tel" class="kz-input" formControlName="celular_informante">
+            </div>            
+            <div class="kz-mb--2">
+              <label>Estado de conciencia del paciente:</label>
+              <select class="kz-input" formControlName="estado_conciencia">
                 <option value="" selected>-- Selecciona una opción --</option>
-                <option value="opcion1">Si</option> 
-                <option value="opcion1">No</option> 
-            </select>
-          </div>
-          <div class="kz-mb--2">
-            <label>Tipo de Emergencia:</label>
-            <select class="kz-input" required>
+                <option value="consciente">Consciente</option>
+                <option value="inconsciente">Inconsciente</option>
+                <option value="desconocido">Desconocido</option>
+              </select>
+            </div>            
+            <div class="kz-mb--2">
+              <label>Tipo de Emergencia:</label>
+              <select class="kz-input" [ngClass]="{'kz-error-invalid': obj.tipo_emergencia.invalid && (obj.tipo_emergencia.dirty || obj.tipo_emergencia.touched)}" formControlName="tipo_emergencia">
                 <option value="" selected>-- Selecciona una opción --</option>
-                <option value="opcion1">Accidente Automovilistico</option> 
-                <option value="opcion1">Problema Cardíaco</option> 
-                <option value="opcion1">Lesión Grave</option> 
-            </select>
+                <option value="Accidente Automovilístico">Accidente Automovilístico</option>
+                <option value="Problema Cardíaco">Problema Cardíaco</option>
+                <option value="Lesión Grave">Lesión Grave</option>
+              </select>
+              <div *ngIf="obj.tipo_emergencia.invalid && (obj.tipo_emergencia.dirty || obj.tipo_emergencia.touched)" class="kz-error-text mt-2">
+                * Por favor, selecciona un tipo de emergencia
+              </div>
+            </div>                       
+            <div class="kz-mb--2">
+              <label>Acceso a la Ubicación:</label>
+              <textarea class="kz-input" [ngClass]="{'kz-error-invalid': obj.ubicacion.invalid && (obj.ubicacion.dirty || obj.ubicacion.touched)}" formControlName="ubicacion"></textarea>
+              <div *ngIf="obj.ubicacion.invalid && (obj.ubicacion.dirty || obj.ubicacion.touched)" class="kz-error-text mt-2">
+                * Por favor, ingresa la ubicación
+              </div>
+            </div>            
+            <div class="kz-mb--2">
+              <label>Información Adicional:</label>
+              <input type="text" class="kz-input" formControlName="informacion_adicional">
+            </div>            
           </div>
-          <div class="kz-mb--2">
-            <label>Acceso a la Ubicación:</label>
-            <textarea type="" class="kz-input" required></textarea>
-          </div>
-          <div class="kz-mb--2">
-            <label>Información Adicional</label>
-            <input type="text" class="kz-input">
-          </div>
-        </div>
+        </form>
       </div>
       
       <div class="modal-footer">
-        <button class="kz-button kz-button--primary kz-border-radius--l"  (click)="showModal(); modal.close()">Enviar</button>
-        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()">Cancelar</button>
+        <button class="kz-button kz-button--primary kz-border-radius--l" [disabled]="registroSalida.invalid" 
+        (click)="guardarSalida()"> Enviar </button>
+        <button class="kz-button kz-button--red kz-border-radius--l" (click)="modal.close()"> Cancelar </button>
       </div>
     </div>
   </ng-template>

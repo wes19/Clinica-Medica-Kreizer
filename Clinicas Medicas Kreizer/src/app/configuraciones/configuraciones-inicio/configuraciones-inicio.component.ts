@@ -10,8 +10,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./configuraciones-inicio.component.scss']
 })
 export class ConfiguracionesInicioComponent implements OnInit {
-  menus:any=[];
-  menuModal:any=[];
+  menus: any = [];
+  menuModal: any = [];
 
   registroMenu = new FormGroup({
     nombre: new FormControl('', Validators.required),

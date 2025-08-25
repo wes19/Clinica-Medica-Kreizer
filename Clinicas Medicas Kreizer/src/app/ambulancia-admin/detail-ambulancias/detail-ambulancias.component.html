@@ -1,35 +1,39 @@
 <div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between">
-    <div>
-        <h5>Detalles Ambulancias</h5>
+    <div class="kz-d-flex kz-flex-vertical-center kz-gap--xl">
+        <h5 >Detalles Ambulancias </h5>
+      <span *ngIf="ambulancia.estado === 0" class="kz-chip kz-chip--red"><i class="bi bi-slash-circle"></i> Archivado </span>
     </div>
-    <div class="kz-d-flex kz-flex-vertical-center kz-gap--s kz-space-between">
-      <button class="kz-btn-text kz-btn-text--red">
-        <i class="bi bi-archive-fill "></i>
+    <div class="kz-d-flex kz-flex-vertical-center kz-gap--xl">
+      <button *ngIf="ambulancia.estado === 1" class="kz-btn-text kz-btn-text--red" (click)="archivar()">
+        <i class="bi bi-archive-fill"></i>
         <span> <b>Archivar</b> </span>
       </button>
-      <button class="kz-button kz-button--red kz-border-radius--l ml--2" [routerLink]="['/ambulancias-admin/lista']"> Salir</button>
+      <button *ngIf="ambulancia.estado === 0" class="kz-btn-text kz-btn-text--red " (click)="desarchivar()">
+        <i class="fa-solid fa-box-open"></i>
+        <span> <b>Desarchivar</b> </span>
+      </button>
+      <button class="kz-button kz-button--red kz-border-radius--l ml--2" [routerLink]="['/ambulancias-admin/lista']"> Salir </button>
     </div>
-</div>
+  </div>
 
 <div class="kz-d-grid kz-col-t--2 kz-gap--xl">
     <div class="kz-mb--2">
-        <label>Placa:</label>
-        <input type="text" class="kz-input">
+        <label> Placa: </label>
+        <input type="text" class="kz-input" [(ngModel)]="ambulancia.placa">
     </div>
     <div class="kz-mb--2">
-        <label>Tipo Ambulancia:</label>
-        <input type="text" class="kz-input">
+        <label> Tipo Ambulancia: </label>
+        <input type="text" class="kz-input" [(ngModel)]="ambulancia.tipo_ambulancia">
     </div>
     <div class="kz-mb--2">
-        <label>Conductor:</label>
-        <input type="date" class="kz-input">
-    </div>
-    <div class="kz-mb--2">
-        <label>Estado:</label>
-        <input type="email" class="kz-input">
+        <label> Empleados: </label>
+        <select class="kz-input" [(ngModel)]="ambulancia.idEmp" required>
+          <option value="">-- Selecciona un Conductor --</option>
+          <option *ngFor="let conductor of conductores" [value]="conductor.idEmp"> {{ conductor.nombre }} {{conductor.apellidos}} </option>
+        </select>
     </div>
 </div>
 
 <div class="kz-d-flex kz-flex-horizontal-end">
-    <button class="kz-button kz-button--primary ml--2" [routerLink]="['/ambulancia-admin']">Guardar</button>
+    <button class="kz-button kz-button--primary ml--2" (click)="actualizarAmbulancia(ambulancia)"> Guardar </button>
 </div>

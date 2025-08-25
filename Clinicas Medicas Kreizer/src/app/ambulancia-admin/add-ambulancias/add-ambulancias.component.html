@@ -2,7 +2,7 @@
     <div class="kz-d-flex kz-flex-horizontal-start kz-gap--l">
         <h5>Agregar Ambulancia</h5>
     </div>
-    <button class="kz-button kz-button--red kz-border-radius--l" [routerLink]="['/pacientes']"> Salir</button>
+    <button class="kz-button kz-button--red kz-border-radius--l" [routerLink]="['/ambulancias-admin']"> Salir</button>
 </div>
 
 <form [formGroup]="registroAmbulancia">
@@ -34,7 +34,7 @@
               * Por favor, selecciona un tipo de ambulancia válido
             </div>
         </div>    
-        <div class="kz-mb--2 kz-mx--auto">
+        <div class="kz-mb--2 kz-mr--auto">
             <label> Estado: </label>
             <label class="kz-switch kz-switch--text">
                 <input type="checkbox" formControlName="estado" [ngClass]="{'kz-error-invalid':obt.estado.invalid && (obt.estado.dirty || obt.estado.touched)}" required>

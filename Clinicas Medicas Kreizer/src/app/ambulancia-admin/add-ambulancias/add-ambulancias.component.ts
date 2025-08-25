@@ -40,7 +40,6 @@ export class AddAmbulanciasComponent implements OnInit {
     this.ambulanciasService.obtenerConductores().subscribe({
       next: (res) => {
         this.conductores = res;
-        console.log("Aqui estan los conductores", this.conductores)
       },
       error: (err) => {
         console.log(err);
@@ -49,7 +48,22 @@ export class AddAmbulanciasComponent implements OnInit {
   }
 
   guardarAmbulancia(){
-    console.log("guardarEmpleado: ", this.registroAmbulancia.value);
+    const jsonAmbulancia = {
+      placa : this.registroAmbulancia.controls['placa'].value,
+      tipo_ambulancia : this.registroAmbulancia.controls['tipo_ambulancia'].value,
+      empleado: parseInt(this.registroAmbulancia.controls['empleado'].value!, 10),
+      estado : this.registroAmbulancia.controls['estado'].value,
+    }
+    console.log("Este es el json de ambulancia: ", jsonAmbulancia)
+    this.ambulanciasService.crearAmbulancia(jsonAmbulancia).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.registroAmbulancia.reset();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
 
